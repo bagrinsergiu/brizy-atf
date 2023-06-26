@@ -4,7 +4,7 @@ screenSize:
 baseUrl: https://www.brizy.io/
 playwright:
   env:
-    headless: true
+    headless: ${browser.headless}
 browser:
   type: chromium
   headless: true
