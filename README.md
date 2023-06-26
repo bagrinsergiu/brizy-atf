@@ -31,9 +31,9 @@ functionality and behavior of the application;
 The project follows a multi-module Maven structure, providing a logical separation of components and enhancing
 maintainability. The project structure is as follows:
 
-├── **web-common** - Contains common utilities, configurations, or shared code that can be used across the modules. \
+├── **web-common** - Contains common utilities or shared code that can be used across the modules. \
 ├── **web-driver** - Includes code for managing browser configurations.         \
-├── **web-interactions** - Follows POM pattern and focuses on encapsulating web pages, locators, and custom elements. \
+├── **web-interactions** - Follows POM pattern and focuses on encapsulating web pages, locators and elements. \
 ├── **web-reporting** - This module is responsible for generating reports during web testing or automation.      \
 ├── **web-test** - Contains the test cases or test suites for the application            \
 └── **web-test-data** - Deals with managing test data required for web testing. It can include resources like sample
