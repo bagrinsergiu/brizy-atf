@@ -1,0 +1,37 @@
+screenSize:
+  width: 1920
+  height: 1080
+baseUrl: https://www.brizy.io/
+playwright:
+  env:
+    headless: true
+browser:
+  type: chromium
+  headless: true
+  devTools: false
+  downloadsPath: "target/downloads"
+  slowMo: 200
+  timeout: 5000
+  tracesDir: "target/traces"
+context:
+  acceptDownloads: true
+  baseUrl: ${baseUrl}
+  hasTouch: false
+  ignoreHttpsErrors: true
+  isMobile: false
+  javaScriptEnabled: true
+  locale: "en"
+  offline: false
+  recordVideoDir: "target/recordings"
+  recordVideoSize:
+    width: ${screenSize.width}
+    height: ${screenSize.height}
+  reducedMotion: "reduce"
+  screenSize:
+    width: ${screenSize.width}
+    height: ${screenSize.height}
+  strictSelectors: false
+  userAgent: "windows"
+  viewportSize:
+    width: ${screenSize.width}
+    height: ${screenSize.height}

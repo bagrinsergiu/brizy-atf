@@ -1,0 +1,76 @@
+pages:
+  home:
+    getStarted: //span[text()='Get Started Now' and ancestor::a]
+  dashboard:
+    projects:
+      self: //div[@id='projectList']
+      items: //li[not(contains(@class,'add-new')) and contains(@class,'active-project')]
+      project:
+        title: //h2[contains(@class,'project-title')]//input
+        openProject: //a[contains(@class,'title-icon')]
+        publishProject: //a[text(), 'Publish']
+        edit: //div[contains(@class,'overlay-title') and text()='Edit Project']
+        menu:
+          self: //div[contains(@class,'project-settings']//a[contains(@class,'show-more')]
+          delete: //a[contains(@class,'confirmation' and text()='Delete']
+  editor:
+    frame:
+      name: brz-ed-iframe
+      addButton: //div[contains(@class,'floating-action-button')]
+      workspace:
+        self: //div[contains(@id,'brz-ed-page__blocks')]
+        container:
+          self: ${pages.editor.frame.workspace.self}//div[contains(@class,'brz-container')]
+          item: //div[@data-border--grey='wrapper']
+    sidebar:
+      self: //div[contains(@class,'brz-ed-sidebar')]
+      addItems:
+        self: ${pages.editor.sidebar.self}//div[@title='Add Elements']
+        content:
+          self: //div[contains(@class,'brz-ed-sidebar__content')]
+          header:
+            self: ${pages.editor.sidebar.addItems.content.self}//div[contains(@class,'brz-ed-sidebar__header')]
+          main:
+            self: ${pages.editor.sidebar.addItems.content.self}//div[contains(@class,'brz-ed-sidebar__main')]
+            columns: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='columns']
+            row: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='row']
+            text: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='text']
+            image: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='image']
+            button: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='button']
+            icon: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='icon']
+            spacer: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='spacer']
+            map: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='map']
+            form: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='form']
+            line: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='line']
+            menuSimple: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='MenuSimple']
+            translation: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='translation']
+            video: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='video']
+            audio: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='audio']
+            iconText: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='iconText']
+            embedCode: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='embedCode']
+            alert: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='Alert']
+            counter: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='counter']
+            countdown2: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='countdown2']
+            progressBar: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='progressBar']
+            tabs: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='tabs']
+            accordion: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='accordion']
+            postTitle: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='PostTitle']
+            posts: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='Posts']
+            assetsPosts: ${pages.editor.sidebar.addItems.content.self}//div[@data-sortable-subtype='AssetsPosts']
+    editorPopUp:
+      self: //div[contains(@class,'brz-ed-popup-two-wrapper brz-ed-popup-two-blocks')]
+      header:
+        self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-header')]
+        search: ${pages.editor.editorPopUp.self}//input[contains(@class,'brz-input brz-ed-popup-two__input')]
+        tabs:
+          self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-tab-item')]
+          tab:
+            icon: //div[contains(@class,'brz-ed-popup-two-tab-icon')]
+            name: //div[contains(@class,'brz-ed-popup-two-tab-name')]
+      body:
+        self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-body')]
+        sidebar:
+          self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-body__sidebar')]
+        content:
+          self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-body__content')]
+          createYourOwn: //p[text()='Create your own']
