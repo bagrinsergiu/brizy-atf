@@ -30,20 +30,4 @@
         </dependency>
     </dependencies>
 
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>${allure-maven.version}</version>
-                <configuration>
-                    <reportVersion>${allure-maven.version}</reportVersion>
-                    <propertiesFilePath>${project.basedir}/src/main/resources/allure.properties</propertiesFilePath>
-                    <reportDirectory>target/allure-report</reportDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
