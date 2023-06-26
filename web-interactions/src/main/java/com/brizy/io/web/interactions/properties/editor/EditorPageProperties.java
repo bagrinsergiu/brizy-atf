@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.properties.editor;
 
+import com.brizy.io.web.interactions.properties.editor.bottomPanel.EditorBottomPanel;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,8 @@ public class EditorPageProperties {
 
     @NestedConfigurationProperty
     EditorFrameProperties frame;
+    @NestedConfigurationProperty
+    EditorBottomPanel bottomPanel;
     @NestedConfigurationProperty
     EditorSidebarProperties sidebar;
     @NestedConfigurationProperty
