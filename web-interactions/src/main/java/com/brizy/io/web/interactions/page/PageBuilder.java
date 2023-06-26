@@ -1,11 +1,11 @@
 package com.brizy.io.web.interactions.page;
 
-import com.brizy.io.web.interactions.dto.SidebarItemDto;
+import com.brizy.io.web.interactions.components.editor.container.EditorContainer;
+import com.brizy.io.web.interactions.components.editor.container.Page;
+import com.brizy.io.web.interactions.components.editor.container.PageElement;
+import com.brizy.io.web.interactions.components.editor.sidebar.EditorSidebar;
+import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Div;
-import com.brizy.io.web.interactions.element.frame.EditorContainer;
-import com.brizy.io.web.interactions.element.frame.container.Page;
-import com.brizy.io.web.interactions.element.frame.container.PageElement;
-import com.brizy.io.web.interactions.element.nested.EditorSidebar;
 import io.vavr.control.Try;
 import lombok.AccessLevel;
 import lombok.Getter;
