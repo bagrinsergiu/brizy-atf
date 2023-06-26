@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page;
 
-import com.brizy.io.web.interactions.element.nested.Project;
-import com.brizy.io.web.interactions.element.nested.ProjectsDashboard;
+import com.brizy.io.web.interactions.components.dashboard.projects.Project;
+import com.brizy.io.web.interactions.components.dashboard.projects.ProjectsDashboard;
 import com.brizy.io.web.interactions.properties.dashboard.DashboardPageProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;

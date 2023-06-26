@@ -1,6 +1,6 @@
 package com.brizy.io.web.test.steps;
 
-import com.brizy.io.web.interactions.element.nested.Project;
+import com.brizy.io.web.interactions.components.dashboard.projects.Project;
 import com.brizy.io.web.interactions.page.DashboardPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.dashboard.DashboardPageProperties;

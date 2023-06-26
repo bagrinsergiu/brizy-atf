@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.element;
 
-import com.brizy.io.web.interactions.dto.workspace.ElementPositionDto;
+import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Mouse;
 import lombok.AllArgsConstructor;

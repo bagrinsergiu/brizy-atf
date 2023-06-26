@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.enums;
 
-import com.brizy.io.web.interactions.dto.workspace.ElementPositionDto;
-import com.brizy.io.web.interactions.dto.workspace.ElementSizeDto;
+import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
+import com.brizy.io.web.interactions.dto.editor.container.ElementSizeDto;
 import io.vavr.control.Try;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

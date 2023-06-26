@@ -1,6 +1,6 @@
 package com.brizy.io.web.test.transformer;
 
-import com.brizy.io.web.interactions.dto.SidebarItemDto;
+import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
 import com.brizy.io.web.interactions.enums.ElementPositions;
 import com.brizy.io.web.test.model.page.Item;
