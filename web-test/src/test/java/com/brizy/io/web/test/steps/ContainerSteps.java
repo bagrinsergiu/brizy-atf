@@ -1,7 +1,7 @@
 package com.brizy.io.web.test.steps;
 
 import com.brizy.io.web.interactions.dto.SidebarItemDto;
-import com.brizy.io.web.interactions.page.EditorPage;
+import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.model.page.Item;
 import com.brizy.io.web.test.model.page.ItemProperty;
