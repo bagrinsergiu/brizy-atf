@@ -25,4 +25,10 @@ public class TestDataFileService {
         return Arrays.asList(objectMapper.readValue(fileFromResource, clazz));
     }
 
+    @SneakyThrows
+    public String getFileContent(String fileName) {
+        InputStream fileFromResource = resourceLoaderService.getTestDataFile(fileName);
+        return new String(fileFromResource.readAllBytes());
+    }
+
 }

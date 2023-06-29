@@ -47,6 +47,7 @@ public class ContainerSteps {
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<Item> itemsWithProperties = ItemTransformer.enrichItemsWithProperties.apply(itemsToAdd, propertyTypes);
         storage.addValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, itemsWithProperties);
+        Allure.addAttachment("Properties to add", testDataFileService.getFileContent(properties.getFullName()));
     }
 
     @When("add the items to the page")
