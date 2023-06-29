@@ -37,7 +37,10 @@ public class EditorSaveMenu {
     }
 
     public void switchToDraft() {
-        switchToDraft.get().click();
+        Span switchToDraftSpan = switchToDraft.get();
+        if (switchToDraftSpan.isDisplayed()) {
+            switchToDraftSpan.click();
+        }
     }
 
 }

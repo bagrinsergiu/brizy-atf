@@ -11,6 +11,8 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
 public class PageHooks {
@@ -22,6 +24,7 @@ public class PageHooks {
     public void doPageInit() {
         BrowserContext context = storage.getValue(StorageKey.CONTEXT, BrowserContext.class);
         Page page = pageService.create(context);
+        page.navigate(EMPTY);
         storage.addValue(StorageKey.INIT_PAGE, page);
     }
 

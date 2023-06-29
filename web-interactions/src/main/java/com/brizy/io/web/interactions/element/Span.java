@@ -20,4 +20,8 @@ public class Span {
         locator.click();
     }
 
+    public boolean isDisplayed() {
+        return locator.isVisible();
+    }
+
 }
