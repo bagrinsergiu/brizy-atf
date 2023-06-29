@@ -1,0 +1,18 @@
+package com.brizy.io.web.interactions.components.factory.enums;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
+
+@AllArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+public enum ComponentClassNames {
+
+    MAP("brz-map"),
+    BUTTON("brz-d-xs-flex");
+
+    @Getter
+    String value;
+
+}

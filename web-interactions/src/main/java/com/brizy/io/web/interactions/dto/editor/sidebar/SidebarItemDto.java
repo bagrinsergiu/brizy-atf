@@ -1,7 +1,8 @@
 package com.brizy.io.web.interactions.dto.editor.sidebar;
 
+import com.brizy.io.web.common.dto.element.properties.Property;
+import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
-import com.brizy.io.web.interactions.enums.ElementPositions;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,9 +16,10 @@ import lombok.experimental.FieldDefaults;
 public class SidebarItemDto {
 
     EditorSidebarElement type;
-    ElementPositions elementPosition;
+    ComponentPositions elementPosition;
     String parentName;
     String elementName;
-    Object elementProperties;
+    String sectionName;
+    Property componentProperties;
 
 }

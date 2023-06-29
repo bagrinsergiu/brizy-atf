@@ -19,22 +19,44 @@ pages:
       addButton: //div[contains(@class,'floating-action-button')]
       workspace:
         self: //div[contains(@id,'brz-ed-page__blocks')]
-        container:
-          self: ${pages.editor.frame.workspace.self}//div[contains(@class,'brz-container')]
-          item: //div[@data-border--grey='wrapper']
+        section:
+          self: ${pages.editor.frame.workspace.self}//section
+          container:
+            self: //div[contains(@class,'brz-ed-wrap-block-item')]
+            empty: //div[contains(@class,'brz-ed-sortable--empty')]
+            item:
+              self: //div[contains(@data-border--grey,'wrapper')]
+              toolbar:
+                self: //div[contains(@class,'brz-ed-toolbar__items')]
+                colors:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Colors']
+                  tabs:
+                    self: //ul[contains(@class,'brz-ed-control__tabs')]
+                    background:
+                      self: //span[text()='Background']
+                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                    border:
+                      self: //span[text()='Border']
+                      color: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input[@type='text']
+                      size: //div[contains(@class, 'brz-ed-control__border__width')]//input[@type='number']
+                    shadow:
+                      self: //span[text()='Shadow']
+                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
       undo: ${pages.editor.bottomPanel.self}//li[contains(@title,'Undo')]
       redo: ${pages.editor.bottomPanel.self}//li[contains(@title,'Redo')]
       preview: ${pages.editor.bottomPanel.self}//li[contains(@title,'Preview')]
-      saveDraft: ${pages.editor.bottomPanel.self}//li[contains(@class,'brz-ed-fixed-bottom-panel__btn-loading')]
+      saveDraft: ${pages.editor.bottomPanel.self}//li//span[text()='Save Draft']
+      update: ${pages.editor.bottomPanel.self}//li//span[text()='Update']
       saveDraftButton: ${pages.editor.bottomPanel.self}//button
       saveMenu:
         self: //div[contains(@class,'brz-ed-tooltip__content-portal')]
         clearLayout: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Clear Layout']
         saveLayout: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Save Layout']
         publishPage: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Publish Page']
+        switchToDraft: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Switch to Draft']
     sidebar:
       self: //div[contains(@class,'brz-ed-sidebar')]
       addItems:

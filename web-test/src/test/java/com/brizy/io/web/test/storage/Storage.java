@@ -30,6 +30,9 @@ public class Storage {
     }
 
     public <U> U getValue(StorageKey key, Class<U> clazz) {
+        if (!containsKey(key)) {
+            return null;
+        }
         return clazz.cast(store.get(key));
     }
 

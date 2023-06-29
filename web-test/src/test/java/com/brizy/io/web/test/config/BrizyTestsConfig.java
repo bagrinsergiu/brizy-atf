@@ -5,6 +5,7 @@ import com.brizy.io.web.common.WebCommonConfiguration;
 import com.brizy.io.web.interactions.WebInteractionsConfiguration;
 import com.brizy.io.web.reporting.WebReportingConfiguration;
 import com.brizy.io.web.reporting.service.EnvironmentPropertiesWriter;
+import com.brizy.io.web.test.data.WebTestDataConfiguration;
 import io.cucumber.spring.CucumberContextConfiguration;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 @ContextConfiguration
 @CucumberContextConfiguration
-@SpringBootTest(classes = {WebInteractionsConfiguration.class, WebDriverConfiguration.class, WebCommonConfiguration.class, WebReportingConfiguration.class})
+@SpringBootTest(classes = {WebInteractionsConfiguration.class, WebTestDataConfiguration.class, WebDriverConfiguration.class, WebCommonConfiguration.class, WebReportingConfiguration.class})
 public class BrizyTestsConfig {
 
     @Autowired

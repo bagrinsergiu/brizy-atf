@@ -1,0 +1,26 @@
+[
+  {
+    "itemName": "MAP_1",
+    "elementType": "map",
+    "properties": {
+      "colors": {
+        "border": {
+          "color": "#66738d",
+          "size": 10
+        }
+      }
+    }
+  },
+  {
+    "itemName": "BUTTON_1",
+    "elementType": "button",
+    "properties": {
+      "colors": {
+        "border": {
+          "color": "#66738d",
+          "size": 10
+        }
+      }
+    }
+  }
+]

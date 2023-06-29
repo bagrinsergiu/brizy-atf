@@ -31,4 +31,5 @@ public class DashboardPageSteps {
         Project projectByTitle = dashboardPage.getProjectByTitle(projectName);
         projectByTitle.edit();
     }
+
 }

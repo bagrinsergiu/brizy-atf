@@ -14,5 +14,6 @@ public class EditorBottomPanelSaveMenu {
     String clearLayout;
     String saveLayout;
     String publishPage;
+    String switchToDraft;
 
 }

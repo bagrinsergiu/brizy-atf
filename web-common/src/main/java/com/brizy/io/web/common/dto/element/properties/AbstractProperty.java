@@ -1,0 +1,17 @@
+package com.brizy.io.web.common.dto.element.properties;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
+@AllArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@NoArgsConstructor(force = true)
+@Data
+public abstract class AbstractProperty {
+
+    Colors colors;
+
+}
