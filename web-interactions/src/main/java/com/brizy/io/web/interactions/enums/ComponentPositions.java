@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ElementPositions {
+public enum ComponentPositions {
 
     UNDEFINED {
         @Override
@@ -56,8 +56,8 @@ public enum ElementPositions {
         }
     };
 
-    public static ElementPositions findForString(String value) {
-        return Try.of(() -> ElementPositions.valueOf(value))
+    public static ComponentPositions findForString(String value) {
+        return Try.of(() -> ComponentPositions.valueOf(value))
                 .getOrElse(UNDEFINED);
     }
 

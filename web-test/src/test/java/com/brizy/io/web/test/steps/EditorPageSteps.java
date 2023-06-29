@@ -5,12 +5,18 @@ import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.storage.Storage;
-import com.brizy.io.web.test.tools.PageReload;
 import com.microsoft.playwright.Page;
 import io.cucumber.java.en.When;
+import io.vavr.control.Option;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.brizy.io.web.test.enums.StorageKey.PAGE_SECTIONS;
+import static java.util.List.of;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class EditorPageSteps {
@@ -24,24 +30,35 @@ public class EditorPageSteps {
         this.storage = storage;
     }
 
-    @When("start building a new page")
-    public void startBuildingANewPage() {
-        Page page = PageReload.reloadAndGetPage(storage.getValue(StorageKey.DASHBOARD_PAGE, Page.class));
-        EditorPage editorPage = new EditorPage(editorPageProperties, page);
-        editorPage.createNewPage();
-        storage.addValue(StorageKey.EDITOR_PAGE, editorPage);
+    @When("open editor pop up")
+    public void addSectionOnThePage() {
+        EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
+        editorPage.onPageBuilder()._do().openPopUpMenu();
     }
 
     @When("^switch to '(.*)' tab$")
     public void switchToBlocksTab(String tab) {
-        EditorPage editorPage = storage.getValue(StorageKey.EDITOR_PAGE, EditorPage.class);
-        editorPage.popUpMenu().switchToTab(tab);
+        EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
+        editorPage.onPopUpMenu().switchToTab(tab);
     }
 
-    @When("select create your own block")
-    public void selectCreateYourOwnBlock() {
-        EditorPage editorPage = storage.getValue(StorageKey.EDITOR_PAGE, EditorPage.class);
-        editorPage.popUpMenu().createYourOwn();
+    @When("^add section '(.*)' to page$")
+    public void addSectionToPage(String sectionName) {
+        List<String> addedSections = new ArrayList<>(of(sectionName));
+        EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
+        editorPage.onPopUpMenu().createYourOwn();
+        editorPage.onPageBuilder()._do().addSection(sectionName);
+        Option.of(storage.getValue(PAGE_SECTIONS, List.class))
+                .peek(addedSections::addAll)
+                .onEmpty(() -> storage.addValue(PAGE_SECTIONS, addedSections));
+    }
+
+    @When("wait for editor page to load")
+    public void waitForEditorPageToLoad() {
+        Page page = storage.getValue(StorageKey.DASHBOARD_PAGE, Page.class);
+        EditorPage editorPage = new EditorPage(editorPageProperties, page);
+        storage.addValue(StorageKey.EDITOR, editorPage);
+        storage.addValue(StorageKey.EDITOR_PAGE, page);
     }
 
 }

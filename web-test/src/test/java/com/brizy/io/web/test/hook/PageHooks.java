@@ -22,12 +22,12 @@ public class PageHooks {
     public void doPageInit() {
         BrowserContext context = storage.getValue(StorageKey.CONTEXT, BrowserContext.class);
         Page page = pageService.create(context);
-        storage.addValue(StorageKey.PAGE, page);
+        storage.addValue(StorageKey.INIT_PAGE, page);
     }
 
     @After(order = 90)
     public void doClosePage() {
-        Page page = storage.getValue(StorageKey.PAGE, Page.class);
+        Page page = storage.getValue(StorageKey.INIT_PAGE, Page.class);
         page.close();
     }
 

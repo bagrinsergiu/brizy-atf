@@ -13,4 +13,11 @@
     <name>Brizy io web test data module</name>
     <description>The test data module deals with the management of test data used in UI tests.</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.brizy.io</groupId>
+            <artifactId>web-common</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

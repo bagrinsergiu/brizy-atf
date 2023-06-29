@@ -15,11 +15,13 @@ public class EditorSaveMenu {
     Supplier<Span> clearLayout;
     Supplier<Span> saveLayout;
     Supplier<Span> publishPage;
+    Supplier<Span> switchToDraft;
 
     public EditorSaveMenu(EditorBottomPanelSaveMenu saveMenu, Page page) {
         this.clearLayout = () -> new Span(page.locator(saveMenu.getClearLayout()));
         this.saveLayout = () -> new Span(page.locator(saveMenu.getSaveLayout()));
         this.publishPage = () -> new Span(page.locator(saveMenu.getPublishPage()));
+        this.switchToDraft = () -> new Span(page.locator(saveMenu.getSwitchToDraft()));
     }
 
     public void clearLayout() {
@@ -32,6 +34,10 @@ public class EditorSaveMenu {
 
     public void publishPage() {
         publishPage.get().click();
+    }
+
+    public void switchToDraft() {
+        switchToDraft.get().click();
     }
 
 }

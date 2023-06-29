@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.properties.editor;
 
+import com.brizy.io.web.interactions.properties.editor.workspace.WorkspaceProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,6 @@ public class EditorFrameProperties {
     String name;
     String addButton;
     @NestedConfigurationProperty
-    EditorWorkspaceProperties workspace;
+    WorkspaceProperties workspace;
 
 }
