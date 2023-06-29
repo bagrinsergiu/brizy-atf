@@ -55,7 +55,7 @@ public class EditorPageSteps {
 
     @When("wait for editor page to load")
     public void waitForEditorPageToLoad() {
-        Page page = storage.getValue(StorageKey.INIT_PAGE, Page.class);
+        Page page = storage.getValue(StorageKey.DASHBOARD_PAGE, Page.class);
         EditorPage editorPage = new EditorPage(editorPageProperties, page);
         storage.addValue(StorageKey.EDITOR, editorPage);
         storage.addValue(StorageKey.EDITOR_PAGE, page);
