@@ -1,0 +1,18 @@
+[
+  {
+    "itemName": "MAP_1",
+    "elementType": "map",
+    "properties": {
+      "settings": {
+        "width": {
+          "type": "percent",
+          "value": 80
+        },
+        "height": {
+          "type": "pixel",
+          "value": 350
+        }
+      }
+    }
+  }
+]

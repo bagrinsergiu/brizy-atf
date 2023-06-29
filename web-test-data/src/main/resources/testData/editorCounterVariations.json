@@ -1,0 +1,38 @@
+[
+  {
+    "itemName": "COUNTER_1",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "text"
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_2",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "circle_text"
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_3",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "circle"
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_4",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "pie"
+      }
+    }
+  }
+]
