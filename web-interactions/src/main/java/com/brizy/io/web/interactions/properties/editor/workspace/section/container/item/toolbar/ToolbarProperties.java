@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar;
 
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,5 +17,6 @@ public class ToolbarProperties {
 
     @NestedConfigurationProperty
     ColorsProperties colors;
-
+    @NestedConfigurationProperty
+    CounterProperties counter;
 }

@@ -62,7 +62,7 @@ public class Section {
     public <T extends Component> List<T> getComponents() {
         return sectionLocator.locator(addedItemsLocator).all().stream()
                 .map(sectionLocator -> sectionLocator.locator("//div").first())
-                .map(component -> ComponentsFactory.getElementByType(component, frame, itemProperties))
+                .map(component -> ComponentsFactory.getComponentByType(component, frame, itemProperties))
                 .map(component -> (T) component)
                 .collect(Collectors.toList());
     }

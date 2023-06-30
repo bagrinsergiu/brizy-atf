@@ -1,0 +1,73 @@
+[
+  {
+    "itemName": "COUNTER_1",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "TEXT"
+      }
+    },
+    "defaultProperties": {
+      "counter": {
+        "start": 0,
+        "end": 0,
+        "duration": 2.0
+      },
+      "advanced": {
+        "prefix": "",
+        "suffix": "",
+        "separator": ","
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_2",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "CIRCLE_TEXT"
+      }
+    },
+    "defaultProperties": {
+      "counter": {
+        "end": 100,
+        "duration": 2.0
+      },
+      "advanced": {
+        "prefix": "",
+        "suffix": "%",
+        "separator": ","
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_3",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "CIRCLE"
+      }
+    },
+    "defaultProperties": {
+      "counter": {
+        "end": 100,
+        "duration": 2.0
+      }
+    }
+  },
+  {
+    "itemName": "COUNTER_4",
+    "elementType": "counter",
+    "properties": {
+      "counter": {
+        "style": "PIE"
+      }
+    },
+    "defaultProperties": {
+      "counter": {
+        "end": 100,
+        "duration": 2.0
+      }
+    }
+  }
+]

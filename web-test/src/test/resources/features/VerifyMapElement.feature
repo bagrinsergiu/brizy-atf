@@ -15,7 +15,6 @@ Feature: Editor Page - Adding a Map Element
     When prepare the following items to be added to the page:
       | item   | position | parent | name     | sectionName |
       | MAP    | -        | -      | MAP_1    | SECTION_1   |
-      | BUTTON | BOTTOM   | MAP_1  | BUTTON_1 | SECTION_1   |
     When prepare elements properties from the 'editorPageAddingAMapElement.json' file
     And add the items to the page
     When save draft page

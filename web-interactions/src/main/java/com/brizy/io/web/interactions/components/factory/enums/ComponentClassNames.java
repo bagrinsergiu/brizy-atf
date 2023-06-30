@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 public enum ComponentClassNames {
 
     MAP("brz-map"),
+    COUNTER("brz-counter"),
     BUTTON("brz-d-xs-flex");
 
     @Getter

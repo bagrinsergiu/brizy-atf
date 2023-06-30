@@ -10,17 +10,5 @@
         }
       }
     }
-  },
-  {
-    "itemName": "BUTTON_1",
-    "elementType": "button",
-    "properties": {
-      "colors": {
-        "border": {
-          "color": "#000000",
-          "size": 10
-        }
-      }
-    }
   }
 ]

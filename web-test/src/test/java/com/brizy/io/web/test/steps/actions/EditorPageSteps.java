@@ -1,4 +1,4 @@
-package com.brizy.io.web.test.steps;
+package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.interactions.page.EditorPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
@@ -33,7 +33,7 @@ public class EditorPageSteps {
     @When("open editor pop up")
     public void addSectionOnThePage() {
         EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
-        editorPage.onPageBuilder()._do().openPopUpMenu();
+        editorPage.onPageBuilder()._do().and().openPopUpMenu();
     }
 
     @When("^switch to '(.*)' tab$")

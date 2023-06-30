@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.components.editor.container.components;
 
 import com.brizy.io.web.interactions.components.editor.container.components.toolbar.variations.MapToolbar;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
@@ -19,4 +20,9 @@ public class Map extends Component {
         this.toolbar = new MapToolbar(itemProperties.getToolbar(), frame);
     }
 
+    @Override
+    public EditorComponentProperty getEditorProperties() {
+//        TODO implement
+        return null;
+    }
 }

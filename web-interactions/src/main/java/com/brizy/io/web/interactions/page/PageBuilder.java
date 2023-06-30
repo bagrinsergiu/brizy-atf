@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.page;
 
 import com.brizy.io.web.interactions.components.editor.container.EditorContainer;
+import com.brizy.io.web.interactions.components.editor.container.components.Component;
 import com.brizy.io.web.interactions.components.editor.sidebar.EditorSidebar;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
@@ -36,7 +37,13 @@ public class PageBuilder {
         }
 
         public PageBuilderOperations openPopUpMenu() {
+            waitToLoad();
             container.openPopUpMenu();
+            return this;
+        }
+
+        private PageBuilderOperations waitToLoad() {
+            container.waitForFrameLoadState();
             return this;
         }
 
@@ -55,17 +62,21 @@ public class PageBuilder {
             return this;
         }
 
+        public Component getComponent(String sectionName, String componentName) {
+            return container.get(sectionName, componentName);
+        }
+
         public PageBuilderOperations and() {
             return this;
         }
 
         public void items(List<SidebarItemDto> elements) {
             if (add) {
-                container.addElements(elements, elementType -> sidebar.fromAddElementsControl().getElement(elementType));
+                container.addComponent(elements, elementType -> sidebar.fromAddElementsControl().getElement(elementType));
                 add = false;
             }
             if (configure) {
-                container.configureElements(elements);
+                container.configureComponents(elements);
                 configure = false;
             }
         }
