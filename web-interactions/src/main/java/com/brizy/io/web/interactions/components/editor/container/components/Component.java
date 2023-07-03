@@ -1,41 +1,25 @@
 package com.brizy.io.web.interactions.components.editor.container.components;
 
+import com.brizy.io.web.interactions.components.common.GenericComponent;
 import com.brizy.io.web.interactions.components.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
-import com.brizy.io.web.interactions.dto.editor.container.ElementSizeDto;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.options.BoundingBox;
 import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public abstract class Component {
+import java.util.Map;
 
-    @Getter
-    Locator locator;
-    BoundingBox boundingBox;
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+public abstract class Component extends GenericComponent {
 
     public Component(Locator componentLocator) {
-        this.locator = componentLocator;
-        this.boundingBox = componentLocator.boundingBox();
+        super(componentLocator);
     }
 
-    public ElementPositionDto getPosition() {
-        return ElementPositionDto.builder()
-                .x(boundingBox.x)
-                .y(boundingBox.y)
-                .build();
-    }
-
-    public ElementSizeDto getSize() {
-        return ElementSizeDto.builder()
-                .height(boundingBox.height)
-                .width(boundingBox.width)
-                .build();
-    }
+    protected abstract EditorComponentProperty getEditorProperties();
 
     protected abstract ComponentToolbar getToolbar();
 
@@ -44,9 +28,30 @@ public abstract class Component {
         element.moveWithMouse(positionToMoveElementTo);
     }
 
-    public ComponentToolbar customize() {
-        locator.click();
+    private ComponentToolbar openAndGetToolbar() {
+        getComponentLocator().click();
         return getToolbar();
+    }
+
+    public ComponentToolbar customize() {
+        return openAndGetToolbar();
+    }
+
+    public GetProperties get() {
+        openAndGetToolbar();
+        return new GetProperties();
+    }
+
+    public class GetProperties {
+
+        public EditorComponentProperty editorItemProperties() {
+            return getEditorProperties();
+        }
+
+        public Map cssItemProperties() {
+            return getProperties();
+        }
+
     }
 
 }

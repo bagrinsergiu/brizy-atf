@@ -1,6 +1,6 @@
 screenSize:
-  width: 1920
-  height: 1080
+  width: 1440
+  height: 900
 baseUrl: https://www.brizy.io/
 playwright:
   env:

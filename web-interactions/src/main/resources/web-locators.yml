@@ -42,6 +42,21 @@ pages:
                     shadow:
                       self: //span[text()='Shadow']
                       value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                counter:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
+                  tabs:
+                    self: //ul[contains(@class,'brz-ed-control__tabs__top')]
+                    counter:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Counter']
+                      style: //div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
+                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
+                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='number']
+                    advanced:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Advanced']
+                      prefix: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
+                      suffix: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
+                      separator: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
@@ -109,3 +124,10 @@ pages:
         content:
           self: ${pages.editor.editorPopUp.self}//div[contains(@class,'brz-ed-popup-two-body__content')]
           createYourOwn: //p[text()='Create your own']
+  publish:
+    section:
+      self: //div[contains(@class,'brz-root__container')]//section
+      container:
+        self: //div[contains(@class,'brz-container')]
+        item:
+          self: ${pages.publish.section.container.self}//div[@data-custom-id or @id]

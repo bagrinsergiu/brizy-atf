@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.components.editor.container.components;
 
 import com.brizy.io.web.interactions.components.editor.container.components.toolbar.variations.ButtonToolbar;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
@@ -19,4 +20,9 @@ public class Button extends Component {
         this.toolbar = new ButtonToolbar(itemProperties.getToolbar(), frame);
     }
 
+    @Override
+    protected EditorComponentProperty getEditorProperties() {
+//        TODO implement it
+        return null;
+    }
 }

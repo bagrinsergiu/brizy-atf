@@ -1,8 +1,9 @@
-package com.brizy.io.web.test.steps;
+package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
 import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorBottomPanel;
 import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorSaveMenu;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.page.EditorPage;
 import com.brizy.io.web.test.data.service.TestDataFileService;
@@ -13,6 +14,7 @@ import com.brizy.io.web.test.storage.Storage;
 import com.brizy.io.web.test.transformer.ItemTransformer;
 import com.brizy.io.web.test.transformer.MapperTransformerUtil;
 import com.microsoft.playwright.Page;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
 import lombok.AccessLevel;
@@ -43,20 +45,30 @@ public class ContainerSteps {
 
     @When("prepare elements properties from the '{fileName}' file")
     public void prepareTheFollowingPropertiesForTheItemsToBeAddedToThePage(FileName properties) {
-        List<ItemType> propertyTypes = testDataFileService.getPropertyTypesFromTheFile(properties.getFullName(), ItemType[].class);
+        List<ItemType> itemProperties = testDataFileService.getItemProperties(properties.getFullName(), ItemType[].class);
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
-        List<Item> itemsWithProperties = ItemTransformer.enrichItemsWithProperties.apply(itemsToAdd, propertyTypes);
+        List<Item> itemsWithProperties = ItemTransformer.enrichItemsWithProperties.apply(itemsToAdd, itemProperties);
         storage.addValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, itemsWithProperties);
+        storage.addValue(PROPERTY_TYPES, itemProperties);
         Allure.addAttachment("Properties to add", testDataFileService.getFileContent(properties.getFullName()));
     }
 
-    @When("add the items to the page")
+    @When("add the item(s) to the page")
     public void addTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<SidebarItemDto> sidebarItemsToAdd = MapperTransformerUtil.getSidebarItemsDtoFromPageItems.apply(itemsToAdd);
         editorPage.onPageBuilder()._do().add().and().configure().items(sidebarItemsToAdd);
         Allure.addAttachment("Added items", "image/png", new ByteArrayInputStream(editorPage.takeScreenshot()), "png");
+    }
+
+    @When("^get editor properties for the '(.*)' item from the section '(.*)'$")
+    public void getItemProperties(String component, String section) {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        EditorComponentProperty editorComponentProperties = editorPage.onPageBuilder()._do().getComponent(section, component)
+                .get()
+                .editorItemProperties();
+        storage.addValue(StorageKey.COMPONENT_PROPERTIES, editorComponentProperties);
     }
 
     @When("clear the layout")
@@ -82,5 +94,4 @@ public class ContainerSteps {
         page.waitForLoadState();
         storage.addValue(StorageKey.PUBLISH_PAGE, page);
     }
-
 }

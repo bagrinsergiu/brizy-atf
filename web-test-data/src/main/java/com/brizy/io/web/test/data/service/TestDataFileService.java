@@ -20,7 +20,7 @@ public class TestDataFileService {
     ResourceLoaderService resourceLoaderService;
 
     @SneakyThrows
-    public <T> List<T> getPropertyTypesFromTheFile(String fileName, Class<T[]> clazz) {
+    public <T> List<T> getItemProperties(String fileName, Class<T[]> clazz) {
         InputStream fileFromResource = resourceLoaderService.getTestDataFile(fileName);
         return Arrays.asList(objectMapper.readValue(fileFromResource, clazz));
     }

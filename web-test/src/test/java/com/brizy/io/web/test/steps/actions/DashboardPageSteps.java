@@ -1,4 +1,4 @@
-package com.brizy.io.web.test.steps;
+package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.interactions.components.dashboard.projects.Project;
 import com.brizy.io.web.interactions.page.DashboardPage;
