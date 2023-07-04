@@ -14,5 +14,6 @@ import lombok.experimental.FieldDefaults;
 public abstract class AbstractPropertyType<T extends Property> {
 
     String itemName;
+    String scenarioName;
 
 }

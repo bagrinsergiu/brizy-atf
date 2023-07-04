@@ -1,5 +1,6 @@
 [
   {
+    "scenarioName": "Add counter element and validate default properties",
     "itemName": "COUNTER_1",
     "elementType": "counter",
     "properties": {
@@ -21,6 +22,7 @@
     }
   },
   {
+    "scenarioName": "Add counter element and validate default properties",
     "itemName": "COUNTER_2",
     "elementType": "counter",
     "properties": {
@@ -41,6 +43,7 @@
     }
   },
   {
+    "scenarioName": "Add counter element and validate default properties",
     "itemName": "COUNTER_3",
     "elementType": "counter",
     "properties": {
@@ -56,6 +59,7 @@
     }
   },
   {
+    "scenarioName": "Add counter element and validate default properties",
     "itemName": "COUNTER_4",
     "elementType": "counter",
     "properties": {

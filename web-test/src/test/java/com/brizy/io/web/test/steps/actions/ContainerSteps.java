@@ -14,6 +14,7 @@ import com.brizy.io.web.test.storage.Storage;
 import com.brizy.io.web.test.transformer.ItemTransformer;
 import com.brizy.io.web.test.transformer.MapperTransformerUtil;
 import com.microsoft.playwright.Page;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
@@ -45,7 +46,10 @@ public class ContainerSteps {
 
     @When("prepare elements properties from the '{fileName}' file")
     public void prepareTheFollowingPropertiesForTheItemsToBeAddedToThePage(FileName properties) {
-        List<ItemType> itemProperties = testDataFileService.getItemProperties(properties.getFullName(), ItemType[].class);
+        Scenario currentScenario = storage.getValue(CURRENT_SCENARIO, Scenario.class);
+        List<ItemType> itemProperties = testDataFileService.getItemProperties(properties.getFullName(), ItemType[].class).stream()
+                .filter(property -> property.getScenarioName().equals(currentScenario.getName()))
+                .toList();
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<Item> itemsWithProperties = ItemTransformer.enrichItemsWithProperties.apply(itemsToAdd, itemProperties);
         storage.addValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, itemsWithProperties);
