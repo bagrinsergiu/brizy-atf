@@ -13,6 +13,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 public interface ItemType {
 
+    String getScenarioName();
+
     String getItemName();
 
     <T extends Property> T getProperties();

@@ -1,5 +1,6 @@
 [
   {
+    "scenarioName": "Add map element and preview it",
     "itemName": "MAP_1",
     "elementType": "map",
     "properties": {
