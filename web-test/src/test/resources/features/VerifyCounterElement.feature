@@ -15,7 +15,7 @@ Feature: Editor Page - Adding a Counter Element
     When prepare the following items to be added to the page:
       | item    | position | parent | name   | sectionName   |
       | COUNTER | -        | -      | <name> | <sectionName> |
-    When prepare elements properties from the 'editorPageAddingACounterElement.json' file
+    When prepare elements properties from the 'VerifyCounterElement.json' file
     And add the item to the page
     When get editor properties for the '<name>' item from the section '<sectionName>'
     Then validate default properties of the item '<name>'

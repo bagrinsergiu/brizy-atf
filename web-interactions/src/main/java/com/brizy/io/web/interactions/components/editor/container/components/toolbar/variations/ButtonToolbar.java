@@ -6,6 +6,8 @@ import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponen
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
 
+import java.util.Objects;
+
 public class ButtonToolbar extends ComponentToolbar {
 
     public ButtonToolbar(ToolbarProperties properties, Frame page) {
@@ -14,7 +16,7 @@ public class ButtonToolbar extends ComponentToolbar {
 
     @Override
     public void withProperties(Property properties) {
-        colors().border().with(properties.getColors());
+        super.withProperties(properties);
     }
 
     @Override

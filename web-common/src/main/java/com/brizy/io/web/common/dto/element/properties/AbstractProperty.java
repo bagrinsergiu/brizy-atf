@@ -1,5 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties;
 
+import com.brizy.io.web.common.dto.element.properties.toolbar.colors.Colors;
+import com.brizy.io.web.common.dto.element.properties.toolbar.settings.Settings;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,5 +15,6 @@ import lombok.experimental.FieldDefaults;
 public abstract class AbstractProperty {
 
     Colors colors;
+    Settings settings;
 
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "scenarioName": "Add map element with color border and preview it",
+    "itemName": "MAP_1",
+    "elementType": "map",
+    "properties": {
+      "colors": {
+        "border": {
+          "color": "#000000",
+          "size": 10
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add map element, resize and preview it",
+    "itemName": "MAP_1",
+    "elementType": "map",
+    "properties": {
+      "settings": {
+        "width": {
+          "value": 700,
+          "unit": "PIXEL"
+        },
+        "height": {
+          "value": 100,
+          "unit": "PIXEL"
+        }
+      }
+    }
+  }
+]

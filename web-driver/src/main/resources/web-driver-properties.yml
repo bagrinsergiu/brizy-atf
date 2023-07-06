@@ -10,7 +10,7 @@ browser:
   headless: true
   devTools: false
   downloadsPath: "target/downloads"
-  slowMo: 200
+  slowMo: 50
   timeout: 5000
   tracesDir: "target/traces"
 context:
