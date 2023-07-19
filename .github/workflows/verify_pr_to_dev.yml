@@ -2,11 +2,7 @@ name: Verify merge requests and publish allure reports
 
 on:
   pull_request:
-    branches: [ "main" ]
-  repository_dispatch:
-    types:
-      - automatically-trigger
-  workflow_dispatch:
+    branches: [ "dev" ]
 
 jobs:
   run_tests:
