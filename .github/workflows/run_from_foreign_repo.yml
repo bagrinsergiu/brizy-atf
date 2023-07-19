@@ -1,7 +1,9 @@
-name: Automatically run automation tests from foreign repo
+name: Automatically run UI tests from foreign repo
 
 on:
   workflow_dispatch:
+    inputs:
+      baseUrl: 'https://www.brizy.io/'
 
 jobs:
   run_tests:
@@ -17,7 +19,7 @@ jobs:
           cache: maven
 
       - name: Run Test
-        run: mvn test -DbaseUrl=${{ inputs.baseUrl }}
+        run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }}
 
       - name: Get Allure history
         uses: actions/checkout@v2
