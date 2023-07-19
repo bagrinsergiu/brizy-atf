@@ -6,6 +6,7 @@ on:
   repository_dispatch:
     types:
       - automatically-trigger
+  workflow_dispatch:
 
 jobs:
   run_tests:
