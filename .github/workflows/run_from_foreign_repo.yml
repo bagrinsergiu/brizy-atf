@@ -3,7 +3,10 @@ name: Automatically run UI tests from foreign repo
 on:
   workflow_dispatch:
     inputs:
-      baseUrl: 'https://www.brizy.io/'
+      baseUrl:
+        required: true
+        description: Preview Cloud url
+        type: string
 
 jobs:
   run_tests:
