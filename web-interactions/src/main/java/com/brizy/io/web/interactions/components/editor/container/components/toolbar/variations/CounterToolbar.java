@@ -26,6 +26,7 @@ public class CounterToolbar extends ComponentToolbar {
 
     @Override
     public void withProperties(Property properties) {
+        super.withProperties(properties);
         counterButton.get().click();
         CountersFactory.of(this.properties.getCounter(), page).getCounter().change(((CounterProperties) properties).getCounter());
     }

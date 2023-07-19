@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.components.editor.container.components.toolbar.colors;
 
-import com.brizy.io.web.common.dto.element.properties.Colors;
+import com.brizy.io.web.common.dto.element.properties.toolbar.colors.Colors;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderProperties;
 import com.microsoft.playwright.Frame;

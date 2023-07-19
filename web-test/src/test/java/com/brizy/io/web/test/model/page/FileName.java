@@ -1,9 +1,11 @@
 package com.brizy.io.web.test.model.page;
 
 import lombok.AccessLevel;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import org.apache.commons.lang3.StringUtils;
 
+@ToString
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class FileName {
 

@@ -1,6 +1,7 @@
 package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.interactions.components.common.GenericComponent;
+import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.page.PublishedPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.publish.PublishPageProperties;
@@ -11,6 +12,7 @@ import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.ByteArrayInputStream;
@@ -33,6 +35,22 @@ public class PublishPageSteps {
         Page publishPage = storage.getValue(StorageKey.PUBLISH_PAGE, Page.class);
         PublishedPage publishedPage = new PublishedPage(publishPageProperties, publishPage);
         List<GenericComponent> components = publishedPage.getSections().get(0).getComponents();
+        byte[] screenshot = publishPage.screenshot();
+        Allure.addAttachment("Published page", new ByteArrayInputStream(screenshot));
+    }
+
+    @Then("validate css properties of the components")
+    public void validateCssItemProperties() {
+        Page publishPage = storage.getValue(StorageKey.PUBLISH_PAGE, Page.class);
+        PublishedPage publishedPage = new PublishedPage(publishPageProperties, publishPage);
+        List<GenericComponent> components = publishedPage.getSections().get(0).getComponents();
+        CssProperties expected = components.get(0).getProperties();
+        CssProperties actual = storage.getValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, CssProperties.class);
+        Assertions.assertThat(expected)
+                .usingRecursiveComparison()
+                .ignoringExpectedNullFields()
+                .ignoringActualNullFields()
+                .isEqualTo(actual);
         byte[] screenshot = publishPage.screenshot();
         Allure.addAttachment("Published page", new ByteArrayInputStream(screenshot));
     }

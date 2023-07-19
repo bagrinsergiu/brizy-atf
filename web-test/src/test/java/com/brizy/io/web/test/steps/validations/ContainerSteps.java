@@ -20,9 +20,13 @@ import io.qameta.allure.Allure;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
+import org.assertj.core.api.recursive.comparison.RecursiveComparisonIntrospectionStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.*;
@@ -50,6 +54,5 @@ public class ContainerSteps {
                 .ignoringExpectedNullFields()
                 .usingDefaultComparator()
                 .isEqualTo(actualProperties);
-        System.out.println(actualProperties);
     }
 }

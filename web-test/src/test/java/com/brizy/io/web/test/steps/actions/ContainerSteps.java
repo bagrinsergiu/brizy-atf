@@ -3,11 +3,13 @@ package com.brizy.io.web.test.steps.actions;
 import com.brizy.io.web.common.dto.element.type.ItemType;
 import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorBottomPanel;
 import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorSaveMenu;
+import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.page.EditorPage;
 import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.test.enums.StorageKey;
+import com.brizy.io.web.test.exception.InvalidScenarioNameException;
 import com.brizy.io.web.test.model.page.FileName;
 import com.brizy.io.web.test.model.page.Item;
 import com.brizy.io.web.test.storage.Storage;
@@ -15,7 +17,6 @@ import com.brizy.io.web.test.transformer.ItemTransformer;
 import com.brizy.io.web.test.transformer.MapperTransformerUtil;
 import com.microsoft.playwright.Page;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
 import lombok.AccessLevel;
@@ -23,9 +24,11 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.ByteArrayInputStream;
+import java.util.Collections;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.*;
+import static java.util.Collections.singletonList;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ContainerSteps {
@@ -47,9 +50,10 @@ public class ContainerSteps {
     @When("prepare elements properties from the '{fileName}' file")
     public void prepareTheFollowingPropertiesForTheItemsToBeAddedToThePage(FileName properties) {
         Scenario currentScenario = storage.getValue(CURRENT_SCENARIO, Scenario.class);
-        List<ItemType> itemProperties = testDataFileService.getItemProperties(properties.getFullName(), ItemType[].class).stream()
+        List<ItemType> itemProperties = singletonList(testDataFileService.getItemProperties(properties.getFullName(), ItemType[].class).stream()
                 .filter(property -> property.getScenarioName().equals(currentScenario.getName()))
-                .toList();
+                .findFirst()
+                .orElseThrow(() -> new InvalidScenarioNameException(String.format("Unable to find any scenario with name %s inside the file %s", currentScenario.getName(), properties))));
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<Item> itemsWithProperties = ItemTransformer.enrichItemsWithProperties.apply(itemsToAdd, itemProperties);
         storage.addValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, itemsWithProperties);
@@ -73,6 +77,15 @@ public class ContainerSteps {
                 .get()
                 .editorItemProperties();
         storage.addValue(StorageKey.COMPONENT_PROPERTIES, editorComponentProperties);
+    }
+
+    @When("^get css properties for the '(.*)' editor item from the section '(.*)'$")
+    public void getCssItemProperties(String component, String section) {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        CssProperties cssProperties = editorPage.onPageBuilder()._do().getComponent(section, component)
+                .get()
+                .cssItemProperties();
+        storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
     }
 
     @When("clear the layout")

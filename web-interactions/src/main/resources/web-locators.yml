@@ -42,6 +42,18 @@ pages:
                     shadow:
                       self: //span[text()='Shadow']
                       value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                settings:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Settings']
+                  width:
+                    value: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='number']
+                    unit:
+                      self: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
+                      item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
+                  height:
+                    value: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='number']
+                    unit:
+                      self: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
+                      item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
                 counter:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
                   tabs:

@@ -3,6 +3,7 @@ package com.brizy.io.web.interactions.components.editor.container.components;
 import com.brizy.io.web.interactions.components.common.GenericComponent;
 import com.brizy.io.web.interactions.components.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
+import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
@@ -48,7 +49,7 @@ public abstract class Component extends GenericComponent {
             return getEditorProperties();
         }
 
-        public Map cssItemProperties() {
+        public CssProperties cssItemProperties() {
             return getProperties();
         }
 

@@ -1,17 +1,18 @@
-package com.brizy.io.web.common.dto.element.properties;
+package com.brizy.io.web.interactions.dto.editor.container.properties;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
-@Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Colors {
+public enum UnitType {
 
-    Border border;
+    PERCENTAGE("%"),
+    PIXEL("px");
+
+    @Getter
+    String value;
 
 }

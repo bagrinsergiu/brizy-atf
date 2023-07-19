@@ -1,4 +1,4 @@
-package com.brizy.io.web.common.dto.element.properties;
+package com.brizy.io.web.common.dto.element.properties.toolbar.settings;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,9 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor(force = true)
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Border {
+public class Size {
 
-    String color;
-    Integer size;
+    Integer value;
+    UnitType unit;
 
 }
