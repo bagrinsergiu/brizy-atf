@@ -12,13 +12,15 @@ import io.vavr.control.Try;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.brizy.io.web.interactions.components.constants.TimingConstants.*;
+import static java.time.Duration.ZERO;
 import static lombok.AccessLevel.PRIVATE;
+import static org.awaitility.Awaitility.await;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class EditorContainer {
@@ -37,9 +39,12 @@ public class EditorContainer {
     }
 
     private Frame getFrameFromThePage(com.microsoft.playwright.Page page, String frameName) {
-        int now = LocalDateTime.now().getSecond();
-        while(LocalDateTime.now().getSecond() - now < 30 && Objects.isNull(page.frame(frameName))) {}
-        return page.frame(frameName);
+        return await().given().alias("Waiting for frame to load")
+                .with().atLeast(ZERO).and().atMost(MAX_WAITING_TIME_FOR_FRAME_TO_LOAD)
+                .with().pollInSameThread()
+                .with().conditionEvaluationListener(condition -> page.reload())
+                .with().conditionEvaluationListener(condition -> page.waitForLoadState())
+                .then().until(() -> page.frame(frameName), Objects::nonNull);
     }
 
     public void openPopUpMenu() {

@@ -3,7 +3,7 @@ Feature: Editor Page - Adding a Counter Element
   I want to customize a counter element
   So that I can visualize it in preview
 
-  Scenario Outline: Add counter element and validate default properties
+  Scenario Outline: Add <name> element and validate default properties
     When navigate to home page
     And open dashboard page
     When select 'Project #1' from projects list
@@ -11,7 +11,7 @@ Feature: Editor Page - Adding a Counter Element
     When clear the layout
     And open editor pop up
     When switch to 'Blocks' tab
-    And add section 'SECTION_1' to page
+    And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
       | item    | position | parent | name   | sectionName   |
       | COUNTER | -        | -      | <name> | <sectionName> |

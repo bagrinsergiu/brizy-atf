@@ -23,9 +23,9 @@ context:
   locale: "en"
   offline: false
   recordVideoDir: "target/recordings"
-  recordVideoSize:
-    width: ${screenSize.width}
-    height: ${screenSize.height}
+  #  recordVideoSize:
+  #    width: ${screenSize.width}
+  #    height: ${screenSize.height}
   reducedMotion: "reduce"
   screenSize:
     width: ${screenSize.width}
