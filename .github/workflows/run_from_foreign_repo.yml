@@ -47,3 +47,6 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+    outputs:
+      allureUrl: { { github.server_url } }/${{ github.repository }}/${{ github.run_number }}/index.html
