@@ -5,8 +5,8 @@ Feature: Editor Page - Adding a Counter Element
 
   Scenario Outline: Add <name> element and validate default properties
     When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
+#    And open dashboard page
+#    When select 'Project #1' from projects list
     And wait for editor page to load
     When clear the layout
     And open editor pop up
