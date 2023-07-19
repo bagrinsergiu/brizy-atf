@@ -48,5 +48,12 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
+      #      - name: Post the link to the report
+      #        run: echo "https://github.com/${{ github.repository }}/${{ github.run_number }}/index.html"
+
       - name: Post the link to the report
-        run: echo "https://github.com/${{ github.repository }}/${{ github.run_number }}/index.html"
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          message: |
+            https://github.com/${{ github.repository }}/${{ github.run_number }}/index.html
