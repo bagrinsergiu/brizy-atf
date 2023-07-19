@@ -49,4 +49,4 @@ jobs:
           PUBLISH_DIR: allure-history
 
       - name: Post the link to the report
-        run: echo "{{ github.server_url }}/${{ github.repository }}/${{ github.run_number }}/index.html" >> "$GITHUB_OUTPUT"
+        run: echo "https://github.com/${{ github.repository }}/${{ github.run_number }}/index.html" >> "$GITHUB_OUTPUT"
