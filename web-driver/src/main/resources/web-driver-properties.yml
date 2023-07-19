@@ -6,7 +6,7 @@ playwright:
   env:
     headless: ${browser.headless}
 browser:
-  type: chromium
+  type: firefox
   headless: true
   devTools: false
   downloadsPath: "target/downloads"
