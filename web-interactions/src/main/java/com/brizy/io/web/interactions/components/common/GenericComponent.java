@@ -4,6 +4,7 @@ import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.ElementSizeDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.*;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.BoundingBox;
 import io.vavr.API;
 import lombok.AccessLevel;
@@ -13,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.awt.*;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,10 +33,14 @@ public abstract class GenericComponent {
         this.boundingBox = componentLocator::boundingBox;
     }
 
-    private String getHexFromRgb(String rgb) {
-        Matcher red = Pattern.compile("(?<=rgb\\()\\d+").matcher(rgb);
-        Matcher green = Pattern.compile("(?<=rgb\\(\\d\\+)\\d+").matcher(rgb);
-        Matcher blue = Pattern.compile("\\d+(?=\\))").matcher(rgb);
+    private String getHexFromRgb(Object rgbProperty) {
+        if (Objects.isNull(rgbProperty)) {
+            return null;
+        }
+        String rgbString = rgbProperty.toString();
+        Matcher red = Pattern.compile("(?<=rgb\\()\\d+").matcher(rgbString);
+        Matcher green = Pattern.compile("(?<=rgb\\(\\d\\+)\\d+").matcher(rgbString);
+        Matcher blue = Pattern.compile("\\d+(?=\\))").matcher(rgbString);
         Integer r = API.Option(red).filter(Matcher::find).map(el -> el.group(0)).map(Integer::valueOf).getOrElse(0);
         Integer g = API.Option(green).filter(Matcher::find).map(el -> el.group(0)).map(Integer::valueOf).getOrElse(0);
         Integer b = API.Option(blue).filter(Matcher::find).map(el -> el.group(0)).map(Integer::valueOf).getOrElse(0);
@@ -60,7 +66,7 @@ public abstract class GenericComponent {
         return CssProperties.builder()
                 .colors(Colors.builder()
                         .border(Border.builder()
-                                .color(getHexFromRgb(evaluate.get("borderColor").toString()))
+                                .color(getHexFromRgb(evaluate.get("borderColor")))
                                 .size(null)
                                 .build())
                         .build())
