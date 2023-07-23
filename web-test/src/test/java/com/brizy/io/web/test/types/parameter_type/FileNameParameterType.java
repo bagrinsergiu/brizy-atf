@@ -7,7 +7,7 @@ import io.cucumber.java.ParameterType;
 public class FileNameParameterType {
 
     @ParameterType(name = "fileName", value = ".*")
-    public FileName getFileName(String rawValue) {
+    public FileName fileName(String rawValue) {
         if (!rawValue.contains(".json")) {
             throw new InvalidFileNameException("Make sure you provide a supported file name with json extension");
         }

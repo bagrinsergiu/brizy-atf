@@ -1,0 +1,22 @@
+package com.brizy.io.web.interactions.enums;
+
+import java.util.Optional;
+
+public enum ContextMenuActions {
+
+    COPY,
+    PASTE,
+    PASTE_STYLES,
+    DUPLICATE,
+    DELETE;
+
+    /**
+     * @param name if the name is an invalid one or paste styles - PASTE_STYLES will be returned
+     * @return
+     */
+    public static ContextMenuActions getByValue(String name) {
+        return Optional.of(ContextMenuActions.valueOf(name))
+                .orElse(PASTE_STYLES);
+    }
+
+}

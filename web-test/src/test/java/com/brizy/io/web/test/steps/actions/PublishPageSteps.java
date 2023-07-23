@@ -1,8 +1,8 @@
 package com.brizy.io.web.test.steps.actions;
 
-import com.brizy.io.web.interactions.components.common.GenericComponent;
+import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
-import com.brizy.io.web.interactions.page.PublishedPage;
+import com.brizy.io.web.interactions.page.publish.PublishedPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.publish.PublishPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;

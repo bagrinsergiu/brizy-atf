@@ -9,11 +9,12 @@ import lombok.experimental.FieldDefaults;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class HomePage {
+public class HomePage extends AbstractPage {
 
     Supplier<Button> getStarted;
 
     public HomePage(HomePageProperties homePageProperties, Page page) {
+        super(page);
         getStarted = () -> new Button(page.locator(homePageProperties.getGetStarted()));
     }
 

@@ -18,7 +18,8 @@ Feature: Editor Page - Adding a Map Element
       | item | position | parent | name  | sectionName |
       | MAP  | -        | -      | MAP_1 | SECTION_1   |
     When prepare elements properties from the 'VerifyMapElement.json' file
-    And add the items to the page
+    And add the item to the page
+    And configure the item added to the page
     When save draft page
     And publish the page
     Then validate item properties
@@ -28,7 +29,8 @@ Feature: Editor Page - Adding a Map Element
       | item | position | parent | name   | sectionName   |
       | MAP  | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyMapElement.json' file
-    And add the items to the page
+    And add the item to the page
+    And configure the item added to the page
     When get css properties for the '<name>' editor item from the section '<sectionName>'
     When save draft page
     And publish the page
