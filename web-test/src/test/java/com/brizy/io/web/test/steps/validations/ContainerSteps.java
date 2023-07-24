@@ -1,11 +1,18 @@
 package com.brizy.io.web.test.steps.validations;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
+import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
+import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
+import com.brizy.io.web.test.enums.StorageKey;
+import com.brizy.io.web.test.exception.ItemNotFoundException;
+import com.brizy.io.web.test.model.ContextMenuItem;
+import com.brizy.io.web.test.model.page.Item;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
@@ -48,6 +55,17 @@ public class ContainerSteps {
                 .size()
                 .describedAs("Expecting to have <%d> items on section <%s>", expectedNumberOfItems, sectionName)
                 .isEqualTo(expectedNumberOfItems + 1);
+    }
+
+    @When("validate that the following menu items are displayed:")
+    public void validateItems(List<ContextMenuItem> expectedItems) {
+        List<ContextMenuItemDto> actualItems = storage.getListValue(MENU_ITEMS, ContextMenuItemDto.class);
+        Assertions.assertThat(actualItems)
+                .usingRecursiveComparison()
+                .ignoringActualNullFields()
+                .ignoringExpectedNullFields()
+                .usingDefaultComparator()
+                .isEqualTo(expectedItems);
     }
 
 }

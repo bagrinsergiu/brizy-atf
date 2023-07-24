@@ -1,6 +1,7 @@
 package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
+import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorSaveMenu;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
@@ -130,6 +131,18 @@ public class ContainerSteps {
                 .orElseThrow(() -> new ItemNotFoundException(String.format("Item with name %s, not found on page", itemName)));
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         editorPage.onPageBuilder()._do().findComponent(sectionName, itemName).onContextMenu().execute(contextMenuAction);
+    }
+
+    @When("get context menu items for '{}'")
+    public void doGetItems(String itemName) {
+        String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()
+                .filter(el -> el.getName().equals(itemName))
+                .findFirst()
+                .map(Item::getSectionName)
+                .orElseThrow(() -> new ItemNotFoundException(String.format("Item with name %s, not found on page", itemName)));
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        List<ContextMenuItemDto> actions = editorPage.onPageBuilder()._do().findComponent(sectionName, itemName).onContextMenu().getActions();
+        storage.addValue(StorageKey.MENU_ITEMS, actions);
     }
 
 }

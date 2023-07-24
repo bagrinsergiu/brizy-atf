@@ -28,7 +28,9 @@ pages:
               self: //div[contains(@data-border--grey,'wrapper')]
               rightClickContext:
                 self: //div[@role='menu' and contains(@class,'react-contexify')]
-                elementType: //div[contains(@class,'react-contexify--title')]
+                menuItem:
+                  title: //div//span[contains(@class,'title')]
+                  keyShortcut: //div//span[contains(@class,'placeholder')]
                 copy: //div[contains(@class,'react-contexify__item')]//span[text()='Copy']
                 paste: //div[contains(@class,'react-contexify__item')]//span[text()='Paste']
                 pasteStyles: //div[contains(@class,'react-contexify__item')]//span[text()='Paste Styles']
