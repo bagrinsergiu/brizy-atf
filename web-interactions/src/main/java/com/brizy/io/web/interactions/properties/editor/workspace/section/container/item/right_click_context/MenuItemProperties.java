@@ -6,21 +6,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class RightClickContextProperties extends AbstractProperty {
+public class MenuItemProperties extends AbstractProperty {
 
-    @NestedConfigurationProperty
-    MenuItemProperties menuItem;
-    String elementType;
-    String copy;
-    String paste;
-    String pasteStyles;
-    String duplicate;
-    String delete;
+    String title;
+    String keyShortcut;
 
 }
