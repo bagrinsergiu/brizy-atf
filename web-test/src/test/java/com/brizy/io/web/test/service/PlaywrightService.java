@@ -18,11 +18,6 @@ public class PlaywrightService {
 
     WebDriverService webDriverService;
 
-    @PreDestroy
-    public void close() {
-        webDriverService.closeInstance();
-    }
-
     public Playwright create() {
         return webDriverService.createInstance();
     }
