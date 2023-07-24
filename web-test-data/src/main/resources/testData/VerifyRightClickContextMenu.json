@@ -1,0 +1,19 @@
+[
+  {
+    "scenarioName": "Validate copy and paste styles action",
+    "itemName": "TEXT_1",
+    "elementType": "text",
+    "properties": {
+      "typography": {
+        "font": "Lato",
+        "size": "40"
+      },
+      "colors": {
+        "color": {
+          "color": "#be00ff"
+        }
+      }
+    }
+  }
+
+]
