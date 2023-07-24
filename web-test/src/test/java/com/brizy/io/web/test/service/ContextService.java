@@ -19,11 +19,6 @@ public class ContextService {
 
     WebDriverService webDriverService;
 
-    @PreDestroy
-    public void close() {
-        webDriverService.closeContext();
-    }
-
     public BrowserContext create(Browser browser) {
         return webDriverService.createContext(browser);
     }
