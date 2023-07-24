@@ -1,0 +1,31 @@
+[
+  {
+    "scenarioName": "Validate copy and paste styles action on existing element",
+    "itemName": "TEXT_1",
+    "elementType": "text",
+    "properties": {
+      "typography": {
+        "font": "Comfortaa",
+        "size": {
+          "value": 2,
+          "unit": "em"
+        },
+        "typography": "Custom",
+        "weight": "Bold",
+        "lineHgt": 2.2,
+        "letterSp": 0.4
+      },
+      "bold": true,
+      "italic": false,
+      "underline": true,
+      "strike": true,
+      "uppercase": true,
+      "colors": {
+        "color": {
+          "type": "solid",
+          "color": "#be00ff"
+        }
+      }
+    }
+  }
+]

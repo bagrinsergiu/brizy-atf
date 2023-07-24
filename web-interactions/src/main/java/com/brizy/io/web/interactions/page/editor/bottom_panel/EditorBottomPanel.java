@@ -1,9 +1,11 @@
 package com.brizy.io.web.interactions.page.editor.bottom_panel;
 
+import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -52,6 +54,19 @@ public class EditorBottomPanel {
     public EditorSaveMenu openSaveMenu() {
         saveDraftButton.get().click();
         return editorSaveMenu;
+    }
+
+    public List<EditorBottomPanelItemDto> getItems() {
+        Button showHiddenElements = this.showHiddenElements.get();
+        Button undo = this.undo.get();
+        Button redo = this.redo.get();
+        Button preview = this.preview.get();
+        return List.of(
+                EditorBottomPanelItemDto.builder().name("ShowHiddenElements").tooltip(showHiddenElements.tooltip()).isEnabled(showHiddenElements.getAttribute("class").contains("active")).build(),
+                EditorBottomPanelItemDto.builder().name("Undo").tooltip(undo.tooltip()).isEnabled(undo.getAttribute("class").contains("active")).build(),
+                EditorBottomPanelItemDto.builder().name("Redo").tooltip(redo.tooltip()).isEnabled(redo.getAttribute("class").contains("active")).build(),
+                EditorBottomPanelItemDto.builder().name("Preview").tooltip(preview.tooltip()).isEnabled(preview.getAttribute("class").contains("active")).build()
+        );
     }
 
 }

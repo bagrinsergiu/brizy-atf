@@ -1,5 +1,7 @@
 package com.brizy.io.web.interactions.enums;
 
+import io.vavr.control.Try;
+
 import java.util.Optional;
 
 public enum ContextMenuActions {
@@ -15,8 +17,8 @@ public enum ContextMenuActions {
      * @return
      */
     public static ContextMenuActions getByValue(String name) {
-        return Optional.of(ContextMenuActions.valueOf(name))
-                .orElse(PASTE_STYLES);
+        return Try.of(() -> ContextMenuActions.valueOf(name))
+                .getOrElse(PASTE_STYLES);
     }
 
 }

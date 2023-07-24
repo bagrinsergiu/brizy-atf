@@ -1,0 +1,30 @@
+auth:
+  login: Auth.login
+  logout: Auth.logout
+classification:
+  create: Classification.create
+  filter: Classification.filter
+product:
+  filter: Product.filter
+  create: Product.create
+version:
+  filter: Version.filter
+  create: Version.create
+testPlan:
+  filter: TestPlan.filter
+  addCase: TestPlan.add_case
+  create: TestPlan.create
+testCase:
+  filter: TestCase.filter
+  create: TestCase.create
+  update: TestCase.update
+testRun:
+  filter: TestRun.filter
+  create: TestRun.create
+  addCase: TestRun.add_case
+  update: TestRun.update
+build:
+  filter: Build.filter
+  create: Build.create
+testExecution:
+  update: TestExecution.update

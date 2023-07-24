@@ -30,6 +30,10 @@
         </dependency>
         <dependency>
             <groupId>com.brizy.io</groupId>
+            <artifactId>web-kiwi-tcms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.brizy.io</groupId>
             <artifactId>web-reporting</artifactId>
             <exclusions>
                 <exclusion>

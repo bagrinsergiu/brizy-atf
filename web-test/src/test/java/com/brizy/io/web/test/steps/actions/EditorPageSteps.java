@@ -4,6 +4,8 @@ import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;
+import com.brizy.io.web.test.functional.Attachment;
+import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.Page;
 import io.cucumber.java.en.When;
@@ -18,14 +20,17 @@ import java.util.List;
 import static com.brizy.io.web.test.enums.StorageKey.PAGE_SECTIONS;
 import static java.util.List.of;
 
+@Attachment
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class EditorPageSteps {
 
+    ActivePageService activePageService;
     EditorPageProperties editorPageProperties;
     Storage storage;
 
     @Autowired
-    public EditorPageSteps(WebLocatorsProperties webLocatorsProperties, Storage storage) {
+    public EditorPageSteps(ActivePageService activePageService, WebLocatorsProperties webLocatorsProperties, Storage storage) {
+        this.activePageService = activePageService;
         this.editorPageProperties = webLocatorsProperties.getEditor();
         this.storage = storage;
     }
@@ -55,7 +60,7 @@ public class EditorPageSteps {
 
     @When("wait for editor page to load")
     public void waitForEditorPageToLoad() {
-        Page page = storage.getValue(StorageKey.INIT_PAGE, Page.class);
+        Page page = activePageService.getPage();
         EditorPage editorPage = new EditorPage(editorPageProperties, page);
         storage.addValue(StorageKey.EDITOR, editorPage);
         storage.addValue(StorageKey.EDITOR_PAGE, page);
