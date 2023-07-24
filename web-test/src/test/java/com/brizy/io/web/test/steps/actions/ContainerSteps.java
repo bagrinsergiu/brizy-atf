@@ -1,15 +1,17 @@
 package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
-import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorBottomPanel;
-import com.brizy.io.web.interactions.components.editor.bottom_panel.EditorSaveMenu;
+import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
+import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorSaveMenu;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
-import com.brizy.io.web.interactions.page.EditorPage;
+import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.data.service.TestDataFileService;
+import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.exception.InvalidScenarioNameException;
+import com.brizy.io.web.test.exception.ItemNotFoundException;
 import com.brizy.io.web.test.model.page.FileName;
 import com.brizy.io.web.test.model.page.Item;
 import com.brizy.io.web.test.storage.Storage;
@@ -24,7 +26,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.ByteArrayInputStream;
-import java.util.Collections;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.*;
@@ -66,14 +67,22 @@ public class ContainerSteps {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<SidebarItemDto> sidebarItemsToAdd = MapperTransformerUtil.getSidebarItemsDtoFromPageItems.apply(itemsToAdd);
-        editorPage.onPageBuilder()._do().add().and().configure().items(sidebarItemsToAdd);
+        editorPage.onPageBuilder()._do().add().items(sidebarItemsToAdd);
         Allure.addAttachment("Added items", "image/png", new ByteArrayInputStream(editorPage.takeScreenshot()), "png");
+    }
+
+    @When("configure the item(s) added to the page")
+    public void configureTheItemsToTheSection() {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
+        List<SidebarItemDto> sidebarItemsToAdd = MapperTransformerUtil.getSidebarItemsDtoFromPageItems.apply(itemsToAdd);
+        editorPage.onPageBuilder()._do().configure().items(sidebarItemsToAdd);
     }
 
     @When("^get editor properties for the '(.*)' item from the section '(.*)'$")
     public void getItemProperties(String component, String section) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
-        EditorComponentProperty editorComponentProperties = editorPage.onPageBuilder()._do().getComponent(section, component)
+        EditorComponentProperty editorComponentProperties = editorPage.onPageBuilder()._do().findComponent(section, component)
                 .get()
                 .editorItemProperties();
         storage.addValue(StorageKey.COMPONENT_PROPERTIES, editorComponentProperties);
@@ -82,7 +91,7 @@ public class ContainerSteps {
     @When("^get css properties for the '(.*)' editor item from the section '(.*)'$")
     public void getCssItemProperties(String component, String section) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
-        CssProperties cssProperties = editorPage.onPageBuilder()._do().getComponent(section, component)
+        CssProperties cssProperties = editorPage.onPageBuilder()._do().findComponent(section, component)
                 .get()
                 .cssItemProperties();
         storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
@@ -111,4 +120,16 @@ public class ContainerSteps {
         page.waitForLoadState();
         storage.addValue(StorageKey.PUBLISH_PAGE, page);
     }
+
+    @When("{contextMenuAction} the following item '{}'")
+    public void doActionOnItem(ContextMenuActions contextMenuAction, String itemName) {
+        String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()
+                .filter(el -> el.getName().equals(itemName))
+                .findFirst()
+                .map(Item::getSectionName)
+                .orElseThrow(() -> new ItemNotFoundException(String.format("Item with name %s, not found on page", itemName)));
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        editorPage.onPageBuilder()._do().findComponent(sectionName, itemName).onContextMenu().execute(contextMenuAction);
+    }
+
 }

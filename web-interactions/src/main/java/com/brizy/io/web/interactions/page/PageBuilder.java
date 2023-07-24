@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page;
 
-import com.brizy.io.web.interactions.components.editor.container.EditorContainer;
-import com.brizy.io.web.interactions.components.editor.container.components.Component;
-import com.brizy.io.web.interactions.components.editor.sidebar.EditorSidebar;
+import com.brizy.io.web.interactions.page.editor.container.EditorContainer;
+import com.brizy.io.web.interactions.page.editor.container.components.Component;
+import com.brizy.io.web.interactions.page.editor.sidebar.EditorSidebar;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
 import lombok.AccessLevel;
@@ -62,8 +62,12 @@ public class PageBuilder {
             return this;
         }
 
-        public Component getComponent(String sectionName, String componentName) {
-            return container.get(sectionName, componentName);
+        public Component findComponent(String sectionName, String componentName) {
+            return container.getComponent(sectionName, componentName);
+        }
+
+        public List<Component> getComponents(String sectionName) {
+            return container.getComponents(sectionName);
         }
 
         public PageBuilderOperations and() {

@@ -105,12 +105,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <parallel>classes</parallel>
-                    <threadCount>2</threadCount>
+                    <parallel>methods</parallel>
+                    <threadCount>3</threadCount>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
                     <includes>
                         <include>**/*BrizyTestsRunner.java</include>
                     </includes>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>3</value>
+                        </property>
+                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>

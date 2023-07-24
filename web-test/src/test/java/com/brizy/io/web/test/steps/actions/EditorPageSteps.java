@@ -1,6 +1,6 @@
 package com.brizy.io.web.test.steps.actions;
 
-import com.brizy.io.web.interactions.page.EditorPage;
+import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;
@@ -55,7 +55,7 @@ public class EditorPageSteps {
 
     @When("wait for editor page to load")
     public void waitForEditorPageToLoad() {
-        Page page = storage.getValue(StorageKey.INIT_PAGE, Page.class);
+        Page page = storage.getValue(StorageKey.DASHBOARD_PAGE, Page.class);
         EditorPage editorPage = new EditorPage(editorPageProperties, page);
         storage.addValue(StorageKey.EDITOR, editorPage);
         storage.addValue(StorageKey.EDITOR_PAGE, page);
