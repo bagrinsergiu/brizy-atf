@@ -48,7 +48,7 @@ public class ContainerSteps {
     }
 
 
-    @Then("section '{}' contains '{}' items")
+    @Then("(validate that )section '{}' contains '{}' items")
     public void sectionSectionNameContainsItems(String sectionName, Integer expectedNumberOfItems) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         Assertions.assertThat(editorPage.onPageBuilder()._do().getComponents(sectionName))
