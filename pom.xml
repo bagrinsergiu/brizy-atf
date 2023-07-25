@@ -106,7 +106,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <parallel>methods</parallel>
-                    <threadCount>3</threadCount>
+                    <threadCount>1</threadCount>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
                     <includes>
                         <include>**/*BrizyTestsRunner.java</include>
@@ -114,7 +114,7 @@
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>
-                            <value>3</value>
+                            <value>1</value>
                         </property>
                     </properties>
                 </configuration>
