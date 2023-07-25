@@ -4,10 +4,7 @@ Feature: Editor Page - Right Click an Element
   So that I can delete, duplicate or copy/paste it
 
   Scenario Outline: Validate context menu items
-    When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
-    And wait for editor page to load
+    Given wait for editor page to load
     When clear the layout
     And open editor pop up
     When switch to 'Blocks' tab
@@ -24,7 +21,6 @@ Feature: Editor Page - Right Click an Element
       | Paste Styles | ctrl + ⇧ + V  | false     |
       | Duplicate    | ctrl + D      | true      |
       | Delete       | ctrl + delete | true      |
-
 
     Examples:
       | name  | sectionName |

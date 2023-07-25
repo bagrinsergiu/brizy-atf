@@ -29,7 +29,7 @@ class BrowserContextService {
 
     protected BrowserContext newContext(Browser browser) {
         BrowserContext browserContext = browser.newContext(contextProperties);
-        Cookie e = new Cookie("CLOUDREMEMBERME", "QXBwQnVuZGxlXEVudGl0eVxVc2VyOlluSnBlbmxmZEdWemREUTFOQT09OjE2OTE4NTM0MjA6NWNiODAxYzZhMzRkN2JjYmRhNDk4ZmVlM2RmMjBlNmM3NjkyMGI1Nzk5NTNmZjQ5M2VlYjQwMjU5NGE2ZmIyZQ%3D%3D");
+        Cookie e = new Cookie("CLOUDREMEMBERME", "QXBwQnVuZGxlXEVudGl0eVxVc2VyOmRHVnpkRjkxYzJWeU5UTTE6MTY5Mjk4MjgwMzo4ZWExMjM2MGFkMDdmOTM3OTU2YmVmNTBhMThkMzM5NmE5NDAwODc1MDY5YzlkZDIyZTAwZDU5NWM3NWIyNTg3");
         e.setDomain("www.brizy.cloud");
         e.setPath("/");
         browserContext.addCookies(Collections.singletonList(e));
