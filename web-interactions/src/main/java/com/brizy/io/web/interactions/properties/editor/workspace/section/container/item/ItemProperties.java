@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -17,5 +18,7 @@ public class ItemProperties extends AbstractProperty {
 
     @NestedConfigurationProperty
     ToolbarProperties toolbar;
+    @NestedConfigurationProperty
+    RightClickContextProperties rightClickContext;
 
 }

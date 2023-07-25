@@ -22,7 +22,13 @@ jobs:
           distribution: adopt
           cache: maven
 
-      - name: Run Test
+      - name: Compile and install dependencies
+        run: mvn clean compile install -DskipTests
+
+      - name: Download playwright dependencies
+        run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
+
+      - name: Run tests
         run: mvn test
 
       - name: Get Allure history

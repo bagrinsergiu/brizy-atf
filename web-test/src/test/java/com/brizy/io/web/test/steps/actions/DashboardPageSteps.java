@@ -1,7 +1,7 @@
 package com.brizy.io.web.test.steps.actions;
 
-import com.brizy.io.web.interactions.components.dashboard.projects.Project;
-import com.brizy.io.web.interactions.page.DashboardPage;
+import com.brizy.io.web.interactions.page.dashboard.projects.Project;
+import com.brizy.io.web.interactions.page.dashboard.DashboardPage;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.dashboard.DashboardPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;

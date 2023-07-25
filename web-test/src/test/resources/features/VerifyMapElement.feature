@@ -5,8 +5,8 @@ Feature: Editor Page - Adding a Map Element
 
   Background: Add the map item to the page
     When navigate to home page
-#    And open dashboard page
-#    When select 'Project #1' from projects list
+    And open dashboard page
+    When select 'Project #1' from projects list
     And wait for editor page to load
     When clear the layout
     And open editor pop up
@@ -18,7 +18,8 @@ Feature: Editor Page - Adding a Map Element
       | item | position | parent | name  | sectionName |
       | MAP  | -        | -      | MAP_1 | SECTION_1   |
     When prepare elements properties from the 'VerifyMapElement.json' file
-    And add the items to the page
+    And add the item to the page
+    And configure the item added to the page
     When save draft page
     And publish the page
     Then validate item properties
@@ -28,7 +29,8 @@ Feature: Editor Page - Adding a Map Element
       | item | position | parent | name   | sectionName   |
       | MAP  | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyMapElement.json' file
-    And add the items to the page
+    And add the item to the page
+    And configure the item added to the page
     When get css properties for the '<name>' editor item from the section '<sectionName>'
     When save draft page
     And publish the page

@@ -19,11 +19,6 @@ public class BrowserService {
 
     WebDriverService webDriverService;
 
-    @PreDestroy
-    public void close() {
-        webDriverService.closeBrowser();
-    }
-
     public Browser create(Playwright playwright) {
         return webDriverService.createBrowser(playwright);
     }

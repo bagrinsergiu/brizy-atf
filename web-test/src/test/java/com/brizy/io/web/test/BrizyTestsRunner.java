@@ -19,7 +19,7 @@ public class BrizyTestsRunner extends AbstractTestNGCucumberTests {
         super.runScenario(pickleWrapper, featureWrapper);
     }
 
-    @DataProvider
+    @DataProvider(parallel = true)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();
