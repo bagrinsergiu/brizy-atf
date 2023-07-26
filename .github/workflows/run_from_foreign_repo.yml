@@ -39,8 +39,8 @@ jobs:
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: gh-pages-dev
-          path: gh-pages-dev
+          ref: gh-pages
+          path: gh-pages
 
       - name: Generate allure reports
         run: mvn -pl web-test allure:report
@@ -48,9 +48,14 @@ jobs:
       - name: Copy allure results to publish directory
         run: cp -r ./web-test/target/allure-report/ allure-history/
 
+      - name: Copy index html to history folder
+        run: |
+          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
+          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html  
+
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages-dev
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
