@@ -46,7 +46,7 @@ jobs:
           path: gh-pages
 
       - name: get directory
-        run: pwd
+        run: tree
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
