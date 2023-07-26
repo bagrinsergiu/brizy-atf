@@ -38,10 +38,10 @@ jobs:
       #      - name: Generate allure reports
       #        run: mvn allure:report -pl web-test
 
-
-      - name: current workspace
-        run: |
-          echo "Current Working Directory: ${{ github.workspace }}"
+      - name: List files as tree
+        uses: KengoTODA/gha-tree@v0.3.0
+        with:
+          directory: ${{ github.workspace }}
 
       - name: Get Allure history
         uses: actions/checkout@v2
