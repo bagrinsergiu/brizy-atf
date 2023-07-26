@@ -73,6 +73,10 @@ jobs:
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
           
           ls -a .
+          
+          ls -a allure-history/
+          
+          ls -a gh-pages/
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
