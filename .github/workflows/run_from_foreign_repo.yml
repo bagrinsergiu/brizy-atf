@@ -42,6 +42,9 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      - name: List current dir
+        run: ls -a .
+
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         id: allure-report
