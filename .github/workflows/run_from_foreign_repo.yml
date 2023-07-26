@@ -45,14 +45,14 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Copy report files
-        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
+      #      - name: Copy report files
+      #        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: web-test/target/allure-results
+          allure_results: /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
