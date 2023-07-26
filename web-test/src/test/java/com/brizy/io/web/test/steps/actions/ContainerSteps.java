@@ -96,6 +96,15 @@ public class ContainerSteps {
         storage.addValue(StorageKey.COMPONENT_PROPERTIES, editorComponentProperties);
     }
 
+    @When("get for compare editor properties for the {comparable} '{}' item from the section '{}'")
+    public void getItemPropertiesForCompare(StorageKey comparable, String component, String section) {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        EditorComponentProperty editorComponentProperties = editorPage.onPageBuilder()._do().findComponent(section, component)
+                .get()
+                .editorItemProperties();
+        storage.addValue(comparable, editorComponentProperties);
+    }
+
     @When("^get css properties for the '(.*)' editor item from the section '(.*)'$")
     public void getCssItemProperties(String component, String section) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -132,6 +141,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.PUBLISH_PAGE, page);
     }
 
+    @Attachment
     @When("{contextMenuAction} the following item '{}'")
     public void doActionOnItem(ContextMenuActions contextMenuAction, String itemName) {
         String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()

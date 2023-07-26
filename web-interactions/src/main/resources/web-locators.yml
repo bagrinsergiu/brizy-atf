@@ -38,6 +38,42 @@ pages:
                 delete: //div[contains(@class,'react-contexify__item')]//span[text()='Delete']
               toolbar:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
+                typography:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
+                  fonts:
+                    self: //div[contains(@class,'brz-ed-font__typography')]//div[contains(@class,'brz-scrollbar__wrapper')]
+                    font: //div[contains(@class,'brz-ed-font__name')]
+                    activeFont: //div[contains(@class,'brz-ed-font__name') and contains(@class,'active')]
+                    newFont: //div[contains(@class,'brz-ed-font__typography-adder')]
+                  styles:
+                    self: //div[contains(@class,'brz-ed-control__typography-styles')]
+                    typography:
+                      title: //div[contains(@class,'brz-ed-component__label')]
+                      self: //div[@class='brz-ed-control__font-style']
+                      settings: //div[contains(@class,'brz-ed-control__font-style--settings')]
+                    size:
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Size']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      unit:
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.size.self}//div[@role='combobox']
+                      value:
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.size.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
+                        increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.size.self}//div[contains(@class,'brz-ed-control__stepper--up')]
+                        decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.size.self}//div[contains(@class,'brz-ed-control__stepper--down')]
+                    weight:
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Weight']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.weight.self}//div[@role='combobox']
+                    lineHgt:
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Line Hgt.']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      value:
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
+                        increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--up')]
+                        decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--down')]
+                    letterSp:
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Letter Sp.']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      value:
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
+                        increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--up')]
+                        decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--down')]
                 colors:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Colors']
                   tabs:

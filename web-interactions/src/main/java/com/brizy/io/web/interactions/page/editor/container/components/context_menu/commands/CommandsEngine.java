@@ -19,10 +19,10 @@ public class CommandsEngine {
     public CommandsEngine(Frame locator, RightClickContextProperties properties) {
         this.contextMenuActions = new ArrayList<>();
         contextMenuActions.add(new Copy(locator.locator(properties.getCopy())));
-        contextMenuActions.add(new Paste(locator.locator(properties.getCopy())));
-        contextMenuActions.add(new PasteStyles(locator.locator(properties.getCopy())));
-        contextMenuActions.add(new Duplicate(locator.locator(properties.getCopy())));
-        contextMenuActions.add(new Delete(locator.locator(properties.getCopy())));
+        contextMenuActions.add(new Paste(locator.locator(properties.getPaste())));
+        contextMenuActions.add(new PasteStyles(locator.locator(properties.getPasteStyles())));
+        contextMenuActions.add(new Duplicate(locator.locator(properties.getDuplicate())));
+        contextMenuActions.add(new Delete(locator.locator(properties.getDelete())));
     }
 
     public void doAction(ContextMenuActions contextMenuAction) {

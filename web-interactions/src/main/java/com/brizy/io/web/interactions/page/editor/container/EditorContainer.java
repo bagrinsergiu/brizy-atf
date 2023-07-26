@@ -57,6 +57,7 @@ public class EditorContainer {
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
             Component parentElement = Try.of(() -> sectionToAddElementTo.getComponentByName(element.getParentName())).getOrElse(() -> null);
             sectionToAddElementTo.addComponent(elementToCreate, parentElement, element);
+            mainPage.waitForLoadState(LoadState.DOMCONTENTLOADED);
         }
     }
 
