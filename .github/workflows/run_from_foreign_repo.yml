@@ -39,9 +39,7 @@ jobs:
       #        run: mvn allure:report -pl web-test
 
       - name: List files as tree
-        uses: KengoTODA/gha-tree@v0.3.0
-        with:
-          directory: ${{ github.workspace }}
+        run: ls -a
 
       - name: Get Allure history
         uses: actions/checkout@v2
