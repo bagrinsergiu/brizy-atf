@@ -35,6 +35,9 @@ jobs:
       - name: Run tests
         run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }}
 
+      - name: Generate allure reports
+        run: mvn allure:report -pl web-test
+
       - name: Get Allure history
         uses: actions/checkout@v2
         continue-on-error: true
