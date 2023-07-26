@@ -71,12 +71,6 @@ jobs:
           cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
-          
-          ls -a .
-          
-          ls -a allure-history/
-          
-          ls -a gh-pages/
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
@@ -84,6 +78,9 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./allure-history
+
+      - name: Get allure history content
+        run: ls -a ./allure-history
 
       - name: Post the link to the report
         uses: Sibz/github-status-action@v1
