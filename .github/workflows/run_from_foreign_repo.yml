@@ -72,6 +72,11 @@ jobs:
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
 
+      - name: Copy index html to history folder
+        run: |
+          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}\">" > ./allure-history/index.html # path
+          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html  
+
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
         env:
