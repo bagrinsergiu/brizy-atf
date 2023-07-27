@@ -45,8 +45,53 @@ jobs:
       - name: Generate allure reports
         run: mvn -pl web-test allure:report
 
-      - name: Copy allure results to publish directory
-        run: cp -r ./web-test/target/allure-report allure-history
+      - name: Publish report data
+        run: |
+          INPUT_ALLURE_RESULTS="web-test/target/allure-results"
+          INPUT_ALLURE_REPORT="web-test/target/allure-report"
+          INPUT_GITHUB_RUN_NUM=${{ github.run_number }}
+          INPUT_GH_PAGES="gh-pages-dev"
+          INPUT_ALLURE_HISTORY="gh-pages-dev-history"
+          mkdir -p ./${INPUT_GH_PAGES}
+          mkdir -p ./${INPUT_ALLURE_HISTORY}
+          cp -r ./${INPUT_GH_PAGES}/. ./${INPUT_ALLURE_HISTORY}
+          GITHUB_PAGES_WEBSITE_URL="https://bagrinsergiu.github.io/brizy-atf"
+          COUNT=$( ( ls ./${INPUT_ALLURE_HISTORY} | wc -l ) )
+          echo "count folders in allure-history: ${COUNT}"
+          echo "keep reports count 20"
+          echo "if ${COUNT} > 20"
+          if (( COUNT > 20 )); then
+            cd ./${INPUT_ALLURE_HISTORY}
+            echo "remove index.html last-history"
+            rm index.html last-history -rv
+            echo "remove old reports"
+            ls | sort -n | head -n -$((${INPUT_KEEP_REPORTS}-2)) | xargs rm -rv;
+            cd ${GITHUB_WORKSPACE}
+          fi
+
+          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
+          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./${INPUT_ALLURE_HISTORY}/index.html
+
+          echo '{"name":"GitHub Actions","type":"github","reportName":"Allure Report with history",' > executor.json
+          echo "\"url\":\"${GITHUB_PAGES_WEBSITE_URL}\"," >> executor.json # ???
+          echo "\"reportUrl\":\"${GITHUB_PAGES_WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM}/\"," >> executor.json
+          echo "\"buildUrl\":\"https://github.com/${INPUT_GITHUB_REPO}/actions/runs/${INPUT_GITHUB_RUN_ID}\"," >> executor.json
+          echo "\"buildName\":\"GitHub Actions Run #${INPUT_GITHUB_RUN_ID}\",\"buildOrder\":\"${INPUT_GITHUB_RUN_NUM}\"}" >> executor.json
+          mv ./executor.json ./${INPUT_ALLURE_RESULTS}
+          
+          cp -r ./${INPUT_ALLURE_REPORT}/. ./${INPUT_ALLURE_HISTORY}/${INPUT_GITHUB_RUN_NUM}
+          cp -r ./${INPUT_ALLURE_REPORT}/history/. ./${INPUT_ALLURE_HISTORY}/last-history
+      
+
+      #      - name: Allure Report action from marketplace
+      #        uses: simple-elf/allure-report-action@master
+      #        id: allure-report
+      #        with:
+      #          allure_results: web-test/target/allure-results
+      #          gh_pages: gh-pages
+      #          allure_report: allure-report
+      #          allure_history: allure-history
+      #          keep_reports: 20
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
