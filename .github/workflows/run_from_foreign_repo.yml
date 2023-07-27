@@ -54,42 +54,53 @@ jobs:
       #        run:
       #          mv ./web-test/target/allure-report .
 
-      - name: Copy allure results to publish directory
-        run: |
-          mkdir -p ./gh-pages
-          mkdir -p ./allure-history
-          cp -r ./gh-pages/. ./allure-history
-
-          echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
-          echo "keep reports count 20"
-          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
-          if (( $( ( ls ./allure-history | wc -l ) ) > 21 )); then
-          cd ./allure-history
-          echo "remove index.html last-history"
-          rm index.html last-history -rv
-          echo "remove old reports"
-          ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
-          cd ${GITHUB_WORKSPACE}
-          fi
-
-          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
-          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
-
-          cp -r ./gh-pages/last-history/. ./web-test/target/allure-report/history
-
-          cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
-          echo "copy allure-report history to /allure-history/last-history"
-          cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
-
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './allure-history'
+          path: './web-test/target/allure-report'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+#      - name: Allure Report action from marketplace
+#        uses: simple-elf/allure-report-action@master
+#        id: allure-report
+#        with:
+#          allure_results: web-test/target/allure-results
+#          gh_pages: gh-pages
+#          allure_report: allure-report
+#          allure_history: allure-history
+#          keep_reports: 20
+#          working-directory: .
+
+#      - name: Copy allure results to publish directory
+#        run: |
+#          mkdir -p ./gh-pages
+#          mkdir -p ./allure-history
+#          cp -r ./gh-pages/. ./allure-history
+#
+#          echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
+#          echo "keep reports count 20"
+#          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
+#          if (( $( ( ls ./allure-history | wc -l ) ) > 21 )); then
+#          cd ./allure-history
+#          echo "remove index.html last-history"
+#          rm index.html last-history -rv
+#          echo "remove old reports"
+#          ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
+#          cd ${GITHUB_WORKSPACE}
+#          fi
+#
+#          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
+#          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
+#
+#          cp -r ./gh-pages/last-history/. ./web-test/target/allure-report/history
+#
+#          cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
+#          echo "copy allure-report history to /allure-history/last-history"
+#          cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
 #
 #      - name: Deploy report to Github Pages
       #        uses: peaceiris/actions-gh-pages@v2
@@ -107,4 +118,4 @@ jobs:
           authToken: ${{secrets.PERSONAL_TOKEN}}
           context: 'Test report'
           state: 'success'
-          target_url: https://bagrinsergiu.github.io/brizy-atf/
+          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
