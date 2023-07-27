@@ -45,14 +45,14 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Export directory directory
-        run: export REPO_PATH=$(pwd)
+      - name: get directory
+        run: tree
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: $REPO_PATH/web-test/target/allure-results
+          allure_results: brizy-atf/web-test/target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
