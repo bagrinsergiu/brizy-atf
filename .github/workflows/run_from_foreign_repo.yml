@@ -107,4 +107,4 @@ jobs:
           authToken: ${{secrets.PERSONAL_TOKEN}}
           context: 'Test report'
           state: 'success'
-          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
+          target_url: https://bagrinsergiu.github.io/brizy-atf/
