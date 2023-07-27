@@ -45,12 +45,6 @@ jobs:
       - name: Generate allure reports
         run: mvn -pl web-test allure:report
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: [ self-hosted, builder, office-server ]
-    steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
