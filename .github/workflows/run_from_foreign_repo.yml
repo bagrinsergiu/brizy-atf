@@ -83,12 +83,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./allure-history
-
-      - name: Post the link to the report
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{secrets.PERSONAL_TOKEN}}
-          context: 'Test report'
-          state: 'success'
-          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
+          PUBLISH_DIR: allure-history
