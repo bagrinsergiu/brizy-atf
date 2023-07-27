@@ -8,11 +8,6 @@ on:
         description: Preview Cloud url
         type: string
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   run_tests:
     runs-on: [ self-hosted, builder, office-server ]
@@ -50,16 +45,18 @@ jobs:
       - name: Generate allure reports
         run: mvn -pl web-test allure:report
 
-      #      - name: List files
-      #        run:
-      #          mv ./web-test/target/allure-report .
+      - name: List files
+        run:
+          mv ./web-test/target/allure-report .
 
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './web-test/target/allure-report'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
