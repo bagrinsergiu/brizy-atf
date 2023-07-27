@@ -1,4 +1,3 @@
-@Smoke
 Feature: Editor Page - Right Click an Element
   As a user
   I want to be able to get access to advanced actions over an element

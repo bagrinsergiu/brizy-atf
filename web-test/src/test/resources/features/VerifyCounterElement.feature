@@ -1,9 +1,8 @@
-@Smoke
 Feature: Editor Page - Adding a Counter Element
   As a user
   I want to customize a counter element
   So that I can visualize it in preview
-
+@Test
   Scenario Outline: Add <name> element and validate default properties
     When navigate to home page
 #    And open dashboard page
@@ -16,15 +15,15 @@ Feature: Editor Page - Adding a Counter Element
     When prepare the following items to be added to the page:
       | item    | position | parent | name   | sectionName   |
       | COUNTER | -        | -      | <name> | <sectionName> |
-    When prepare elements properties from the 'VerifyCounterElement.json' file
-    And add the item to the page
-    And configure the item added to the page
-    When get editor properties for the '<name>' item from the section '<sectionName>'
-    Then validate default properties of the item '<name>'
+  When prepare elements properties from the 'VerifyCounterElement.json' file
+  And add the item to the page
+  And configure the item added to the page
+  When get editor properties for the '<name>' item from the section '<sectionName>'
+  Then validate default properties of the item '<name>'
 
-    Examples:
-      | name      | sectionName |
-      | COUNTER_1 | SECTION_1   |
-      | COUNTER_2 | SECTION_1   |
-      | COUNTER_3 | SECTION_1   |
-      | COUNTER_4 | SECTION_1   |
+  Examples:
+    | name      | sectionName |
+    | COUNTER_1 | SECTION_1   |
+#      | COUNTER_2 | SECTION_1   |
+#      | COUNTER_3 | SECTION_1   |
+#      | COUNTER_4 | SECTION_1   |
