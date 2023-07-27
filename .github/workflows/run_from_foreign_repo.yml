@@ -38,8 +38,8 @@ jobs:
       #      - name: Generate allure reports
       #        run: mvn allure:report -pl web-test
 
-      - name: Copy report files
-        run: cp -a /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /github/workspace/web-test/target/allure-results
+      - name: List files as tree
+        run: ls -a web-test/target/
 
       - name: Get Allure history
         uses: actions/checkout@v2
@@ -52,7 +52,7 @@ jobs:
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: web-test/target/allure-results
+          allure_results: /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
