@@ -13,31 +13,34 @@ jobs:
     runs-on: [ self-hosted, builder, office-server ]
 
     steps:
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v4.5
-        with:
-          maven-version: 3.9.3
+      #      - name: Set up Maven
+      #        uses: stCarolas/setup-maven@v4.5
+      #        with:
+      #          maven-version: 3.9.3
+      #
+      #      - uses: actions/checkout@v3
+      #      - name: Set up JDK 17
+      #        uses: actions/setup-java@v3
+      #        with:
+      #          java-version: '17'
+      #          distribution: adopt
+      #          cache: maven
+      #
+      #      - name: Compile and install dependencies
+      #        run: mvn clean compile install -DskipTests
+      #
+      #      - name: Download playwright dependencies
+      #        run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
+      #
+      #      - name: Run tests
+      #        run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Test
 
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: adopt
-          cache: maven
+      #      - name: Generate allure reports
+      #        run: mvn allure:report -pl web-test
 
-      - name: Compile and install dependencies
-        run: mvn clean compile install -DskipTests
-
-      - name: Download playwright dependencies
-        run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
-
-      - name: Run tests
-        run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Test
-
-      - name: Generate allure reports
-        run: mvn allure:report -pl web-test
-
+      #      - name: Copy report files
+      #        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /github/workspace/web-test/target/allure-results
+      #
       - name: Get Allure history
         uses: actions/checkout@v2
         continue-on-error: true
@@ -45,22 +48,20 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Copy report files
-        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
-
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: web-test/target/allure-results
+          #          allure_results: web-test/target/allure-results
+          allure_results: /home/github/
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 100
 
-      - name: Deploy report to Github Pages
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+#      - name: Deploy report to Github Pages
+#        uses: peaceiris/actions-gh-pages@v2
+#        env:
+#          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+#          PUBLISH_BRANCH: gh-pages
+#          PUBLISH_DIR: allure-history
