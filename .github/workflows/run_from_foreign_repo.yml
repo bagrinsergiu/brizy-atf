@@ -105,7 +105,7 @@ jobs:
       - name: Attach Report to foreign repo
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-          repo: bagrinsergiu/blox-editor
+          repo: blox-editor
           number: ${{ github.event.inputs.repoPrId }}
           message: |
             E2E Report: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
