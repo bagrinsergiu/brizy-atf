@@ -13,7 +13,7 @@ jobs:
     runs-on: [ self-hosted, builder, office-server ]
 
     steps:
-      #      - name: Set up Maven
+#      - name: Set up Maven
       #        uses: stCarolas/setup-maven@v4.5
       #        with:
       #          maven-version: 3.9.3
@@ -41,12 +41,12 @@ jobs:
       #      - name: Copy report files
       #        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /github/workspace/web-test/target/allure-results
       #
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+      #      - name: Get Allure history
+      #        uses: actions/checkout@v2
+      #        continue-on-error: true
+      #        with:
+      #          ref: gh-pages
+      #          path: gh-pages
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
