@@ -8,7 +8,7 @@ on:
         description: Preview Cloud url
         type: string
       repoPrId:
-        required: true
+        required: false
         description: The foreign repo pr id
         type: string
 
