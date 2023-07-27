@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Adding a Map Element
   As a user
   I want to add a Map element with different properties

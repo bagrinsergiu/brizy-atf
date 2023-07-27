@@ -38,7 +38,7 @@ jobs:
         run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
-        run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Test
+        run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Smoke
 
       - name: Get Allure history
         uses: actions/checkout@v2
@@ -49,10 +49,6 @@ jobs:
 
       - name: Generate allure reports
         run: mvn -pl web-test allure:report
-
-      #      - name: List files
-      #        run:
-      #          mv ./web-test/target/allure-report .
 
       - name: Copy allure results to publish directory
         run: |
@@ -90,17 +86,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-#
-#      - name: Deploy report to Github Pages
-      #        uses: peaceiris/actions-gh-pages@v2
-      #        env:
-      #          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-      #          PUBLISH_BRANCH: gh-pages
-      #          PUBLISH_DIR: ./allure-history
-      #
-      #      - name: Get allure history content
-      #        run: ls -a ./allure-history
-      #
+
       - name: Post the link to the report
         uses: Sibz/github-status-action@v1
         with:
