@@ -46,7 +46,7 @@ jobs:
         run: mvn -pl web-test allure:report
 
       - name: Copy allure results to publish directory
-        run: cp -r ./web-test/target/allure-report/ allure-history/
+        run: cp -r ./web-test/target/allure-report allure-history
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
