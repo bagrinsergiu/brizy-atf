@@ -49,12 +49,11 @@ jobs:
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: web-test/target/allure-results
+          allure_results: $GITHUB_WORKSPACE/web-test/target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 20
-        run: pwd
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
