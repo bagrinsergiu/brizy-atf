@@ -7,6 +7,10 @@ on:
         required: true
         description: Preview Cloud url
         type: string
+      repoPrId:
+        required: true
+        description: The foreign repo pr id
+        type: string
 
 permissions:
   contents: read
@@ -97,3 +101,11 @@ jobs:
           context: 'Test report'
           state: 'success'
           target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
+
+      - name: Attach Report to foreign repo
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          repo: bagrinsergiu/blox-editor
+          number: ${{ github.event.inputs.repoPrId }}
+          message: |
+            E2E Report: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
