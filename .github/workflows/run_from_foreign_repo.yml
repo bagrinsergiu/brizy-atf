@@ -39,7 +39,7 @@ jobs:
       #        run: mvn allure:report -pl web-test
 
       - name: Copy report files
-        run: cp -aT /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /github/workspace/web-test/target/allure-results
+        run: cp -a /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results /github/workspace/web-test/target/allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v2
