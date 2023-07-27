@@ -52,7 +52,7 @@ jobs:
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: /home/github/runner/brizy-atf/brizy-atf/web-test/target/allure-results
+          allure_results: $REPO_PATH/web-test/target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
