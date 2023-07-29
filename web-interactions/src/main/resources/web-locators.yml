@@ -90,6 +90,7 @@ pages:
       saveDraftButton: ${pages.editor.bottomPanel.self}//button
       saveMenu:
         self: //div[contains(@class,'brz-ed-tooltip__content-portal')]
+        menuItems: ${pages.editor.bottomPanel.saveMenu.self}//div[contains(@class,'brz-ed-tooltip__item')]//span
         clearLayout: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Clear Layout']
         saveLayout: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Save Layout']
         publishPage: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Publish Page']
