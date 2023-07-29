@@ -1,15 +1,14 @@
 package com.brizy.io.web.test.steps.validations;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
+import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
+import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
-import com.brizy.io.web.interactions.page.editor.container.components.Component;
-import com.brizy.io.web.test.enums.StorageKey;
-import com.brizy.io.web.test.exception.ItemNotFoundException;
 import com.brizy.io.web.test.model.ContextMenuItem;
-import com.brizy.io.web.test.model.page.Item;
+import com.brizy.io.web.test.model.EditorBottomPanelItem;
+import com.brizy.io.web.test.model.SaveDraftMenuItem;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -47,7 +46,6 @@ public class ContainerSteps {
                 .isEqualTo(actualProperties);
     }
 
-
     @Then("(validate that )section '{}' contains '{}' items")
     public void sectionSectionNameContainsItems(String sectionName, Integer expectedNumberOfItems) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -68,4 +66,27 @@ public class ContainerSteps {
                 .isEqualTo(expectedItems);
     }
 
+    @Then("validate that the following panel items are displayed:")
+    public void validateThatTheFollowingPanelItemsAreDisplayed(List<EditorBottomPanelItem> expectedPanelItems) {
+        List<EditorBottomPanelItemDto> actualPanelItems = storage.getListValue(EDITOR_BOTTOM_PANEL_ITEMS, EditorBottomPanelItemDto.class);
+        Assertions.assertThat(actualPanelItems)
+                .usingRecursiveComparison()
+                .ignoringActualNullFields()
+                .ignoringExpectedNullFields()
+                .usingDefaultComparator()
+                .describedAs("Expecting to have items displayed on bottom panel")
+                .isEqualTo(expectedPanelItems);
+    }
+
+    @Then("validate that the following items are displayed on save draft menu:")
+    public void validateThatTheFollowingItemsAreDisplayed(List<SaveDraftMenuItem> expectedSaveDraftMenuItems) {
+        List<SaveDraftMenuItemDto> actualSaveDraftMenuItems = storage.getListValue(EDITOR_BOTTOM_PANEL_SAVE_MENU_ITEMS, SaveDraftMenuItemDto.class);
+        Assertions.assertThat(actualSaveDraftMenuItems)
+                .usingRecursiveComparison()
+                .ignoringActualNullFields()
+                .ignoringExpectedNullFields()
+                .usingDefaultComparator()
+                .describedAs("Expecting to have items displayed on save draft menu")
+                .isEqualTo(expectedSaveDraftMenuItems);
+    }
 }

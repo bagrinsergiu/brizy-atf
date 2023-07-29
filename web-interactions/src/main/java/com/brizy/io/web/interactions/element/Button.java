@@ -17,4 +17,16 @@ public class Button {
         locator.click();
     }
 
+    public String tooltip() {
+        return getAttribute("title");
+    }
+
+    public Boolean isEnabled() {
+        return locator.isEnabled();
+    }
+
+    public String getAttribute(String attribute) {
+        return locator.getAttribute(attribute);
+    }
+
 }

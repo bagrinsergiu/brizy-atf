@@ -1,6 +1,8 @@
 package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.common.dto.element.type.ItemType;
+import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
+import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorSaveMenu;
@@ -145,4 +147,17 @@ public class ContainerSteps {
         storage.addValue(StorageKey.MENU_ITEMS, actions);
     }
 
+    @When("get bottom panel items")
+    public void getBottomPanelItems() {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        List<EditorBottomPanelItemDto> items = editorPage.onBottomPanel().getItems();
+        storage.addValue(StorageKey.EDITOR_BOTTOM_PANEL_ITEMS, items);
+    }
+
+    @When("get bottom panel save draft menu items")
+    public void getBottomPanelSaveMenuItems() {
+        EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
+        List<SaveDraftMenuItemDto> items = editorPage.onBottomPanel().openSaveMenu().getItems();
+        storage.addValue(StorageKey.EDITOR_BOTTOM_PANEL_SAVE_MENU_ITEMS, items);
+    }
 }
