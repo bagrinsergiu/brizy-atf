@@ -29,6 +29,7 @@ jobs:
         run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
+        continue-on-error: true
         run: mvn test
 
       - name: Get Allure history

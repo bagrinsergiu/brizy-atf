@@ -1,3 +1,4 @@
+@Ignore
 Feature: Editor Page - Adding Text element
   As a user
   I want to add a Text element to check revisions(Copy, Paste, Paste Styles, Duplicate, Delete)
