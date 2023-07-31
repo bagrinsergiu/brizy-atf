@@ -15,8 +15,10 @@ import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.exception.InvalidScenarioNameException;
 import com.brizy.io.web.test.exception.ItemNotFoundException;
+import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.model.page.FileName;
 import com.brizy.io.web.test.model.page.Item;
+import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.brizy.io.web.test.transformer.ItemTransformer;
 import com.brizy.io.web.test.transformer.MapperTransformerUtil;
@@ -37,11 +39,13 @@ import static java.util.Collections.singletonList;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ContainerSteps {
 
+    ActivePageService activePageService;
     TestDataFileService testDataFileService;
     Storage storage;
 
     @Autowired
-    public ContainerSteps(Storage storage, TestDataFileService testDataFileService) {
+    public ContainerSteps(ActivePageService activePageService, Storage storage, TestDataFileService testDataFileService) {
+        this.activePageService = activePageService;
         this.testDataFileService = testDataFileService;
         this.storage = storage;
     }
@@ -65,15 +69,16 @@ public class ContainerSteps {
         Allure.addAttachment("Properties to add", testDataFileService.getFileContent(properties.getFullName()));
     }
 
+    @Attachment
     @When("add the item(s) to the page")
     public void addTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<SidebarItemDto> sidebarItemsToAdd = MapperTransformerUtil.getSidebarItemsDtoFromPageItems.apply(itemsToAdd);
         editorPage.onPageBuilder()._do().add().items(sidebarItemsToAdd);
-        Allure.addAttachment("Added items", "image/png", new ByteArrayInputStream(editorPage.takeScreenshot()), "png");
     }
 
+    @Attachment
     @When("configure the item(s) added to the page")
     public void configureTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -100,6 +105,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
     }
 
+    @Attachment
     @When("clear the layout")
     public void clearTheLayout() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -108,12 +114,14 @@ public class ContainerSteps {
         editorSaveMenu.switchToDraft();
     }
 
+    @Attachment
     @When("save draft page")
     public void saveDraftPage() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         editorPage.onBottomPanel().saveDraft();
     }
 
+    @Attachment
     @When("publish the page")
     public void publishThePage() {
         Page editorPage = storage.getValue(EDITOR_PAGE, Page.class);
@@ -135,6 +143,7 @@ public class ContainerSteps {
         editorPage.onPageBuilder()._do().findComponent(sectionName, itemName).onContextMenu().execute(contextMenuAction);
     }
 
+    @Attachment
     @When("get context menu items for '{}'")
     public void doGetItems(String itemName) {
         String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()
@@ -147,6 +156,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.MENU_ITEMS, actions);
     }
 
+    @Attachment
     @When("get bottom panel items")
     public void getBottomPanelItems() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -154,6 +164,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.EDITOR_BOTTOM_PANEL_ITEMS, items);
     }
 
+    @Attachment
     @When("get bottom panel save draft menu items")
     public void getBottomPanelSaveMenuItems() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
