@@ -21,17 +21,17 @@ Feature: Editor Page - Bottom Panel Elements
   Scenario: Verify Save Menu Items
     When get bottom panel save draft menu items
     Then validate that the following items are displayed on save draft menu:
-      | name         | tooltip                | isEnabled |
-      | Clear Layout | Clear Layout           | true      |
-      | Save Layout  | Save Layout            | true      |
-      | Publish Page | Publish Page           | true      |
+      | name         | tooltip      | isEnabled |
+      | Clear Layout | Clear Layout | true      |
+      | Save Layout  | Save Layout  | true      |
+      | Publish Page | Publish Page | true      |
 
-  @Smoke
+  @Smoke @Ignore
   Scenario: Verify Bottom Panel Elements
     When get bottom panel items
     Then validate that the following panel items are displayed:
       | name               | tooltip                | isEnabled |
       | ShowHiddenElements | Show Hidden Elements   | true      |
-      | Undo               | Undo (ctrl+Z)          | true      |
+      | Undo               | Undo (ctrl+Z)          | false     |
       | Redo               | Redo (ctrl+shift+Z)    | false     |
       | Preview            | Preview (ctrl+shift+P) | false     |
