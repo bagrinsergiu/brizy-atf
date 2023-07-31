@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components;
 
 import com.brizy.io.web.interactions.page.common.GenericComponent;
-import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ComponentContextMenu;
+import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
@@ -57,9 +57,9 @@ public abstract class Component extends GenericComponent {
         return openAndGetToolbar();
     }
 
-    public ComponentContextMenu onContextMenu() {
+    public ContextMenu onContextMenu() {
         getComponentLocator().click(new Locator.ClickOptions().setButton(RIGHT));
-        return new ComponentContextMenu(frame, componentProperties.getRightClickContext());
+        return new ContextMenu(frame, componentProperties.getRightClickContext());
     }
 
     public GetProperties get() {

@@ -12,6 +12,7 @@ import com.brizy.io.web.test.model.SaveDraftMenuItem;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
@@ -52,7 +53,7 @@ public class ContainerSteps {
         Assertions.assertThat(editorPage.onPageBuilder()._do().getComponents(sectionName))
                 .size()
                 .describedAs("Expecting to have <%d> items on section <%s>", expectedNumberOfItems, sectionName)
-                .isEqualTo(expectedNumberOfItems + 1);
+                .isEqualTo(expectedNumberOfItems);
     }
 
     @When("validate that the following menu items are displayed:")
@@ -88,5 +89,16 @@ public class ContainerSteps {
                 .usingDefaultComparator()
                 .describedAs("Expecting to have items displayed on save draft menu")
                 .isEqualTo(expectedSaveDraftMenuItems);
+    }
+/**
+ * To be used <b>only</b> together with {@link com.brizy.io.web.test.steps.actions.ContainerSteps#getItemPropertiesForCompare(StorageKey, String, String)}
+ */
+    @Then("compare and validate properties for the items")
+    public void compareAndValidatePropertiesForTheItems() {
+        EditorComponentProperty firstToCompare = storage.getValue(FIRST, EditorComponentProperty.class);
+        EditorComponentProperty secondToCompare = storage.getValue(SECOND, EditorComponentProperty.class);
+        Assertions.assertThat(firstToCompare)
+                .describedAs("Expecting to have the same properties after pasting the  styles for both items")
+                .isEqualTo(secondToCompare);
     }
 }

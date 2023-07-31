@@ -43,6 +43,9 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      - name: List all the allure history items
+        run: ls -l gh-pages
+
       - name: Check and clear allure history
         run: |
           mkdir -p ./gh-pages
@@ -84,6 +87,14 @@ jobs:
           cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
+
+      - name: Deploy reports to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
 
       - name: Setup Pages
         uses: actions/configure-pages@v3

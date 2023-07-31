@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.colors.Colors;
-import com.brizy.io.web.common.dto.element.properties.toolbar.settings.Settings;
+import com.brizy.io.web.common.dto.element.properties.toolbar.common.colors.Colors;
+import com.brizy.io.web.common.dto.element.properties.toolbar.common.settings.Settings;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

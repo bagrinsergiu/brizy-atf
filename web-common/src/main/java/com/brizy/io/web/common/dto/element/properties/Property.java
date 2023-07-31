@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.colors.Colors;
-import com.brizy.io.web.common.dto.element.properties.toolbar.settings.Settings;
+import com.brizy.io.web.common.dto.element.properties.toolbar.common.Colors;
+import com.brizy.io.web.common.dto.element.properties.toolbar.common.Settings;
 
 public interface Property {
 
