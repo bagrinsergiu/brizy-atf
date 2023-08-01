@@ -44,9 +44,6 @@ jobs:
       - name: Run tests
         run: mvn test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Smoke
 
-      - name: Generate allure reports
-        run: mvn allure:report -pl web-test
-
       - name: Get Allure history
         if: always()
         uses: actions/checkout@v2
