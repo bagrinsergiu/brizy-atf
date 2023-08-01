@@ -37,20 +37,24 @@ jobs:
         run: mvn test
 
       - name: Get Allure history
+        if: always()
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: gh-pages
-          path: gh-pages
+          ref: gh-pages-dev-branch
+          fetch-depth: '0'
+          path: gh-pages-dev-branch
 
       - name: List all the allure history items
-        run: ls -l gh-pages
+        if: always()
+        run: ls -l gh-pages-dev-branch
 
       - name: Check and clear allure history
+        if: always()
         run: |
-          mkdir -p ./gh-pages
+          mkdir -p ./gh-pages-dev-branch
           mkdir -p ./allure-history
-          cp -r ./gh-pages/. ./allure-history
+          cp -r ./gh-pages-dev-branch/. ./allure-history
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
           echo "keep reports count 20"
@@ -68,6 +72,7 @@ jobs:
           echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
 
       - name: Build executor properties
+        if: always()
         run: |
           echo '{"name":"GitHub Actions","type":"github","reportName":"Brizy Regression run",' > executor.json
           echo "\"url\":\"https://bagrinsergiu.github.io/brizy-atf\"," >> executor.json # ???
@@ -76,39 +81,59 @@ jobs:
           mv ./executor.json ./web-test/target/allure-results
 
       - name: Copy old history to recent allure results folder
+        if: always()
         run: |
-          cp -r ./gh-pages/last-history/. ./web-test/target/allure-results/history
+          cp -r ./gh-pages-dev-branch/last-history/. ./web-test/target/allure-results/history
 
       - name: Generate allure reports
+        if: always()
         run: mvn -pl web-test allure:report
 
       - name: Copy allure results to publish directory
+        if: always()
         run: |
           cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
 
+      - name: List all directories in history
+        if: always()
+        run: ls -l ./allure-history
+
+      #      - name: Deploy reports to Github Pages
+      #        if: always()
+      #        uses: peaceiris/actions-gh-pages@v2
+      #        env:
+      #          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+      #          PUBLISH_BRANCH: gh-pages-dev-branch
+      #          PUBLISH_DIR: ./allure-history
+
       - name: Deploy reports to Github Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: gh-pages-dev-branch
+          folder: allure-history
+          force: true
 
       - name: Setup Pages
+        if: always()
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v2
         with:
           path: './allure-history'
 
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v2
 
       - name: Post the link to the report
+        if: always()
         uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.PERSONAL_TOKEN}}
