@@ -48,53 +48,87 @@ jobs:
         run: mvn allure:report -pl web-test
 
       - name: Get Allure history
+        if: always()
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: gh-pages
-          path: gh-pages
+          ref: gh-pages-main-branch
+          fetch-depth: '0'
+          path: gh-pages-main-branch
 
-      - name: Generate allure reports
-        run: mvn -pl web-test allure:report
-
-      - name: Copy allure results to publish directory
+      - name: Check and clear allure history
+        if: always()
         run: |
-          mkdir -p ./gh-pages
+          mkdir -p ./gh-pages-main-branch
           mkdir -p ./allure-history
-          cp -r ./gh-pages/. ./allure-history
+          cp -r ./gh-pages-main-branch/. ./allure-history
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
           echo "keep reports count 20"
           echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
-          if (( $( ( ls ./allure-history | wc -l ) ) > 21 )); then
-          cd ./allure-history
-          echo "remove index.html last-history"
-          rm index.html last-history -rv
-          echo "remove old reports"
-          ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
-          cd ${GITHUB_WORKSPACE}
+          if (( $( ( ls ./allure-history | wc -l ) ) > 20 )); then
+            cd ./allure-history
+            echo "remove index.html last-history"
+            rm index.html last-history -rv
+            echo "remove old reports"
+            ls | sort -n | head -n -$((23-2)) | xargs rm -rv;
+            cd ..
           fi
 
           echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
           echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
 
-          cp -r ./gh-pages/last-history/. ./web-test/target/allure-report/history
+      - name: Build executor properties
+        if: always()
+        run: |
+          echo '{"name":"GitHub Actions","type":"github","reportName":"Brizy Regression run",' > executor.json
+          echo "\"url\":\"https://bagrinsergiu.github.io/brizy-atf\"," >> executor.json # ???
+          echo "\"reportUrl\":\"https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\"," >> executor.json
+          echo "\"buildUrl\":\"hhttps://github.com/bagrinsergiu/brizy-atf/actions/runs/${{ github.run_id }}\"," >> executor.json
+          mv ./executor.json ./web-test/target/allure-results
 
+      - name: Copy old history to recent allure results folder
+        if: always()
+        run: |
+          cp -r ./gh-pages-main-branch/last-history/. ./web-test/target/allure-results/history          
+
+      - name: Generate allure reports
+        if: always()
+        run: mvn -pl web-test allure:report
+
+      - name: Copy allure results to publish directory
+        if: always()
+        run: |
           cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
 
+      - name: Deploy reports to Github Pages
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: gh-pages-main-branch
+          folder: allure-history
+          force: true
+
       - name: Setup Pages
+        if: always()
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v2
         with:
           path: './allure-history'
+
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v2
 
       - name: Post the link to the report
+        if: always()
         uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.PERSONAL_TOKEN}}
