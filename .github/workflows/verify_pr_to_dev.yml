@@ -41,20 +41,16 @@ jobs:
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: gh-pages-dev-branch
+          ref: allure-reports-history
           fetch-depth: '0'
-          path: gh-pages-dev-branch
-
-      - name: List all the allure history items
-        if: always()
-        run: ls -l gh-pages-dev-branch
+          path: allure-reports-history
 
       - name: Check and clear allure history
         if: always()
         run: |
-          mkdir -p ./gh-pages-dev-branch
+          mkdir -p ./allure-reports-history
           mkdir -p ./allure-history
-          cp -r ./gh-pages-dev-branch/. ./allure-history
+          cp -r ./allure-reports-history/. ./allure-history
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
           echo "keep reports count 20"
@@ -83,7 +79,7 @@ jobs:
       - name: Copy old history to recent allure results folder
         if: always()
         run: |
-          cp -r ./gh-pages-dev-branch/last-history/. ./web-test/target/allure-results/history
+          cp -r ./allure-reports-history/last-history/. ./web-test/target/allure-results/history
 
       - name: Generate allure reports
         if: always()
@@ -96,24 +92,12 @@ jobs:
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
 
-      - name: List all directories in history
-        if: always()
-        run: ls -l ./allure-history
-
-      #      - name: Deploy reports to Github Pages
-      #        if: always()
-      #        uses: peaceiris/actions-gh-pages@v2
-      #        env:
-      #          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-      #          PUBLISH_BRANCH: gh-pages-dev-branch
-      #          PUBLISH_DIR: ./allure-history
-
       - name: Deploy reports to Github Pages
         if: always()
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: gh-pages-dev-branch
+          branch: allure-reports-history
           folder: allure-history
           force: true
 
