@@ -30,7 +30,7 @@ public class PageHooks {
         activePageService.setPage(page);
     }
 
-    @After(order = 90)
+    @After(order = 91)
     public void doClosePage() {
         activePageService.closePage();
     }
