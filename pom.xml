@@ -24,6 +24,7 @@
         <module>web-test-data</module>
         <module>web-reporting</module>
         <module>web-common</module>
+        <module>web-kiwi-tcms</module>
     </modules>
 
     <properties>
@@ -37,6 +38,7 @@
         <model.mapper.version>3.1.1</model.mapper.version>
         <allure.version>2.22.2</allure.version>
         <allure-maven.version>2.12.0</allure-maven.version>
+        <httpclient5.version>5.2.1</httpclient5.version>
     </properties>
 
     <dependencies>
@@ -97,6 +99,11 @@
             <dependency>
                 <groupId>com.brizy.io</groupId>
                 <artifactId>web-test-data</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.brizy.io</groupId>
+                <artifactId>web-kiwi-tcms</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>

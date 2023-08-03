@@ -1,0 +1,57 @@
+serverUrl: https://127.0.0.1/json-rpc/
+credentials:
+  username: brizy-atf
+  password: I*T|je9)8FPdwPEZ
+timeouts:
+  connectionTimeout: 10s
+  readTimeout: 10s
+details:
+  manager:
+    id: 2
+  classification:
+    name: WebSite Builder
+  product:
+    name: Brizy Editor test s
+    classification: ${details.classification.name}
+    description: Brizy Editor is a visual website builder designed to make the process of creating and designing websites easy and intuitive, even for users without extensive technical knowledge.
+  version:
+    value: 1.2.2
+    product: ${details.product.name}
+  build:
+    name: beta1
+    product: ${details.product.name}
+    version: ${details.version.value}
+  testPlan:
+    name: Regression Test Plan ATF
+    product: ${details.product.name}
+    version: ${details.version.value}
+    #    regresssion 11
+    type: 11
+    referenceLink: https://dummy.link.to.resource
+    text: some dummy text
+    notifyAuthor: false
+    notifyTestCaseAuthor: false
+    notifyDefaultTester: false
+    notifyWhenTestPlanIsUpdated: false
+    notifyWhenTestCaseAreUpdated: false
+  testRun:
+    product: ${details.product.name}
+    plan: ${details.testPlan.name}
+    build: ${details.build.name}
+    defaultTester: ${credentials.username}
+    manager: ${details.manager.id}
+  testCase:
+    manager: ${details.manager.id}
+    defaultTester: 3
+    product: ${details.product.name}
+    status: 2
+    author: 3
+    reviewer: ${details.manager.id}
+    priority: 3
+    notifyAuthor: false
+    notifyManagerOfRuns: false
+    notifyAssignees: false
+    notifyDefaultTester: false
+    notifyTesterOfRuns: false
+    notifyWhenTestCaseIsUpdated: false
+    notifyWhenTestCaseIsDeleted: false
