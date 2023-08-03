@@ -65,11 +65,10 @@ jobs:
           echo "if $( ( ls ./allure-history | wc -l ) ) > 10"
           if (( $( ( ls ./allure-history | wc -l ) ) > 10)); then
             cd ./allure-history
-            rm -rf .
-#            echo "remove index.html last-history"
-#            rm index.html last-history -rf
-#            echo "remove old reports"
-#            ls | sort -n | head -n -$((10)) | xargs rm -rf;
+            echo "remove index.html last-history"
+            rm index.html last-history -rf
+            echo "remove old reports"
+            ls | sort -n | head -n -$((10)) | xargs rm -rf;
             cd ..
           fi
 
