@@ -2,7 +2,9 @@ package com.brizy.io.web.test.config;
 
 import com.brizy.io.web.WebDriverConfiguration;
 import com.brizy.io.web.common.WebCommonConfiguration;
+import com.brizy.io.web.common.property.CustomYamlProcessor;
 import com.brizy.io.web.interactions.WebInteractionsConfiguration;
+import com.brizy.io.web.kiwi.tcms.WebKiwiTcmsConfiguration;
 import com.brizy.io.web.reporting.WebReportingConfiguration;
 import com.brizy.io.web.reporting.service.EnvironmentPropertiesWriter;
 import com.brizy.io.web.test.data.WebTestDataConfiguration;
@@ -11,6 +13,7 @@ import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.nio.file.Path;
@@ -19,7 +22,8 @@ import java.util.Map;
 @ContextConfiguration
 @CucumberContextConfiguration
 @EnableAspectJAutoProxy
-@SpringBootTest(classes = {WebInteractionsConfiguration.class, WebTestDataConfiguration.class, WebDriverConfiguration.class, WebCommonConfiguration.class, WebReportingConfiguration.class})
+@PropertySource(value = "classpath:web-test.yml", factory = CustomYamlProcessor.class)
+@SpringBootTest(classes = {WebInteractionsConfiguration.class, WebTestDataConfiguration.class, WebDriverConfiguration.class, WebCommonConfiguration.class, WebReportingConfiguration.class, WebKiwiTcmsConfiguration.class})
 public class BrizyTestsConfig {
 
     @Autowired
