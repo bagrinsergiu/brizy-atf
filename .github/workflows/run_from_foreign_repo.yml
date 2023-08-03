@@ -61,14 +61,14 @@ jobs:
           cp -r ./gh-pages-main-branch/. ./allure-history
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
-          echo "keep reports count 5"
-          echo "if $( ( ls ./allure-history | wc -l ) ) > 5"
-          if (( $( ( ls ./allure-history | wc -l ) ) > 5 )); then
+          echo "keep reports count 10"
+          echo "if $( ( ls ./allure-history | wc -l ) ) > 10"
+          if (( $( ( ls ./allure-history | wc -l ) ) > 10)); then
             cd ./allure-history
             echo "remove index.html last-history"
-            rm index.html last-history -rv
+            rm index.html last-history -rf
             echo "remove old reports"
-            ls | sort -n | head -n -$((7-2)) | xargs rm -rv;
+            ls | sort -n | head -n -$((10)) | xargs rm -rf;
             cd ..
           fi
 
