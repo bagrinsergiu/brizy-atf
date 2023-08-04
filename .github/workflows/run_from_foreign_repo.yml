@@ -62,13 +62,13 @@ jobs:
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
           echo "keep reports count 20"
-          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
-          if (( $( ( ls ./allure-history | wc -l ) ) > 20 )); then
+          echo "if $( ( ls ./allure-history | wc -l ) ) > 11"
+          if (( $( ( ls ./allure-history | wc -l ) ) > 10+1 )); then
             cd ./allure-history
             echo "remove index.html last-history"
-            rm index.html last-history -rv
+            rm index.html last-history -rv 2>/dev/null
             echo "remove old reports"
-            ls | sort -n | head -n -$((23-2)) | xargs rm -rv;
+            ls | sort -n | head -n -$((10-5)) | xargs rm -rv 2>/dev/null
             cd ..
           fi
 
@@ -87,7 +87,7 @@ jobs:
       - name: Copy old history to recent allure results folder
         if: always()
         run: |
-          cp -r ./allure-reports-history/last-history/. ./web-test/target/allure-results/history          
+          cp -r ./gh-pages-main-branch/last-history/. ./web-test/target/allure-results/history 2>/dev/null        
 
       - name: Generate allure reports
         if: always()
