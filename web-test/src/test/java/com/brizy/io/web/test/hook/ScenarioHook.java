@@ -1,7 +1,6 @@
 package com.brizy.io.web.test.hook;
 
 import com.brizy.io.web.test.enums.StorageKey;
-import com.brizy.io.web.test.service.PageService;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

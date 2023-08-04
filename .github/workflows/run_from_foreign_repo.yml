@@ -49,26 +49,26 @@ jobs:
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: gh-pages-main-branch
+          ref: allure-reports-history
           fetch-depth: '0'
-          path: gh-pages-main-branch
+          path: allure-reports-history
 
       - name: Check and clear allure history
         if: always()
         run: |
-          mkdir -p ./gh-pages-main-branch
+          mkdir -p ./allure-reports-history
           mkdir -p ./allure-history
-          cp -r ./gh-pages-main-branch/. ./allure-history
+          cp -r ./allure-reports-history/. ./allure-history
 
           echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
           echo "keep reports count 20"
-          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
+          echo "if $( ( ls ./allure-history | wc -l ) ) > 11"
           if (( $( ( ls ./allure-history | wc -l ) ) > 10+1 )); then
             cd ./allure-history
             echo "remove index.html last-history"
             rm index.html last-history -rv 2>/dev/null
             echo "remove old reports"
-            ls | sort -n | head -n -$((10-2)) | xargs rm -rv 2>/dev/null
+            ls | sort -n | head -n -$((10-5)) | xargs rm -rv 2>/dev/null
             cd ..
           fi
 
@@ -105,7 +105,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: gh-pages-main-branch
+          branch: allure-reports-history
           folder: allure-history
           force: true
 
