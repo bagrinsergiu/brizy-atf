@@ -14,9 +14,9 @@ public class NumberInput {
     Locator locator;
 
     @SneakyThrows
-    public void fill(Integer integer) {
+    public void fill(Number value) {
         locator.clear();
-        locator.fill(integer.toString());
+        locator.fill(value.toString());
         locator.click();
     }
 
