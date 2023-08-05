@@ -77,7 +77,7 @@ jobs:
       - name: Copy old history to recent allure results folder
         if: always()
         run: |
-          cp -r ./gh-pages-main-branch/last-history/. ./web-test/target/allure-results/history 
+          cp -r ./allure-history/last-history/. ./web-test/target/allure-results/history 
 
       - name: Generate allure reports
         if: always()

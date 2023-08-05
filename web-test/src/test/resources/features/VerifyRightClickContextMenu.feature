@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Right-Click Context Menu Actions
   As a user of Brizy application,
   I want to be able to perform various actions on items using the right-click context menu,
