@@ -12,7 +12,6 @@ import lombok.experimental.FieldDefaults;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-
 public class SizeInput {
 
     Supplier<ControlInput> size;
@@ -25,7 +24,7 @@ public class SizeInput {
 
     public void setValue(Size size) {
         this.size.get().fill(Double.valueOf(size.getValue()));
-        this.type.get().selectItem(size.getUnit().name());
+        this.type.get().selectItemByName(size.getUnit().name());
     }
 
     public Size getValue() {

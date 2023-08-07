@@ -105,6 +105,9 @@ jobs:
         if: always()
         uses: actions/configure-pages@v3
 
+      - name: Clean project resources
+        run: mvn clean
+
       - name: Upload artifact
         if: always()
         uses: actions/upload-pages-artifact@v2

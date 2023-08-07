@@ -1,0 +1,47 @@
+[
+  {
+    "scenarioName": "Add image element and validate default properties",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "image": {
+          "image": "",
+          "zoom": 150,
+          "openInLightbox": false
+        },
+        "mask": {
+          "shape": {
+            "type": "Poly3",
+            "shape": "Poly3",
+            "size": {
+              "type": "Custom",
+              "fill": {
+                "value": 315,
+                "unit": "PX"
+              },
+              "position": "Center Center",
+              "repeat": "Repeat"
+            }
+          }
+        }
+      },
+      "colors": {
+        "border": {
+          "color": "#000000",
+          "size": 12
+        }
+      },
+      "settings": {
+        "width": {
+          "value": 400,
+          "unit": "PIXEL"
+        },
+        "height": {
+          "value": 400,
+          "unit": "PIXEL"
+        }
+      }
+    }
+  }
+]

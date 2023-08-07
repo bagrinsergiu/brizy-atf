@@ -29,11 +29,11 @@ public class Settings implements CustomizableSize {
     @Override
     public void with(CanHaveSettings settingsToApply) {
         Size widthToApply = settingsToApply.getWidth();
-        width.get().fill(widthToApply.getValue());
         widthUnit.get().get().pickItem(widthToApply.getUnit().getValue());
+        width.get().fill(widthToApply.getValue());
         Size heightToApply = settingsToApply.getHeight();
-        height.get().fill(heightToApply.getValue());
         heightUnit.get().get().pickItem(heightToApply.getUnit().getValue());
+        height.get().fill(heightToApply.getValue());
     }
 
 }

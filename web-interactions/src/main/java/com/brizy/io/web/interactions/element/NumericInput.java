@@ -9,7 +9,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class NumberInput {
+public class NumericInput {
 
     Locator locator;
 

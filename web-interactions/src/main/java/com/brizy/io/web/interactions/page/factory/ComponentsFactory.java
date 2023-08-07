@@ -18,7 +18,8 @@ public class ComponentsFactory {
                 API.Case(API.$(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new Map(itemProperties, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new Text(itemProperties, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(COUNTER.getValue())), () -> new Counter(itemProperties, frame, locator)),
-                API.Case(API.$(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new Button(itemProperties, frame, locator))
+                API.Case(API.$(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new Button(itemProperties, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new Image(itemProperties, frame, locator))
         );
     }
 

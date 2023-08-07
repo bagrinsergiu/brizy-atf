@@ -12,11 +12,10 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Getter
 public class Counter extends AbstractPropertyType<MapProperties> implements ItemType {
 
-    @Getter
     CounterProperties properties;
-    @Getter
     CounterDefaultProperties defaultProperties;
 
 }
