@@ -48,7 +48,7 @@ public class ActivePageService {
     private void saveRecording() {
         String scenarioName = activeScenarioService.getValue(StorageKey.CURRENT_SCENARIO, Scenario.class).getName();
         Path recordVideoDir = webDriverProperties.getContext().getRecordVideoDir();
-        Path fileToSaveIn = Files.createFile(recordVideoDir.resolve(scenarioName.concat(LocalDateTime.now().toString()).concat(".webm")));
+        Path fileToSaveIn = Files.createFile(recordVideoDir.resolve(scenarioName.concat(String.valueOf(System.currentTimeMillis())).concat(".webm")));
         page.video().saveAs(fileToSaveIn);
     }
 
