@@ -9,7 +9,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Data
 public abstract class AbstractProperty {
-
+    /**
+     * Locator that will help to detect the item on page
+     */
     String self;
 
 }

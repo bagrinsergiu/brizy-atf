@@ -1,6 +1,5 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image;
 
-import com.brizy.io.web.interactions.page.editor.container.components.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.ImageTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.MaskTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
@@ -22,7 +21,7 @@ public class Image {
         this.mask = () -> new MaskTab(properties.getTabs().getMask(), frame);
     }
 
-    public void applyProperties(com.brizy.io.web.common.dto.element.properties.toolbar.image.Image image) {
+    public void applyProperties(com.brizy.io.web.common.dto.element.properties.image.image.Image image) {
         if (Objects.nonNull(image.getImage())) {
             this.image.get().applyProperties(image.getImage());
         }

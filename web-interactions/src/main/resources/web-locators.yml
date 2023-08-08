@@ -76,23 +76,46 @@ pages:
                         decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--down')]
                 colors:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Colors']
-                  normal: //ul[contains(@class,'brz-ed-control__tabs__left']//li[@title='Normal']
-                  hover: //ul[contains(@class,'brz-ed-control__tabs__left']//li[@title='Hover']
+                  normal: //ul[contains(@class,'brz-ed-control__tabs__left')]//li[@title='Normal']
+                  hover: //ul[contains(@class,'brz-ed-control__tabs__left')]//li[@title='Hover']
+                  color:
+                    type: //div[@role='combobox' and ancestor::div[contains(@class,'brz-ed-control__colorPickerSelect--select')]]
+                    gradientType: //div[@role='combobox' and ancestor::div[contains(@class,'brz-ed-control__backgroundColor__gradientType--linear')]]
+                    angle: //div[contains(@class, 'brz-ed-control__backgroundColor--degree')]//input[@type='number']
+                    value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input[@type='text']
                   tabs:
                     self: //ul[contains(@class,'brz-ed-control__tabs')]
                     background:
                       self: //span[text()='Background']
-                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                      type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
+                      gradientType: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.gradientType}
+                      angle: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.angle}
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
                     border:
                       self: //span[text()='Border']
-                      color: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input[@type='text']
                       size: //div[contains(@class, 'brz-ed-control__border__width')]//input[@type='number']
+                      type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
+                      borderWidthControl:
+                        self: //button[contains(@class, 'brz-ed-control__border__widthType')]
+                        right: //div[contains(@class,'brz-ed-control__border__width')]//input[2]
+                        left: //div[contains(@class,'brz-ed-control__border__width')]//input[4]
+                        up: //div[contains(@class,'brz-ed-control__border__width')]//input[1]
+                        down: //div[contains(@class,'brz-ed-control__border__width')]//input[3]
                     shadow:
                       self: //span[text()='Shadow']
-                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
+                      type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
+                      blurRadius: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[1]
+                      verticalOffset: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[3]
+                      horizontalOffset: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[4]
+                      spreadRadius: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[2]
                     overlay:
                       self: //span[text()='Overlay']
-                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                      type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
+                      gradientType: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.gradientType}
+                      angle: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.angle}
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
                 settings:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Settings']
                   width:
