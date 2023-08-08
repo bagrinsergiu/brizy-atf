@@ -16,6 +16,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Component
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 @ScenarioScope
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class Storage {
 
     Map<StorageKey, Object> store;

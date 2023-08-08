@@ -22,6 +22,7 @@ import static java.time.Duration.ZERO;
 import static lombok.AccessLevel.PRIVATE;
 import static org.awaitility.Awaitility.await;
 
+@SuppressWarnings({"unchecked", "ConstantConditions"})
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class EditorContainer {
 
