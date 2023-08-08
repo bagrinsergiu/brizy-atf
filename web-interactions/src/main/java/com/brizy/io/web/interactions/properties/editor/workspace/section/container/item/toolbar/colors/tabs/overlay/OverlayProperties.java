@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.overlay;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColorWithGradient;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,8 +12,5 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class OverlayProperties extends AbstractProperty {
-
-    String value;
-
+public class OverlayProperties extends AbstractColorWithGradient {
 }

@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.shape;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.image.mask.shape.AnyPredefinedMask;
-import com.brizy.io.web.common.dto.element.properties.toolbar.image.mask.size.FillSize;
-import com.brizy.io.web.common.dto.element.properties.toolbar.image.mask.size.FitSize;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.AnyPredefinedMask;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FillSize;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FitSize;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.size.Custom;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.size.Fill;

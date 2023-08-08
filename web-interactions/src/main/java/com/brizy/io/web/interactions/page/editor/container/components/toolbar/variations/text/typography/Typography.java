@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.text.typography.size.Size;
+import com.brizy.io.web.common.dto.element.properties.text.typography.size.Size;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.SizeDto;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.TypographyDto;
 import com.brizy.io.web.interactions.element.ComboBox;
@@ -33,7 +33,7 @@ public class Typography {
         this.weight = () -> new ComboBox(frame.locator(properties.getStyles().getWeight().getValue()));
     }
 
-    public void applyProperties(com.brizy.io.web.common.dto.element.properties.toolbar.text.typography.Typography properties) {
+    public void applyProperties(com.brizy.io.web.common.dto.element.properties.text.typography.Typography properties) {
         fontsMenu.get().selectFont(properties.getFont());
         size.get().setValue(properties.getSize());
         letterSp.get().fill(properties.getLetterSp());

@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
+import static com.brizy.io.web.interactions.constants.TimingConstants.*;
 import static lombok.AccessLevel.PRIVATE;
+import static org.awaitility.Awaitility.await;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
@@ -15,9 +17,15 @@ public class NumericInput {
 
     @SneakyThrows
     public void fill(Number value) {
-        locator.clear();
         locator.fill(value.toString());
-        locator.click();
+//        TODO - need to get the value somehow
+//        await().alias("Wait for numeric input value to be applied")
+//                .atLeast(MIN_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
+//                .and()
+//                .atMost(MAX_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
+//                .pollInSameThread()
+//                .pollInterval(POLL_DELAY_FOR_NUMERIC_VALUE_READ)
+//                .until(() -> Integer.valueOf(getText()).equals(value));
     }
 
     public String getText() {

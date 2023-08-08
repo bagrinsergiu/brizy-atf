@@ -26,12 +26,52 @@
           }
         }
       },
-      "colors": {
-        "border": {
-          "color": "#000000",
-          "size": 12
+      "colors": [
+        {
+          "type": "normal",
+          "overlay": {
+            "type": "solid",
+            "color": "#610000"
+          },
+          "border": {
+            "color": "#000000",
+            "size": 12
+          },
+          "shadow": {
+            "type": "inset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
+        },
+        {
+          "type": "hover",
+          "overlay": {
+            "type": "gradient",
+            "color": "#610000",
+            "gradientType": "Radial",
+            "angle": 10
+          },
+          "border": {
+            "color": "#000000",
+            "size": 12
+          },
+          "shadow": {
+            "type": "outset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
         }
-      },
+      ],
       "settings": {
         "width": {
           "value": 400,
@@ -41,7 +81,8 @@
           "value": 400,
           "unit": "PIXEL"
         }
-      }
+      },
+      "align": "LEFT"
     }
   }
 ]

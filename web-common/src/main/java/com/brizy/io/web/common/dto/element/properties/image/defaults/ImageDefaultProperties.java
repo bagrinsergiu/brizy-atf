@@ -1,8 +1,8 @@
 package com.brizy.io.web.common.dto.element.properties.image.defaults;
 
 import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
-import com.brizy.io.web.common.dto.element.properties.toolbar.image.image.Image;
-import com.brizy.io.web.common.dto.element.properties.toolbar.image.mask.Mask;
+import com.brizy.io.web.common.dto.element.properties.image.image.image.Image;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.Mask;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
