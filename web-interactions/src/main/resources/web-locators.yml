@@ -38,6 +38,7 @@ pages:
                 delete: //div[contains(@class,'react-contexify__item')]//span[text()='Delete']
               toolbar:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
+                align: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Align']
                 typography:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
                   fonts:

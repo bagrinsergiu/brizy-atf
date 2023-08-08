@@ -18,6 +18,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ToolbarProperties {
 
+    String align;
     @NestedConfigurationProperty
     TypographyProperties typography;
     @NestedConfigurationProperty
