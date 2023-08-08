@@ -38,8 +38,8 @@ public class Typography {
         size.get().setValue(properties.getSize());
         letterSp.get().fill(properties.getLetterSp());
         lineHgt.get().fillWithControls(properties.getLineHgt());
-        weight.get().selectItem(properties.getWeight());
-        typography.get().selectItem(properties.getTypography());
+        weight.get().selectItemByName(properties.getWeight());
+        typography.get().selectItemByName(properties.getTypography());
     }
 
     public TypographyDto getProperties() {

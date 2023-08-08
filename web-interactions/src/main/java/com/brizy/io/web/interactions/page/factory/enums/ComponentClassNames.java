@@ -12,7 +12,8 @@ public enum ComponentClassNames {
     MAP("brz-map"),
     COUNTER("brz-counter"),
     TEXT("brz-rich-text"),
-    BUTTON("brz-d-xs-flex");
+    BUTTON("brz-d-xs-flex"),
+    IMAGE("brz-image");
 
     @Getter
     String value;

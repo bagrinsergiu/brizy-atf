@@ -76,6 +76,8 @@ pages:
                         decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--down')]
                 colors:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Colors']
+                  normal: //ul[contains(@class,'brz-ed-control__tabs__left']//li[@title='Normal']
+                  hover: //ul[contains(@class,'brz-ed-control__tabs__left']//li[@title='Hover']
                   tabs:
                     self: //ul[contains(@class,'brz-ed-control__tabs')]
                     background:
@@ -88,15 +90,18 @@ pages:
                     shadow:
                       self: //span[text()='Shadow']
                       value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
+                    overlay:
+                      self: //span[text()='Overlay']
+                      value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input
                 settings:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Settings']
                   width:
-                    value: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='number']
+                    value: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
                     unit:
                       self: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
                       item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
                   height:
-                    value: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='number']
+                    value: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
                     unit:
                       self: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
                       item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
@@ -115,6 +120,26 @@ pages:
                       prefix: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
                       suffix: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
                       separator: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
+                image:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Image']
+                  tabs:
+                    self: //ul[contains(@class,'brz-ed-control__tabs')]
+                    image:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Image']
+                      image: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                      zoom: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
+                      openInLightBox: //span[text()='Open in Lightbox']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__switch')]
+                    mask:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Mask']
+                      shape: //span[text()='Shape']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      size:
+                        common: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__slider-dev')]//div[@role='combobox']
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//input[@type='range']
+                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      repeat: //span[text()='Repeat']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      image: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image}
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
