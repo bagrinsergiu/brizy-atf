@@ -38,6 +38,7 @@ pages:
                 delete: //div[contains(@class,'react-contexify__item')]//span[text()='Delete']
               toolbar:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
+                item: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title]
                 align: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Align']
                 typography:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
@@ -85,7 +86,7 @@ pages:
                     angle: //div[contains(@class, 'brz-ed-control__backgroundColor--degree')]//input[@type='number']
                     value: //div[contains(@class, 'brz-ed-control__color-picker-inputs')]//input[@type='text']
                   tabs:
-                    self: //ul[contains(@class,'brz-ed-control__tabs')]
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     background:
                       self: //span[text()='Background']
                       type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
@@ -147,14 +148,16 @@ pages:
                 image:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Image']
                   tabs:
-                    self: //ul[contains(@class,'brz-ed-control__tabs')]
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     image:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Image']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       image: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__focal-point__upload')]
                       zoom: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
                       openInLightBox: //span[text()='Open in Lightbox']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__switch')]
                     mask:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Mask']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       shape: //span[text()='Shape']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
                       size:
                         common: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]

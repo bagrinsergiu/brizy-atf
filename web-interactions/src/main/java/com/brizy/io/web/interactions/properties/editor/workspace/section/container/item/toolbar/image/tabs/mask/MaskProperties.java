@@ -15,6 +15,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class MaskProperties extends AbstractProperty {
 
+    String configurations;
     String shape;
     @NestedConfigurationProperty
     SizeProperties size;

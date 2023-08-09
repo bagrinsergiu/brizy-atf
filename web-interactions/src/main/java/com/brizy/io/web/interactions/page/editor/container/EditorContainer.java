@@ -66,7 +66,7 @@ public class EditorContainer {
         for (SidebarItemDto element : elements) {
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
             Component foundComponent = sectionToAddElementTo.getComponentByName(element.getElementName());
-            foundComponent.customize().withProperties(element.getComponentProperties());
+            foundComponent.onToolbar().setProperties(element.getComponentProperties());
             mainPage.mouse().click(100, 100);
         }
     }
