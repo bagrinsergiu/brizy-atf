@@ -13,6 +13,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 public class ImageProperties extends AbstractProperty {
 
+    String configurations;
     String image;
     String zoom;
     String openInLightBox;

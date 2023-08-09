@@ -14,7 +14,7 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
     }
 
     @Override
-    public void withProperties(ButtonProperties properties) {
+    public void setProperties(ButtonProperties properties) {
 //        TODO to be implemente
     }
 

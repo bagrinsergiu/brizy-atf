@@ -53,7 +53,7 @@ public abstract class Component extends GenericComponent {
         return getToolbar();
     }
 
-    public ComponentToolbar customize() {
+    public ComponentToolbar onToolbar() {
         return openAndGetToolbar();
     }
 

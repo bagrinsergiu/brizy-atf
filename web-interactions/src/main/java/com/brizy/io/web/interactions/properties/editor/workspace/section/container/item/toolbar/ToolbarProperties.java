@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar;
 
+import com.brizy.io.web.interactions.properties.AbstractProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
@@ -18,6 +19,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ToolbarProperties {
 
+    String item;
     String align;
     @NestedConfigurationProperty
     TypographyProperties typography;

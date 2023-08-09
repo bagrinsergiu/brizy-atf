@@ -1,9 +1,7 @@
 package com.brizy.io.web.common.dto.element.type;
 
-import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
 import com.brizy.io.web.common.dto.element.properties.image.ImageProperties;
-import com.brizy.io.web.common.dto.element.properties.image.defaults.ImageDefaultProperties;
-import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
+import com.brizy.io.web.common.dto.element.properties.image.image.defaults.ImageDefaultProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

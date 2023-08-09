@@ -30,7 +30,7 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
     }
 
     @Override
-    public void withProperties(TextProperties properties) {
+    public void setProperties(TextProperties properties) {
         if (Objects.nonNull(properties) && Objects.nonNull(properties.getTypography())) {
             openTypography();
             typography.get().applyProperties(properties.getTypography());

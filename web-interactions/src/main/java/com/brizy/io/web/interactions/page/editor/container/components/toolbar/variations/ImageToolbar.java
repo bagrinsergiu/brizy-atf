@@ -5,17 +5,21 @@ import com.brizy.io.web.common.dto.element.properties.image.image.align.Aligns;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.enumerable.EnumerableButton;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.Image;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.settings.Settings;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
+import io.vavr.API;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Objects;
 import java.util.function.Supplier;
+
+import static io.vavr.API.$;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ImageToolbar extends ComponentToolbar<ImageProperties> {
@@ -35,16 +39,27 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
         this.align = () -> new EnumerableButton<>(Aligns.values(), properties.getAlign(), frame);
     }
 
-    protected void openImage() {
+    protected Image openImage() {
         imageButton.get().click();
+        return image.get();
     }
 
     @Override
-    public void withProperties(ImageProperties properties) {
+    public IsTabbedPopup openTabbedPopup(String toolbarItemTitle) {
+        return API.Match(toolbarItemTitle.toLowerCase()).of(
+                API.Case($("image"), openImage()),
+                API.Case($("colors"), () -> {
+                    openColors();
+                    return colors.get();
+                })
+        );
+    }
+
+    @Override
+    public void setProperties(ImageProperties properties) {
         if (Objects.nonNull(properties)) {
             if (Objects.nonNull(properties.getImage())) {
-                openImage();
-                image.get().applyProperties(properties.getImage());
+                openImage().applyProperties(properties.getImage());
             }
             if (Objects.nonNull(properties.getColors())) {
                 openColors();

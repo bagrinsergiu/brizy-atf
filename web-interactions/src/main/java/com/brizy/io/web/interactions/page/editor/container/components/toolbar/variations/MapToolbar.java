@@ -23,7 +23,7 @@ public class MapToolbar extends ComponentToolbar<MapProperties> {
     }
 
     @Override
-    public void withProperties(MapProperties properties) {
+    public void setProperties(MapProperties properties) {
         if (Objects.nonNull(properties.getColors())) {
             openColors();
             colorsMenu.get().border().with(properties.getColors());
