@@ -15,6 +15,7 @@ import com.microsoft.playwright.Frame;
 import io.vavr.API;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -22,6 +23,7 @@ import java.util.function.Supplier;
 import static io.vavr.API.$;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@FieldNameConstants
 public class ImageToolbar extends ComponentToolbar<ImageProperties> {
 
     Supplier<Button> imageButton;
@@ -47,8 +49,8 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
     @Override
     public IsTabbedPopup openTabbedPopup(String toolbarItemTitle) {
         return API.Match(toolbarItemTitle.toLowerCase()).of(
-                API.Case($("image"), openImage()),
-                API.Case($("colors"), () -> {
+                API.Case($(Fields.image), openImage()),
+                API.Case($(Fields.colors), () -> {
                     openColors();
                     return colors.get();
                 })

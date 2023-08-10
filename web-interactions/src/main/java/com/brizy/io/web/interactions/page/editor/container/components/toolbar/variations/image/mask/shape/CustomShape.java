@@ -17,7 +17,7 @@ public class CustomShape {
     Supplier<FileUploader> image;
 
     public CustomShape(MaskProperties mask, Frame frame) {
-        this.image = () -> new FileUploader(frame.locator(mask.getImage()));
+        this.image = () -> new FileUploader(frame, mask.getImage());
     }
 
     public void applyProperties(CustomMask customMask) {

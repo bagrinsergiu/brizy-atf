@@ -14,6 +14,7 @@ pages:
           self: //div[contains(@class,'project-settings']//a[contains(@class,'show-more')]
           delete: //a[contains(@class,'confirmation' and text()='Delete']
   editor:
+    alert: //div[@role='alert']//div[not(@class)]
     frame:
       name: brz-ed-iframe
       addButton: //div[contains(@class,'floating-action-button')]
@@ -152,7 +153,10 @@ pages:
                     image:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Image']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      image: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                      image:
+                        self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
                       zoom: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
                       openInLightBox: //span[text()='Open in Lightbox']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__switch')]
                     mask:
@@ -166,7 +170,10 @@ pages:
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//input[@type='range']
                       position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
                       repeat: //span[text()='Repeat']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      image: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image}
+                      image:
+                        self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']

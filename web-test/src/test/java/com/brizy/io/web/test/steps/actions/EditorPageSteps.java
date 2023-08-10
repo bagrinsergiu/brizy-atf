@@ -8,6 +8,7 @@ import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.Page;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.vavr.control.Option;
 import lombok.AccessLevel;
@@ -66,4 +67,9 @@ public class EditorPageSteps {
         storage.addValue(StorageKey.EDITOR_PAGE, page);
     }
 
+    @Then("get alerts displayed on the page")
+    public void getAlertsDisplayedOnThePage() {
+        EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
+        storage.addValue(StorageKey.ALERTS, editorPage.getAlerts());
+    }
 }
