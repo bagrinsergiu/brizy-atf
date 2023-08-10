@@ -6,6 +6,7 @@ import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDt
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
+import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.model.ContextMenuItem;
 import com.brizy.io.web.test.model.EditorBottomPanelItem;
 import com.brizy.io.web.test.model.SaveDraftMenuItem;
@@ -90,9 +91,10 @@ public class ContainerSteps {
                 .describedAs("Expecting to have items displayed on save draft menu")
                 .isEqualTo(expectedSaveDraftMenuItems);
     }
-/**
- * To be used <b>only</b> together with {@link com.brizy.io.web.test.steps.actions.ContainerSteps#getItemPropertiesForCompare(StorageKey, String, String)}
- */
+
+    /**
+     * To be used <b>only</b> together with {@link com.brizy.io.web.test.steps.actions.ContainerSteps#getItemPropertiesForCompare(StorageKey, String, String)}
+     */
     @Then("compare and validate properties for the items")
     public void compareAndValidatePropertiesForTheItems() {
         EditorComponentProperty firstToCompare = storage.getValue(FIRST, EditorComponentProperty.class);
@@ -101,4 +103,21 @@ public class ContainerSteps {
                 .describedAs("Expecting to have the same properties after pasting the  styles for both items")
                 .isEqualTo(secondToCompare);
     }
+
+    @Then("no alerts should be displayed")
+    public void noAlertsShouldBeDisplayed() {
+        List<String> displayedAlerts = storage.getListValue(ALERTS, String.class);
+        Assertions.assertThat(displayedAlerts)
+                .describedAs("Expecting no alerts to be displayed")
+                .isNullOrEmpty();
+    }
+
+    @Then("the following alerts should be displayed:")
+    public void alertsShouldBeDisplayed(List<String> expectedAlertsText) {
+        List<String> displayedAlerts = storage.getListValue(ALERTS, String.class);
+        Assertions.assertThat(expectedAlertsText)
+                .describedAs("Expecting to have displayed the following <%s> alerts", expectedAlertsText)
+                .containsExactlyElementsOf(displayedAlerts);
+    }
+
 }

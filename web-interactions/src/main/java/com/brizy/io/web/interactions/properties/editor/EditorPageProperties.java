@@ -12,6 +12,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class EditorPageProperties {
 
+    String alert;
     @NestedConfigurationProperty
     EditorFrameProperties frame;
     @NestedConfigurationProperty

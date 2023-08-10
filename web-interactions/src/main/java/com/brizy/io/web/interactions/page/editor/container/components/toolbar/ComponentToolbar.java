@@ -49,6 +49,4 @@ public abstract class ComponentToolbar<T extends Property> {
         return null;
     }
 
-    ;
-
 }

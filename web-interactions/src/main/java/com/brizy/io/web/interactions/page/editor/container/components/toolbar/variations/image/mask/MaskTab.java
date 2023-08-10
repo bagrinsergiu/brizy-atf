@@ -3,9 +3,11 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.Mask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.AnyPredefinedMask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.CustomMask;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.ImageTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.shape.CustomShape;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.shape.PredefinedShape;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
@@ -13,11 +15,13 @@ import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@FieldNameConstants
 public class MaskTab implements IsTab {
 
     Supplier<Button> maskTabButton;
@@ -51,9 +55,17 @@ public class MaskTab implements IsTab {
     }
 
     @Override
-    public List<String> getConfigurations() {
+    public List<String> getWebConfigurations() {
         return configurations.get().all().stream()
                 .map(Locator::textContent)
                 .toList();
     }
+
+    @Override
+    public List<Configuration> getConfigurations() {
+        return List.of(
+                Configuration.builder().name(MaskTab.Fields.shapeComboBox).element(shapeComboBox).build()
+        );
+    }
+
 }

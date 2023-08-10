@@ -1,5 +1,89 @@
 [
   {
+    "scenarioName": "Add IMAGE_1 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "None",
+            "shape": "None"
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_2 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_2",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Triangle",
+            "shape": "Triangle",
+            "size": {
+              "type": "Fill"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_3 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_3",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Flower",
+            "shape": "Flower",
+            "size": {
+              "type": "Fit"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_4 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_4",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_5 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_5",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Custom",
+            "shape": "Custom"
+          }
+        }
+      }
+    }
+  },
+  {
     "scenarioName": "Add image element and validate default properties",
     "itemName": "IMAGE_1",
     "elementType": "image",

@@ -7,6 +7,7 @@ import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -24,7 +25,9 @@ public class Custom extends AbstractFitSize {
         CustomSize customSize = (CustomSize) size;
         selectPosition(customSize.getPosition());
         selectRepeat(customSize.getRepeat());
-        this.size.get().setValue(((CustomSize) size).getFill());
+        if (Objects.nonNull(customSize.getFill())) {
+            this.size.get().setValue(customSize.getFill());
+        }
     }
 
 }
