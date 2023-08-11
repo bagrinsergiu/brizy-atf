@@ -17,6 +17,10 @@ public class Button {
         locator.click();
     }
 
+    public Boolean isActive() {
+        return getAttribute("class").contains("active");
+    }
+
     public String tooltip() {
         return getAttribute("title");
     }
