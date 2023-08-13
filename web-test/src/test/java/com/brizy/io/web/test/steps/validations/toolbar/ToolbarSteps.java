@@ -11,6 +11,8 @@ import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
+import static com.brizy.io.web.test.enums.StorageKey.DROPDOWN_ITEMS;
+
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ToolbarSteps {
 
@@ -37,6 +39,15 @@ public class ToolbarSteps {
                 .extracting(String::trim)
                 .describedAs("Expecting to have the following tabs <%s> displayed on the popup", expectedTabsToBeDisplayed)
                 .containsExactlyElementsOf(actualTabsToBeDisplayed);
+    }
+
+    @Attachment
+    @Then("dropdown contains the following values:")
+    public void dropdownShouldContainsTheFollowingValues(List<String> expectedDropdownValues) {
+        List<String> actualValues = storage.getListValue(DROPDOWN_ITEMS, String.class);
+        Assertions.assertThat(expectedDropdownValues)
+                .describedAs("Expecting the following dropdown values: <%s>", expectedDropdownValues)
+                .containsExactlyElementsOf(actualValues);
     }
 
 }
