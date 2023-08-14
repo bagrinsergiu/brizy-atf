@@ -50,7 +50,6 @@ jobs:
         continue-on-error: true
         with:
           ref: gh-pages-main-branch
-          fetch-depth: '0'
           path: gh-pages-main-branch
 
       - name: Check and clear allure history
