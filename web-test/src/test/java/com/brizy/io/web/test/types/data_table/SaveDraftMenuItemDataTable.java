@@ -1,6 +1,5 @@
 package com.brizy.io.web.test.types.data_table;
 
-import com.brizy.io.web.test.model.EditorBottomPanelItem;
 import com.brizy.io.web.test.model.SaveDraftMenuItem;
 import io.cucumber.java.DataTableType;
 import lombok.SneakyThrows;

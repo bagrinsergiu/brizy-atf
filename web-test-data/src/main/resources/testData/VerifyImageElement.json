@@ -84,7 +84,7 @@
     }
   },
   {
-    "scenarioName": "Validate shape dropdown items",
+    "scenarioName": "Validate shape dropdown items in mask tab",
     "itemName": "IMAGE_1",
     "elementType": "image",
     "properties": {
@@ -93,6 +93,78 @@
           "shape": {
             "type": "None",
             "shape": "None"
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate size dropdown items in mask tab",
+    "itemName": "IMAGE_4",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate position dropdown items in mask tab",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Fill"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate repeat dropdown items in mask tab",
+    "itemName": "IMAGE_2",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Poly1",
+            "shape": "Poly1",
+            "size": {
+              "type": "Fit"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate size units dropdown items in mask tab",
+    "itemName": "IMAGE_3",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Poly2",
+            "shape": "Poly2",
+            "size": {
+              "type": "Custom"
+            }
           }
         }
       }

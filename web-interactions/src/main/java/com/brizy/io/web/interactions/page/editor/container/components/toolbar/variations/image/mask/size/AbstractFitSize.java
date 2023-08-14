@@ -5,11 +5,13 @@ import com.brizy.io.web.interactions.properties.editor.workspace.section.contain
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.Objects;
 import java.util.function.Supplier;
 
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@FieldNameConstants
+@FieldDefaults(makeFinal = true, level = AccessLevel.PROTECTED)
 public abstract class AbstractFitSize extends AbstractSize {
 
     Supplier<ComboBox> repeat;

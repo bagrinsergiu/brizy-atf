@@ -10,7 +10,6 @@ import lombok.experimental.FieldDefaults;
 import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;
-import static org.awaitility.Awaitility.await;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)

@@ -1,7 +1,6 @@
 package com.brizy.io.web.common.dto.element.type;
 
 import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
-import com.brizy.io.web.common.dto.element.properties.map.MapProperties;
 import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

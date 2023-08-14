@@ -1,10 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container;
 
-import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
+import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.properties.editor.EditorFrameProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.LoadState;

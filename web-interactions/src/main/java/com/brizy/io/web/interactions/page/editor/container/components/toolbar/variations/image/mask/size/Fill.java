@@ -2,10 +2,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FillSize;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.Size;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Fill extends AbstractSize {
@@ -18,6 +21,10 @@ public class Fill extends AbstractSize {
     public void applyProperties(Size size) {
         FillSize fillSize = (FillSize) size;
         selectPosition(fillSize.getPosition());
+    }
+
+    public List<Configuration> getConfigurations() {
+        return List.of(Configuration.builder().name(Fields.position).element(position).build());
     }
 
 }

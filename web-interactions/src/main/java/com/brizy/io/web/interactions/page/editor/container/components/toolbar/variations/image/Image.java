@@ -7,7 +7,6 @@ import com.brizy.io.web.interactions.page.editor.container.components.toolbar.va
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.options.AriaRole;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 

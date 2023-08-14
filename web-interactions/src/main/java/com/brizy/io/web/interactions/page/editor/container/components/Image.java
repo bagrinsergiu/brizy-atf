@@ -2,7 +2,6 @@ package com.brizy.io.web.interactions.page.editor.container.components;
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.ImageToolbar;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.TextToolbar;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;

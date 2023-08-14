@@ -1,7 +1,6 @@
 package com.brizy.io.web.interactions.element;
 
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.options.AriaRole;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 

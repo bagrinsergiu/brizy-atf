@@ -2,8 +2,6 @@ package com.brizy.io.web.interactions.enums;
 
 import io.vavr.control.Try;
 
-import java.util.Optional;
-
 public enum ContextMenuActions {
 
     COPY,

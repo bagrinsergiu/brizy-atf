@@ -1,6 +1,9 @@
 package com.brizy.io.web.common.dto.element.properties.image.image.mask.size;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor

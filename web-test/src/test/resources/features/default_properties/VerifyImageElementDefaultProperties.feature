@@ -70,7 +70,7 @@ Feature: Editor Page - Image Default Settings
       | Mask      | Image       | IMAGE_4 | SECTION_1   | Shape, Size, Position, Repeat |
       | Mask      | Image       | IMAGE_5 | SECTION_1   | Shape, Image                  |
 
-  Scenario Outline: Validate shape dropdown items
+  Scenario Outline: Validate shape dropdown items in mask tab
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
@@ -78,7 +78,7 @@ Feature: Editor Page - Image Default Settings
     And add the item to the page
     And configure the item added to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
-    And get the content of 'shape' dropdown
+    And get value content of 'shape' dropdown
     Then dropdown contains the following values:
       | none     |
       | circle   |
@@ -105,3 +105,85 @@ Feature: Editor Page - Image Default Settings
     Examples:
       | tabToOpen | toolbarItem | name    | sectionName |
       | Mask      | Image       | IMAGE_1 | SECTION_1   |
+
+
+  Scenario Outline: Validate size dropdown items in mask tab
+    When prepare the following items to be added to the page:
+      | item  | position | parent | name   | sectionName   |
+      | IMAGE | -        | -      | <name> | <sectionName> |
+    When prepare elements properties from the 'VerifyImageElement.json' file
+    And add the item to the page
+    And configure the item added to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    And get text content of 'size' dropdown
+    Then dropdown contains the following values:
+      | Fit    |
+      | Fill   |
+      | Custom |
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName |
+      | Mask      | Image       | IMAGE_4 | SECTION_1   |
+
+  Scenario Outline: Validate position dropdown items in mask tab
+    When prepare the following items to be added to the page:
+      | item  | position | parent | name   | sectionName   |
+      | IMAGE | -        | -      | <name> | <sectionName> |
+    When prepare elements properties from the 'VerifyImageElement.json' file
+    And add the item to the page
+    And configure the item added to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    And get text content of 'position' dropdown
+    Then dropdown contains the following values:
+      | Center Center |
+      | Center Left   |
+      | Center Right  |
+      | Top Center    |
+      | Top Right     |
+      | Top Left      |
+      | Bottom Center |
+      | Bottom Left   |
+      | Bottom Right  |
+      | Custom        |
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName |
+      | Mask      | Image       | IMAGE_1 | SECTION_1   |
+
+  Scenario Outline: Validate repeat dropdown items in mask tab
+    When prepare the following items to be added to the page:
+      | item  | position | parent | name   | sectionName   |
+      | IMAGE | -        | -      | <name> | <sectionName> |
+    When prepare elements properties from the 'VerifyImageElement.json' file
+    And add the item to the page
+    And configure the item added to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    And get text content of 'repeat' dropdown
+    Then dropdown contains the following values:
+      | No Repeat |
+      | Repeat    |
+      | Repeat-X  |
+      | Repeat-Y  |
+      | Space     |
+      | Round     |
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName |
+      | Mask      | Image       | IMAGE_2 | SECTION_1   |
+
+  Scenario Outline: Validate size units dropdown items in mask tab
+    When prepare the following items to be added to the page:
+      | item  | position | parent | name   | sectionName   |
+      | IMAGE | -        | -      | <name> | <sectionName> |
+    When prepare elements properties from the 'VerifyImageElement.json' file
+    And add the item to the page
+    And configure the item added to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    And get text content of 'sizeUnit' dropdown
+    Then dropdown contains the following values:
+      | %  |
+      | px |
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName |
+      | Mask      | Image       | IMAGE_3 | SECTION_1   |

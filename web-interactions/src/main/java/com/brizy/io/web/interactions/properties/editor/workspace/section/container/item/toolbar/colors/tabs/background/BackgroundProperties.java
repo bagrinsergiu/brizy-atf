@@ -1,6 +1,5 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.background;
 
-import com.brizy.io.web.interactions.properties.AbstractProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColorWithGradient;
 import lombok.AccessLevel;
 import lombok.Data;

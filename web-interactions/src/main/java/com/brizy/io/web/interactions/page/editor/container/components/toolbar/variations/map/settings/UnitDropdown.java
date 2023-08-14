@@ -7,7 +7,6 @@ import com.microsoft.playwright.Frame;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;

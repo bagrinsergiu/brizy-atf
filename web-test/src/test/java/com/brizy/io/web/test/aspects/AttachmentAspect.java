@@ -2,12 +2,9 @@ package com.brizy.io.web.test.aspects;
 
 import com.brizy.io.web.test.service.ActivePageService;
 import com.microsoft.playwright.Page;
-import io.qameta.allure.Allure;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,14 +12,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
-import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.getLifecycle;
 

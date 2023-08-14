@@ -1,10 +1,9 @@
 package com.brizy.io.web.common.dto.element.properties.image.colors;
 
-import com.brizy.io.web.common.dto.element.properties.common.Colors;
-import com.brizy.io.web.common.dto.element.properties.common.colors.border.Border;
-import com.brizy.io.web.common.dto.element.properties.image.colors.overlay.Overlay;
-import com.brizy.io.web.common.dto.element.properties.image.image.shadow.CanHaveShadow;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 @EqualsAndHashCode(callSuper = false)

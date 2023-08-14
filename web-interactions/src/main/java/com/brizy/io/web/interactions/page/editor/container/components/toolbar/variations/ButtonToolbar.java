@@ -1,9 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
-import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
 

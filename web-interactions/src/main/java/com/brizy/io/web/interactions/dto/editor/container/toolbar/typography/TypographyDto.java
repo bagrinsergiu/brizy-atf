@@ -1,7 +1,9 @@
 package com.brizy.io.web.interactions.dto.editor.container.toolbar.typography;
 
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
