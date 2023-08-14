@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Adding an Image Element
   As a user
   I want to customize an image element

@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Image Default Settings
   As a user
   I want to customize an image element

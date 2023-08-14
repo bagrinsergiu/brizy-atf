@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Image Toolbar
   As a user
   I want to customize an image element

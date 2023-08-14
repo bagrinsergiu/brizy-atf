@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Adding a Counter Element
   As a user
   I want to customize a counter element
