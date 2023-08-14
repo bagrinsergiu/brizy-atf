@@ -84,6 +84,21 @@
     }
   },
   {
+    "scenarioName": "Validate shape dropdown items",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "None",
+            "shape": "None"
+          }
+        }
+      }
+    }
+  },
+  {
     "scenarioName": "Add image element and validate default properties",
     "itemName": "IMAGE_1",
     "elementType": "image",

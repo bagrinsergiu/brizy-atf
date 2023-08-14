@@ -37,4 +37,5 @@ public class ImageToolbarSteps {
                 .describedAs("Expecting to have the following configurations <%s> ", configurationToBeDisplayed)
                 .containsExactlyElementsOf(actualDisplayedConfigurations);
     }
+
 }
