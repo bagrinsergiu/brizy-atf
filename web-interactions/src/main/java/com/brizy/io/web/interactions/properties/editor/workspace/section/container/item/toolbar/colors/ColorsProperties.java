@@ -16,6 +16,8 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ColorsProperties extends AbstractProperty {
 
+    String normal;
+    String hover;
     @NestedConfigurationProperty
     TabsProperties tabs;
 

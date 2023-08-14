@@ -1,10 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container;
 
+import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
+import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.EmptyContainer;
 import com.brizy.io.web.interactions.page.factory.ComponentsFactory;
-import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
-import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.SectionProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;

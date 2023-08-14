@@ -1,10 +1,9 @@
 package com.brizy.io.web.test.steps.actions;
 
-import com.brizy.io.web.interactions.page.dashboard.projects.Project;
 import com.brizy.io.web.interactions.page.dashboard.DashboardPage;
+import com.brizy.io.web.interactions.page.dashboard.projects.Project;
 import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.interactions.properties.dashboard.DashboardPageProperties;
-import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.Page;

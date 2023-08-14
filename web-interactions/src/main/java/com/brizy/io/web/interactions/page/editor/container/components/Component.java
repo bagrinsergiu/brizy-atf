@@ -1,13 +1,13 @@
 package com.brizy.io.web.interactions.page.editor.container.components;
 
-import com.brizy.io.web.interactions.page.common.GenericComponent;
-import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
+import com.brizy.io.web.interactions.page.common.GenericComponent;
+import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
@@ -53,7 +53,7 @@ public abstract class Component extends GenericComponent {
         return getToolbar();
     }
 
-    public ComponentToolbar customize() {
+    public ComponentToolbar onToolbar() {
         return openAndGetToolbar();
     }
 

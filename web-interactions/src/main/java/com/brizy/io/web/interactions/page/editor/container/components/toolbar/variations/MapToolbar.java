@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
 import com.brizy.io.web.common.dto.element.properties.map.MapProperties;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.settings.Settings;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
@@ -23,7 +23,7 @@ public class MapToolbar extends ComponentToolbar<MapProperties> {
     }
 
     @Override
-    public void withProperties(MapProperties properties) {
+    public void setProperties(MapProperties properties) {
         if (Objects.nonNull(properties.getColors())) {
             openColors();
             colorsMenu.get().border().with(properties.getColors());

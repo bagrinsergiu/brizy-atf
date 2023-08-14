@@ -1,6 +1,5 @@
 package com.brizy.io.web.kiwi.tcms.properties.api;
 
-import com.brizy.io.web.kiwi.tcms.properties.base.details.TestPlanProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;

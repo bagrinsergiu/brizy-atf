@@ -1,0 +1,259 @@
+[
+  {
+    "scenarioName": "Add IMAGE_1 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "None",
+            "shape": "None"
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_2 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_2",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Triangle",
+            "shape": "Triangle",
+            "size": {
+              "type": "Fill"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_3 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_3",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Flower",
+            "shape": "Flower",
+            "size": {
+              "type": "Fit"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_4 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_4",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add IMAGE_5 element and validate configurations inside image popup in mask tab",
+    "itemName": "IMAGE_5",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Custom",
+            "shape": "Custom"
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate shape dropdown items in mask tab",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "None",
+            "shape": "None"
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate size dropdown items in mask tab",
+    "itemName": "IMAGE_4",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate position dropdown items in mask tab",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Square",
+            "shape": "Square",
+            "size": {
+              "type": "Fill"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate repeat dropdown items in mask tab",
+    "itemName": "IMAGE_2",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Poly1",
+            "shape": "Poly1",
+            "size": {
+              "type": "Fit"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate size units dropdown items in mask tab",
+    "itemName": "IMAGE_3",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "mask": {
+          "shape": {
+            "type": "Poly2",
+            "shape": "Poly2",
+            "size": {
+              "type": "Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add image element and validate default properties",
+    "itemName": "IMAGE_1",
+    "elementType": "image",
+    "properties": {
+      "image": {
+        "image": {
+          "image": "",
+          "zoom": 150,
+          "openInLightbox": false
+        },
+        "mask": {
+          "shape": {
+            "type": "Poly3",
+            "shape": "Poly3",
+            "size": {
+              "type": "Custom",
+              "fill": {
+                "value": 315,
+                "unit": "PX"
+              },
+              "position": "Center Center",
+              "repeat": "Repeat"
+            }
+          }
+        }
+      },
+      "colors": [
+        {
+          "type": "normal",
+          "overlay": {
+            "type": "solid",
+            "color": "#610000"
+          },
+          "border": {
+            "color": "#000000",
+            "size": 12
+          },
+          "shadow": {
+            "type": "inset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
+        },
+        {
+          "type": "hover",
+          "overlay": {
+            "type": "gradient",
+            "color": "#610000",
+            "gradientType": "Radial",
+            "angle": 10
+          },
+          "border": {
+            "color": "#000000",
+            "size": 12
+          },
+          "shadow": {
+            "type": "outset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
+        }
+      ],
+      "settings": {
+        "width": {
+          "value": 400,
+          "unit": "PIXEL"
+        },
+        "height": {
+          "value": 400,
+          "unit": "PIXEL"
+        }
+      },
+      "align": "JUSTIFY"
+    }
+  }
+]

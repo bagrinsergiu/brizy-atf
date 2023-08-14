@@ -2,7 +2,6 @@ package com.brizy.io.web.interactions.page;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 

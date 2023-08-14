@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.dto.editor.container.toolbar.typography;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.text.typography.size.Units;
+import com.brizy.io.web.common.dto.element.properties.text.typography.size.Units;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;

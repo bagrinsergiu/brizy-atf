@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @NoArgsConstructor(force = true)
+@SuppressWarnings({"unchecked", "ConstantConditions"})
 @RequiredArgsConstructor
 public abstract class AbstractService {
 

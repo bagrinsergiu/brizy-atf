@@ -2,12 +2,10 @@ package com.brizy.io.web.common.dto.element.properties.counter;
 
 import com.brizy.io.web.common.dto.element.properties.AbstractProperty;
 import com.brizy.io.web.common.dto.element.properties.Property;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Data

@@ -1,7 +1,6 @@
 package com.brizy.io.web.interactions.page.publish;
 
 import com.brizy.io.web.interactions.page.AbstractPage;
-import com.brizy.io.web.interactions.page.publish.Section;
 import com.brizy.io.web.interactions.properties.publish.PublishPageProperties;
 import com.brizy.io.web.interactions.properties.publish.SectionProperties;
 import com.microsoft.playwright.Locator;

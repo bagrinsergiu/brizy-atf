@@ -12,7 +12,6 @@ import com.brizy.io.web.kiwi.tcms.properties.api.KiwiTcmsApiProperties;
 import com.brizy.io.web.kiwi.tcms.properties.base.KiwiTcmsBaseProperties;
 import com.brizy.io.web.kiwi.tcms.properties.base.details.ClassificationProperties;
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
