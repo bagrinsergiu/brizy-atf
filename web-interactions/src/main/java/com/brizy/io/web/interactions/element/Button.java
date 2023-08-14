@@ -21,6 +21,10 @@ public class Button {
         return getAttribute("title");
     }
 
+    public String innerHtml() {
+        return locator.innerHTML();
+    }
+
     public Boolean isEnabled() {
         return locator.isEnabled();
     }

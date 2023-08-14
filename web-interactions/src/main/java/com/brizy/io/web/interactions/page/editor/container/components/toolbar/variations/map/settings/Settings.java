@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.settings;
 
-import com.brizy.io.web.common.dto.element.properties.toolbar.common.settings.CanHaveSettings;
-import com.brizy.io.web.common.dto.element.properties.toolbar.common.settings.Size;
+import com.brizy.io.web.common.dto.element.properties.common.settings.CanHaveSettings;
+import com.brizy.io.web.common.dto.element.properties.common.settings.Size;
 import com.brizy.io.web.interactions.element.RangeInput;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.CustomizableSize;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.SettingsProperties;
@@ -29,11 +29,11 @@ public class Settings implements CustomizableSize {
     @Override
     public void with(CanHaveSettings settingsToApply) {
         Size widthToApply = settingsToApply.getWidth();
-        width.get().fill(widthToApply.getValue());
         widthUnit.get().get().pickItem(widthToApply.getUnit().getValue());
+        width.get().fill(widthToApply.getValue());
         Size heightToApply = settingsToApply.getHeight();
-        height.get().fill(heightToApply.getValue());
         heightUnit.get().get().pickItem(heightToApply.getUnit().getValue());
+        height.get().fill(heightToApply.getValue());
     }
 
 }

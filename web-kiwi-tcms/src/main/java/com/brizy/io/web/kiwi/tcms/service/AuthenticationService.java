@@ -1,7 +1,6 @@
 package com.brizy.io.web.kiwi.tcms.service;
 
 import com.brizy.io.web.kiwi.tcms.client.interceptor.CookiesValues;
-import com.brizy.io.web.kiwi.tcms.dto.JsonRpcDto;
 import com.brizy.io.web.kiwi.tcms.dto.request.LoginDto;
 import com.brizy.io.web.kiwi.tcms.dto.request.LoginRequestDto;
 import com.brizy.io.web.kiwi.tcms.properties.base.KiwiTcmsBaseProperties;

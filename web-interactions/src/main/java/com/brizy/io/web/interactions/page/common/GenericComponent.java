@@ -4,22 +4,17 @@ import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.ElementSizeDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.*;
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.BoundingBox;
 import io.vavr.API;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-import org.apache.commons.lang3.StringUtils;
 
-import java.awt.*;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static java.lang.Integer.*;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public abstract class GenericComponent {

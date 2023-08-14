@@ -1,28 +1,26 @@
 package com.brizy.io.web.interactions.element.composite;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.element.NumberInput;
+import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.styles.common.ValueProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.time.Duration;
 import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;
-import static org.awaitility.Awaitility.await;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class ControlInput {
 
-    Supplier<NumberInput> value;
+    Supplier<NumericInput> value;
     Supplier<Button> increase;
     Supplier<Button> decrease;
 
     public ControlInput(ValueProperties properties, Frame frame) {
-        this.value = () -> new NumberInput(frame.locator(properties.getValue()));
+        this.value = () -> new NumericInput(frame.locator(properties.getValue()));
         this.increase = () -> new Button(frame.locator(properties.getIncrease()));
         this.decrease = () -> new Button(frame.locator(properties.getDecrease()));
     }

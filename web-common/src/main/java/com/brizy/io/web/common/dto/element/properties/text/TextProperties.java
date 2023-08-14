@@ -1,9 +1,8 @@
 package com.brizy.io.web.common.dto.element.properties.text;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
-import com.brizy.io.web.common.dto.element.properties.toolbar.common.settings.Settings;
-import com.brizy.io.web.common.dto.element.properties.toolbar.text.typography.Typography;
-import com.brizy.io.web.common.dto.element.properties.toolbar.text.colors.Colors;
+import com.brizy.io.web.common.dto.element.properties.text.colors.Colors;
+import com.brizy.io.web.common.dto.element.properties.text.typography.Typography;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,15 +22,5 @@ public class TextProperties implements Property {
     Boolean underline;
     Boolean strike;
     Boolean uppercase;
-
-    @Override
-    public Colors getColors() {
-        return null;
-    }
-
-    @Override
-    public Settings getSettings() {
-        return null;
-    }
 
 }

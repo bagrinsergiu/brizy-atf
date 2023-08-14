@@ -3,15 +3,15 @@ package com.brizy.io.web.test.steps.actions;
 import com.brizy.io.web.common.dto.element.type.ItemType;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
-import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
-import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
-import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorSaveMenu;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
+import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
-import com.brizy.io.web.interactions.page.editor.EditorPage;
-import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.interactions.enums.ContextMenuActions;
+import com.brizy.io.web.interactions.page.editor.EditorPage;
+import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
+import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorSaveMenu;
+import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.exception.InvalidScenarioNameException;
 import com.brizy.io.web.test.exception.ItemNotFoundException;
@@ -30,7 +30,6 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.*;

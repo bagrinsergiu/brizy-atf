@@ -3,6 +3,7 @@ package com.brizy.io.web.interactions.properties.editor.workspace.section.contai
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.background.BackgroundProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.overlay.OverlayProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.shadow.ShadowProperties;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -23,5 +24,7 @@ public class TabsProperties extends AbstractProperty {
     BorderProperties border;
     @NestedConfigurationProperty
     ShadowProperties shadow;
+    @NestedConfigurationProperty
+    OverlayProperties overlay;
 
 }

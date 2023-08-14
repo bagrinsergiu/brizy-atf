@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 @SuperBuilder(toBuilder = true)
 public class JsonRpcDto {
 

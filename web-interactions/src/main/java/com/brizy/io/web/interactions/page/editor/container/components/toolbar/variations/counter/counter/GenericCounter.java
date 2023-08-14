@@ -2,10 +2,10 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.counter.Counter;
 import com.brizy.io.web.common.dto.element.properties.counter.enums.StypeType;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.enums.Types;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.tab.Style;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.CounterPropertyDto;
 import com.brizy.io.web.interactions.element.Button;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.enums.Types;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.tab.Style;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.TabsProperties;
 import com.microsoft.playwright.Frame;

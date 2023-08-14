@@ -1,8 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.counter.defaults;
 
-import com.brizy.io.web.common.dto.element.properties.AbstractProperty;
 import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
-import com.brizy.io.web.common.dto.element.properties.Property;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

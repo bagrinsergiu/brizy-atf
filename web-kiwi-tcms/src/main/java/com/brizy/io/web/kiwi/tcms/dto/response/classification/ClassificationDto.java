@@ -1,6 +1,5 @@
 package com.brizy.io.web.kiwi.tcms.dto.response.classification;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data

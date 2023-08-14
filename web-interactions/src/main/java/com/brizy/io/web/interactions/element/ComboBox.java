@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -20,18 +22,30 @@ public class ComboBox {
         locator.click();
     }
 
-    public void selectItem(String itemName) {
+    public void selectItemByName(String itemName) {
         open();
-        Locator byText = locator.getByRole(AriaRole.OPTION,  new Locator.GetByRoleOptions().setName(itemName).setExact(true));
+        Locator byText = locator.getByRole(AriaRole.OPTION, new Locator.GetByRoleOptions().setName(itemName).setExact(true));
         byText.scrollIntoViewIfNeeded();
         byText.click();
     }
 
-    public List<String> items() {
+    public void selectItemByValue(String value) {
+        open();
+        Locator byText = locator.getByRole(AriaRole.OPTION).all()
+                .stream()
+                .filter(locator -> locator.getAttribute("value").equalsIgnoreCase(value))
+                .findFirst()
+                .orElse(locator);
+        byText.scrollIntoViewIfNeeded();
+        byText.click();
+    }
+
+    public List<String> items(Predicate<Locator> filterToApply, Function<Locator, String> mappingFunction) {
         open();
         return locator.getByRole(AriaRole.OPTION).all()
                 .stream()
-                .map(Locator::textContent)
+                .filter(filterToApply)
+                .map(mappingFunction)
                 .collect(Collectors.toList());
     }
 

@@ -12,8 +12,6 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.apache.commons.lang3.StringUtils.EMPTY;
-
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class HomePageSteps {
 

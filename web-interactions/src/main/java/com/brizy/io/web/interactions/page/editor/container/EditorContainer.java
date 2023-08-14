@@ -1,10 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container;
 
-import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
+import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.properties.editor.EditorFrameProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.LoadState;
@@ -22,6 +22,7 @@ import static java.time.Duration.ZERO;
 import static lombok.AccessLevel.PRIVATE;
 import static org.awaitility.Awaitility.await;
 
+@SuppressWarnings({"unchecked", "ConstantConditions"})
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class EditorContainer {
 
@@ -65,7 +66,7 @@ public class EditorContainer {
         for (SidebarItemDto element : elements) {
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
             Component foundComponent = sectionToAddElementTo.getComponentByName(element.getElementName());
-            foundComponent.customize().withProperties(element.getComponentProperties());
+            foundComponent.onToolbar().setProperties(element.getComponentProperties());
             mainPage.mouse().click(100, 100);
         }
     }
