@@ -3,15 +3,15 @@ Feature: Editor Page - Image Default Settings
   I want to customize an image element
   So I need to have a toolbar with different configurations for it
 
-  Scenario Outline: Validate configurations inside image popup in image tab
+  Background: Navigate to project and create a new one
     When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
     And wait for editor page to load
     When clear the layout
     And open editor pop up
     When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
+    And add section 'SECTION_1' to page
+
+  Scenario Outline: Validate configurations inside image popup in image tab
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
@@ -24,14 +24,6 @@ Feature: Editor Page - Image Default Settings
       | Image     | Image       | IMAGE_1 | SECTION_1   | Image, Zoom, Open in Lightbox |
 
   Scenario Outline: Validate negative picture configuration inside image popup in image tab
-    When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
@@ -47,14 +39,6 @@ Feature: Editor Page - Image Default Settings
       | Image     | Image       | IMAGE_1 | SECTION_1   |
 
   Scenario Outline: Validate picture configuration inside image popup in image tab
-    When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
@@ -69,14 +53,6 @@ Feature: Editor Page - Image Default Settings
       | Image     | Image       | IMAGE_1 | SECTION_1   |
 
   Scenario Outline: Add <name> element and validate configurations inside image popup in mask tab
-    When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
@@ -95,14 +71,6 @@ Feature: Editor Page - Image Default Settings
       | Mask      | Image       | IMAGE_5 | SECTION_1   | Shape, Image                  |
 
   Scenario Outline: Validate shape dropdown items
-    When navigate to home page
-    And open dashboard page
-    When select 'Project #1' from projects list
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |

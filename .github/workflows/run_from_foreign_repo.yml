@@ -50,7 +50,6 @@ jobs:
         continue-on-error: true
         with:
           ref: allure-reports-history
-          fetch-depth: '0'
           path: allure-reports-history
 
       - name: Check and clear allure history
