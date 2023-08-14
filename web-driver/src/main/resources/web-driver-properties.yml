@@ -1,7 +1,7 @@
 screenSize:
   width: 1440
   height: 900
-baseUrl: https://www.brizy.io/
+baseUrl: https://www.brizy.cloud/projects/17243870/editor/page/3343865
 playwright:
   env:
     headless: ${browser.headless}

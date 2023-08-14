@@ -1,41 +1,39 @@
 package com.brizy.io.web.service;
 
 import com.brizy.io.web.enums.BrowserType;
+import com.brizy.io.web.property.WebDriverProperties;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Objects;
 
-import static lombok.AccessLevel.PROTECTED;
+import static lombok.AccessLevel.*;
 
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Configuration
+@FieldDefaults(level = PRIVATE, makeFinal = true)
 class BrowserService {
 
-    BrowserType type;
-    LaunchOptions launchOptions;
-    @Getter(value = PROTECTED)
-    @NonFinal
+    @Getter(value = PUBLIC, onMethod = @__({@Bean}))
     Browser browser;
 
-    protected BrowserService(BrowserType type, LaunchOptions launchOptions) {
-        this.launchOptions = launchOptions;
-        this.type = type;
+    @Autowired
+    protected BrowserService(ModelMapper modelMapper, Playwright playwright, WebDriverProperties props) {
+        LaunchOptions launchOptions = modelMapper.map(props.getBrowser(), LaunchOptions.class);
+        BrowserType browserType = props.getBrowser().getType();
+        this.browser = browserType.getBrowserType(playwright).launch(launchOptions);
     }
 
-    protected Browser launch(Playwright playwright) {
-        return type.getBrowserType(playwright).launch(launchOptions);
-    }
-
-    protected void close() {
+    protected void cleanUp() {
         if (Objects.nonNull(browser)) {
             browser.close();
         }
     }
-
 
 }

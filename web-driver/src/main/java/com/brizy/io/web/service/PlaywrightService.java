@@ -1,33 +1,34 @@
 package com.brizy.io.web.service;
 
+import com.brizy.io.web.property.WebDriverProperties;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.Playwright.CreateOptions;
+import jakarta.annotation.PreDestroy;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Objects;
 
-import static lombok.AccessLevel.PRIVATE;
-import static lombok.AccessLevel.PROTECTED;
+import static lombok.AccessLevel.*;
 
-@NoArgsConstructor(access = PROTECTED)
-@FieldDefaults(level = PRIVATE)
+@Configuration
+@FieldDefaults(level = PRIVATE, makeFinal = true)
 class PlaywrightService {
 
-    @Getter(value = PROTECTED)
+    @Getter(value = PUBLIC, onMethod = @__({@Bean}))
     Playwright playwright;
-    CreateOptions createOptions;
 
-    protected PlaywrightService(CreateOptions createOptions) {
-        this.createOptions = createOptions;
+    @Autowired
+    protected PlaywrightService(ModelMapper modelMapper, WebDriverProperties props) {
+        this.playwright = Playwright.create(modelMapper.map(props.getPlaywright(), CreateOptions.class));
     }
 
-    protected Playwright create() {
-        return Playwright.create(createOptions);
-    }
-
-    protected void close() {
+    @PreDestroy
+    public void cleanUp() {
         if (Objects.nonNull(playwright)) {
             playwright.close();
         }
