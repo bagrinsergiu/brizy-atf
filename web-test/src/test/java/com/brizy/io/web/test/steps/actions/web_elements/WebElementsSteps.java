@@ -6,6 +6,7 @@ import com.brizy.io.web.interactions.element.FileUploader;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.data.enums.TestDataFileType;
 import com.brizy.io.web.test.data.service.TestDataFileService;
+import com.brizy.io.web.test.enums.AttributeTypes;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.When;
@@ -16,7 +17,6 @@ import org.testng.util.Strings;
 
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static com.brizy.io.web.test.enums.StorageKey.DROPDOWN_ITEMS;
@@ -52,12 +52,12 @@ public class WebElementsSteps {
                 });
     }
 
-    @When("get the content of '{}' dropdown")
-    public void getTheContentOfDropdown(String dropdown) {
+    @When("get {attribute} content of '{}' dropdown")
+    public void getTheContentOfDropdown(AttributeTypes attributeType, String dropdown) {
         List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
         List<String> dropdownItems = availableConfigurations.stream()
                 .filter(configuraion -> configuraion.getName().equals(dropdown))
-                .flatMap(configuration -> ((ComboBox) configuration.getElement().get()).items(locator -> true, locator -> Strings.isNullOrEmpty(locator.getAttribute("value")) ? locator.textContent() : locator.getAttribute("value")).stream())
+                .flatMap(configuration -> ((ComboBox) configuration.getElement().get()).items(locator -> true, attributeType.getExtractionFunction()).stream())
                 .toList();
         storage.addValue(DROPDOWN_ITEMS, dropdownItems);
     }

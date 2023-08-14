@@ -3,6 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.AnyPredefinedMask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FillSize;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FitSize;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.size.Custom;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.mask.size.Fill;
@@ -11,19 +12,23 @@ import com.brizy.io.web.interactions.properties.editor.workspace.section.contain
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PredefinedShape {
 
-    Supplier<ComboBox> sizeComboBox;
+    Supplier<ComboBox> size;
     Supplier<Fill> fillSize;
     Supplier<Fit> fitSize;
     Supplier<Custom> customSize;
 
     public PredefinedShape(MaskProperties mask, Frame frame) {
-        this.sizeComboBox = () -> new ComboBox(frame.locator(mask.getSize().getSelf()));
+        this.size = () -> new ComboBox(frame.locator(mask.getSize().getSelf()));
         this.fillSize = () -> new Fill(mask, frame);
         this.fitSize = () -> new Fit(mask, frame);
         this.customSize = () -> new Custom(mask, frame);
@@ -31,15 +36,30 @@ public class PredefinedShape {
 
     public void applyProperties(AnyPredefinedMask shapeProperties) {
         if (shapeProperties.getSize() instanceof FitSize fitSizeProperties) {
-            sizeComboBox.get().selectItemByName("Fit");
+            size.get().selectItemByName("Fit");
             fitSize.get().applyProperties(fitSizeProperties);
         } else if (shapeProperties.getSize() instanceof FillSize fillSizeProperties) {
-            sizeComboBox.get().selectItemByName("Fill");
+            size.get().selectItemByName("Fill");
             fillSize.get().applyProperties(fillSizeProperties);
         } else {
-            sizeComboBox.get().selectItemByName("Custom");
+            size.get().selectItemByName("Custom");
             customSize.get().applyProperties(shapeProperties.getSize());
         }
+    }
+
+    public List<Configuration> getConfigurations() {
+        ComboBox comboBox = size.get();
+        List<Configuration> configurationsToReturn = new ArrayList<>() {{
+            add(Configuration.builder().name(Fields.size).element(size).build());
+        }};
+        if (comboBox.getSelectedItem().equalsIgnoreCase("fill")) {
+            configurationsToReturn.addAll(fillSize.get().getConfigurations());
+        } else if (comboBox.getSelectedItem().equalsIgnoreCase("fit")) {
+            configurationsToReturn.addAll(fitSize.get().getConfigurations());
+        } else if (comboBox.getSelectedItem().equalsIgnoreCase("custom")) {
+            configurationsToReturn.addAll(customSize.get().getConfigurations());
+        }
+        return configurationsToReturn;
     }
 
 }

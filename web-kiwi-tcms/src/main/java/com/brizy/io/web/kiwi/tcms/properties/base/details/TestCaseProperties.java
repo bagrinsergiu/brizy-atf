@@ -1,7 +1,6 @@
 package com.brizy.io.web.kiwi.tcms.properties.base.details;
 
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;

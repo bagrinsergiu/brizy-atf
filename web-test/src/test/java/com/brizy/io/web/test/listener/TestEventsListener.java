@@ -1,13 +1,10 @@
 package com.brizy.io.web.test.listener;
 
-import com.brizy.io.web.test.constants.TestRunDetails;
 import io.cucumber.plugin.ConcurrentEventListener;
-import io.cucumber.plugin.event.*;
+import io.cucumber.plugin.event.EventPublisher;
+import io.cucumber.plugin.event.TestCaseStarted;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.brizy.io.web.test.constants.TestRunDetails.testRunDetails;
 

@@ -2,11 +2,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.CustomSize;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.Size;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -30,4 +32,13 @@ public class Custom extends AbstractFitSize {
         }
     }
 
+    public List<Configuration> getConfigurations() {
+        List<Configuration> sizeConfigurations = size.get().getConfigurations();
+        List<Configuration> customConfigurations = List.of(
+                Configuration.builder().name(Fields.repeat).element(repeat).build(),
+                Configuration.builder().name(AbstractSize.Fields.position).element(position).build()
+        );
+        sizeConfigurations.addAll(customConfigurations);
+        return sizeConfigurations;
+    }
 }

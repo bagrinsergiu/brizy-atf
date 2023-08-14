@@ -2,7 +2,10 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.image.image.image.Image;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.element.*;
+import com.brizy.io.web.interactions.element.Button;
+import com.brizy.io.web.interactions.element.FileUploader;
+import com.brizy.io.web.interactions.element.RangeInput;
+import com.brizy.io.web.interactions.element.Slider;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.image.ImageProperties;
 import com.microsoft.playwright.Frame;

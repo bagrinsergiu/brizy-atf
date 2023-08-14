@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
-import static com.brizy.io.web.interactions.constants.TimingConstants.*;
 import static lombok.AccessLevel.PRIVATE;
-import static org.awaitility.Awaitility.await;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)

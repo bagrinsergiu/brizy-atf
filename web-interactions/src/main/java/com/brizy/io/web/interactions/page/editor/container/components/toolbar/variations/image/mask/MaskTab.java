@@ -16,6 +16,7 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -62,9 +63,17 @@ public class MaskTab implements IsTab {
 
     @Override
     public List<Configuration> getConfigurations() {
-        return List.of(
-                Configuration.builder().name(MaskTab.Fields.shape).element(shape).build()
-        );
+        String selectedItem = shape.get().getSelectedItem();
+        List<Configuration> defaultConfigurations = new ArrayList<>() {{
+            add(Configuration.builder().name(Fields.shape).element(shape).build());
+        }};
+        if (selectedItem.equalsIgnoreCase("custom")) {
+            defaultConfigurations.addAll(customShape.get().getConfigurations());
+        }
+        if (!List.of("none", "custom").contains(selectedItem.toLowerCase())) {
+            defaultConfigurations.addAll(predefinedShape.get().getConfigurations());
+        }
+        return defaultConfigurations;
     }
 
 }

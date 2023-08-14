@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.tab.types;
 
+import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.GenericCounter;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.tab.AdvancedTab;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.TabsProperties;
 import com.microsoft.playwright.Frame;

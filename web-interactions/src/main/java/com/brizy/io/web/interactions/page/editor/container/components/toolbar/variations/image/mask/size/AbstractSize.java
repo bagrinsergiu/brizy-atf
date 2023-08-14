@@ -6,10 +6,12 @@ import com.brizy.io.web.interactions.properties.editor.workspace.section.contain
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.Objects;
 import java.util.function.Supplier;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PROTECTED)
 public abstract class AbstractSize {
 

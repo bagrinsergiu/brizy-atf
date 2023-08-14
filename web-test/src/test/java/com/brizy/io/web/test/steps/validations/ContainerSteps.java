@@ -13,7 +13,6 @@ import com.brizy.io.web.test.model.SaveDraftMenuItem;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.eo.Se;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
