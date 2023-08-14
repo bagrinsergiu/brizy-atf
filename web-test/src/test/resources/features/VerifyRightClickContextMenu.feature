@@ -1,3 +1,4 @@
+@Smoke
 Feature: Editor Page - Right-Click Context Menu Actions
   As a user of Brizy application,
   I want to be able to perform various actions on items using the right-click context menu,
@@ -59,7 +60,6 @@ Feature: Editor Page - Right-Click Context Menu Actions
       | name  | secondName | sectionName |
       | MAP_1 | MAP_2      | SECTION_1   |
 
-  @Ignore
   Scenario Outline: Validate copy and paste styles action on existing element
     When add section '<sectionName>' to page
     And prepare the following items to be added to the page:

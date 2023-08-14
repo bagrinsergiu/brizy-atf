@@ -24,7 +24,7 @@ Feature: Editor Page - Bottom Panel Elements
       | Save Layout  | Save Layout  | true      |
       | Publish Page | Publish Page | true      |
 
-  @Smoke @Ignore
+  @Ignore
   Scenario: Verify Bottom Panel Elements
     When get bottom panel items
     Then validate that the following panel items are displayed:
