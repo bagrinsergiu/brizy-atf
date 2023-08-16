@@ -54,4 +54,13 @@ public class ButtonTab implements IsTab {
         return null;
     }
 
+    public ButtonTabProperties getProperties() {
+        open();
+        return ButtonTabProperties.builder()
+                .corner(corner.get().getProperties())
+                .fill(fill.get().getActiveControl())
+                .size(size.get().getProperties())
+                .build();
+    }
+
 }

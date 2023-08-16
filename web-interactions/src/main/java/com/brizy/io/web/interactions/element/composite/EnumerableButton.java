@@ -27,7 +27,7 @@ public class EnumerableButton<E extends Enum<E> & Enumerable<E>> {
     public E getValue() {
         String innerHtml = buttonToClick.get().innerHtml();
         return Arrays.stream(clazz.getEnumConstants())
-                .map(el->el.getEnumByValue(innerHtml))
+                .filter(el -> innerHtml.contains(el.getValue()))
                 .findFirst()
                 .orElseThrow();
     }

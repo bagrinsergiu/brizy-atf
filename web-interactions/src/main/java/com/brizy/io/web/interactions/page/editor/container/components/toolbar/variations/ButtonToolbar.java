@@ -1,12 +1,13 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
+import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.Link;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.SettingsScrollbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
@@ -27,15 +28,17 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
     Supplier<Colors> colors;
     Supplier<EnumerableButton<Alignments>> align;
     Supplier<Link> link;
+    Supplier<SettingsScrollbar> settings;
 
-    public ButtonToolbar(ToolbarProperties locators, Frame page) {
-        super(locators, page);
-        var buttonLocators = locators.getButton();
+    public ButtonToolbar(ToolbarProperties toolbarLocators, Frame page) {
+        super(toolbarLocators, page);
+        var buttonLocators = toolbarLocators.getButton();
         this.buttonItem = () -> new com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.Button(buttonLocators, page);
-        this.typography = () -> new Typography(locators.getTypography(), page);
-        this.colors = () -> new Colors(locators.getColors(), page);
-        this.align = () -> new EnumerableButton<>(Alignments.class, locators.getAlign(), page);
-        this.link = () -> new Link(locators.getLink(), page);
+        this.typography = () -> new Typography(toolbarLocators.getTypography(), page);
+        this.colors = () -> new Colors(toolbarLocators.getColors(), page);
+        this.align = () -> new EnumerableButton<>(Alignments.class, toolbarLocators.getAlign(), page);
+        this.link = () -> new Link(toolbarLocators.getLink(), page);
+        this.settings = () -> new SettingsScrollbar(toolbarLocators.getSettings().getScrollBar(), page.page());
     }
 
     @Override
@@ -55,10 +58,25 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
         if (Objects.nonNull(properties.getAlign())) {
             align.get().setValue(properties.getAlign());
         }
+        if (Objects.nonNull(properties.getSettings())) {
+            openSettings();
+            settings.get().applyProperties(properties.getSettings());
+        }
     }
 
     @Override
     public EditorComponentProperty getProperties() {
-        return null;
+        ButtonProperties properties = ButtonProperties.builder()
+                .align(align.get().getValue())
+                .button(buttonItem.get().getProperties())
+//                .typography(typography.get().getProperties())
+                .colors(colors.get().getProperties())
+                .link(link.get().getProperties())
+                .build();
+        openSettings();
+        properties = properties.toBuilder()
+                .settings(settings.get().getProperties())
+                .build();
+        return ((EditorComponentProperty) ((Property) properties));
     }
 }

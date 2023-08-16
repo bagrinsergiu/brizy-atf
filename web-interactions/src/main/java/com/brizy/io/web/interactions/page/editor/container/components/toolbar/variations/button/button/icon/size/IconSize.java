@@ -26,11 +26,24 @@ public class IconSize {
     }
 
     public void applyProperties(Size size) {
-        if(size instanceof CustomSize customSize) {
+        if (size instanceof CustomSize customSizeProperties) {
             this.size.get().set(IconSizes.CUSTOM);
-            this.customSize.get().fill(customSize.getSize());
+            this.customSize.get().fill(customSizeProperties.getSize());
         } else {
             this.size.get().set(((ConcreteSize) size).getSize());
         }
     }
+
+    public Size getProperties() {
+        IconSizes activeSize = size.get().getActiveControl();
+        if (activeSize.equals(IconSizes.CUSTOM)) {
+            return CustomSize.builder()
+                    .size(Integer.valueOf(customSize.get().getText()))
+                    .build();
+        }
+        return ConcreteSize.builder()
+                .size(activeSize)
+                .build();
+    }
+
 }

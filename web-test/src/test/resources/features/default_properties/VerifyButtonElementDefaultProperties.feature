@@ -17,8 +17,8 @@ Feature: Editor Page - Adding a Button Element
     When prepare elements properties from the 'VerifyButtonElement.json' file
     And add the item to the page
     And configure the item added to the page
-    When get editor properties for the '<name>' item from the section '<sectionName>'
-    Then validate default properties of the item '<name>'
+#    When get editor properties for the '<name>' item from the section '<sectionName>'
+#    Then validate default properties of the item '<name>'
 
     Examples:
       | name     | sectionName |

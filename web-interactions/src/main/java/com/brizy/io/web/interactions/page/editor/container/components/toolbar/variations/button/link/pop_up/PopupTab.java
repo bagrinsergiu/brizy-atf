@@ -9,6 +9,7 @@ import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import org.apache.logging.log4j.util.Strings;
 
 import java.nio.file.Paths;
 import java.util.List;
@@ -44,4 +45,8 @@ public class PopupTab implements IsTab {
         return null;
     }
 
+    public String getProperties() {
+        open();
+        return Strings.EMPTY;
+    }
 }

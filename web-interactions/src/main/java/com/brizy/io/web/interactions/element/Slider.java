@@ -6,20 +6,24 @@ import lombok.experimental.FieldDefaults;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class Slider {
+public class Slider extends AbstractElement {
 
-    Locator locator;
+    public Slider(Locator locator) {
+        super(locator);
+    }
 
     public void switchTo(Boolean state) {
-        if (getState().equals(state))
-            return;
-        locator.click();
+        if (!state.equals(getState())) {
+            locator.click();
+        }
     }
 
     public Boolean getState() {
-        return locator.getAttribute("class").contains("active");
+        if (isVisible()) {
+            return locator.getAttribute("class").contains("on");
+        }
+        return null;
     }
 
 }

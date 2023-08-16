@@ -4,8 +4,8 @@ import com.brizy.io.web.common.dto.element.properties.button.link.url.URL;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Slider;
+import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.url.link_to.LinkTo;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url.UrlTabLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
@@ -21,13 +21,13 @@ public class UrlTab implements IsTab {
 
     @Getter
     Supplier<Button> tabButton;
-    Supplier<LinkTo> linkTo;
+    Supplier<InputWithPopulation> linkTo;
     Supplier<Slider> openInNewTab;
     Supplier<Slider> makeItNoFollow;
 
     public UrlTab(UrlTabLocators urlTabLocators, Frame frame) {
         this.tabButton = () -> new Button(frame.locator(urlTabLocators.getSelf()));
-        this.linkTo = () -> new LinkTo(urlTabLocators.getLinkTo(), frame);
+        this.linkTo = () -> new InputWithPopulation(urlTabLocators.getLinkTo(), frame);
         this.openInNewTab = () -> new Slider(frame.locator(urlTabLocators.getOpenInNewTab()));
         this.makeItNoFollow = () -> new Slider(frame.locator(urlTabLocators.getMakeItNoFollow()));
     }
@@ -35,7 +35,7 @@ public class UrlTab implements IsTab {
     public void applyProperties(URL url) {
         open();
         if (Objects.nonNull(url.getLinkTo())) {
-            linkTo.get().applyProperties(url.getLinkTo());
+            linkTo.get().setValue(url.getLinkTo());
         }
         if (Objects.nonNull(url.getOpenInNewTab())) {
             openInNewTab.get().switchTo(url.getOpenInNewTab());
@@ -55,4 +55,12 @@ public class UrlTab implements IsTab {
         return null;
     }
 
+    public URL getProperties() {
+        open();
+        return URL.builder()
+                .linkTo(linkTo.get().getValue())
+                .openInNewTab(openInNewTab.get().getState())
+                .makeItNoFollow(makeItNoFollow.get().getState())
+                .build();
+    }
 }

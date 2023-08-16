@@ -121,6 +121,162 @@ pages:
                       value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
                 settings:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Settings']
+                  scrollbar:
+                    self: //div[contains(@class,'brz-scrollbar__view')]
+                    tabs: //div[contains(@class,'brz-ed-control__tabs')]//li
+                    styling:
+                      self: //span[text()='Styling' and ancestor::li]
+                      tabs: //ul[contains(@class,'brz-ed-control__tabs')]//li
+                      basic:
+                        self: //div[contains(@class,'brz-ed-control__tabs-wrapper') and //span[text()='Basic']]
+                        tab: //span[text()='Basic' and ancestor::li]
+                        padding:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Padding']/ancestor::div[contains(@class,'brz-ed-option-type__padding-dev')]
+                          items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                          spacing:
+                            all:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//div[contains(@class,'brz-ed__control--number-slider')]
+                              unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.all.self}//div[@role='combobox']
+                              value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.all.self}//input[@type='range']
+                            individual:
+                              top:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-top')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.top.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.top.self}//input[@type='range']
+                              right:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-right')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.right.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.right.self}//input[@type='range']
+                              bottom:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-bottom')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.bottom.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.bottom.self}//input[@type='range']
+                              left:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-left')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.left.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.left.self}//input[@type='range']
+                        margin:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Margin']/ancestor::div[contains(@class,'brz-ed-option-type__margin-dev')]
+                          items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                          spacing:
+                            all:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//div[contains(@class,'brz-ed__control--number-slider')]
+                              unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.all.self}//div[@role='combobox']
+                              value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.all.self}//input[@type='range']
+                            individual:
+                              top:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-top')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.top.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.top.self}//input[@type='range']
+                              right:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-right')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.right.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.right.self}//input[@type='range']
+                              bottom:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-bottom')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.bottom.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.bottom.self}//input[@type='range']
+                              left:
+                                self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//*[name()='use' and contains(@*[name()='xlink:href'], 'icons.svg#nc-styling-left')]/ancestor::div[2]
+                                unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.left.self}//div[@role='combobox']
+                                value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.left.self}//input[@type='range']
+                        positionGroup:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          position:
+                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Position']]//div[@role='combobox']
+                            item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
+                            width:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.self}//span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                              unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.width.self}//div[@role='combobox']
+                              value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.width.self}//input[@type='range']
+                            horizontalOffset:
+                              self: //span[text()='Horizontal Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffset.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                            horizontalOffsetValue:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffset.self}/following-sibling::div[1]
+                              unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffsetValue.self}//div[@role='combobox']
+                              value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffsetValue.self}//input[@type='range']
+                            verticalOffset:
+                              self: //span[text()='Vertical Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffset.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                            verticalOffsetValue:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffset.self}/following-sibling::div
+                              unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffsetValue.self}//div[@role='combobox']
+                              value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffsetValue.self}//input[@type='range']
+                      advanced:
+                        self: //span[text()='Advanced' and ancestor::li]
+                        showOnDesktop: //span[text()='Show on Desktop']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__switch')]
+                        zIndex: //span[text()='Z‑index']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='range']
+                        cssId:
+                          self: //span[text()='CSS ID']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssId.self}//input
+                          population:
+                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssId.self}//div[contains(@class,'brz-control__select-current__icon')]
+                            items: //div[contains(@class,'brz-control__select-option') and @title]
+                        cssClass:
+                          self: //span[text()='CSS Class']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssClass.self}//input
+                          population:
+                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssClass.self}//div[contains(@class,'brz-control__select-current__icon')]
+                            items: //div[contains(@class,'brz-control__select-option') and @title]
+                        customAttribute:
+                          self: //span[text()='Custom Attributes']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//input
+                          population:
+                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//div[contains(@class,'brz-control__select-current__icon')]
+                            items: //div[contains(@class,'brz-control__select-option') and @title]
+                        customCss:
+                          self: //span[text()='Custom CSS']/ancestor::div
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customCss.self}//input
+                        hoverTransition: //span[text()='Hover Transition']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='range']
+                    effects:
+                      self: //span[text()='Effects' and ancestor::li]
+                      tabContent: //div[contains(@class,'brz-ed-control__tab__content')]
+                      tabs: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//ul[contains(@class,'brz-ed-control__tabs')]//li
+                      propertiesContent: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(@class,'brz-ed-control__group')]
+                      gridContent: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(@class,'grid')]
+                      entrance:
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//span[text()='Entrance' and ancestor::li]
+                        grid:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.gridContent}
+                          items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.entrance.grid.self}//div
+                          item: //div[contains(text(),'%s')]/ancestor::div[contains(@class,'brz-ed--fat-icon ')]
+                          activeItem: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.scroll.grid.items}//div[contains(@class,'text-right-sidebar-item--active')]
+                        properties:
+                          direction: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Direction']]//div[@role='combobox']
+                          big: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Big']]//div[contains(@class,'brz-ed-control__switch')]
+                          duration: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Duration']]//input[@type='range']
+                          delay: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Delay']]//input[@type='range']
+                          infiniteAnimation: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Infinite Animation']]//div[contains(@class,'brz-ed-control__switch')]
+                      hover:
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//span[text()='Hover' and ancestor::li]
+                        grid:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.gridContent}
+                          items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.hover.grid.self}//div
+                          item: //div[contains(text(),'%s')]/ancestor::div[contains(@class,'brz-ed--fat-icon ')]
+                          activeItem: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.scroll.grid.items}//div[contains(@class,'text-right-sidebar-item--active')]
+                        properties:
+                          style: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
+                          direction: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.entrance.properties.direction}
+                          duration: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.entrance.properties.duration}
+                          infiniteAnimation: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.entrance.properties.infiniteAnimation}
+                      scroll:
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//span[text()='Scroll' and ancestor::li]
+                        grid:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.gridContent}
+                          items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.scroll.grid.self}//div
+                          item: //div[contains(text(),'%s')]/ancestor::div[contains(@class,'brz-ed--fat-icon ')]
+                          activeItem: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.scroll.grid.items}//div[contains(@class,'text-right-sidebar-item--active')]
+                        properties:
+                          direction: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.entrance.properties.direction}
+                          x: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='X']]//div[@role='combobox']
+                          y: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Y']]//div[@role='combobox']
+                          speed: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Speed']]//input[@type='range']
+                          level: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed-option-wrapper') and .//span[text()='Level']]//input[@type='range']
+                          start: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed__control--range-slider__sliders')]//input[not(contains(@class,'brz-ed__control--range-slider__to'))]
+                          stop: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed__control--range-slider__sliders')]//input[contains(@class,'brz-ed__control--range-slider__to')]
+                    align: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'Align' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
+                    unlock: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'lock' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                   width:
                     value: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
                     unit:
@@ -175,7 +331,20 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.self}//span[text()='Icon']
                       icon:
                         self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
-                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                        picker:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                          popUp:
+                            self: //div[contains(@class,'brz-ed-popup-icons')]
+                            tabs: //div[contains(@class,'brz-ed-popup-header__tabs')]//div
+                            closeButton: //div[contains(@class,'brz-ed-popup-btn-close')]
+                            categories:
+                              self: //div[contains(@class,'brz-ed-popup__select--block-categories')]
+                              items: //div[contains(@class,'brz-control__select-option')]
+                            search: //input[@placeholder='Enter Search Keyword']
+                            grid:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.popUp.self}//div[contains(@class,'brz-ed-popup-icons__grid')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.popUp.grid.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
+                              item: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
                       position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       size:
@@ -223,7 +392,7 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='URL']
                       linkTo:
                         self: //div[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option__input')]
-                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//input[@type='text']
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
@@ -244,8 +413,9 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='File']
                       file:
                         self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
-                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
-                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//div[contains(@class,'brz-ed-control__file-upload__wrapper')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']

@@ -10,7 +10,7 @@
             "type": "SMALL",
             "size": "SMALL"
           },
-          "fill": "BOARDER",
+          "fill": "FILL",
           "corner": {
             "type": "CUSTOM",
             "corner": {
@@ -19,7 +19,11 @@
           }
         },
         "icon": {
-          "icon": "",
+          "icon": {
+            "type": "Glyph",
+            "category": "Animals/Nature",
+            "value": "owl"
+          },
           "align": "RIGHT",
           "size": {
             "type": "CUSTOM",
@@ -78,6 +82,120 @@
         "block": 1,
         "popUp": "",
         "file": ""
+      },
+      "settings": {
+        "styling": {
+          "basic": {
+            "padding": {
+              "type": "all",
+              "value": "all",
+              "size": {
+                "unit": "%",
+                "value": 40
+              }
+            },
+            "margin": {
+              "type": "individual",
+              "value": "individual",
+              "top": {
+                "unit": "%",
+                "value": 40
+              },
+              "right": {
+                "unit": "px",
+                "value": 4
+              },
+              "left": {
+                "unit": "%",
+                "value": 10
+              },
+              "bottom": {
+                "unit": "%",
+                "value": 20
+              }
+            },
+            "position": {
+              "type": "fixed",
+              "value": "Fixed",
+              "width": {
+                "unit": "%",
+                "value": 50
+              },
+              "horizontalOffset": {
+                "direction": "Right",
+                "offset": {
+                  "unit": "%",
+                  "value": 5
+                }
+              },
+              "verticalOffset": {
+                "direction": "Top",
+                "offset": {
+                  "unit": "px",
+                  "value": 15
+                }
+              }
+            }
+          },
+          "advanced": {
+            "showOnDesktop": true,
+            "zIndex": 5,
+            "cssId": {
+              "value": "",
+              "population": {
+                "value": "Description"
+              }
+            },
+            "cssClass": {
+              "value": "",
+              "population": {
+                "value": "Page Title"
+              }
+            },
+            "customAttributes": {
+              "value": "",
+              "population": {
+                "value": "Publish date"
+              }
+            },
+            "customCss": "",
+            "hoverTransition": 78
+          }
+        },
+        "effects": {
+          "entrance": {
+            "type": "other",
+            "value": "Fade",
+            "parameters": {
+              "direction": "Down",
+              "big": true,
+              "duration": 2.0,
+              "delay": 4,
+              "infiniteAnimation": true
+            }
+          },
+          "hover": {
+            "type": "other",
+            "value": "Buzz",
+            "parameters": {
+              "style": "Buzz",
+              "duration": 5.0,
+              "infiniteAnimation": true
+            }
+          },
+          "scroll": {
+            "type": "other",
+            "value": "Scale",
+            "parameters": {
+              "direction": "downUp",
+              "x": "Right",
+              "y": "Bottom",
+              "speed": 4,
+              "start": 21,
+              "stop": 81
+            }
+          }
+        }
       },
       "align": "LEFT"
     },

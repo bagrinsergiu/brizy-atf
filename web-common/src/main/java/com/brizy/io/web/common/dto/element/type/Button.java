@@ -1,6 +1,5 @@
 package com.brizy.io.web.common.dto.element.type;
 
-import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonDefaultProperties;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import lombok.AccessLevel;

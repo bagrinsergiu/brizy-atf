@@ -15,5 +15,6 @@ public class FileUploaderLocators extends AbstractProperty {
 
     String uploader;
     String delete;
+    String fileName;
 
 }

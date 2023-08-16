@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @SuperBuilder(toBuilder = true)
-public class TextPropertyDto extends EditorComponentProperty {
+public class TextPropertyDto implements EditorComponentProperty {
 
     TypographyDto typography;
 

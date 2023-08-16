@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -43,4 +42,8 @@ public class BlockTab implements IsTab {
         return null;
     }
 
+    public Integer getProperties() {
+        open();
+        return block.get().getActiveBlock();
+    }
 }

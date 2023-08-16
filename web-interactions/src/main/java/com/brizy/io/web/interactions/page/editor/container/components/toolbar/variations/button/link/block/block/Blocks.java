@@ -19,6 +19,15 @@ public class Blocks {
     }
 
     public void applyProperties(Integer block) {
-        blocks.get().get(block-1).click();
+        blocks.get().get(block - 1).click();
     }
+
+    public Integer getActiveBlock() {
+        Locator locator = blocks.get().stream()
+                .filter(el -> el.getAttribute("class").contains("active"))
+                .findFirst()
+                .orElse(null);
+        return blocks.get().indexOf(locator) + 1;
+    }
+
 }

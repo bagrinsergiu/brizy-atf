@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.button.button.ButtonProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.ButtonTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.IconTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -22,7 +21,7 @@ import static io.vavr.API.*;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Button implements IsTabbedPopup {
+public class Button implements HasTabs {
 
     @Getter
     Supplier<Locator> tabsLocator;
@@ -63,9 +62,12 @@ public class Button implements IsTabbedPopup {
         );
     }
 
-//    TODO implement
-//    public ImageDto getProperties() {
-//
-//    }
+    public ButtonProperties getProperties() {
+        buttonElementButton.get().click();
+        return ButtonProperties.builder()
+                .button(button.get().getProperties())
+                .icon(icon.get().getProperties())
+                .build();
+    }
 
 }

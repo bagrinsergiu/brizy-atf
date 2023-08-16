@@ -5,7 +5,7 @@ import com.brizy.io.web.common.dto.element.properties.image.colors.ImageColors;
 import com.brizy.io.web.common.dto.element.properties.image.colors.NormalColors;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Border;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Shadow;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Colors implements IsTabbedPopup {
+public class Colors implements HasTabs {
 
     @Getter
     Supplier<Locator> tabsLocator;
@@ -90,4 +90,7 @@ public class Colors implements IsTabbedPopup {
         });
     }
 
+    public List<ImageColors> getProperties() {
+        return null;
+    }
 }

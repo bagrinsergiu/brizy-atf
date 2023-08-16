@@ -23,4 +23,6 @@ public interface IsTab {
         getTabButton().get().click();
     }
 
+//    TODO add is active method to check this
+
 }

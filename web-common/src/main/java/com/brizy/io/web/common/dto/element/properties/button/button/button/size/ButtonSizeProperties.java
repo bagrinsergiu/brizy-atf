@@ -1,6 +1,5 @@
 package com.brizy.io.web.common.dto.element.properties.button.button.button.size;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 

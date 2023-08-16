@@ -20,11 +20,13 @@ public class FileUploader implements Element {
     Page page;
     Supplier<Locator> uploader;
     Supplier<Button> delete;
+    Supplier<Span> fileName;
 
     public FileUploader(FileUploaderLocators image, Frame frame) {
         this.page = frame.page();
         this.uploader = () -> frame.locator(image.getUploader());
         this.delete = () -> new Button(frame.locator(image.getDelete()));
+        this.fileName = () -> new Span(frame.locator(image.getFileName()));
     }
 
     public void uploadFile(Path pathToFile) {
@@ -36,4 +38,7 @@ public class FileUploader implements Element {
         delete.get().click();
     }
 
+    public String getFileName() {
+        return fileName.get().getText();
+    }
 }

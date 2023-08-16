@@ -5,7 +5,7 @@ import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.Image;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
@@ -47,10 +47,11 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
     }
 
     @Override
-    public IsTabbedPopup openTabbedPopup(String toolbarItemTitle) {
+    public HasTabs openTabbedPopup(String toolbarItemTitle) {
         return API.Match(toolbarItemTitle.toLowerCase()).of(
                 API.Case($(Fields.image), openImage()),
                 API.Case($(Fields.colors), () -> {
+                    openColors();
                     return colors.get();
                 })
         );
@@ -66,6 +67,7 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
                 colors.get().applyProperties(properties.getColors());
             }
             if (Objects.nonNull(properties.getSettings())) {
+                openSettings();
                 settingsMenu.get().with(properties.getSettings());
             }
             if (Objects.nonNull(properties.getAlign())) {

@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.button.link.LinkProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.block.BlockTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.file.FileTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.pop_up.PopupTab;
@@ -24,7 +24,7 @@ import static io.vavr.API.*;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Link implements IsTabbedPopup {
+public class Link implements HasTabs {
 
     @Getter
     Supplier<Locator> tabsLocator;
@@ -86,4 +86,13 @@ public class Link implements IsTabbedPopup {
         }
     }
 
+    public LinkProperties getProperties() {
+        linkButton.get().click();
+        return LinkProperties.builder()
+                .url(url.get().getProperties())
+                .block(block.get().getProperties())
+                .popUp(popUp.get().getProperties())
+                .file(file.get().getFileName())
+                .build();
+    }
 }

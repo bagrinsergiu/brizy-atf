@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image;
 
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.image.ImageTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.MaskTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -20,7 +19,7 @@ import static io.vavr.API.*;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Image implements IsTabbedPopup {
+public class Image implements HasTabs {
 
     @Getter
     Supplier<Locator> tabsLocator;

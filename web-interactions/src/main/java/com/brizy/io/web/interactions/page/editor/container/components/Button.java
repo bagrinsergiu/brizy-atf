@@ -22,7 +22,6 @@ public class Button extends Component {
 
     @Override
     protected EditorComponentProperty getEditorProperties() {
-//        TODO implement it
-        return null;
+        return toolbar.getProperties();
     }
 }
