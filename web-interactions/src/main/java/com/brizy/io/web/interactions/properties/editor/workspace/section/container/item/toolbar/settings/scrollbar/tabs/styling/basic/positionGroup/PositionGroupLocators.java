@@ -1,7 +1,7 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup.position.PositionLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,11 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class UrlTabLocators extends AbstractProperty {
+public class PositionGroupLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    InputWithPopulationLocators linkTo;
-    String openInNewTab;
-    String makeItNoFollow;
+    PositionLocators position;
 
 }

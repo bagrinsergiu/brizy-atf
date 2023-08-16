@@ -1,7 +1,7 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.pop_up.IconPickerPopupLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,11 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class UrlTabLocators extends AbstractProperty {
+public class IconPicker extends AbstractProperty {
 
     @NestedConfigurationProperty
-    InputWithPopulationLocators linkTo;
-    String openInNewTab;
-    String makeItNoFollow;
+    IconPickerPopupLocators popUp;
 
 }

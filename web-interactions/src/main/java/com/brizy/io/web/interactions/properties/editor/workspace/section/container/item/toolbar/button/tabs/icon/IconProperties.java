@@ -1,9 +1,9 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.IconPickerLocators;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.spacing.SpacingProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.image.FileUploaderLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +18,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class IconProperties extends AbstractProperty {
 
     @NestedConfigurationProperty
-    FileUploaderLocators icon;
+    IconPickerLocators icon;
     String position;
     @NestedConfigurationProperty
     SizeProperties size;

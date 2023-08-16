@@ -42,4 +42,8 @@ public class BlockTab extends AbstractTabItem {
         );
     }
 
+    public Integer getProperties() {
+        open();
+        return block.get().getActiveBlock();
+    }
 }

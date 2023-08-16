@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url.link_to.population;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.entrance.properties;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import lombok.AccessLevel;
@@ -11,8 +11,12 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class PopulationLocators extends AbstractProperty {
+public class EntrancePropertiesLocators extends AbstractProperty {
 
-    String items;
+    String direction;
+    String big;
+    String duration;
+    String delay;
+    String infiniteAnimation;
 
 }

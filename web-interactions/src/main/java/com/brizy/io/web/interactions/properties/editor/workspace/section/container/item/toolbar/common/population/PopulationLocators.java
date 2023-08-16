@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.population;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import lombok.AccessLevel;
@@ -11,9 +11,8 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class IconProperties extends AbstractProperty {
+public class PopulationLocators extends AbstractProperty {
 
-    String uploader;
-    String delete;
+    String items;
 
 }

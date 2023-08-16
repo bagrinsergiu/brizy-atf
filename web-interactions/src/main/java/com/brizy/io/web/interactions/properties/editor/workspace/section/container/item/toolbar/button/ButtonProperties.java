@@ -1,7 +1,7 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url.link_to;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url.link_to.population.PopulationLocators;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.TabsProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,10 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class LinkToLocators extends AbstractProperty {
+public class ButtonProperties extends AbstractProperty {
 
-    String value;
     @NestedConfigurationProperty
-    PopulationLocators population;
+    TabsProperties tabs;
 
 }
