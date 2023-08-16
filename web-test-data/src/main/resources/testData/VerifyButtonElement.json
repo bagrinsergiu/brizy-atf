@@ -1,0 +1,104 @@
+[
+  {
+    "scenarioName": "Add button element and validate default properties",
+    "itemName": "BUTTON_1",
+    "elementType": "button",
+    "properties": {
+      "button": {
+        "button": {
+          "size": {
+            "type": "SMALL",
+            "size": "SMALL"
+          },
+          "fill": "BOARDER",
+          "corner": {
+            "type": "CUSTOM",
+            "corner": {
+              "angle": 14
+            }
+          }
+        },
+        "icon": {
+          "icon": "",
+          "align": "RIGHT",
+          "size": {
+            "type": "CUSTOM",
+            "size": 20
+          },
+          "spacing": 12
+        }
+      },
+      "typography": {
+        "font": "Lato"
+      },
+      "colors": [
+        {
+          "type": "normal",
+          "bg": {
+            "type": "solid",
+            "color": "#610000"
+          },
+          "text": "#610002",
+          "border": {
+            "type": "dashed",
+            "color": "",
+            "size": {
+              "type": "custom",
+              "properties": {
+                "up": 1,
+                "down": 2,
+                "left": 3,
+                "right": 4
+              }
+            }
+          },
+          "shadow": {
+            "type": "inset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
+        }
+      ],
+      "link": {
+        "url": {
+          "linkTo": {
+            "value": "",
+            "population": {
+              "value": "Page URL"
+            }
+          },
+          "openInNewTab": false,
+          "makeItNoFollow": false
+        },
+        "block": 1,
+        "popUp": "",
+        "file": ""
+      },
+      "align": "LEFT"
+    },
+    "defaultProperties": {
+      "button": {
+        "button": {
+          "size": "MEDIUM",
+          "fill": "FULL",
+          "corner": "SQUARE"
+        },
+        "icon": {
+          "icon": "EMPTY",
+          "position": "RIGHT",
+          "size": 16,
+          "spacing": 10
+        }
+      },
+      "typography": {
+        "font": "Overpass",
+        "typography": ""
+      }
+    }
+  }
+]

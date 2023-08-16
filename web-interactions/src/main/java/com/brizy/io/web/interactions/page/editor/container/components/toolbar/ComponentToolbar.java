@@ -16,28 +16,16 @@ import java.util.function.Supplier;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public abstract class ComponentToolbar<T extends Property> {
 
-    Supplier<Button> colorsButton;
-    Supplier<Button> settingsButton;
     Supplier<Locator> toolbarItems;
 
     protected ComponentToolbar(ToolbarProperties toolbarProperties, Frame page) {
         this.toolbarItems = () -> page.locator(toolbarProperties.getItem());
-        this.colorsButton = () -> new Button(page.locator(toolbarProperties.getColors().getSelf()));
-        this.settingsButton = () -> new Button(page.locator(toolbarProperties.getSettings().getSelf()));
     }
 
     public List<String> getItems() {
         return toolbarItems.get().all().stream()
                 .map(locator -> locator.getAttribute("title"))
                 .toList();
-    }
-
-    protected void openColors() {
-        colorsButton.get().click();
-    }
-
-    protected void openSettings() {
-        settingsButton.get().click();
     }
 
     public abstract void setProperties(T properties);

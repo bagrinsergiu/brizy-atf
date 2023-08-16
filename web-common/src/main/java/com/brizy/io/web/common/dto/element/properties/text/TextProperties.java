@@ -2,7 +2,7 @@ package com.brizy.io.web.common.dto.element.properties.text;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.text.colors.Colors;
-import com.brizy.io.web.common.dto.element.properties.text.typography.Typography;
+import com.brizy.io.web.common.dto.element.properties.common.typography.Typography;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

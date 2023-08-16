@@ -16,7 +16,7 @@ public class ImageProperties extends AbstractProperty {
 
     String configurations;
     @NestedConfigurationProperty
-    ImageUploaderProperties image;
+    FileUploaderLocators image;
     String zoom;
     String openInLightBox;
 
