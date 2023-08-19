@@ -1,8 +1,8 @@
-name: Verify merge requests and publish allure reports
+name: Run regression pack of tests
 
 on:
   schedule:
-    - cron: '0 17 10 * *'
+    - cron: '0 20 20 * *'
 
 jobs:
   run_tests:
