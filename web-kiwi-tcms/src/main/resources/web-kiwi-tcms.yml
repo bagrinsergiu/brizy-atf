@@ -1,6 +1,6 @@
 serverUrl: https://165.227.174.168/json-rpc/
 credentials:
-  username: brizy-atf
+  username: Eugen
   password: I*T|je9)8FPdwPEZ
 timeouts:
   connectionTimeout: 10s
@@ -11,7 +11,7 @@ details:
   classification:
     name: WebSite Builder
   product:
-    name: Brizy Editor test s
+    name: Brizy Editor
     classification: ${details.classification.name}
     description: Brizy Editor is a visual website builder designed to make the process of creating and designing websites easy and intuitive, even for users without extensive technical knowledge.
   version:
@@ -22,7 +22,7 @@ details:
     product: ${details.product.name}
     version: ${details.version.value}
   testPlan:
-    name: Regression Test Plan ATF
+    name: Brizy IO Regression Test Plan
     product: ${details.product.name}
     version: ${details.version.value}
     #    regresssion 11
@@ -42,10 +42,10 @@ details:
     manager: ${details.manager.id}
   testCase:
     manager: ${details.manager.id}
-    defaultTester: 3
+    defaultTester: 2
     product: ${details.product.name}
     status: 2
-    author: 3
+    author: 2
     reviewer: ${details.manager.id}
     priority: 3
     notifyAuthor: false
