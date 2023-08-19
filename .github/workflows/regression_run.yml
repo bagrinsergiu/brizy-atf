@@ -2,7 +2,7 @@ name: Run regression pack of tests
 
 on:
   schedule:
-    - cron: '45 21 * * *'
+    - cron: '00 22 * * *'
 
 jobs:
   run_tests:
