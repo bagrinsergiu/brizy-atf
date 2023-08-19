@@ -33,4 +33,4 @@ jobs:
         run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
-        run: mvn test -DuseKiwi=true
+        run: mvn test -DuseKiwi=true -Dcucumber.filter.tags='not @Ignore'
