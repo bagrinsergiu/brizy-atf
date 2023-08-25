@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @EqualsAndHashCode(callSuper = false)
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Data

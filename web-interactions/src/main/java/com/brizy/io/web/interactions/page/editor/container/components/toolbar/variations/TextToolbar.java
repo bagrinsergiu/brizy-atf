@@ -15,31 +15,23 @@ import java.util.function.Supplier;
 public class TextToolbar extends ComponentToolbar<TextProperties> {
 
     Supplier<Typography> typography;
-    Supplier<Button> typographyButton;
     Supplier<Frame> escape;
 
     public TextToolbar(ToolbarProperties properties, Frame frame) {
         super(properties, frame);
         this.typography = () -> new Typography(properties.getTypography(), frame);
-        this.typographyButton = () -> new Button(frame.locator(properties.getTypography().getSelf()));
         this.escape = () -> frame;
-    }
-
-    protected void openTypography() {
-        typographyButton.get().click();
     }
 
     @Override
     public void setProperties(TextProperties properties) {
         if (Objects.nonNull(properties) && Objects.nonNull(properties.getTypography())) {
-            openTypography();
             typography.get().applyProperties(properties.getTypography());
         }
     }
 
     @Override
     public EditorComponentProperty getProperties() {
-        openTypography();
         TextPropertyDto textProperties = TextPropertyDto.builder()
                 .typography(typography.get().getProperties())
                 .build();

@@ -26,24 +26,26 @@ public class Border implements CustomizableColor {
     @Override
     public void with(CanHaveBorders property) {
         String colorToSet = property.getBorder().getColor();
-        Integer sizeToSet = property.getBorder().getSize();
+//        TODO refactor
+//        Integer sizeToSet = property.getBorder().getSize();
         if (Objects.nonNull(colorToSet)) {
             color.get().fill(colorToSet);
         }
-        if (Objects.nonNull(sizeToSet)) {
-            size.get().fill(sizeToSet);
-        }
+//        if (Objects.nonNull(sizeToSet)) {
+//            size.get().fill(sizeToSet);
+//        }
     }
 
     public void applyProperties(com.brizy.io.web.common.dto.element.properties.common.colors.border.Border properties) {
         String colorToSet = properties.getColor();
-        Integer sizeToSet = properties.getSize();
+//        TODO refactor
+//        Integer sizeToSet = properties.getSize();
         if (Objects.nonNull(colorToSet)) {
             color.get().fill(colorToSet);
         }
-        if (Objects.nonNull(sizeToSet)) {
-            size.get().fill(sizeToSet);
-        }
+//        if (Objects.nonNull(sizeToSet)) {
+//            size.get().fill(sizeToSet);
+//        }
     }
 
 }

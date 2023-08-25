@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar;
 import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
@@ -32,6 +32,7 @@ public abstract class ComponentToolbar<T extends Property> {
                 .toList();
     }
 
+    //    TODO remove and encapsulate
     protected void openColors() {
         colorsButton.get().click();
     }
@@ -45,7 +46,7 @@ public abstract class ComponentToolbar<T extends Property> {
     public abstract EditorComponentProperty getProperties();
 
     //    TODO refactor to abstract
-    public IsTabbedPopup openTabbedPopup(String toolbarItemTitle) {
+    public HasTabs openTabbedPopup(String toolbarItemTitle) {
         return null;
     }
 

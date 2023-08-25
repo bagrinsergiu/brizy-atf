@@ -5,7 +5,7 @@ import com.brizy.io.web.common.dto.element.properties.image.colors.ImageColors;
 import com.brizy.io.web.common.dto.element.properties.image.colors.NormalColors;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTabbedPopup;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Border;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Shadow;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
@@ -13,6 +13,7 @@ import com.brizy.io.web.interactions.properties.editor.workspace.section.contain
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
@@ -20,8 +21,11 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Colors implements IsTabbedPopup {
+public class Colors implements HasTabs {
 
+    @Getter
+    Supplier<Locator> tabsLocator;
+    Supplier<Button> colorsButton;
     Supplier<Button> hover;
     Supplier<Button> normal;
     Supplier<Button> overlayButton;
@@ -30,11 +34,11 @@ public class Colors implements IsTabbedPopup {
     Supplier<Border> borderSubMenu;
     Supplier<Button> shadowButton;
     Supplier<Shadow> shadowSubMenu;
-    Supplier<Locator> tabs;
 
     public Colors(ColorsProperties colorsProperties, Frame page) {
         TabsProperties tabs = colorsProperties.getTabs();
-        this.tabs = () -> page.locator(tabs.getSelf());
+        this.tabsLocator = () -> page.locator(tabs.getSelf());
+        this.colorsButton = () -> new Button(page.locator(colorsProperties.getSelf()));
         this.hover = () -> new Button(page.locator(colorsProperties.getHover()));
         this.normal = () -> new Button(page.locator(colorsProperties.getNormal()));
         this.overlayButton = () -> new Button(page.locator(tabs.getOverlay().getSelf()));
@@ -48,13 +52,6 @@ public class Colors implements IsTabbedPopup {
     @Override
     public IsTab openTab(String tab) {
         return null;
-    }
-
-    @Override
-    public List<String> getTabs() {
-        return tabs.get().all().stream()
-                .map(Locator::textContent)
-                .toList();
     }
 
     public Overlay overlay() {
@@ -73,6 +70,7 @@ public class Colors implements IsTabbedPopup {
     }
 
     public void applyProperties(List<ImageColors> colors) {
+        colorsButton.get().click();
         colors.forEach(color -> {
             if (color instanceof NormalColors) {
                 normal.get().click();
@@ -92,4 +90,7 @@ public class Colors implements IsTabbedPopup {
         });
     }
 
+    public List<ImageColors> getProperties() {
+        return null;
+    }
 }

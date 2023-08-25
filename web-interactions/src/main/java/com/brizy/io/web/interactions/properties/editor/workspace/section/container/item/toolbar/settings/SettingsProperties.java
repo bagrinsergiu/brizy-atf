@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.ScrollBarLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,5 +19,7 @@ public class SettingsProperties extends AbstractProperty {
     Dimension width;
     @NestedConfigurationProperty
     Dimension height;
+    @NestedConfigurationProperty
+    ScrollBarLocators scrollBar;
 
 }
