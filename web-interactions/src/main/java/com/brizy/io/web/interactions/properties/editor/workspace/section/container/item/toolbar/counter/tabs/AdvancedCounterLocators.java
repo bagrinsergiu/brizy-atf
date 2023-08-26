@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.spacing;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import lombok.AccessLevel;
@@ -11,9 +11,11 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class SpacingProperties extends AbstractProperty {
+public class AdvancedCounterLocators extends AbstractProperty {
 
-    String value;
-    String unit;
+    String configurations;
+    String prefix;
+    String suffix;
+    String separator;
 
 }

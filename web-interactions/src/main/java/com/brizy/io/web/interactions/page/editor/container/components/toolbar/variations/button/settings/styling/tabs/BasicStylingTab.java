@@ -1,9 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs;
 
 import com.brizy.io.web.common.dto.element.properties.button.settings.styling.basic.BasicStylingProperties;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.margin.MarginSettings;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.padding.PaddingSettings;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.position.PositionSettings;
@@ -13,12 +11,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class BasicStylingTab implements IsTab {
+public class BasicStylingTab {
 
     @Getter
     Supplier<Button> tabButton;
@@ -34,7 +31,7 @@ public class BasicStylingTab implements IsTab {
     }
 
     public void applyProperties(BasicStylingProperties basicStylingProperties) {
-        open();
+        tabButton.get().click();
         if (Objects.nonNull(basicStylingProperties.getPadding())) {
             paddingSettings.get().applyProperties(basicStylingProperties.getPadding());
         }
@@ -46,18 +43,8 @@ public class BasicStylingTab implements IsTab {
         }
     }
 
-    @Override
-    public List<String> getWebConfigurations() {
-        return null;
-    }
-
-    @Override
-    public List<Configuration> getConfigurations() {
-        return null;
-    }
-
     public BasicStylingProperties getProperties() {
-        open();
+        tabButton.get().click();
         return BasicStylingProperties.builder()
                 .margin(marginSettings.get().getProperties())
                 .padding(paddingSettings.get().getProperties())

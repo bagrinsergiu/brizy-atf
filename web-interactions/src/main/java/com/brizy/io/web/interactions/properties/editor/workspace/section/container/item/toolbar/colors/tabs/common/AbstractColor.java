@@ -16,5 +16,6 @@ public abstract class AbstractColor extends AbstractProperty {
      * Value of the color to be set inside all the tabs
      */
     String value;
+    String configurations;
 
 }

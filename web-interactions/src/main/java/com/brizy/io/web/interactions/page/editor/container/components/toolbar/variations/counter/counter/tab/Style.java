@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.tab;
 
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.enums.Types;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterTabProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -18,7 +18,7 @@ public class Style {
     Supplier<Map<Types, Locator>> styles;
     Supplier<Locator> stylesParent;
 
-    public Style(CounterTabProperties counter, Frame page) {
+    public Style(CounterLocators counter, Frame page) {
         stylesParent = () -> page.locator(counter.getStyle());
         styles = () -> new HashMap<>() {{
             List<Locator> all = stylesParent.get().all();

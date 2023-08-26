@@ -1,9 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings;
 
 import com.brizy.io.web.common.dto.element.properties.button.settings.ButtonSettingsProperties;
-import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.EffectsTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.StylingTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.ScrollBarLocators;
@@ -19,7 +17,7 @@ import java.util.function.Supplier;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class SettingsScrollbar implements HasTabs {
+public class SettingsScrollbar {
 
     @Getter
     Supplier<Locator> tabsLocator;
@@ -41,8 +39,7 @@ public class SettingsScrollbar implements HasTabs {
         }
     }
 
-    @Override
-    public IsTab openTab(String tab) {
+    public IsPopUpTab openTab(String tab) {
         return null;
     }
 

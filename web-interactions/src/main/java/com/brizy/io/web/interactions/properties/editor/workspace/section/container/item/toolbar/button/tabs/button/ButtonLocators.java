@@ -16,6 +16,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ButtonLocators extends AbstractProperty {
 
+    String configurations;
     @NestedConfigurationProperty
     SizeProperties size;
     String fill;

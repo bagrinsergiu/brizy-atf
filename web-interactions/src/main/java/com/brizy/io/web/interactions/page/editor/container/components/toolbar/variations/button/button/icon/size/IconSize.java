@@ -5,9 +5,8 @@ import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.Cu
 import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.IconSizes;
 import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.Size;
 import com.brizy.io.web.interactions.element.NumericInput;
-import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -20,7 +19,7 @@ public class IconSize {
     Supplier<RadioControl<IconSizes>> size;
     Supplier<NumericInput> customSize;
 
-    public IconSize(SizeProperties size, Frame frame) {
+    public IconSize(SizeLocators size, Frame frame) {
         this.size = () -> new RadioControl<>(IconSizes.class, size.getSelf(), frame);
         this.customSize = () -> new NumericInput(frame.locator(size.getCustom().getValue()));
     }

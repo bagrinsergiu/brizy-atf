@@ -1,10 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects;
 
 import com.brizy.io.web.common.dto.element.properties.button.settings.effects.EffectsProperties;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.EntranceTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.HoverTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.ScrollTab;
@@ -15,12 +13,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class EffectsTab implements HasTabs {
+public class EffectsTab {
 
     Supplier<Button> tab;
     @Getter
@@ -50,8 +47,7 @@ public class EffectsTab implements HasTabs {
         }
     }
 
-    @Override
-    public IsTab openTab(String tab) {
+    public IsPopUpTab openTab(String tab) {
         return null;
     }
 

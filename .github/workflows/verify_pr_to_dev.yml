@@ -69,11 +69,40 @@ jobs:
       - name: Build executor properties
         if: always()
         run: |
-          echo '{"name":"GitHub Actions","type":"github","reportName":"Brizy Regression run",' > executor.json
-          echo "\"url\":\"https://bagrinsergiu.github.io/brizy-atf\"," >> executor.json # ???
-          echo "\"reportUrl\":\"https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\"," >> executor.json
-          echo "\"buildUrl\":\"hhttps://github.com/bagrinsergiu/brizy-atf/actions/runs/${{ github.run_id }}\"," >> executor.json
+          echo '{' > executor.json
+          echo '  "name": "GitHub Actions",' >> executor.json
+          echo '  "reportName": "Brizy Automation Tests",' >> executor.json
+          echo '  "type": "github",' >> executor.json
+          echo '  "reportName": "Brizy Regression run",' >> executor.json
+          echo '  "url": "https://bagrinsergiu.github.io/brizy-atf",' >> executor.json
+          echo '  "baseUrl": "https://www.brizy.cloud/projects/18098294/editor/page/3672626",' >> executor.json
+          echo '  "reportUrl": "https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}",' >> executor.json
+          echo '  "buildUrl": "https://github.com/bagrinsergiu/brizy-atf/actions/runs/${{ github.run_id }}"' >> executor.json
+          echo '}' >> executor.json
           mv ./executor.json ./web-test/target/allure-results
+          cat ./web-test/target/allure-results/executor.json
+          ls -ltrh /root/.allure/
+
+      - name: Build environment properties
+        if: always()
+        run: |
+          echo "VM_Name: $(hostname)" > environment.properties
+          echo "Total_Memory: $(free -h | awk '/Mem:/ {print $2}')" >> environment.properties
+          echo "Used_Memory: $(free -h | awk '/Mem:/ {print $3}')" >> environment.properties
+          echo "Processor: $(lscpu | grep 'Model name' | sed 's/Model name://')" >> environment.properties
+          echo "Number_Of_Processors: $(nproc)" >> environment.properties
+          echo "OS_Version: $(lsb_release -d | sed 's/Description:\s*//')" >> environment.properties
+          mv ./environment.properties ./web-test/target/allure-results
+          cat ./web-test/target/allure-results/environment.properties
+
+      - name: Build launch json
+        if: always()
+        run: |
+          echo '{' > launch.json
+          echo '  "name": "Demo Allure tests"' >> launch.json
+          echo '}' >> launch.json
+          mv ./launch.json ./web-test/target/allure-results
+          cat ./web-test/target/allure-results/launch.json
 
       - name: Copy old history to recent allure results folder
         if: always()
@@ -103,9 +132,6 @@ jobs:
       - name: Setup Pages
         if: always()
         uses: actions/configure-pages@v3
-
-      - name: Clean project resources
-        run: mvn clean
 
       - name: Upload artifact
         if: always()

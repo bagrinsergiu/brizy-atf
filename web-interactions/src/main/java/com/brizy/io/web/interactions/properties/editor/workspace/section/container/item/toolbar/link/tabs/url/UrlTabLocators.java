@@ -15,6 +15,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class UrlTabLocators extends AbstractProperty {
 
+    String configurations;
     @NestedConfigurationProperty
     InputWithPopulationLocators linkTo;
     String openInNewTab;

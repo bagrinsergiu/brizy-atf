@@ -4,7 +4,7 @@ import com.brizy.io.web.common.dto.element.properties.common.colors.border.CanHa
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.CustomizableColor;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -18,7 +18,7 @@ public class Border implements CustomizableColor {
     Supplier<TextInput> color;
     Supplier<NumericInput> size;
 
-    public Border(BorderProperties border, Frame page) {
+    public Border(BorderLocators border, Frame page) {
         this.color = () -> new TextInput(page.locator(border.getValue()));
         this.size = () -> new NumericInput(page.locator(border.getSize()));
     }

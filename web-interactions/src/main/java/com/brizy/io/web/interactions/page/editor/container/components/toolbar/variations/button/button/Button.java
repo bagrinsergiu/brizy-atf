@@ -1,14 +1,13 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button;
 
 import com.brizy.io.web.common.dto.element.properties.button.button.ButtonProperties;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.ButtonTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.IconTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.ButtonTabsLocators;
 import com.microsoft.playwright.Frame;
-import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
@@ -21,24 +20,21 @@ import static io.vavr.API.*;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Button implements HasTabs {
+public class Button extends AbstractToolbarItem {
 
     @Getter
-    Supplier<Locator> tabsLocator;
     Supplier<ButtonTab> button;
     Supplier<IconTab> icon;
-    Supplier<com.brizy.io.web.interactions.element.Button> buttonElementButton;
 
     public Button(ButtonLocators buttonLocators, Frame frame) {
-        TabsProperties tabsProperties = buttonLocators.getTabs();
-        this.buttonElementButton = () -> new com.brizy.io.web.interactions.element.Button(frame.locator(buttonLocators.getSelf()));
-        this.tabsLocator = () -> frame.locator(tabsProperties.getSelf());
-        this.button = () -> new ButtonTab(tabsProperties.getButton(), frame);
-        this.icon = () -> new IconTab(tabsProperties.getIcon(), frame);
+        super(buttonLocators.getSelf(), buttonLocators.getTabs().getSelf(), frame);
+        ButtonTabsLocators buttonTabsLocators = buttonLocators.getTabs();
+        this.button = () -> new ButtonTab(buttonTabsLocators.getButton(), frame);
+        this.icon = () -> new IconTab(buttonTabsLocators.getIcon(), frame);
     }
 
     public void applyProperties(ButtonProperties propertiesToApply) {
-        buttonElementButton.get().click();
+        open();
         if (Objects.nonNull(propertiesToApply.getButton())) {
             button.get().applyProperties(propertiesToApply.getButton());
         }
@@ -48,7 +44,8 @@ public class Button implements HasTabs {
     }
 
     @Override
-    public IsTab openTab(String tab) {
+    public IsPopUpTab openTab(String tab) {
+        open();
         return Match(tab.toLowerCase()).of(
                 Case($(Fields.button), () -> {
                     ButtonTab buttonTab = button.get();
@@ -56,14 +53,15 @@ public class Button implements HasTabs {
                     return buttonTab;
                 }),
                 Case($(Fields.icon), () -> {
-                    icon.get().open();
-                    return icon.get();
+                    IconTab iconTab = icon.get();
+                    iconTab.open();
+                    return iconTab;
                 })
         );
     }
 
     public ButtonProperties getProperties() {
-        buttonElementButton.get().click();
+        open();
         return ButtonProperties.builder()
                 .button(button.get().getProperties())
                 .icon(icon.get().getProperties())

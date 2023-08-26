@@ -2,16 +2,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.image.image.image.Image;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.FileUploader;
 import com.brizy.io.web.interactions.element.RangeInput;
 import com.brizy.io.web.interactions.element.Slider;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.image.ImageProperties;
 import com.microsoft.playwright.Frame;
-import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
@@ -22,25 +19,21 @@ import java.util.function.Supplier;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class ImageTab implements IsTab {
+public class ImageTab extends AbstractTabItem {
 
-    @Getter
-    Supplier<Button> tabButton;
     Supplier<FileUploader> image;
     Supplier<RangeInput> zoom;
     Supplier<Slider> openInLightBox;
-    Supplier<Locator> configurations;
 
     public ImageTab(ImageProperties image, Frame frame) {
-        this.configurations = () -> frame.locator(image.getConfigurations());
-        this.tabButton = () -> new Button(frame.locator(image.getSelf()));
+        super(image.getConfigurations(), image.getSelf(), frame);
         this.image = () -> new FileUploader(image.getImage(), frame);
         this.zoom = () -> new RangeInput(frame.locator(image.getZoom()));
         this.openInLightBox = () -> new Slider(frame.locator(image.getOpenInLightBox()));
     }
 
     public void applyProperties(Image image) {
-        tabButton.get().click();
+        open();
         if (Objects.nonNull(image.getImage()) && !image.getImage().isEmpty()) {
             this.image.get().uploadFile(Paths.get(image.getImage()));
         }
@@ -50,13 +43,6 @@ public class ImageTab implements IsTab {
         if (Objects.nonNull(image.getOpenInLightBox())) {
             openInLightBox.get().switchTo(image.getOpenInLightBox());
         }
-    }
-
-    @Override
-    public List<String> getWebConfigurations() {
-        return configurations.get().all().stream()
-                .map(Locator::textContent)
-                .toList();
     }
 
     @Override

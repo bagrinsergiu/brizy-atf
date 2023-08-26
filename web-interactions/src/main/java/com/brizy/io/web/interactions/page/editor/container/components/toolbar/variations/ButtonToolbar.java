@@ -4,20 +4,24 @@ import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.Link;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.SettingsScrollbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
+import io.vavr.API;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
 import java.util.Objects;
 import java.util.function.Supplier;
+
+import static io.vavr.API.$;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @FieldNameConstants
@@ -39,6 +43,14 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
         this.align = () -> new EnumerableButton<>(Alignments.class, toolbarLocators.getAlign(), page);
         this.link = () -> new Link(toolbarLocators.getLink(), page);
         this.settings = () -> new SettingsScrollbar(toolbarLocators.getSettings().getScrollBar(), page.page());
+    }
+
+    @Override
+    public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {
+        return API.Match(toolbarItemTitle.toLowerCase()).of(
+                API.Case($(ButtonToolbar.Fields.buttonItem), buttonItem.get()),
+                API.Case($(ButtonToolbar.Fields.colors), () -> colors.get())
+        );
     }
 
     @Override

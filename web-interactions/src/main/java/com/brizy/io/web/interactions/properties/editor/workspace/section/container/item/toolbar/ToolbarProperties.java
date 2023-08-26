@@ -1,9 +1,9 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar;
 
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.LinkLocators;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.SettingsProperties;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
@@ -25,7 +25,7 @@ public class ToolbarProperties {
     @NestedConfigurationProperty
     TypographyProperties typography;
     @NestedConfigurationProperty
-    ColorsProperties colors;
+    ColorsLocators colors;
     @NestedConfigurationProperty
     CounterProperties counter;
     @NestedConfigurationProperty
@@ -33,7 +33,7 @@ public class ToolbarProperties {
     @NestedConfigurationProperty
     SettingsProperties settings;
     @NestedConfigurationProperty
-    ImageProperties image;
+    ImageLocators image;
     @NestedConfigurationProperty
     LinkLocators link;
 

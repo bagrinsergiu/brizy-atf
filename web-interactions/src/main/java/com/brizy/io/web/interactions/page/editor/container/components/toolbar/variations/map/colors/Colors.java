@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.TabsLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -19,8 +19,8 @@ public class Colors {
     Supplier<Button> shadowButton;
     Supplier<Shadow> shadowSubMenu;
 
-    public Colors(ColorsProperties colorsProperties, Frame page) {
-        TabsProperties tabs = colorsProperties.getTabs();
+    public Colors(ColorsLocators colorsLocators, Frame page) {
+        TabsLocators tabs = colorsLocators.getTabs();
         backgroundButton = () -> new Button(page.locator(tabs.getBackground().getSelf()));
         backgroundSubMenu = () -> new Background(tabs.getBackground(), page);
         borderButton = () -> new Button(page.locator(tabs.getBorder().getSelf()));

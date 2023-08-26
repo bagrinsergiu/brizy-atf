@@ -2,8 +2,8 @@ package com.brizy.io.web.interactions.properties.editor.workspace.section.contai
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.IconPickerLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.spacing.SpacingProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeLocators;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.spacing.SpacingLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,14 +15,15 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class IconProperties extends AbstractProperty {
+public class IconLocators extends AbstractProperty {
 
+    String configurations;
     @NestedConfigurationProperty
     IconPickerLocators icon;
     String position;
     @NestedConfigurationProperty
-    SizeProperties size;
+    SizeLocators size;
     @NestedConfigurationProperty
-    SpacingProperties spacing;
+    SpacingLocators spacing;
 
 }

@@ -1,7 +1,6 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border;
 
-import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColor;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,9 +12,11 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ButtonProperties extends AbstractProperty {
+public class BorderLocators extends AbstractColor {
 
+    String size;
+    String type;
     @NestedConfigurationProperty
-    TabsProperties tabs;
+    BorderWidthProperties borderWidthControl;
 
 }

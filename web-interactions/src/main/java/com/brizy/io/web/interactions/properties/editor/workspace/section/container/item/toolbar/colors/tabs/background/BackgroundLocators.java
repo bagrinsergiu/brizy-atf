@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.overlay;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.background;
 
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColorWithGradient;
 import lombok.AccessLevel;
@@ -11,5 +11,5 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class OverlayProperties extends AbstractColorWithGradient {
+public class BackgroundLocators extends AbstractColorWithGradient {
 }

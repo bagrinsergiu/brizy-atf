@@ -2,31 +2,29 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.button.link.url.URL;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Slider;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.url.UrlTabLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class UrlTab implements IsTab {
+public class UrlTab extends AbstractTabItem {
 
-    @Getter
-    Supplier<Button> tabButton;
     Supplier<InputWithPopulation> linkTo;
     Supplier<Slider> openInNewTab;
     Supplier<Slider> makeItNoFollow;
 
     public UrlTab(UrlTabLocators urlTabLocators, Frame frame) {
-        this.tabButton = () -> new Button(frame.locator(urlTabLocators.getSelf()));
+        super(urlTabLocators.getConfigurations(), urlTabLocators.getSelf(), frame);
         this.linkTo = () -> new InputWithPopulation(urlTabLocators.getLinkTo(), frame);
         this.openInNewTab = () -> new Slider(frame.locator(urlTabLocators.getOpenInNewTab()));
         this.makeItNoFollow = () -> new Slider(frame.locator(urlTabLocators.getMakeItNoFollow()));
@@ -45,16 +43,6 @@ public class UrlTab implements IsTab {
         }
     }
 
-    @Override
-    public List<String> getWebConfigurations() {
-        return null;
-    }
-
-    @Override
-    public List<Configuration> getConfigurations() {
-        return null;
-    }
-
     public URL getProperties() {
         open();
         return URL.builder()
@@ -63,4 +51,14 @@ public class UrlTab implements IsTab {
                 .makeItNoFollow(makeItNoFollow.get().getState())
                 .build();
     }
+
+    @Override
+    public List<Configuration> getConfigurations() {
+        return List.of(
+                Configuration.builder().name(Fields.linkTo).element(linkTo).build(),
+                Configuration.builder().name(Fields.makeItNoFollow).element(makeItNoFollow).build(),
+                Configuration.builder().name(Fields.openInNewTab).element(openInNewTab).build()
+        );
+    }
+
 }

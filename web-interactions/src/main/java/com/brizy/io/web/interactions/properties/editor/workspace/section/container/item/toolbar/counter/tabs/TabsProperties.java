@@ -13,7 +13,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 public class TabsProperties extends AbstractProperty {
 
-    CounterTabProperties counter;
-    AdvancedProperties advanced;
+    CounterLocators counter;
+    AdvancedCounterLocators advanced;
 
 }

@@ -1,12 +1,14 @@
-package com.brizy.io.web.interactions.page.editor.container.components.toolbar.common;
+package com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs;
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.element.Button;
 
 import java.util.List;
-import java.util.function.Supplier;
 
-public interface IsTab {
+/**
+ * This interface should be implemented by each tab of a popup, for example: button, image, color
+ * The popup parent should be a toolbar item
+ */
+public interface IsPopUpTab {
     /**
      * Used to get from the ui all the configurations within a tab
      */
@@ -17,11 +19,7 @@ public interface IsTab {
      */
     List<Configuration> getConfigurations();
 
-    Supplier<Button> getTabButton();
-
-    default void open() {
-        getTabButton().get().click();
-    }
+    void open();
 
 //    TODO add is active method to check this
 
