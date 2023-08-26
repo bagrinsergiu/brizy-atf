@@ -15,6 +15,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class PopupTabLocators extends AbstractProperty {
 
+    String configurations;
     @NestedConfigurationProperty
     FileUploaderLocators popUp;
 

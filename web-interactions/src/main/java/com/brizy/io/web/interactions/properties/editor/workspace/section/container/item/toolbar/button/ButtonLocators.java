@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.ButtonTabsLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +16,6 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class ButtonLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    TabsProperties tabs;
+    ButtonTabsLocators tabs;
 
 }

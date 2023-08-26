@@ -1,7 +1,7 @@
-package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button;
+package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.custom.CustomProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,9 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ButtonProperties extends AbstractProperty {
+public class SizeLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    TabsProperties tabs;
+    CustomProperties custom;
 
 }

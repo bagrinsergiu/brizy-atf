@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class SpacingProperties extends AbstractProperty {
+public class SpacingLocators extends AbstractProperty {
 
     String value;
     String unit;
