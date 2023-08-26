@@ -15,7 +15,7 @@ Feature: Editor Page - Bottom Panel Elements
       | MAP  | -        | -      | MAP_1 | SECTION_1   |
     And add the item to the page
 
-  @Smoke @tmsLink=1 @Test
+  @Smoke @tmsLink=1
   Scenario: Verify Save Menu Items
     When get bottom panel save draft menu items
     Then validate that the following items are displayed on save draft menu:

@@ -11,10 +11,12 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class AdvancedProperties extends AbstractProperty {
+public class CounterLocators extends AbstractProperty {
 
-    String prefix;
-    String suffix;
-    String separator;
+    String configurations;
+    String style;
+    String start;
+    String end;
+    String duration;
 
 }

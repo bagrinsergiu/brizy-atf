@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.AdvancedCounterPropertyDto;
 import com.brizy.io.web.interactions.element.TextInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.AdvancedProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.AdvancedCounterLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -16,7 +16,7 @@ public class AdvancedTab {
     Supplier<TextInput> suffix;
     Supplier<TextInput> separator;
 
-    public AdvancedTab(AdvancedProperties advanced, Frame page) {
+    public AdvancedTab(AdvancedCounterLocators advanced, Frame page) {
         this.prefix = () -> new TextInput(page.locator(advanced.getPrefix()));
         this.suffix = () -> new TextInput(page.locator(advanced.getSuffix()));
         this.separator = () -> new TextInput(page.locator(advanced.getSeparator()));

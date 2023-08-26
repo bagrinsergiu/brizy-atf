@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.properties.editor.workspace.section.contai
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.button.ButtonLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.IconProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.IconLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,11 +14,11 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class TabsProperties extends AbstractProperty {
+public class ButtonTabsLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
     ButtonLocators button;
     @NestedConfigurationProperty
-    IconProperties icon;
+    IconLocators icon;
 
 }

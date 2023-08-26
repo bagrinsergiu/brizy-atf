@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ShadowProperties extends AbstractColor {
+public class ShadowLocators extends AbstractColor {
 
     String type;
     String blurRadius;

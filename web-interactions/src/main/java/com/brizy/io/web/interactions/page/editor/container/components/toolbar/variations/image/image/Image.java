@@ -1,14 +1,12 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image;
 
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.image.ImageTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.MaskTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.microsoft.playwright.Frame;
-import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 
@@ -19,20 +17,19 @@ import static io.vavr.API.*;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Image implements HasTabs {
+public class Image extends AbstractToolbarItem {
 
-    @Getter
-    Supplier<Locator> tabsLocator;
     Supplier<ImageTab> image;
     Supplier<MaskTab> mask;
 
-    public Image(ImageProperties properties, Frame frame) {
-        this.tabsLocator = () -> frame.locator(properties.getTabs().getSelf());
-        this.image = () -> new ImageTab(properties.getTabs().getImage(), frame);
-        this.mask = () -> new MaskTab(properties.getTabs().getMask(), frame);
+    public Image(ImageLocators imageLocators, Frame frame) {
+        super(imageLocators.getSelf(), imageLocators.getTabs().getSelf(), frame);
+        this.image = () -> new ImageTab(imageLocators.getTabs().getImage(), frame);
+        this.mask = () -> new MaskTab(imageLocators.getTabs().getMask(), frame);
     }
 
     public void applyProperties(com.brizy.io.web.common.dto.element.properties.image.image.Image image) {
+        open();
         if (Objects.nonNull(image.getImage())) {
             this.image.get().applyProperties(image.getImage());
         }
@@ -42,7 +39,8 @@ public class Image implements HasTabs {
     }
 
     @Override
-    public IsTab openTab(String tab) {
+    public IsPopUpTab openTab(String tab) {
+        open();
         return Match(tab.toLowerCase()).of(
                 Case($(Fields.image), image.get()),
                 Case($(Fields.mask), () -> {

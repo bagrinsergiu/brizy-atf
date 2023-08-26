@@ -1,13 +1,11 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs;
 
 import com.brizy.io.web.common.dto.element.properties.button.settings.styling.advanced.AdvancedStylingProperties;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.Slider;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.advanced.AdvancedStylingLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
@@ -15,12 +13,11 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class AdvancedStylingTab implements IsTab {
+public class AdvancedStylingTab {
 
     @Getter
     Supplier<Button> tabButton;
@@ -44,7 +41,7 @@ public class AdvancedStylingTab implements IsTab {
     }
 
     public void applyProperties(AdvancedStylingProperties advancedStylingProperties) {
-        open();
+        tabButton.get().click();
         if (Objects.nonNull(advancedStylingProperties.getShowOnDesktop())) {
             this.showOnDesktop.get().switchTo(advancedStylingProperties.getShowOnDesktop());
         }
@@ -68,18 +65,8 @@ public class AdvancedStylingTab implements IsTab {
         }
     }
 
-    @Override
-    public List<String> getWebConfigurations() {
-        return null;
-    }
-
-    @Override
-    public List<Configuration> getConfigurations() {
-        return null;
-    }
-
     public AdvancedStylingProperties getProperties() {
-        open();
+        tabButton.get().click();
         return AdvancedStylingProperties.builder()
                 .cssClass(cssClass.get().getValue())
                 .cssId(cssId.get().getValue())

@@ -6,7 +6,7 @@ import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.PieCou
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.counter.counter.GenericCounter;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterTabProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -21,9 +21,9 @@ public class Pie extends GenericCounter {
 
     public Pie(CounterProperties counter, Frame page) {
         super(counter, page);
-        CounterTabProperties counterTabProperties = counter.getTabs().getCounter();
-        this.end = () -> new NumericInput(page.locator(counterTabProperties.getEnd()));
-        this.duration = () -> new NumericInput(page.locator(counterTabProperties.getDuration()));
+        CounterLocators counterLocators = counter.getTabs().getCounter();
+        this.end = () -> new NumericInput(page.locator(counterLocators.getEnd()));
+        this.duration = () -> new NumericInput(page.locator(counterLocators.getDuration()));
     }
 
     @Override

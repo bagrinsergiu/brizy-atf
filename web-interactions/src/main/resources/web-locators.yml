@@ -89,12 +89,14 @@ pages:
                   tabs:
                     self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     background:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Background']
                       type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
                       gradientType: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.gradientType}
                       angle: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.angle}
                       value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
                     border:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Border']
                       size: //div[contains(@class, 'brz-ed-control__border__width')]//input[@type='number']
                       type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
@@ -106,6 +108,7 @@ pages:
                         up: //div[contains(@class,'brz-ed-control__border__width')]//input[1]
                         down: //div[contains(@class,'brz-ed-control__border__width')]//input[3]
                     shadow:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Shadow']
                       value: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.value}
                       type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
@@ -114,6 +117,7 @@ pages:
                       horizontalOffset: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[4]
                       spreadRadius: //div[contains(@class,'brz-ed-option__input-number-wrap')]/input[2]
                     overlay:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Overlay']
                       type: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.type}
                       gradientType: ${pages.editor.frame.workspace.section.container.item.toolbar.colors.color.gradientType}
@@ -292,12 +296,14 @@ pages:
                   tabs:
                     self: //ul[contains(@class,'brz-ed-control__tabs__top')]
                     counter:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Counter']
                       style: //div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
                       end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
                       duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='number']
                     advanced:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Advanced']
                       prefix: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
                       suffix: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
@@ -308,6 +314,7 @@ pages:
                     self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     button:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.self}//span[text()='Button']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       size:
                         self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
                         items: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
@@ -329,6 +336,7 @@ pages:
                           radiusValue: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.corner.custom.self}//input[@type='range']
                     icon:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.self}//span[text()='Icon']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       icon:
                         self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
                         picker:
@@ -390,6 +398,7 @@ pages:
                     self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     url:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='URL']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       linkTo:
                         self: //div[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option__input')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//input
@@ -400,17 +409,20 @@ pages:
                       makeItNoFollow: //span[text()='Make it Nofollow']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                     block:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Block']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       block:
                         self: //div[text()='Block']/ancestor::div[contains(@class,'brz-ed-option')]
                         items: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.block.block.self}//div[contains(@class,'brz-ed-option__block-thumbnail-item')]
                     popup:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Popup']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       popup:
                         self: //span[text()='Popup']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.popup.popup.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.popup.popup.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
                     file:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='File']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
                       file:
                         self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//div[contains(@class,'brz-ed-control__file-upload__wrapper')]

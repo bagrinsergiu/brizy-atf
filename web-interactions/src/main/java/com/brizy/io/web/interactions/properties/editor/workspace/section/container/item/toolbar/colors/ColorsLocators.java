@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors;
 
 import com.brizy.io.web.interactions.properties.AbstractProperty;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.TabsProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.TabsLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,11 +14,11 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ColorsProperties extends AbstractProperty {
+public class ColorsLocators extends AbstractProperty {
 
     String normal;
     String hover;
     @NestedConfigurationProperty
-    TabsProperties tabs;
+    TabsLocators tabs;
 
 }

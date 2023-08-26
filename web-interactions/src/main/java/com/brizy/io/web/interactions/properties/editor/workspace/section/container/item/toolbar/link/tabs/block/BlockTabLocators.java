@@ -14,6 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class BlockTabLocators extends AbstractProperty {
 
+    String configurations;
     @NestedConfigurationProperty
     BlockLocators block;
 

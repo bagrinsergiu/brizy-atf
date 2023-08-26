@@ -5,7 +5,7 @@ import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.Counte
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.TextCounterPropertyDto;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.CounterProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterTabProperties;
+import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.counter.tabs.CounterLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -24,10 +24,10 @@ public class Text extends AdvancedCounter {
 
     public Text(CounterProperties counterProperties, Frame page) {
         super(counterProperties, page);
-        CounterTabProperties counterTabProperties = counterProperties.getTabs().getCounter();
-        this.start = () -> new NumericInput(page.locator(counterTabProperties.getStart()));
-        this.end = () -> new NumericInput(page.locator(counterTabProperties.getEnd()));
-        this.duration = () -> new NumericInput(page.locator(counterTabProperties.getDuration()));
+        CounterLocators counterLocators = counterProperties.getTabs().getCounter();
+        this.start = () -> new NumericInput(page.locator(counterLocators.getStart()));
+        this.end = () -> new NumericInput(page.locator(counterLocators.getEnd()));
+        this.duration = () -> new NumericInput(page.locator(counterLocators.getDuration()));
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.brizy.io.web.test.steps.actions.toolbar;
 
 import com.brizy.io.web.interactions.page.editor.EditorPage;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.IsTab;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.When;
@@ -47,7 +47,7 @@ public class ToolbarSteps {
 
     @When("get available configurations in the tab '{}' of '{}' toolbar item of the '{}' item from section '{}'")
     public void getAvailableConfigurationInATab(String tabName, String toolbarItemTitle, String itemName, String sectionName) {
-        IsTab isTab = onEditorPage().onPageBuilder()._do()
+        IsPopUpTab isTab = onEditorPage().onPageBuilder()._do()
                 .findComponent(sectionName, itemName)
                 .onToolbar()
                 .openTabbedPopup(toolbarItemTitle)

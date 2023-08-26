@@ -1,14 +1,13 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
-import com.brizy.io.web.common.dto.element.properties.image.ImageProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
+import com.brizy.io.web.common.dto.element.properties.image.ImageProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.HasTabs;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.Image;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.Image;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.settings.Settings;
 import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
 import com.microsoft.playwright.Frame;
@@ -26,7 +25,6 @@ import static io.vavr.API.$;
 @FieldNameConstants
 public class ImageToolbar extends ComponentToolbar<ImageProperties> {
 
-    Supplier<Button> imageButton;
     Supplier<Image> image;
     Supplier<Colors> colors;
     Supplier<Settings> settingsMenu;
@@ -34,26 +32,17 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
 
     public ImageToolbar(ToolbarProperties properties, Frame frame) {
         super(properties, frame);
-        this.imageButton = () -> new Button(frame.locator(properties.getImage().getSelf()));
         this.image = () -> new Image(properties.getImage(), frame);
         this.colors = () -> new Colors(properties.getColors(), frame);
         this.settingsMenu = () -> new Settings(properties.getSettings(), frame);
         this.align = () -> new EnumerableButton<>(Alignments.class, properties.getAlign(), frame);
     }
 
-    protected Image openImage() {
-        imageButton.get().click();
-        return image.get();
-    }
-
     @Override
-    public HasTabs openTabbedPopup(String toolbarItemTitle) {
+    public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {
         return API.Match(toolbarItemTitle.toLowerCase()).of(
-                API.Case($(Fields.image), openImage()),
-                API.Case($(Fields.colors), () -> {
-                    openColors();
-                    return colors.get();
-                })
+                API.Case($(Fields.image), () -> image.get()),
+                API.Case($(Fields.colors), () -> colors.get())
         );
     }
 
@@ -61,7 +50,7 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
     public void setProperties(ImageProperties properties) {
         if (Objects.nonNull(properties)) {
             if (Objects.nonNull(properties.getImage())) {
-                openImage().applyProperties(properties.getImage());
+                image.get().applyProperties(properties.getImage());
             }
             if (Objects.nonNull(properties.getColors())) {
                 colors.get().applyProperties(properties.getColors());
@@ -78,7 +67,6 @@ public class ImageToolbar extends ComponentToolbar<ImageProperties> {
 
     @Override
     public EditorComponentProperty getProperties() {
-        openImage();
         //TODO implement
         return null;
     }
