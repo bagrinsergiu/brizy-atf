@@ -1,9 +1,5 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.size;
 
-import com.brizy.io.web.common.dto.element.properties.button.button.button.corner.ConcreteCorner;
-import com.brizy.io.web.common.dto.element.properties.button.button.button.corner.CornerTypes;
-import com.brizy.io.web.common.dto.element.properties.button.button.button.corner.CustomCorner;
-import com.brizy.io.web.common.dto.element.properties.button.button.button.corner.CustomCornerValue;
 import com.brizy.io.web.common.dto.element.properties.button.button.button.size.ButtonSizeProperties;
 import com.brizy.io.web.common.dto.element.properties.button.button.button.size.ConcreteSize;
 import com.brizy.io.web.common.dto.element.properties.button.button.button.size.CustomSize;
