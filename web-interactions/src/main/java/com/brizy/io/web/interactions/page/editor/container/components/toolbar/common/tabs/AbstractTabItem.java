@@ -22,6 +22,7 @@ public abstract class AbstractTabItem implements IsPopUpTab {
 
     @Override
     public List<String> getWebConfigurations() {
+        open();
         return configurations.get().all().stream()
                 .map(Locator::textContent)
                 .toList();

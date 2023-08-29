@@ -1,8 +1,8 @@
 package com.brizy.io.web.test.steps.actions;
 
+import com.brizy.io.web.interactions.locators.HomePageProperties;
+import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
 import com.brizy.io.web.interactions.page.HomePage;
-import com.brizy.io.web.interactions.properties.HomePageProperties;
-import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;

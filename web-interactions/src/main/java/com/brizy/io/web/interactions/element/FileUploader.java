@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.element;
 
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.image.FileUploaderLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.image.FileUploaderLocators;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;

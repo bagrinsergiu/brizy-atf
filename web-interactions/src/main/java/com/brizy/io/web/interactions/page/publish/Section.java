@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.publish;
 
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.factory.ComponentsFactory;
-import com.brizy.io.web.interactions.properties.publish.SectionProperties;
+import com.brizy.io.web.interactions.locators.publish.SectionProperties;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;

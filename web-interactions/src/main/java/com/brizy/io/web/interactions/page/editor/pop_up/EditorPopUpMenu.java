@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.pop_up;
 
-import com.brizy.io.web.interactions.properties.editor.EditorPopUpMenuProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPopUpMenuProperties;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;
 

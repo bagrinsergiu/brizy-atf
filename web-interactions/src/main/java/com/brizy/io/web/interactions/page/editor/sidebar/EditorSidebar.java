@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.sidebar;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.properties.editor.EditorSidebarProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorSidebarProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

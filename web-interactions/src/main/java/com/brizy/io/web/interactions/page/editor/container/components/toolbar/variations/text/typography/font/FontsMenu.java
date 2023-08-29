@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.interactions.element.ScrollBar;
 import com.brizy.io.web.interactions.element.Span;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.fonts.FontsProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.fonts.FontsProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

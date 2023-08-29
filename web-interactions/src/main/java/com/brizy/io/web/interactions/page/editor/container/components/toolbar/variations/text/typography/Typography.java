@@ -1,14 +1,12 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography;
 
 import com.brizy.io.web.common.dto.element.properties.common.typography.size.Size;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.SizeDto;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.TypographyDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.ControlInput;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.font.FontsMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.size.SizeInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -59,16 +57,13 @@ public class Typography {
         }
     }
 
-    public TypographyDto getProperties() {
+    public com.brizy.io.web.common.dto.element.properties.common.typography.Typography getProperties() {
         typographyButton.get().click();
         Size sizeValue = size.get().getValue();
-        return TypographyDto.builder()
-                .activeFont(fontsMenu.get().getActiveFont())
+        return com.brizy.io.web.common.dto.element.properties.common.typography.Typography.builder()
+                .font(fontsMenu.get().getActiveFont())
                 .typography(typography.get().getSelectedItem())
-                .size(SizeDto.builder()
-                        .size(sizeValue.getValue())
-                        .unit(sizeValue.getUnit())
-                        .build())
+                .size(Size.builder().unit(sizeValue.getUnit()).value(sizeValue.getValue()).build())
                 .weight(weight.get().getSelectedItem())
                 .lineHgt(lineHgt.get().value())
                 .letterSp(letterSp.get().value())

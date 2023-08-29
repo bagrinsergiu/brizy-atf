@@ -5,7 +5,7 @@ import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.AdvancedStylingTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.BasicStylingTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.StylingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.StylingLocators;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;

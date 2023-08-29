@@ -1,10 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image;
 
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.image.ImageTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.MaskTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -13,6 +13,7 @@ import lombok.experimental.FieldNameConstants;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import static com.brizy.io.web.common.dto.element.properties.image.image.Image.builder;
 import static io.vavr.API.*;
 
 @FieldNameConstants
@@ -42,12 +43,17 @@ public class Image extends AbstractToolbarItem {
     public IsPopUpTab openTab(String tab) {
         open();
         return Match(tab.toLowerCase()).of(
-                Case($(Fields.image), image.get()),
-                Case($(Fields.mask), () -> {
-                    mask.get().open();
-                    return mask.get();
-                })
+                Case($(Fields.image), image),
+                Case($(), mask)
         );
+    }
+
+    public com.brizy.io.web.common.dto.element.properties.image.image.Image getProperties() {
+        open();
+        return builder()
+                .image(image.get().getProperties())
+                .mask(mask.get().getProperties())
+                .build();
     }
 
 //    TODO implement

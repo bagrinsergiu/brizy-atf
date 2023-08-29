@@ -1,7 +1,6 @@
 package com.brizy.io.web.test.types.parameter_type;
 
 import com.brizy.io.web.test.enums.AttributeTypes;
-import com.brizy.io.web.test.enums.StorageKey;
 import io.cucumber.java.ParameterType;
 
 public class AttributeType {

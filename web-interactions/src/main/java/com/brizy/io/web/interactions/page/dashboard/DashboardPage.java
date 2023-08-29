@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.dashboard;
 import com.brizy.io.web.interactions.page.AbstractPage;
 import com.brizy.io.web.interactions.page.dashboard.projects.Project;
 import com.brizy.io.web.interactions.page.dashboard.projects.ProjectsDashboard;
-import com.brizy.io.web.interactions.properties.dashboard.DashboardPageProperties;
+import com.brizy.io.web.interactions.locators.dashboard.DashboardPageProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

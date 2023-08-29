@@ -1,7 +1,6 @@
 package com.brizy.io.web.interactions.element;
 
 import com.microsoft.playwright.Locator;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +9,7 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.awaitility.Awaitility.await;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class NumericInput extends AbstractElement {
+public class NumericInput extends AbstractElement implements Input {
 
     public NumericInput(Locator locator) {
         super(locator);
@@ -37,7 +36,7 @@ public class NumericInput extends AbstractElement {
                 .atMost(MAX_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
                 .pollInSameThread()
                 .pollInterval(POLL_DELAY_FOR_NUMERIC_VALUE_READ)
-                .until(() -> getValue().equals(value.toString()));
+                .until(() -> getRawValue().equals(value.toString()));
     }
 
     public String getText() {
@@ -47,7 +46,8 @@ public class NumericInput extends AbstractElement {
         return locator.getAttribute("value");
     }
 
-    public String getValue() {
+    @Override
+    public String getRawValue() {
         return locator.getAttribute("value");
     }
 

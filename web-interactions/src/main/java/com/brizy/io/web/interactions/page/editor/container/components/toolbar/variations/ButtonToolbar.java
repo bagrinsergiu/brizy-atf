@@ -1,9 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
-import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
@@ -11,7 +9,7 @@ import com.brizy.io.web.interactions.page.editor.container.components.toolbar.va
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.SettingsScrollbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.microsoft.playwright.Frame;
 import io.vavr.API;
 import lombok.AccessLevel;
@@ -34,7 +32,7 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
     Supplier<Link> link;
     Supplier<SettingsScrollbar> settings;
 
-    public ButtonToolbar(ToolbarProperties toolbarLocators, Frame page) {
+    public ButtonToolbar(ToolbarLocators toolbarLocators, Frame page) {
         super(toolbarLocators, page);
         var buttonLocators = toolbarLocators.getButton();
         this.buttonItem = () -> new com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.Button(buttonLocators, page);
@@ -77,11 +75,11 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
     }
 
     @Override
-    public EditorComponentProperty getProperties() {
+    public ButtonProperties getProperties() {
         ButtonProperties properties = ButtonProperties.builder()
                 .align(align.get().getValue())
                 .button(buttonItem.get().getProperties())
-//                .typography(typography.get().getProperties())
+                .typography(typography.get().getProperties())
                 .colors(colors.get().getProperties())
                 .link(link.get().getProperties())
                 .build();
@@ -89,6 +87,6 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
         properties = properties.toBuilder()
                 .settings(settings.get().getProperties())
                 .build();
-        return ((EditorComponentProperty) ((Property) properties));
+        return properties;
     }
 }

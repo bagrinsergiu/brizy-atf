@@ -1,6 +1,5 @@
 package com.brizy.io.web.common.dto.element.properties.button.settings.effects.hover.types;
 
-import com.brizy.io.web.common.dto.element.properties.button.settings.effects.entrance.EntranceProperties;
 import com.brizy.io.web.common.dto.element.properties.button.settings.effects.hover.HoverProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

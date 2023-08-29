@@ -7,18 +7,6 @@
       "counter": {
         "style": "TEXT"
       }
-    },
-    "defaultProperties": {
-      "counter": {
-        "start": 0,
-        "end": 100,
-        "duration": 2.0
-      },
-      "advanced": {
-        "prefix": "",
-        "suffix": "",
-        "separator": ","
-      }
     }
   },
   {
@@ -28,17 +16,6 @@
     "properties": {
       "counter": {
         "style": "CIRCLE_TEXT"
-      }
-    },
-    "defaultProperties": {
-      "counter": {
-        "end": 100,
-        "duration": 2.0
-      },
-      "advanced": {
-        "prefix": "",
-        "suffix": "%",
-        "separator": ","
       }
     }
   },
@@ -50,12 +27,6 @@
       "counter": {
         "style": "CIRCLE"
       }
-    },
-    "defaultProperties": {
-      "counter": {
-        "end": 100,
-        "duration": 2.0
-      }
     }
   },
   {
@@ -65,12 +36,6 @@
     "properties": {
       "counter": {
         "style": "PIE"
-      }
-    },
-    "defaultProperties": {
-      "counter": {
-        "end": 100,
-        "duration": 2.0
       }
     }
   }

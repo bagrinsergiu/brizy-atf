@@ -3,12 +3,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.AnyPredefinedMask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FillSize;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FitSize;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.Size;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Custom;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Fill;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Fit;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -62,4 +63,18 @@ public class PredefinedShape {
         return configurationsToReturn;
     }
 
+    public AnyPredefinedMask getProperties() {
+        Size selectedSize;
+        String selectedItem = size.get().getSelectedItem();
+        if (selectedItem.equalsIgnoreCase("fill")) {
+            selectedSize = fillSize.get().getProperties().toBuilder().type(selectedItem).build();
+        } else if (selectedItem.equalsIgnoreCase("fit")) {
+            selectedSize = fitSize.get().getProperties().toBuilder().build();
+        } else {
+            selectedSize = customSize.get().getProperties();
+        }
+        return AnyPredefinedMask.builder()
+                .size(selectedSize)
+                .build();
+    }
 }

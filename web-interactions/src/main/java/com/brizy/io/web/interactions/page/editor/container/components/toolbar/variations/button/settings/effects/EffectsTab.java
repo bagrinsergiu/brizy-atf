@@ -6,7 +6,7 @@ import com.brizy.io.web.interactions.page.editor.container.components.toolbar.co
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.EntranceTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.HoverTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs.ScrollTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.EffectsLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.EffectsLocators;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;

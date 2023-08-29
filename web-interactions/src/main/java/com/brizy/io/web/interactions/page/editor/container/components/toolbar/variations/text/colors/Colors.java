@@ -1,11 +1,11 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.colors;
 
 import com.brizy.io.web.interactions.element.Button;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.TabsLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Background;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Border;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Shadow;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.TabsLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

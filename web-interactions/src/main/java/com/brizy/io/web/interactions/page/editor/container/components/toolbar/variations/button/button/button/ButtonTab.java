@@ -4,10 +4,10 @@ import com.brizy.io.web.common.dto.element.properties.button.button.button.Butto
 import com.brizy.io.web.common.dto.element.properties.button.button.button.fill.FillTypes;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.ButtonLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.corner.Corner;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.size.ButtonSize;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.button.ButtonLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

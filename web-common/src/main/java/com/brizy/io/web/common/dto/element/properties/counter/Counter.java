@@ -1,6 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties.counter;
 
-import com.brizy.io.web.common.dto.element.properties.counter.enums.StypeType;
+import com.brizy.io.web.common.dto.element.properties.counter.defaults.CounterAdvancedProperties;
+import com.brizy.io.web.common.dto.element.properties.counter.defaults.CounterTabProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -11,6 +12,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Counter {
 
-    StypeType style;
+    CounterTabProperties counter;
+    CounterAdvancedProperties counterAdvancedProperties;
 
 }

@@ -1,10 +1,9 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -20,7 +19,7 @@ public abstract class ComponentToolbar<T extends Property> {
     Supplier<Button> settingsButton;
     Supplier<Locator> toolbarItems;
 
-    protected ComponentToolbar(ToolbarProperties toolbarProperties, Frame page) {
+    protected ComponentToolbar(ToolbarLocators toolbarProperties, Frame page) {
         this.toolbarItems = () -> page.locator(toolbarProperties.getItem());
         this.colorsButton = () -> new Button(page.locator(toolbarProperties.getColors().getSelf()));
         this.settingsButton = () -> new Button(page.locator(toolbarProperties.getSettings().getSelf()));
@@ -43,7 +42,7 @@ public abstract class ComponentToolbar<T extends Property> {
 
     public abstract void setProperties(T properties);
 
-    public abstract EditorComponentProperty getProperties();
+    public abstract T getProperties();
 
     //    TODO refactor to abstract
     public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {

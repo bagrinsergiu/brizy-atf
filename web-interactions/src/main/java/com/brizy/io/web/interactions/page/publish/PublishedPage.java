@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.publish;
 
 import com.brizy.io.web.interactions.page.AbstractPage;
-import com.brizy.io.web.interactions.properties.publish.PublishPageProperties;
-import com.brizy.io.web.interactions.properties.publish.SectionProperties;
+import com.brizy.io.web.interactions.locators.publish.PublishPageProperties;
+import com.brizy.io.web.interactions.locators.publish.SectionProperties;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

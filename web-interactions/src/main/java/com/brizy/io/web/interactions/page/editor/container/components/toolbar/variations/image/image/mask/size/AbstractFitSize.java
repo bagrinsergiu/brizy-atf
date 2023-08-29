@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size;
 
 import com.brizy.io.web.interactions.element.ComboBox;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

@@ -1,14 +1,14 @@
 package com.brizy.io.web.interactions.page.editor.container.components;
 
+import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -17,7 +17,7 @@ import lombok.experimental.FieldDefaults;
 import static com.microsoft.playwright.options.MouseButton.RIGHT;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public abstract class Component extends GenericComponent {
+public abstract class Component<T extends Property> extends GenericComponent {
 
     ItemProperties componentProperties;
     Frame frame;
@@ -39,21 +39,21 @@ public abstract class Component extends GenericComponent {
         this.frame = componentLocator.page().mainFrame();
     }
 
-    protected abstract EditorComponentProperty getEditorProperties();
+    protected abstract T getEditorProperties();
 
-    protected abstract ComponentToolbar getToolbar();
+    protected abstract ComponentToolbar<T> getToolbar();
 
     public void moveElementToPosition(Div element, ComponentPositions position) {
         ElementPositionDto positionToMoveElementTo = position.getPosition(getSize(), getPosition());
         element.moveWithMouse(positionToMoveElementTo);
     }
 
-    private ComponentToolbar openAndGetToolbar() {
+    private ComponentToolbar<T> openAndGetToolbar() {
         getComponentLocator().click();
         return getToolbar();
     }
 
-    public ComponentToolbar onToolbar() {
+    public ComponentToolbar<T> onToolbar() {
         return openAndGetToolbar();
     }
 
@@ -69,7 +69,7 @@ public abstract class Component extends GenericComponent {
 
     public class GetProperties {
 
-        public EditorComponentProperty editorItemProperties() {
+        public T editorItemProperties() {
             return getEditorProperties();
         }
 

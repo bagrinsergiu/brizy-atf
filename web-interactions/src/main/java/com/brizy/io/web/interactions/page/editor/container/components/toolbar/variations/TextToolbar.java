@@ -1,12 +1,9 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
 import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.TextPropertyDto;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.ToolbarProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.microsoft.playwright.Frame;
 
 import java.util.Objects;
@@ -17,7 +14,7 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
     Supplier<Typography> typography;
     Supplier<Frame> escape;
 
-    public TextToolbar(ToolbarProperties properties, Frame frame) {
+    public TextToolbar(ToolbarLocators properties, Frame frame) {
         super(properties, frame);
         this.typography = () -> new Typography(properties.getTypography(), frame);
         this.escape = () -> frame;
@@ -31,12 +28,10 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
     }
 
     @Override
-    public EditorComponentProperty getProperties() {
-        TextPropertyDto textProperties = TextPropertyDto.builder()
+    public TextProperties getProperties() {
+        return TextProperties.builder()
                 .typography(typography.get().getProperties())
                 .build();
-        escape.get().frameElement().press("Escape");
-        return textProperties;
     }
 
 }

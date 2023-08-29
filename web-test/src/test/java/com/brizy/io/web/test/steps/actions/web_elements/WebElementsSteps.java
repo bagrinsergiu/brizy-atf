@@ -3,17 +3,20 @@ package com.brizy.io.web.test.steps.actions.web_elements;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.FileUploader;
+import com.brizy.io.web.interactions.element.Input;
+import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
+import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.data.enums.TestDataFileType;
 import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.test.enums.AttributeTypes;
+import com.brizy.io.web.test.enums.RadioGroupActions;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.When;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.util.Strings;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -60,6 +63,40 @@ public class WebElementsSteps {
                 .flatMap(configuration -> ((ComboBox) configuration.getElement().get()).items(locator -> true, attributeType.getExtractionFunction()).stream())
                 .toList();
         storage.addValue(DROPDOWN_ITEMS, dropdownItems);
+    }
+
+    @When("get {radioGroupAction} item(s) from '{}' radio group")
+    public void getSelectedItemFromStyleRadioGroup(RadioGroupActions radioGroupAction, String radioGroup) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(radioGroup))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((RadioControl) configuration.get()))
+                .map(radioControl -> radioControl.getActiveControl())
+                .map(radioControl -> radioControl.name())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get value of the '{}' input with population")
+    public void getValueFromStyleInputWithPopulation(String inputWithPopulationToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(inputWithPopulationToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((InputWithPopulation) configuration.get()))
+                .map(input -> input.getInputValue())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get value of the '{}' input")
+    public void getValueOfTheDurationInput(String inputToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(inputToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((Input) configuration.get()))
+                .map(input -> input.getRawValue())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }
 
 }

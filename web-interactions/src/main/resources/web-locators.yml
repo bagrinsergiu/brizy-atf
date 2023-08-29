@@ -299,15 +299,40 @@ pages:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Counter']
                       style: //div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
-                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
-                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='number']
+                      start:
+                        self: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.start.self}//input[@type='number']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.start.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                      end:
+                        self: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.end.self}//input[@type='number']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.end.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
                       duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='number']
                     advanced:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Advanced']
-                      prefix: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
-                      suffix: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
-                      separator: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]//input[@type='text']
+                      prefix:
+                        self: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.prefix.self}//input[@type='text']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.prefix.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                      suffix:
+                        self: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.suffix.self}//input[@type='text']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.suffix.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                      separator:
+                        self: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.separator.self}//input[@type='text']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.separator.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
                 button:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Button']
                   tabs:

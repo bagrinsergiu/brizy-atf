@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.c
 
 import com.brizy.io.web.common.dto.element.properties.image.colors.gradient.Solid;
 import com.brizy.io.web.interactions.element.TextInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColor;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.common.AbstractColor;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

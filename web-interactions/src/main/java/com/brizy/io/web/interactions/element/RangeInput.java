@@ -11,7 +11,7 @@ import static org.awaitility.Awaitility.await;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class RangeInput {
+public class RangeInput implements Input {
 
     Locator locator;
 
@@ -27,8 +27,24 @@ public class RangeInput {
                 .until(() -> Integer.valueOf(locator.getAttribute("value")).equals(integer));
     }
 
-    public Integer getValue() {
-        return Integer.valueOf(locator.inputValue());
+    public void fill(Double doubleValue) {
+        ElementHandle elementHandle = locator.elementHandle();
+        elementHandle.fill(doubleValue.toString());
+        await().alias("Wait for numeric input value to be applied")
+                .atLeast(MIN_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
+                .and()
+                .atMost(MAX_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
+                .pollInSameThread()
+                .pollInterval(POLL_DELAY_FOR_NUMERIC_VALUE_READ)
+                .until(() -> Double.valueOf(locator.getAttribute("value")).equals(doubleValue));
     }
 
+    public Integer getValue() {
+        return Integer.valueOf(getRawValue());
+    }
+
+    @Override
+    public String getRawValue() {
+        return locator.inputValue();
+    }
 }

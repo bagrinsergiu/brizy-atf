@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions;
 
 import com.brizy.io.web.common.property.CustomYamlProcessor;
-import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
+import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

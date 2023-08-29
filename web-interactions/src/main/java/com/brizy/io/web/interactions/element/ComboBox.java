@@ -57,4 +57,13 @@ public class ComboBox extends AbstractElement {
         return locator.textContent();
     }
 
+
+    public String getInnerHtmlSelectedValue() {
+        if (!isVisible()) {
+            return null;
+        }
+        String value = locator.locator("//div[contains(@class,'multiSelect--tag--value')]").innerHTML().replaceAll(".*-", "").replaceAll("\".*", "");
+        return value.substring(0, 1).toUpperCase().concat(value.substring(1));
+    }
+
 }

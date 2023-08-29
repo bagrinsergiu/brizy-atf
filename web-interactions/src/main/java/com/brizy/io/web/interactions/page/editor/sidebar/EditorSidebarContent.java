@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.sidebar;
 
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
-import com.brizy.io.web.interactions.properties.editor.sidebar.EditorAddItemsSidebarContentMainProperties;
+import com.brizy.io.web.interactions.locators.editor.sidebar.EditorAddItemsSidebarContentMainProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
