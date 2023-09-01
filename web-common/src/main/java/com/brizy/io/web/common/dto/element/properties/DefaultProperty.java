@@ -1,3 +1,0 @@
-package com.brizy.io.web.common.dto.element.properties;
-
-public interface DefaultProperty {}
