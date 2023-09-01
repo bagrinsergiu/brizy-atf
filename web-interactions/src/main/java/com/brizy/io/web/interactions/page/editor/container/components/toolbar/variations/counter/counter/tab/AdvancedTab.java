@@ -2,7 +2,6 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.common.dto.element.properties.counter.defaults.CounterAdvancedProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.counter.AdvancedCounterPropertyDto;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.tabs.AdvancedCounterLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
@@ -40,9 +39,9 @@ public class AdvancedTab extends AbstractTabItem {
         );
     }
 
-    public AdvancedCounterPropertyDto getProperties() {
+    public CounterAdvancedProperties getProperties() {
         open();
-        return AdvancedCounterPropertyDto.builder()
+        return CounterAdvancedProperties.builder()
                 .prefix(prefix.get().getValue())
                 .suffix(suffix.get().getValue())
                 .separator(separator.get().getValue())

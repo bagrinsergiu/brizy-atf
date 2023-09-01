@@ -1,6 +1,5 @@
 package com.brizy.io.web.common.dto.element.type;
 
-import com.brizy.io.web.common.dto.element.properties.DefaultProperty;
 import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -16,9 +15,4 @@ public class Text extends AbstractPropertyType<TextProperties> implements ItemTy
     @Getter
     TextProperties properties;
 
-    @Override
-    public <T extends DefaultProperty> T getDefaultProperties() {
-//        TODO need to implement
-        return null;
-    }
 }
