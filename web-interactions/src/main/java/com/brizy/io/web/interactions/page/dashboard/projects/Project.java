@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.dashboard.projects;
 import com.brizy.io.web.interactions.dto.dashboard.ProjectDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.TextInput;
-import com.brizy.io.web.interactions.properties.dashboard.ProjectProperties;
+import com.brizy.io.web.interactions.locators.dashboard.ProjectProperties;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -29,7 +29,7 @@ public class Project {
 
     public ProjectDto get() {
         return ProjectDto.builder()
-                .title(title.get().getText())
+                .title(title.get().getRawValue())
                 .build();
     }
 

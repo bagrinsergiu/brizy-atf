@@ -9,8 +9,8 @@ import com.brizy.io.web.common.dto.element.properties.button.settings.styling.en
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup.PositionGroupLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup.position.PositionLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup.PositionGroupLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.positionGroup.position.PositionLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

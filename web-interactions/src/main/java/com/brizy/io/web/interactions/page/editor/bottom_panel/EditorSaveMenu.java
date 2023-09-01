@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.bottom_panel;
 
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
 import com.brizy.io.web.interactions.element.Span;
-import com.brizy.io.web.interactions.properties.editor.bottomPanel.EditorBottomPanelSaveMenu;
+import com.brizy.io.web.interactions.locators.editor.bottomPanel.EditorBottomPanelSaveMenu;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;

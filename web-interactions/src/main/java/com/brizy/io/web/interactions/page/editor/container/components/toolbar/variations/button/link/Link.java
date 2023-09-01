@@ -1,14 +1,14 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link;
 
 import com.brizy.io.web.common.dto.element.properties.button.link.LinkProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.LinkTabsLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.block.BlockTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.file.FileTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.pop_up.PopupTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.url.UrlTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.LinkLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.LinkTabsLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

@@ -1,12 +1,12 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button;
 
 import com.brizy.io.web.common.dto.element.properties.button.button.ButtonProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.ButtonTabsLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.ButtonTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.IconTab;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.ButtonTabsLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.Getter;

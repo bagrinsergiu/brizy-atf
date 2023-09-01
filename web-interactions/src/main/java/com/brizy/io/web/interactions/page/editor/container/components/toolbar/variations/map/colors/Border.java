@@ -3,8 +3,8 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.common.colors.border.CanHaveBorders;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.TextInput;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.CustomizableColor;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

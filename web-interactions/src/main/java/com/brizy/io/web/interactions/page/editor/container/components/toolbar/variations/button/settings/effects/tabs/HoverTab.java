@@ -1,8 +1,5 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.tabs;
 
-import com.brizy.io.web.common.dto.element.properties.button.settings.effects.entrance.types.AnyEntranceParametersProperties;
-import com.brizy.io.web.common.dto.element.properties.button.settings.effects.entrance.types.AnyEntranceProperties;
-import com.brizy.io.web.common.dto.element.properties.button.settings.effects.entrance.types.NoneEntranceProperties;
 import com.brizy.io.web.common.dto.element.properties.button.settings.effects.hover.HoverProperties;
 import com.brizy.io.web.common.dto.element.properties.button.settings.effects.hover.types.AnyHoverParametersProperties;
 import com.brizy.io.web.common.dto.element.properties.button.settings.effects.hover.types.AnyHoverProperties;
@@ -11,10 +8,9 @@ import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.Slider;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.popup.IconPickerGrid;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.hover.HoverLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.hover.properties.HoverPropertiesLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.effects.EffectsGrid;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.hover.HoverLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.hover.properties.HoverPropertiesLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

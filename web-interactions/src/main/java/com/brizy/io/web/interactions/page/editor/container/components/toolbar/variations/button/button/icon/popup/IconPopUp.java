@@ -4,7 +4,7 @@ import com.brizy.io.web.common.dto.element.properties.button.button.icon.picker.
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.element.composite.PopUpDropdown;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.pop_up.IconPickerPopupLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.pop_up.IconPickerPopupLocators;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;

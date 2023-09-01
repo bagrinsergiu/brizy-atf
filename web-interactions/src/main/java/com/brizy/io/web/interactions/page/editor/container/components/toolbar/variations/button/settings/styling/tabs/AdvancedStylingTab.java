@@ -6,7 +6,7 @@ import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.Slider;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.advanced.AdvancedStylingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.advanced.AdvancedStylingLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.Getter;

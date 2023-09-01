@@ -4,7 +4,7 @@ import com.brizy.io.web.common.dto.element.properties.common.PopulationPropertie
 import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.TextInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -35,9 +35,13 @@ public class InputWithPopulation {
         this.populationItems = () -> page.locator(locators.getPopulation().getItems()).all();
     }
 
+    public String getInputValue() {
+        return value.get().getRawValue();
+    }
+
     public InputWithPopulationProperties getValue() {
         return InputWithPopulationProperties.builder()
-                .value(value.get().getText())
+                .value(value.get().getRawValue())
                 .population(getSelectedPopulation())
                 .build();
     }

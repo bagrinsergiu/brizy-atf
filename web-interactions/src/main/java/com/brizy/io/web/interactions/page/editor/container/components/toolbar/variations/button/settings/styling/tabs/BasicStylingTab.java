@@ -5,7 +5,7 @@ import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.margin.MarginSettings;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.padding.PaddingSettings;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.settings.styling.tabs.basic.position.PositionSettings;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.BasicStylingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.BasicStylingLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.Getter;

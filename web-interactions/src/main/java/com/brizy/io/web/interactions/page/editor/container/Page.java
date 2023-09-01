@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container;
 
 import com.brizy.io.web.interactions.exception.SectionNotFoundException;
-import com.brizy.io.web.interactions.properties.editor.workspace.WorkspaceProperties;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.SectionProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.WorkspaceProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;

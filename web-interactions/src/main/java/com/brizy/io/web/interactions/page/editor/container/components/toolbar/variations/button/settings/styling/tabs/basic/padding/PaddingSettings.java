@@ -6,9 +6,9 @@ import com.brizy.io.web.common.dto.element.properties.button.settings.styling.ba
 import com.brizy.io.web.common.dto.element.properties.button.settings.styling.enums.PaddingTypes;
 import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.PaddingLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.spacing.SpacingLocators;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.spacing.individual.IndividualSpacingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.PaddingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.spacing.SpacingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.basic.padding.spacing.individual.IndividualSpacingLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

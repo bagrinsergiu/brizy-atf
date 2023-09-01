@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.DropDownLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.DropDownLocators;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;

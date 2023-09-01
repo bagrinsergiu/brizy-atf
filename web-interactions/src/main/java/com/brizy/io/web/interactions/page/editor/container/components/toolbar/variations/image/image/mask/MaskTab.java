@@ -3,12 +3,14 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.Mask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.AnyPredefinedMask;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.CustomMask;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.NoneMask;
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.Shape;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.shape.CustomShape;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.shape.PredefinedShape;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -47,6 +49,7 @@ public class MaskTab extends AbstractTabItem {
 
     @Override
     public List<Configuration> getConfigurations() {
+        open();
         String selectedItem = shape.get().getSelectedItem();
         List<Configuration> defaultConfigurations = new ArrayList<>() {{
             add(Configuration.builder().name(Fields.shape).element(shape).build());
@@ -60,4 +63,19 @@ public class MaskTab extends AbstractTabItem {
         return defaultConfigurations;
     }
 
+    public Mask getProperties() {
+        open();
+        Shape selectedShape;
+        String selectedItem = shape.get().getInnerHtmlSelectedValue();
+        if (selectedItem.equalsIgnoreCase("none")) {
+            selectedShape = NoneMask.builder().shape(selectedItem).build();
+        } else if (selectedItem.equalsIgnoreCase("custom")) {
+            selectedShape = customShape.get().getProperties().toBuilder().shape(selectedItem).build();
+        } else {
+            selectedShape = predefinedShape.get().getProperties().toBuilder().shape(selectedItem).build();
+        }
+        return Mask.builder()
+                .shape(selectedShape)
+                .build();
+    }
 }

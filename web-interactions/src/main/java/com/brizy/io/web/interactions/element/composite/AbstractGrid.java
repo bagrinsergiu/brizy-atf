@@ -1,11 +1,10 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.GridLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.GridLocators;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;

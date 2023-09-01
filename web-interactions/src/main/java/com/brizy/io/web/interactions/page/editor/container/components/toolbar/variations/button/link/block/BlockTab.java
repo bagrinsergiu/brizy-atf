@@ -1,9 +1,9 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.block;
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.block.BlockTabLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.link.block.block.Blocks;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.block.BlockTabLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

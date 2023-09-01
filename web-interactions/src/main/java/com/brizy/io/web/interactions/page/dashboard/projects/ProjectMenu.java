@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.dashboard.projects;
 
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.properties.dashboard.ProjectMenuProperties;
+import com.brizy.io.web.interactions.locators.dashboard.ProjectMenuProperties;
 import com.microsoft.playwright.Locator;
 import lombok.experimental.FieldDefaults;
 

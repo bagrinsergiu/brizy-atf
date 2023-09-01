@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.element.composite;
 import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.NumericInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Page;
 import io.vavr.control.Try;

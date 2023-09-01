@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.context_m
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.commands.CommandsEngine;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.AriaRole;
 import lombok.experimental.FieldDefaults;

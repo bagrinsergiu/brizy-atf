@@ -21,7 +21,7 @@ public class EditorBottomPanel {
     Supplier<Button> saveDraftButton;
     EditorSaveMenu editorSaveMenu;
 
-    public EditorBottomPanel(com.brizy.io.web.interactions.properties.editor.bottomPanel.EditorBottomPanel properties, Page page) {
+    public EditorBottomPanel(com.brizy.io.web.interactions.locators.editor.bottomPanel.EditorBottomPanel properties, Page page) {
         this.showHiddenElements = () -> new Button(page.locator(properties.getShowHiddenElements()));
         this.undo = () -> new Button(page.locator(properties.getUndo()));
         this.redo = () -> new Button(page.locator(properties.getRedo()));

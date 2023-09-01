@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.pop_up;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.properties.editor.pop_up.EditorPopUpMenuBodyProperties;
+import com.brizy.io.web.interactions.locators.editor.pop_up.EditorPopUpMenuBodyProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

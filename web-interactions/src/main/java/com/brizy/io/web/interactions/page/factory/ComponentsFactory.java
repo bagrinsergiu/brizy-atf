@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.factory;
 
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.*;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.ItemProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;

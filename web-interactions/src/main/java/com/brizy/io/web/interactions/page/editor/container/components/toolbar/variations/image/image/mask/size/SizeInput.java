@@ -1,10 +1,11 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size;
 
+import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FillUnits;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.ToFill;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.RangeInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.size.SizeProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.size.SizeProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -43,4 +44,10 @@ public class SizeInput {
         }};
     }
 
+    public ToFill getValue() {
+        return ToFill.builder()
+                .value(sizeValue.get().getValue())
+                .unit(sizeUnit.get().getSelectedItem().equalsIgnoreCase("%") ? FillUnits.PERCENT : FillUnits.PX)
+                .build();
+    }
 }

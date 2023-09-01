@@ -13,7 +13,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class CounterDefaultProperties implements DefaultProperty {
 
-    Counter counter;
-    Advanced advanced;
+    CounterTabProperties counter;
+    CounterAdvancedProperties counterAdvancedProperties;
 
 }

@@ -2,8 +2,8 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.FileUploader;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.pop_up.PopupTabLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.link.tabs.pop_up.PopupTabLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

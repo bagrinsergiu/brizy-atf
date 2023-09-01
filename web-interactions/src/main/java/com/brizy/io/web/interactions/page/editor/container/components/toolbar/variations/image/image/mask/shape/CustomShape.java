@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.CustomMask;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.FileUploader;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -34,5 +34,11 @@ public class CustomShape {
         return List.of(
                 Configuration.builder().name(Fields.image).element(image).build()
         );
+    }
+
+    public CustomMask getProperties() {
+        return CustomMask.builder()
+                .image(image.get().getFileName())
+                .build();
     }
 }
