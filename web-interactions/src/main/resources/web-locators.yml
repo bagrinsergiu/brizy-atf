@@ -425,7 +425,7 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='URL']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       linkTo:
-                        self: //div[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option__input')]
+                        self: //span[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//div[contains(@class,'brz-control__select-current__icon')]
