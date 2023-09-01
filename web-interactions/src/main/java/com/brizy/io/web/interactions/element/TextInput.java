@@ -9,7 +9,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class TextInput {
+public class TextInput implements Input {
 
     Locator locator;
 
@@ -20,7 +20,8 @@ public class TextInput {
         locator.click();
     }
 
-    public String getText() {
+    @Override
+    public String getRawValue() {
         return locator.getAttribute("value");
     }
 

@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.dashboard.projects;
 
 import com.brizy.io.web.interactions.exception.ProjectNotFoundException;
-import com.brizy.io.web.interactions.properties.dashboard.ProjectsListProperties;
+import com.brizy.io.web.interactions.locators.dashboard.ProjectsListProperties;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;
 

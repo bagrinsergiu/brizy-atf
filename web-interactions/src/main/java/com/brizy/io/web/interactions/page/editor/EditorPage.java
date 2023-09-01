@@ -4,7 +4,7 @@ import com.brizy.io.web.interactions.page.AbstractPage;
 import com.brizy.io.web.interactions.page.PageBuilder;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
 import com.brizy.io.web.interactions.page.editor.pop_up.EditorPopUpMenu;
-import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;

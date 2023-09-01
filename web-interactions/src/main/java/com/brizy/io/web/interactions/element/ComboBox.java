@@ -12,11 +12,12 @@ import java.util.stream.Collectors;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class ComboBox {
+public class ComboBox extends AbstractElement {
 
-    Locator locator;
+    public ComboBox(Locator locator) {
+        super(locator);
+    }
 
     private void open() {
         locator.click();
@@ -50,7 +51,19 @@ public class ComboBox {
     }
 
     public String getSelectedItem() {
+        if (!isVisible()) {
+            return null;
+        }
         return locator.textContent();
+    }
+
+
+    public String getInnerHtmlSelectedValue() {
+        if (!isVisible()) {
+            return null;
+        }
+        String value = locator.locator("//div[contains(@class,'multiSelect--tag--value')]").innerHTML().replaceAll(".*-", "").replaceAll("\".*", "");
+        return value.substring(0, 1).toUpperCase().concat(value.substring(1));
     }
 
 }

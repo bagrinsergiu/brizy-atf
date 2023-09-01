@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.context_m
 
 import com.brizy.io.web.interactions.enums.ContextMenuActions;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.commands.command.*;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
 import com.microsoft.playwright.Frame;
 
 import java.util.ArrayList;

@@ -7,7 +7,10 @@
       "colors": {
         "border": {
           "color": "#000000",
-          "size": 10
+          "size": {
+            "type": "fix",
+            "size": 12
+          }
         }
       }
     }

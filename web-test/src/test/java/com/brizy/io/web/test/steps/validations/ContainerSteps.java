@@ -1,10 +1,10 @@
 package com.brizy.io.web.test.steps.validations;
 
+import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.type.ItemType;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.EditorComponentProperty;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.model.ContextMenuItem;
@@ -34,11 +34,11 @@ public class ContainerSteps {
 
     @Then("^validate default properties of the item '(.*)'$")
     public void validateDefaultPropertiesForAnItem(String item) {
-        EditorComponentProperty actualProperties = storage.getValue(COMPONENT_PROPERTIES, EditorComponentProperty.class);
+        Property actualProperties = storage.getValue(COMPONENT_PROPERTIES, Property.class);
         List<ItemType> expectedProperties = storage.getListValue(PROPERTY_TYPES, ItemType.class);
         Assertions.assertThat(expectedProperties)
                 .filteredOn(property -> property.getItemName().equals(item))
-                .map(ItemType::getDefaultProperties)
+                .map(ItemType::getProperties)
                 .first()
                 .usingRecursiveComparison()
                 .ignoringActualNullFields()
@@ -96,10 +96,13 @@ public class ContainerSteps {
      */
     @Then("compare and validate properties for the items")
     public void compareAndValidatePropertiesForTheItems() {
-        EditorComponentProperty firstToCompare = storage.getValue(FIRST, EditorComponentProperty.class);
-        EditorComponentProperty secondToCompare = storage.getValue(SECOND, EditorComponentProperty.class);
+        Property firstToCompare = storage.getValue(FIRST, Property.class);
+        Property secondToCompare = storage.getValue(SECOND, Property.class);
         Assertions.assertThat(firstToCompare)
                 .describedAs("Expecting to have the same properties after pasting the  styles for both items")
+                .usingRecursiveComparison()
+                .ignoringExpectedNullFields()
+                .ignoringActualNullFields()
                 .isEqualTo(secondToCompare);
     }
 

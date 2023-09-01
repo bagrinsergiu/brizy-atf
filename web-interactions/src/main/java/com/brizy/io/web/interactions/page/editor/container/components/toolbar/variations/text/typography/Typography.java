@@ -1,22 +1,23 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography;
 
-import com.brizy.io.web.common.dto.element.properties.text.typography.size.Size;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.SizeDto;
-import com.brizy.io.web.interactions.dto.editor.container.toolbar.typography.TypographyDto;
+import com.brizy.io.web.common.dto.element.properties.common.typography.size.Size;
+import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.ControlInput;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.font.FontsMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.size.SizeInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Typography {
 
+    Supplier<Button> typographyButton;
     Supplier<FontsMenu> fontsMenu;
     Supplier<SizeInput> size;
     Supplier<ComboBox> typography;
@@ -25,6 +26,7 @@ public class Typography {
     Supplier<ComboBox> weight;
 
     public Typography(TypographyProperties properties, Frame frame) {
+        this.typographyButton = () -> new Button(frame.locator(properties.getSelf()));
         this.fontsMenu = () -> new FontsMenu(properties.getFonts(), frame);
         this.size = () -> new SizeInput(properties.getStyles().getSize(), frame);
         this.lineHgt = () -> new ControlInput(properties.getStyles().getLineHgt().getValue(), frame);
@@ -33,24 +35,35 @@ public class Typography {
         this.weight = () -> new ComboBox(frame.locator(properties.getStyles().getWeight().getValue()));
     }
 
-    public void applyProperties(com.brizy.io.web.common.dto.element.properties.text.typography.Typography properties) {
-        fontsMenu.get().selectFont(properties.getFont());
-        size.get().setValue(properties.getSize());
-        letterSp.get().fill(properties.getLetterSp());
-        lineHgt.get().fillWithControls(properties.getLineHgt());
-        weight.get().selectItemByName(properties.getWeight());
-        typography.get().selectItemByName(properties.getTypography());
+    public void applyProperties(com.brizy.io.web.common.dto.element.properties.common.typography.Typography properties) {
+        typographyButton.get().click();
+        if (Objects.nonNull(properties.getFont())) {
+            fontsMenu.get().selectFont(properties.getFont());
+        }
+        if (Objects.nonNull(properties.getSize())) {
+            size.get().setValue(properties.getSize());
+        }
+        if (Objects.nonNull(properties.getLetterSp())) {
+            letterSp.get().fill(properties.getLetterSp());
+        }
+        if (Objects.nonNull(properties.getLineHgt())) {
+            lineHgt.get().fillWithControls(properties.getLineHgt());
+        }
+        if (Objects.nonNull(properties.getWeight())) {
+            weight.get().selectItemByName(properties.getWeight());
+        }
+        if (Objects.nonNull(properties.getTypography())) {
+            typography.get().selectItemByName(properties.getTypography());
+        }
     }
 
-    public TypographyDto getProperties() {
+    public com.brizy.io.web.common.dto.element.properties.common.typography.Typography getProperties() {
+        typographyButton.get().click();
         Size sizeValue = size.get().getValue();
-        return TypographyDto.builder()
-                .activeFont(fontsMenu.get().getActiveFont())
+        return com.brizy.io.web.common.dto.element.properties.common.typography.Typography.builder()
+                .font(fontsMenu.get().getActiveFont())
                 .typography(typography.get().getSelectedItem())
-                .size(SizeDto.builder()
-                        .size(sizeValue.getValue())
-                        .unit(sizeValue.getUnit())
-                        .build())
+                .size(Size.builder().unit(sizeValue.getUnit()).value(sizeValue.getValue()).build())
                 .weight(weight.get().getSelectedItem())
                 .lineHgt(lineHgt.get().value())
                 .letterSp(letterSp.get().value())

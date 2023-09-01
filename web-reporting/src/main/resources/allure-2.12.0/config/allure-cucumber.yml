@@ -1,0 +1,6 @@
+plugins:
+  - trx-plugin
+  - behaviors-plugin
+  - packages-plugin
+  - screen-diff-plugin
+  - custom-logo-plugin

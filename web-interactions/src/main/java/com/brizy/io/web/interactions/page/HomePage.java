@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.properties.HomePageProperties;
+import com.brizy.io.web.interactions.locators.HomePageProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

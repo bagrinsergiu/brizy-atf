@@ -206,7 +206,15 @@
           },
           "border": {
             "color": "#000000",
-            "size": 12
+            "size": {
+              "type": "custom",
+              "properties": {
+                "up": 1,
+                "down": 2,
+                "left": 3,
+                "right": 4
+              }
+            }
           },
           "shadow": {
             "type": "inset",
@@ -229,7 +237,10 @@
           },
           "border": {
             "color": "#000000",
-            "size": 12
+            "size": {
+              "type": "fix",
+              "size": 12
+            }
           },
           "shadow": {
             "type": "outset",

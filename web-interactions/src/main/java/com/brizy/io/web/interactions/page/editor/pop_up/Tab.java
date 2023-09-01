@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.pop_up;
 
 import com.brizy.io.web.interactions.element.Image;
 import com.brizy.io.web.interactions.element.Span;
-import com.brizy.io.web.interactions.properties.editor.pop_up.EditorPopUpMenuHeaderTabProperties;
+import com.brizy.io.web.interactions.locators.editor.pop_up.EditorPopUpMenuHeaderTabProperties;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

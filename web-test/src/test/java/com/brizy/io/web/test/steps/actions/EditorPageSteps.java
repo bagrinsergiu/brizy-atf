@@ -1,8 +1,8 @@
 package com.brizy.io.web.test.steps.actions;
 
+import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
-import com.brizy.io.web.interactions.properties.WebLocatorsProperties;
-import com.brizy.io.web.interactions.properties.editor.EditorPageProperties;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.service.ActivePageService;

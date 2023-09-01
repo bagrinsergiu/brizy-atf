@@ -1,10 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.size;
 
-import com.brizy.io.web.common.dto.element.properties.text.typography.size.Size;
-import com.brizy.io.web.common.dto.element.properties.text.typography.size.Units;
+import com.brizy.io.web.common.dto.element.properties.common.typography.size.Size;
+import com.brizy.io.web.common.dto.element.properties.common.typography.size.Units;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.ControlInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.styles.size.SizeProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.size.SizeProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

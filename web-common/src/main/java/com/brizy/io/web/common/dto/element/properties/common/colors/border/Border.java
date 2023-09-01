@@ -13,6 +13,6 @@ import lombok.experimental.FieldDefaults;
 public class Border {
 
     String color;
-    Integer size;
+    BorderSize size;
 
 }

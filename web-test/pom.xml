@@ -85,11 +85,10 @@
                 <artifactId>allure-maven</artifactId>
                 <configuration>
                     <reportVersion>${allure-maven.version}</reportVersion>
-                    <reportingOutputDirectory>${project.build.directory}</reportingOutputDirectory>
                     <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                     <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                    <propertiesFilePath>web-reporting/src/main/resources/allure.properties</propertiesFilePath>
-                    <installDirectory>${project.build.directory}</installDirectory>
+                    <installDirectory>${user.home}/.allure</installDirectory>
+                    <propertiesFilePath>${user.home}/.allure/allure.properties</propertiesFilePath>
                 </configuration>
             </plugin>
         </plugins>

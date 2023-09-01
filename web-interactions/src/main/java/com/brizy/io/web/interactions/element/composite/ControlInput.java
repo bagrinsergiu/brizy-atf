@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.element.composite;
 
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.NumericInput;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.typography.styles.common.ValueProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.common.ValueProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

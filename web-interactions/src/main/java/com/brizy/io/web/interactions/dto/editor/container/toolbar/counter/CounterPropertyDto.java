@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
-public abstract class CounterPropertyDto extends EditorComponentProperty {
+public abstract class CounterPropertyDto implements EditorComponentProperty {
 
     Integer end;
     Double duration;

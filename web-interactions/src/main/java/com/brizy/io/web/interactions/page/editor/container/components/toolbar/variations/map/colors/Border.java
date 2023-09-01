@@ -3,8 +3,8 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.common.colors.border.CanHaveBorders;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.TextInput;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.CustomizableColor;
-import com.brizy.io.web.interactions.properties.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderProperties;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -18,7 +18,7 @@ public class Border implements CustomizableColor {
     Supplier<TextInput> color;
     Supplier<NumericInput> size;
 
-    public Border(BorderProperties border, Frame page) {
+    public Border(BorderLocators border, Frame page) {
         this.color = () -> new TextInput(page.locator(border.getValue()));
         this.size = () -> new NumericInput(page.locator(border.getSize()));
     }
@@ -26,24 +26,26 @@ public class Border implements CustomizableColor {
     @Override
     public void with(CanHaveBorders property) {
         String colorToSet = property.getBorder().getColor();
-        Integer sizeToSet = property.getBorder().getSize();
+//        TODO refactor
+//        Integer sizeToSet = property.getBorder().getSize();
         if (Objects.nonNull(colorToSet)) {
             color.get().fill(colorToSet);
         }
-        if (Objects.nonNull(sizeToSet)) {
-            size.get().fill(sizeToSet);
-        }
+//        if (Objects.nonNull(sizeToSet)) {
+//            size.get().fill(sizeToSet);
+//        }
     }
 
     public void applyProperties(com.brizy.io.web.common.dto.element.properties.common.colors.border.Border properties) {
         String colorToSet = properties.getColor();
-        Integer sizeToSet = properties.getSize();
+//        TODO refactor
+//        Integer sizeToSet = properties.getSize();
         if (Objects.nonNull(colorToSet)) {
             color.get().fill(colorToSet);
         }
-        if (Objects.nonNull(sizeToSet)) {
-            size.get().fill(sizeToSet);
-        }
+//        if (Objects.nonNull(sizeToSet)) {
+//            size.get().fill(sizeToSet);
+//        }
     }
 
 }
