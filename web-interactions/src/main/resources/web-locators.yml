@@ -389,6 +389,48 @@ pages:
                         self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Spacing']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.spacing.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                icon:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Icon']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    background:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.self}//span[text()='Background']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      size:
+                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Size']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.size.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      fill: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      corner:
+                        self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        custom:
+                          self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          radiusValue: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.corner.custom.self}//input[@type='range']
+                    icon:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.self}//span[text()='Icon']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      icon:
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        picker:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                          popUp:
+                            self: //div[contains(@class,'brz-ed-popup-icons')]
+                            tabs: //div[contains(@class,'brz-ed-popup-header__tabs')]//div
+                            closeButton: //div[contains(@class,'brz-ed-popup-btn-close')]
+                            categories:
+                              self: //div[contains(@class,'brz-ed-popup__select--block-categories')]
+                              items: //div[contains(@class,'brz-control__select-option')]
+                            search: //input[@placeholder='Enter Search Keyword']
+                            grid:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.picker.popUp.self}//div[contains(@class,'brz-ed-popup-icons__grid')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.picker.popUp.grid.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
+                              item: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                      size:
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        custom:
+                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.size.custom.self}//input[@type='range']
                 image:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Image']
                   tabs:

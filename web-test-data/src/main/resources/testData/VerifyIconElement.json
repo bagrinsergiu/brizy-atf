@@ -1,0 +1,197 @@
+[
+  {
+    "scenarioName": "Add icon element and validate default properties",
+    "itemName": "ICON_1",
+    "elementType": "icon",
+    "properties": {
+      "icon": {
+        "background": {
+          "size": 12,
+          "fill": "FILL",
+          "corner": {
+            "type": "CUSTOM",
+            "corner": {
+              "angle": 14
+            }
+          }
+        },
+        "icon": {
+          "icon": {
+            "type": "Glyph",
+            "category": "Animals/Nature",
+            "value": "owl"
+          },
+          "size": {
+            "type": "CUSTOM",
+            "size": 20
+          }
+        }
+      },
+      "colors": [
+        {
+          "type": "normal",
+          "icon": {
+            "color": "#810AC0"
+          },
+          "bg": {
+            "type": "solid",
+            "color": "#610000"
+          },
+          "border": {
+            "type": "dashed",
+            "color": "",
+            "size": {
+              "type": "custom",
+              "properties": {
+                "up": 1,
+                "down": 2,
+                "left": 3,
+                "right": 4
+              }
+            }
+          },
+          "shadow": {
+            "type": "inset",
+            "color": "#83ecaa",
+            "properties": {
+              "blurRadius": 10,
+              "verticalOffset": 20,
+              "horizontalOffset": 30,
+              "spreadRadius": 40
+            }
+          }
+        }
+      ],
+      "link": {
+        "url": {
+          "linkTo": {
+            "value": "",
+            "population": {
+              "value": "Page URL"
+            }
+          },
+          "openInNewTab": false,
+          "makeItNoFollow": false
+        },
+        "block": 1,
+        "popUp": "",
+        "file": ""
+      },
+      "settings": {
+        "styling": {
+          "basic": {
+            "padding": {
+              "type": "all",
+              "value": "all",
+              "size": {
+                "unit": "%",
+                "value": 40
+              }
+            },
+            "margin": {
+              "type": "individual",
+              "value": "individual",
+              "top": {
+                "unit": "%",
+                "value": 40
+              },
+              "right": {
+                "unit": "px",
+                "value": 4
+              },
+              "left": {
+                "unit": "%",
+                "value": 10
+              },
+              "bottom": {
+                "unit": "%",
+                "value": 20
+              }
+            },
+            "position": {
+              "type": "fixed",
+              "value": "Fixed",
+              "width": {
+                "unit": "%",
+                "value": 50
+              },
+              "horizontalOffset": {
+                "direction": "Right",
+                "offset": {
+                  "unit": "%",
+                  "value": 5
+                }
+              },
+              "verticalOffset": {
+                "direction": "Top",
+                "offset": {
+                  "unit": "px",
+                  "value": 15
+                }
+              }
+            }
+          },
+          "advanced": {
+            "showOnDesktop": true,
+            "zIndex": 5,
+            "cssId": {
+              "value": "",
+              "population": {
+                "value": "Description"
+              }
+            },
+            "cssClass": {
+              "value": "",
+              "population": {
+                "value": "Page Title"
+              }
+            },
+            "customAttributes": {
+              "value": "",
+              "population": {
+                "value": "Publish date"
+              }
+            },
+            "customCss": "",
+            "hoverTransition": 78
+          }
+        },
+        "effects": {
+          "entrance": {
+            "type": "other",
+            "value": "Fade",
+            "parameters": {
+              "direction": "Down",
+              "big": true,
+              "duration": 2.0,
+              "delay": 4,
+              "infiniteAnimation": true
+            }
+          },
+          "hover": {
+            "type": "other",
+            "value": "Buzz",
+            "parameters": {
+              "style": "Buzz",
+              "duration": 5.0,
+              "infiniteAnimation": true
+            }
+          },
+          "scroll": {
+            "type": "other",
+            "value": "Scale",
+            "parameters": {
+              "direction": "downUp",
+              "x": "Right",
+              "y": "Bottom",
+              "speed": 4,
+              "start": 21,
+              "stop": 81
+            }
+          }
+        }
+      },
+      "align": "RIGHT"
+    }
+  }
+]
