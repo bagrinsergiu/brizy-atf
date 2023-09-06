@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Arrays;
+
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum UnitType {
@@ -14,5 +16,12 @@ public enum UnitType {
 
     @Getter
     String value;
+
+    public static UnitType getByValue(String value) {
+        return Arrays.stream(UnitType.values())
+                .filter(enumElement -> enumElement.getValue().equals(value))
+                .findFirst()
+                .orElse(PIXEL);
+    }
 
 }

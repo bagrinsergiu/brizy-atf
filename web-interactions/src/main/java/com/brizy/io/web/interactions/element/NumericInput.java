@@ -18,14 +18,6 @@ public class NumericInput extends AbstractElement implements Input {
     @SneakyThrows
     public void fill(Number value) {
         locator.fill(value.toString(), new Locator.FillOptions().setForce(true));
-//        TODO - need to get the value somehow
-//        await().alias("Wait for numeric input value to be applied")
-//                .atLeast(MIN_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
-//                .and()
-//                .atMost(MAX_TIME_OF_WAITING_FOR_NUMERIC_VALUE_TO_APPLY)
-//                .pollInSameThread()
-//                .pollInterval(POLL_DELAY_FOR_NUMERIC_VALUE_READ)
-//                .until(() -> Integer.valueOf(getText()).equals(value));
     }
 
     public void fillAndWaitForValue(Number value) {

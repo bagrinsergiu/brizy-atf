@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.element.composite;
 
 import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
+import com.brizy.io.web.common.dto.element.properties.common.settings.UnitType;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
@@ -22,7 +23,7 @@ public class InputWithUnits {
 
     public InputWithUnits(InputWithUnitsLocators locators, Frame frame) {
         this.value = () -> new NumericInput(frame.locator(locators.getValue()));
-        this.unit = () -> new ComboBox(frame.locator(locators.getValue()));
+        this.unit = () -> new ComboBox(frame.locator(locators.getUnit()));
     }
 
     public InputWithUnits(InputWithUnitsLocators locators, Page page) {
@@ -32,17 +33,17 @@ public class InputWithUnits {
 
     public InputWithUnitsProperties getValue() {
         return InputWithUnitsProperties.builder()
-                .unit(unit.get().getSelectedItem())
+                .unit(UnitType.getByValue(unit.get().getSelectedItem()))
                 .value(getReturnedValue())
                 .build();
     }
 
     public void setValue(InputWithUnitsProperties properties) {
         if (Objects.nonNull(properties.getUnit())) {
-            unit.get().selectItemByValue(properties.getUnit());
+            unit.get().selectItemByValue(properties.getUnit().getValue());
         }
         if (Objects.nonNull(properties.getValue())) {
-            value.get().fill(properties.getValue());
+            value.get().fillAndWaitForValue(properties.getValue());
         }
     }
 

@@ -22,8 +22,8 @@
     "properties": {
       "settings": {
         "width": {
-          "value": 700,
-          "unit": "PIXEL"
+          "value": 20,
+          "unit": "PERCENTAGE"
         },
         "height": {
           "value": 100,
