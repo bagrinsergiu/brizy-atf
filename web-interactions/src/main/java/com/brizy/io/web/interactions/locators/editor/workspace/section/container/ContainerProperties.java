@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,6 +17,6 @@ public class ContainerProperties extends AbstractProperty {
 
     String empty;
     @NestedConfigurationProperty
-    ItemProperties item;
+    ItemLocators item;
 
 }

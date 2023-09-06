@@ -1,12 +1,10 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.icon;
 
-import com.brizy.io.web.common.dto.element.properties.button.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.icon.tabs.IconProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs.IconTabsLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.ButtonTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.icon.background.BackgroundTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.icon.icon.IconTab;
 import com.microsoft.playwright.Frame;

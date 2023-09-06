@@ -282,15 +282,13 @@ pages:
                     align: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'Align' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                     unlock: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'lock' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                   width:
-                    value: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
-                    unit:
-                      self: //span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
-                      item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
+                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Width']]
+                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//input[@type='range']
+                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//div[@role='combobox']
                   height:
-                    value: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
-                    unit:
-                      self: //span[text()='Height']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
-                      item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
+                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Height']]
+                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//input[@type='range']
+                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//div[@role='combobox']
                 counter:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
                   tabs:

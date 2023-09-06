@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Icon.class, name = "icon"),
         @JsonSubTypes.Type(value = Image.class, name = "image"),
         @JsonSubTypes.Type(value = Map.class, name = "map"),
+        @JsonSubTypes.Type(value = Spacer.class, name = "spacer"),
         @JsonSubTypes.Type(value = Text.class, name = "text")
 })
 public interface ItemType {

@@ -6,7 +6,7 @@ import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.EmptyContainer;
 import com.brizy.io.web.interactions.page.factory.ComponentsFactory;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionProperties;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;
@@ -32,7 +32,7 @@ public class Section {
     Map<String, Component> sectionComponents;
     Supplier<Locator> emptyContainer;
     String addedItemsLocator;
-    ItemProperties itemProperties;
+    ItemLocators itemLocators;
     Locator sectionLocator;
     Frame frame;
 
@@ -43,7 +43,7 @@ public class Section {
         this.sectionComponents = new HashMap<>();
         this.emptyContainer = () -> sectionLocator.locator(sectionProperties.getContainer().getEmpty());
         this.addedItemsLocator = sectionProperties.getContainer().getItem().getSelf();
-        this.itemProperties = sectionProperties.getContainer().getItem();
+        this.itemLocators = sectionProperties.getContainer().getItem();
     }
 
     public Component addComponent(Div sidebarElement, Component parent, SidebarItemDto item) {
@@ -62,7 +62,7 @@ public class Section {
     public <T extends Component> List<T> getComponents() {
         return sectionLocator.locator(addedItemsLocator).all().stream()
                 .map(sectionLocator -> sectionLocator.locator("//div").first())
-                .map(component -> ComponentsFactory.getComponentByType(component, frame, itemProperties))
+                .map(component -> ComponentsFactory.getComponentByType(component, frame, itemLocators))
                 .map(component -> (T) component)
                 .collect(Collectors.toList());
     }

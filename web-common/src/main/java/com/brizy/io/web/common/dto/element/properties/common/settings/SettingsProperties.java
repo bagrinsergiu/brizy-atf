@@ -1,5 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.common.settings;
 
+import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,9 +9,9 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor(force = true)
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Size {
+public class SettingsProperties implements CanHaveSettings {
 
-    Integer value;
-    UnitType unit;
+    InputWithUnitsProperties width;
+    InputWithUnitsProperties height;
 
 }

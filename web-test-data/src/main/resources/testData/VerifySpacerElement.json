@@ -1,0 +1,15 @@
+[
+  {
+    "scenarioName": "Add spacer element and validate default properties",
+    "itemName": "SPACER_1",
+    "elementType": "spacer",
+    "properties": {
+      "settings": {
+        "height": {
+          "value": 80,
+          "unit": "PIXEL"
+        }
+      }
+    }
+  }
+]

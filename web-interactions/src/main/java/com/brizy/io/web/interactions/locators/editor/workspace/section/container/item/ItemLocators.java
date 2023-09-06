@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ItemProperties extends AbstractProperty {
+public class ItemLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
     ToolbarLocators toolbar;
