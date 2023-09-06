@@ -6,7 +6,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -34,7 +34,7 @@ public class ToolbarLocators {
     @NestedConfigurationProperty
     IconLocators icon;
     @NestedConfigurationProperty
-    SettingsProperties settings;
+    SettingsLocators settings;
     @NestedConfigurationProperty
     ImageLocators image;
     @NestedConfigurationProperty

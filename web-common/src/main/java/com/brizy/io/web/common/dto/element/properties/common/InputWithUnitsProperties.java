@@ -1,5 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.common;
 
+import com.brizy.io.web.common.dto.element.properties.common.settings.UnitType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class InputWithUnitsProperties {
 
-    String unit;
+    UnitType unit;
     Number value;
 
 }

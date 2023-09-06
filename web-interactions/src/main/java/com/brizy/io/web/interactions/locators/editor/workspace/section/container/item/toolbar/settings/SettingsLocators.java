@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.ScrollBarLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,12 +14,12 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class SettingsProperties extends AbstractProperty {
+public class SettingsLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    Dimension width;
+    InputWithUnitsLocators width;
     @NestedConfigurationProperty
-    Dimension height;
+    InputWithUnitsLocators height;
     @NestedConfigurationProperty
     ScrollBarLocators scrollBar;
 

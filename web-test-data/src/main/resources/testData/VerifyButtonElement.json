@@ -90,7 +90,7 @@
               "type": "all",
               "value": "all",
               "size": {
-                "unit": "%",
+                "unit": "PERCENTAGE",
                 "value": 40
               }
             },
@@ -98,19 +98,19 @@
               "type": "individual",
               "value": "individual",
               "top": {
-                "unit": "%",
+                "unit": "PERCENTAGE",
                 "value": 40
               },
               "right": {
-                "unit": "px",
+                "unit": "PIXEL",
                 "value": 4
               },
               "left": {
-                "unit": "%",
+                "unit": "PERCENTAGE",
                 "value": 10
               },
               "bottom": {
-                "unit": "%",
+                "unit": "PERCENTAGE",
                 "value": 20
               }
             },
@@ -118,20 +118,20 @@
               "type": "fixed",
               "value": "Fixed",
               "width": {
-                "unit": "%",
+                "unit": "PERCENTAGE",
                 "value": 50
               },
               "horizontalOffset": {
                 "direction": "Right",
                 "offset": {
-                  "unit": "%",
+                  "unit": "PERCENTAGE",
                   "value": 5
                 }
               },
               "verticalOffset": {
                 "direction": "Top",
                 "offset": {
-                  "unit": "px",
+                  "unit": "PIXEL",
                   "value": 15
                 }
               }
