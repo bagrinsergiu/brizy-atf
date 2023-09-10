@@ -26,7 +26,7 @@ pages:
             self: //div[contains(@class,'brz-ed-wrap-block-item')]
             empty: //div[contains(@class,'brz-ed-sortable--empty')]
             item:
-              self: //div[contains(@data-border--grey,'wrapper')]
+              self: //div[contains(@data-brz-border--grey,'wrapper')]
               rightClickContext:
                 self: //div[@role='menu' and contains(@class,'react-contexify')]
                 menuItem:
