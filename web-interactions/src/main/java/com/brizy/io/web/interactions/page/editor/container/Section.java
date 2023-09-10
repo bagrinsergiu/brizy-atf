@@ -2,11 +2,11 @@ package com.brizy.io.web.interactions.page.editor.container;
 
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Div;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.EmptyContainer;
 import com.brizy.io.web.interactions.page.factory.ComponentsFactory;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionProperties;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;
@@ -39,7 +39,7 @@ public class Section {
     public Section(SectionProperties sectionProperties, Frame frame, Locator locator) {
         this.frame = frame;
         this.sectionLocator = locator;
-        this.uuid = locator.getAttribute("data-uid");
+        this.uuid = locator.getAttribute("data-brz-uid");
         this.sectionComponents = new HashMap<>();
         this.emptyContainer = () -> sectionLocator.locator(sectionProperties.getContainer().getEmpty());
         this.addedItemsLocator = sectionProperties.getContainer().getItem().getSelf();
