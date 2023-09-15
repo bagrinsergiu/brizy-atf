@@ -21,7 +21,7 @@ public class ToolbarSteps {
         this.storage = storage;
     }
 
-    @Attachment
+
     @Then("the following toolbar items should be displayed:")
     public void theFollowingToolbarItemsShouldBeDisplayed(List<String> expectedToolbarItems) {
         List<String> actualToolbarItems = storage.getListValue(StorageKey.TOOLBAR_ITEMS, String.class);
@@ -30,7 +30,7 @@ public class ToolbarSteps {
                 .containsExactlyElementsOf(expectedToolbarItems);
     }
 
-    @Attachment
+
     @Then("the following tabs should be displayed in the opened popup: {}")
     public void theFollowingTabsShouldBeDisplayedInTheOpenedPopup(String expectedTabsToBeDisplayed) {
         List<String> actualTabsToBeDisplayed = storage.getListValue(StorageKey.TABS_LIST, String.class);
@@ -40,7 +40,7 @@ public class ToolbarSteps {
                 .containsExactlyElementsOf(actualTabsToBeDisplayed);
     }
 
-    @Attachment
+
     @Then("dropdown contains the following values:")
     public void dropdownShouldContainsTheFollowingValues(List<String> expectedDropdownValues) {
         List<String> actualValues = storage.getListValue(DROPDOWN_ITEMS, String.class);
