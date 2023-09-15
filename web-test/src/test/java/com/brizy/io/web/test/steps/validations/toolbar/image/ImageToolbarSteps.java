@@ -28,7 +28,7 @@ public class ImageToolbarSteps {
         return storage.getValue(EDITOR, EditorPage.class);
     }
 
-    @Attachment
+
     @Then("the following configurations should be displayed: {}")
     public void theFollowingConfigurationsShouldBeDisplayed(String configurationToBeDisplayed) {
         List<String> actualDisplayedConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_WEB_CONFIGURATIONS, String.class);

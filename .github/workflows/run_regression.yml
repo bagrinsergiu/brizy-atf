@@ -27,10 +27,10 @@ jobs:
           cache: maven
 
       - name: Compile and install dependencies
-        run: mvn clean compile install -DskipTests
+        run: mvn -T 4C clean compile install -DskipTests
 
       - name: Download playwright dependencies
-        run: mvn exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
+        run: mvn -T 4C exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
-        run: mvn test -DuseKiwi=true
+        run: mvn -T 4C test -DuseKiwi=true
