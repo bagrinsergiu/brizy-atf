@@ -68,7 +68,7 @@ public class ContainerSteps {
         Allure.addAttachment("Properties to add", testDataFileService.getFileContent(properties.getFullName()));
     }
 
-    @Attachment
+
     @When("add the item(s) to the page")
     public void addTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -77,7 +77,7 @@ public class ContainerSteps {
         editorPage.onPageBuilder()._do().add().items(sidebarItemsToAdd);
     }
 
-    @Attachment
+
     @When("configure the item(s) added to the page")
     public void configureTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -113,7 +113,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
     }
 
-    @Attachment
+
     @When("clear the layout")
     public void clearTheLayout() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -122,14 +122,14 @@ public class ContainerSteps {
         editorSaveMenu.switchToDraft();
     }
 
-    @Attachment
+
     @When("save draft page")
     public void saveDraftPage() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         editorPage.onBottomPanel().saveDraft();
     }
 
-    @Attachment
+
     @When("publish the page")
     public void publishThePage() {
         Page editorPage = storage.getValue(EDITOR_PAGE, Page.class);
@@ -140,7 +140,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.PUBLISH_PAGE, page);
     }
 
-    @Attachment
+
     @When("{contextMenuAction} the following item '{}'")
     public void doActionOnItem(ContextMenuActions contextMenuAction, String itemName) {
         String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()
@@ -152,7 +152,7 @@ public class ContainerSteps {
         editorPage.onPageBuilder()._do().findComponent(sectionName, itemName).onContextMenu().execute(contextMenuAction);
     }
 
-    @Attachment
+
     @When("get context menu items for '{}'")
     public void doGetItems(String itemName) {
         String sectionName = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class).stream()
@@ -165,7 +165,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.MENU_ITEMS, actions);
     }
 
-    @Attachment
+
     @When("get bottom panel items")
     public void getBottomPanelItems() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
@@ -173,7 +173,7 @@ public class ContainerSteps {
         storage.addValue(StorageKey.EDITOR_BOTTOM_PANEL_ITEMS, items);
     }
 
-    @Attachment
+
     @When("get bottom panel save draft menu items")
     public void getBottomPanelSaveMenuItems() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);

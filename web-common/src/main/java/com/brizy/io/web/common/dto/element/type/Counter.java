@@ -1,7 +1,6 @@
 package com.brizy.io.web.common.dto.element.type;
 
 import com.brizy.io.web.common.dto.element.properties.counter.CounterProperties;
-import com.brizy.io.web.common.dto.element.properties.counter.defaults.CounterDefaultProperties;
 import com.brizy.io.web.common.dto.element.properties.map.MapProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -16,6 +15,5 @@ import lombok.experimental.FieldDefaults;
 public class Counter extends AbstractPropertyType<MapProperties> implements ItemType {
 
     CounterProperties properties;
-    CounterDefaultProperties defaultProperties;
 
 }
