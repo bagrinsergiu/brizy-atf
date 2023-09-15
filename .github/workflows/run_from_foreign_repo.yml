@@ -8,9 +8,12 @@ on:
         description: Preview Cloud url
         type: string
       repoPrId:
-        required: false
+        required: true
         description: The foreign repo pr id
         type: string
+      isClean:
+        required: false
+        description: Need to be clean or generate
 
 permissions:
   contents: read
@@ -20,6 +23,7 @@ permissions:
 jobs:
   run_tests:
     runs-on: [ self-hosted, builder, office-server ]
+    if: ${{ github.event.inputs.isClean !== true }}
 
     steps:
       - name: Set up Maven
@@ -42,27 +46,7 @@ jobs:
         run: mvn -T 4C exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
-        run: mvn -T 4C test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags='@Smoke and not @Ignore'
-
-      - name: Get Allure history
-        if: always()
-        uses: actions/checkout@v2
-        continue-on-error: true
-        with:
-          ref: gh-pages-main-branch
-          path: gh-pages-main-branch
-
-      - name: Check and clear allure history
-        if: always()
-        run: |
-          mkdir -p ./gh-pages-main-branch
-          mkdir -p ./allure-history
-          cp -r ./gh-pages-main-branch/. ./allure-history
-          rm -rf ./gh-pages-main-branch
-          find ./allure-history/* ! -name "last-history" -type d -exec rm -rf {} + || true
-
-          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
-          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
+        run: mvn -T 4C test -DbaseUrl=${{ github.event.inputs.baseUrl }} -Dcucumber.filter.tags=@Smoke
 
       - name: Build executor properties
         if: always()
@@ -73,54 +57,78 @@ jobs:
           echo "\"buildUrl\":\"hhttps://github.com/bagrinsergiu/brizy-atf/actions/runs/${{ github.run_id }}\"," >> executor.json
           mv ./executor.json ./web-test/target/allure-results
 
-      - name: Copy old history to recent allure results folder
-        if: always()
-        run: |
-          cp -r ./allure-history/last-history/. ./web-test/target/allure-results/history 
-
       - name: Generate allure reports
         if: always()
         run: mvn -pl web-test allure:report
 
-      - name: Copy allure results to publish directory
-        if: always()
+      - name: Declare Report variables
+        id: vars
+        shell: bash
         run: |
-          cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
-          echo "copy allure-report history to /allure-history/last-history"
-          cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
+          echo "CONTAINER_NAME=atf-report-pr-${{ github.event.inputs.repoPrId }}" >> $GITHUB_OUTPUT
+          echo "IMAGE=brizy/atf-report:pr-${{ github.event.inputs.repoPrId }}" >> $GITHUB_OUTPUT
+          echo "NETWORK=traefik" >> $GITHUB_OUTPUT
+          echo "DOMAIN=atf-pr-${{ github.event.inputs.repoPrId }}.cloud.office.brizy.org" >> $GITHUB_OUTPUT
 
-      - name: Deploy reports to Github Pages
-        if: always()
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Build Report Container
+        id: build-image
+        shell: bash
+        run: |
+          docker stop "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rm "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rmi "${{ steps.vars.outputs.IMAGE }}" || true
+
+          docker build \
+          -t "${{ steps.vars.outputs.IMAGE }}" \
+          -f dockerfiles/Dockerfile .
+          
+          docker run -d \
+            --network="${{ steps.vars.outputs.NETWORK }}" \
+            --network-alias="${{ steps.vars.outputs.CONTAINER_NAME }}" \
+            --name="${{ steps.vars.outputs.CONTAINER_NAME }}" \
+            --cpus=3 \
+            --memory=2g \
+            -e "MAX_CPUS=2" \
+            --label "traefik.docker.network"="${{ steps.vars.outputs.NETWORK }}" \
+            --label "traefik.enable"="true" \
+            --label "traefik.frontend.rule"="Host:${{ steps.vars.outputs.DOMAIN }}" \
+            --label "traefik.port"="80" \
+            "${{ steps.vars.outputs.IMAGE }}"
+
+      - name: Generate Report Url
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: gh-pages-main-branch
-          folder: allure-history
-          force: true
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          message: |
+            Report: <http://${{ steps.vars.outputs.DOMAIN }}:8080>
 
-      - name: Setup Pages
-        if: always()
-        uses: actions/configure-pages@v3
+  cleanup:
+    name: Cleanup Reports
+    runs-on: [ self-hosted, builder, office-server ]
+    if: ${{ github.event.inputs.isClean === true }}
+    steps:
+      - uses: actions/checkout@v3
 
-      - name: Upload artifact
-        if: always()
-        uses: actions/upload-pages-artifact@v2
+      - name: Declare Report variables
+        id: vars
+        shell: bash
+        run: |
+          echo "CONTAINER_NAME=atf-report-pr-${{ github.event.inputs.repoPrId }}" >> $GITHUB_OUTPUT
+          echo "IMAGE=brizy/atf-report:pr-${{ github.event.inputs.repoPrId }}" >> $GITHUB_OUTPUT
+
+      - name: Clean Report
+        id: clean
+        shell: bash
+        run: |
+          docker stop "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rmi --force "${{ steps.vars.outputs.IMAGE }}" || true
+
+      - name: Generate Report Url
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          path: './allure-history'
-
-      - name: Deploy to GitHub Pages
-        if: always()
-        id: deployment
-        uses: actions/deploy-pages@v2
-
-      - name: Post the link to the report
-        if: always()
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{secrets.PERSONAL_TOKEN}}
-          context: 'Test report'
-          state: 'success'
-          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          message: |
+            Report: Not available
 
 #      - name: Attach Report to foreign repo
 #        uses: marocchino/sticky-pull-request-comment@v2

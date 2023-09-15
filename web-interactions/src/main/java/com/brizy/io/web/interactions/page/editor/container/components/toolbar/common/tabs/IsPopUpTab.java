@@ -23,6 +23,4 @@ public interface IsPopUpTab {
 
 //    TODO add is active method to check this
 
-//    TODO add is active method to check this
-
 }

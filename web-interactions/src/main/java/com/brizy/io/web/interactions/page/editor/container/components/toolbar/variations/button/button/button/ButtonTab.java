@@ -56,13 +56,4 @@ public class ButtonTab extends AbstractTabItem {
         );
     }
 
-    public ButtonTabProperties getProperties() {
-        open();
-        return ButtonTabProperties.builder()
-                .corner(corner.get().getProperties())
-                .fill(fill.get().getActiveControl())
-                .size(size.get().getProperties())
-                .build();
-    }
-
 }
