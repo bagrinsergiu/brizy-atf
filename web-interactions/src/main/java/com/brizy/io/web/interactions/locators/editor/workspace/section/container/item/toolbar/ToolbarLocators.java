@@ -3,9 +3,10 @@ package com.brizy.io.web.interactions.locators.editor.workspace.section.containe
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -20,6 +21,12 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ToolbarLocators {
 
+    String italic;
+    String underline;
+    String strike;
+    String uppercase;
+    String bold;
+    String list;
     String item;
     String align;
     @NestedConfigurationProperty
@@ -31,7 +38,9 @@ public class ToolbarLocators {
     @NestedConfigurationProperty
     ButtonLocators button;
     @NestedConfigurationProperty
-    SettingsProperties settings;
+    IconLocators icon;
+    @NestedConfigurationProperty
+    SettingsLocators settings;
     @NestedConfigurationProperty
     ImageLocators image;
     @NestedConfigurationProperty

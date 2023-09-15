@@ -260,8 +260,8 @@
           "unit": "PIXEL"
         },
         "height": {
-          "value": 400,
-          "unit": "PIXEL"
+          "value": 20,
+          "unit": "PERCENTAGE"
         }
       },
       "align": "JUSTIFY"

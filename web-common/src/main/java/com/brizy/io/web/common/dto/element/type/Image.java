@@ -1,7 +1,6 @@
 package com.brizy.io.web.common.dto.element.type;
 
 import com.brizy.io.web.common.dto.element.properties.image.ImageProperties;
-import com.brizy.io.web.common.dto.element.properties.image.image.defaults.ImageDefaultProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +14,5 @@ import lombok.experimental.FieldDefaults;
 public class Image extends AbstractPropertyType<ImageProperties> implements ItemType {
 
     ImageProperties properties;
-    ImageDefaultProperties defaultProperties;
 
 }

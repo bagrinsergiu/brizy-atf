@@ -41,6 +41,12 @@ pages:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
                 item: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title]
                 align: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Align']
+                list: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='List']
+                bold: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Bold']
+                italic: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Italic']
+                underline: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Underline']
+                strike: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Strike']
+                uppercase: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Uppercase']
                 typography:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
                   fonts:

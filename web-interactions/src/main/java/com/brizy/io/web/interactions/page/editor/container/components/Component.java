@@ -8,7 +8,7 @@ import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -19,12 +19,12 @@ import static com.microsoft.playwright.options.MouseButton.RIGHT;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public abstract class Component<T extends Property> extends GenericComponent {
 
-    ItemProperties componentProperties;
+    ItemLocators componentProperties;
     Frame frame;
 
-    public Component(Frame frame, Locator componentLocator, ItemProperties itemProperties) {
+    public Component(Frame frame, Locator componentLocator, ItemLocators itemLocators) {
         super(componentLocator);
-        this.componentProperties = itemProperties;
+        this.componentProperties = itemLocators;
         this.frame = frame;
     }
 
@@ -35,7 +35,7 @@ public abstract class Component<T extends Property> extends GenericComponent {
      */
     public Component(Locator componentLocator) {
         super(componentLocator);
-        this.componentProperties = new ItemProperties();
+        this.componentProperties = new ItemLocators();
         this.frame = componentLocator.page().mainFrame();
     }
 

@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button;
 
 import com.brizy.io.web.common.dto.element.properties.button.button.button.ButtonTabProperties;
-import com.brizy.io.web.common.dto.element.properties.button.button.button.fill.FillTypes;
+import com.brizy.io.web.common.dto.element.properties.common.fill.FillTypes;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.ButtonLocators;
