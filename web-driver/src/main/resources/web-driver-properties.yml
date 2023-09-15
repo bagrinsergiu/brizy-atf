@@ -1,6 +1,6 @@
 screenSize:
-  width: 1440
-  height: 900
+  width: 1600
+  height: 1200
 baseUrl: https://www.brizy.cloud/projects/18098294/editor/page/3672626
 playwright:
   env:
