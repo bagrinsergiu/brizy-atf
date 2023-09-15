@@ -21,7 +21,7 @@ import java.util.List;
 import static com.brizy.io.web.test.enums.StorageKey.PAGE_SECTIONS;
 import static java.util.List.of;
 
-@Attachment
+
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class EditorPageSteps {
 
