@@ -36,35 +36,35 @@ jobs:
       - name: Run tests
         run: mvn -T 4C test
 
-      - name: Get Allure history
-        if: always()
-        uses: actions/checkout@v2
-        continue-on-error: true
-        with:
-          ref: allure-reports-history
-          path: allure-reports-history
+#      - name: Get Allure history
+#        if: always()
+#        uses: actions/checkout@v2
+#        continue-on-error: true
+#        with:
+#          ref: allure-reports-history
+#          path: allure-reports-history
 
-      - name: Check and clear allure history
-        if: always()
-        run: |
-          mkdir -p ./allure-reports-history
-          mkdir -p ./allure-history
-          cp -r ./allure-reports-history/. ./allure-history
-
-          echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
-          echo "keep reports count 20"
-          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
-          if (( $( ( ls ./allure-history | wc -l ) ) > 20 )); then
-            cd ./allure-history
-            echo "remove index.html last-history"
-            rm index.html last-history -rv
-            echo "remove old reports"
-            ls | sort -n | head -n -$((23-2)) | xargs rm -rv;
-            cd ..
-          fi
-
-          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
-          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
+#      - name: Check and clear allure history
+#        if: always()
+#        run: |
+#          mkdir -p ./allure-reports-history
+#          mkdir -p ./allure-history
+#          cp -r ./allure-reports-history/. ./allure-history
+#
+#          echo "count folders in allure-history: $( ( ls ./allure-history | wc -l ) )"
+#          echo "keep reports count 20"
+#          echo "if $( ( ls ./allure-history | wc -l ) ) > 21"
+#          if (( $( ( ls ./allure-history | wc -l ) ) > 20 )); then
+#            cd ./allure-history
+#            echo "remove index.html last-history"
+#            rm index.html last-history -rv
+#            echo "remove old reports"
+#            ls | sort -n | head -n -$((23-2)) | xargs rm -rv;
+#            cd ..
+#          fi
+#
+#          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/\">" > ./allure-history/index.html # path
+#          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
 
       - name: Build executor properties
         if: always()
@@ -104,51 +104,120 @@ jobs:
           mv ./launch.json ./web-test/target/allure-results
           cat ./web-test/target/allure-results/launch.json
 
-      - name: Copy old history to recent allure results folder
-        if: always()
-        run: |
-          cp -r ./allure-reports-history/last-history/. ./web-test/target/allure-results/history
+#      - name: Copy old history to recent allure results folder
+#        if: always()
+#        run: |
+#          cp -r ./allure-reports-history/last-history/. ./web-test/target/allure-results/history
 
       - name: Generate allure reports
         if: always()
         run: mvn -pl web-test allure:report
 
-      - name: Copy allure results to publish directory
-        if: always()
+#      - name: Copy allure results to publish directory
+#        if: always()
+#        run: |
+#          cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
+#          echo "copy allure-report history to /allure-history/last-history"
+#          cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
+
+#      - name: Deploy reports to Github Pages
+#        if: always()
+#        uses: JamesIves/github-pages-deploy-action@v4
+#        with:
+#          token: ${{ secrets.PERSONAL_TOKEN }}
+#          branch: allure-reports-history
+#          folder: allure-history
+#          force: true
+
+#      - name: Setup Pages
+#        if: always()
+#        uses: actions/configure-pages@v3
+
+#      - name: Upload artifact
+#        if: always()
+#        uses: actions/upload-pages-artifact@v2
+#        with:
+#          path: './allure-history'
+
+#      - name: Deploy to GitHub Pages
+#        if: always()
+#        id: deployment
+#        uses: actions/deploy-pages@v2
+
+      - name: Declare Report variables
+        id: vars
+        shell: bash
         run: |
-          cp -r ./web-test/target/allure-report/. ./allure-history/${{ github.run_number }}
-          echo "copy allure-report history to /allure-history/last-history"
-          cp -r ./web-test/target/allure-report/history/. ./allure-history/last-history
+          echo "CONTAINER_NAME=atf-report-pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          echo "IMAGE=brizy/atf-report:pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          echo "NETWORK=traefik" >> $GITHUB_OUTPUT
+          echo "DOMAIN=atf-pr-${{ github.event.pull_request.number }}.cloud.office.brizy.org" >> $GITHUB_OUTPUT
 
-      - name: Deploy reports to Github Pages
-        if: always()
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Build Deploy Container Page
+        id: build-image
+        shell: bash
+        run: |
+          docker stop "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rm "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rmi "${{ steps.vars.outputs.IMAGE }}" || true
+
+          docker build \
+          -t "${{ steps.vars.outputs.IMAGE }}" \
+          -f dockerfiles/Dockerfile .
+          
+          docker run -d \
+            --network="${{ steps.vars.outputs.NETWORK }}" \
+            --network-alias="${{ steps.vars.outputs.CONTAINER_NAME }}" \
+            --name="${{ steps.vars.outputs.CONTAINER_NAME }}" \
+            --cpus=3 \
+            --memory=2g \
+            -e "MAX_CPUS=2" \
+            --label "traefik.docker.network"="${{ steps.vars.outputs.NETWORK }}" \
+            --label "traefik.enable"="true" \
+            --label "traefik.frontend.rule"="Host:${{ steps.vars.outputs.DOMAIN }}" \
+            --label "traefik.port"="80" \
+            "${{ steps.vars.outputs.IMAGE }}"
+
+      - name: Generate Comments Url
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: allure-reports-history
-          folder: allure-history
-          force: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            Report: <http://${{ steps.vars.outputs.DOMAIN }}:8080>
 
-      - name: Setup Pages
-        if: always()
-        uses: actions/configure-pages@v3
+#      - name: Post the link to the report
+#        if: always()
+#        uses: Sibz/github-status-action@v1
+#        with:
+#          authToken: ${{secrets.PERSONAL_TOKEN}}
+#          context: 'Test report'
+#          state: 'success'
+#          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
 
-      - name: Upload artifact
-        if: always()
-        uses: actions/upload-pages-artifact@v2
+  cleanup:
+    name: Cleanup Reports
+    runs-on: [ self-hosted, builder, office-server ]
+    if: ${{ github.event.action == 'closed' || github.event.pull_request.merged == true }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Declare Report variables
+        id: vars
+        shell: bash
+        run: |
+          echo "CONTAINER_NAME=atf-report-pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          echo "IMAGE=brizy/atf-report:pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+
+      - name: Clean Report
+        id: clean
+        shell: bash
+        run: |
+          docker stop "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
+          docker rmi --force "${{ steps.vars.outputs.IMAGE }}" || true
+
+      - name: Generate Comments Url
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          path: './allure-history'
-
-      - name: Deploy to GitHub Pages
-        if: always()
-        id: deployment
-        uses: actions/deploy-pages@v2
-
-      - name: Post the link to the report
-        if: always()
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{secrets.PERSONAL_TOKEN}}
-          context: 'Test report'
-          state: 'success'
-          target_url: https://bagrinsergiu.github.io/brizy-atf/${{ github.run_number }}/index.html
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            Report: Not available
