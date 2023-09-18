@@ -22,5 +22,8 @@ public class SettingsLocators extends AbstractProperty {
     InputWithUnitsLocators height;
     @NestedConfigurationProperty
     ScrollBarLocators scrollBar;
+    String gapAbove;
+    String gapBelow;
+    String htmlTag;
 
 }

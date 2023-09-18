@@ -295,6 +295,9 @@ pages:
                     self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Height']]
                     value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//input[@type='range']
                     unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//div[@role='combobox']
+                  gapAbove: //span[text()='Gap Above']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
+                  gapBelow: //span[text()='Gap Below']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//input[@type='range']
+                  htmlTag: //span[text()='HTML Tag']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[@role='combobox']
                 counter:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
                   tabs:

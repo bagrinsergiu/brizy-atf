@@ -5,6 +5,7 @@ import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.common.dto.element.properties.common.list.ListStyles;
 import com.brizy.io.web.common.dto.element.properties.common.typography.Typography;
 import com.brizy.io.web.common.dto.element.properties.text.colors.Colors;
+import com.brizy.io.web.common.dto.element.properties.text.settings.Settings;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -26,5 +27,6 @@ public class TextProperties implements Property {
     boolean underline;
     boolean strike;
     boolean uppercase;
+    Settings settings;
 
 }
