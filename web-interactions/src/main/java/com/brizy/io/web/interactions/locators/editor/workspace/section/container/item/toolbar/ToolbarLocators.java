@@ -21,6 +21,12 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class ToolbarLocators {
 
+    String italic;
+    String underline;
+    String strike;
+    String uppercase;
+    String bold;
+    String list;
     String item;
     String align;
     @NestedConfigurationProperty

@@ -1,0 +1,16 @@
+[
+  {
+    "scenarioName": "Add TEXT_1 element and validate default properties",
+    "itemName": "TEXT_1",
+    "elementType": "text",
+    "properties": {
+      "align": "JUSTIFY",
+      "bold": true,
+      "list": "BULLET",
+      "italic": true,
+      "underline": true,
+      "strike": true,
+      "uppercase": true
+    }
+  }
+]
