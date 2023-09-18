@@ -63,6 +63,7 @@ jobs:
 
       - name: Declare Report variables
         id: vars
+        if: always()
         shell: bash
         run: |
           echo "CONTAINER_NAME=atf-report-pr-${{ github.event.inputs.repoPrId }}" >> $GITHUB_OUTPUT
@@ -72,6 +73,7 @@ jobs:
 
       - name: Build Report Container
         id: build-image
+        if: always()
         shell: bash
         run: |
           docker stop "${{ steps.vars.outputs.CONTAINER_NAME }}" || true
@@ -97,6 +99,7 @@ jobs:
 
       - name: Generate Report Url
         uses: marocchino/sticky-pull-request-comment@v2
+        if: always()
         with:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           message: |
