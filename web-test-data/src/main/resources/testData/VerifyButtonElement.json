@@ -99,7 +99,7 @@
               "value": "individual",
               "top": {
                 "unit": "PERCENTAGE",
-                "value": 40
+                "value": 4
               },
               "right": {
                 "unit": "PIXEL",
@@ -107,11 +107,11 @@
               },
               "left": {
                 "unit": "PERCENTAGE",
-                "value": 10
+                "value": 1
               },
               "bottom": {
                 "unit": "PERCENTAGE",
-                "value": 20
+                "value": 2
               }
             },
             "position": {
@@ -119,20 +119,20 @@
               "value": "Fixed",
               "width": {
                 "unit": "PERCENTAGE",
-                "value": 50
+                "value": 44
               },
               "horizontalOffset": {
                 "direction": "Right",
                 "offset": {
                   "unit": "PERCENTAGE",
-                  "value": 5
+                  "value": 60
                 }
               },
               "verticalOffset": {
                 "direction": "Top",
                 "offset": {
                   "unit": "PIXEL",
-                  "value": 15
+                  "value": -50
                 }
               }
             }

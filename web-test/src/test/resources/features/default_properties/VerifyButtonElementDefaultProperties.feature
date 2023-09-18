@@ -3,7 +3,7 @@ Feature: Editor Page - Adding a Button Element
   As a user
   I want to add a button element
   So that I can see some default properties
-@Ignore
+
   Scenario Outline: Add button element and validate default properties
     When navigate to home page
     And wait for editor page to load
