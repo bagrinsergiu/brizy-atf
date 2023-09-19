@@ -27,7 +27,7 @@ permissions:
 jobs:
   run_tests:
     runs-on: [ self-hosted, builder, office-server ]
-    if: ${{ github.event.inputs.isClean != true }}
+    if: ${{ github.event.inputs.isClean != 'true' }}
 
     steps:
       - name: The foreign repo pr url
@@ -115,7 +115,7 @@ jobs:
   cleanup:
     name: Cleanup Reports
     runs-on: [ self-hosted, builder, office-server ]
-    if: ${{ github.event.inputs.isClean == true }}
+    if: ${{ github.event.inputs.isClean == 'true' }}
     steps:
       - name: The foreign repo pr url
         run: echo ${{ github.event.inputs.repoPrUrl }}
