@@ -31,7 +31,6 @@ Feature: Editor Page - Image Toolbar
       | name    | sectionName |
       | IMAGE_1 | SECTION_1   |
 
-    @Ignore
   Scenario Outline: Add image element and validate toolbar <toolbarItem> item tabs
     When prepare the following items to be added to the page:
       | item  | position | parent | name   | sectionName   |
@@ -42,5 +41,5 @@ Feature: Editor Page - Image Toolbar
 
     Examples:
       | toolbarItem | name    | sectionName | displayedTabs           |
-      | Image       | IMAGE_1 | SECTION_1   | Image, Mask             |
+      | Image       | IMAGE_1 | SECTION_1   | Image, Filters, Mask    |
       | Colors      | IMAGE_1 | SECTION_1   | Overlay, Border, Shadow |
