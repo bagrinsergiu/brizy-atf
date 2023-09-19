@@ -11,6 +11,10 @@ on:
         required: true
         description: The foreign repo pr id
         type: string
+      repoPrUrl:
+        required: true
+        description: The foreign repo pr url
+        type: string
       isClean:
         required: false
         description: Need to be clean or generate
@@ -26,6 +30,9 @@ jobs:
     if: ${{ github.event.inputs.isClean != true }}
 
     steps:
+      - name: The foreign repo pr url
+        run: echo ${{ github.event.inputs.repoPrUrl }}
+
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
@@ -110,6 +117,9 @@ jobs:
     runs-on: [ self-hosted, builder, office-server ]
     if: ${{ github.event.inputs.isClean == true }}
     steps:
+      - name: The foreign repo pr url
+        run: echo ${{ github.event.inputs.repoPrUrl }}
+
       - uses: actions/checkout@v3
 
       - name: Declare Report variables
