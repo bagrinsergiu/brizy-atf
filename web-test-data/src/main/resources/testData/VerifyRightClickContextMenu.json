@@ -15,11 +15,11 @@
         "lineHgt": 2.2,
         "letterSp": 0.4
       },
-      "bold": true,
+      "bold": false,
       "italic": false,
-      "underline": true,
-      "strike": true,
-      "uppercase": true,
+      "underline": false,
+      "strike": false,
+      "uppercase": false,
       "colors": {
         "color": {
           "type": "solid",
