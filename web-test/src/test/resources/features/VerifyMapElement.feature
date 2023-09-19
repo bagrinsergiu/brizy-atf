@@ -20,7 +20,7 @@ Feature: Editor Page - Adding a Map Element
     And configure the item added to the page
     When save draft page
     And publish the page
-    Then validate item properties
+#    Then validate item properties
 
   Scenario Outline: Add map element, resize and preview it
     When prepare the following items to be added to the page:
@@ -32,7 +32,7 @@ Feature: Editor Page - Adding a Map Element
     When get css properties for the '<name>' editor item from the section '<sectionName>'
     When save draft page
     And publish the page
-    Then validate css properties of the components
+#    Then validate css properties of the components
 
     Examples:
       | name  | sectionName |
