@@ -1,0 +1,178 @@
+[
+  {
+    "scenarioName": "Add form element with color border and preview it",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
+          {
+            "type": "select",
+            "placeholder": "SelectField",
+            "required": true,
+            "multipleSelection": true,
+            "configuration": {
+              "type": "select",
+              "options": [
+                "MyOpt1",
+                "MyOpt2",
+                "MyOpt3"
+              ]
+            },
+            "spacing": 1
+          },
+          {
+            "type": "radio",
+            "placeholder": "RadioField",
+            "required": true,
+            "configuration": {
+              "type": "radio",
+              "columns": "2",
+              "options": [
+                "MyRadOpt1",
+                "MyRadOpt2",
+                "MyRadOpt3",
+                "MyRadOpt4",
+                "MyRadOpt5",
+                "MyRadOpt6",
+                "MyRadOpt7",
+                "MyRadOpt8",
+                "MyRadOpt9",
+                "MyRadOpt10"
+              ]
+            },
+            "spacing": 3
+          },
+          {
+            "type": "checkbox",
+            "placeholder": "CheckboxField",
+            "required": true,
+            "configuration": {
+              "type": "checkbox",
+              "columns": "3",
+              "options": [
+                "MyCbxOpt1",
+                "MyCbxOpt2",
+                "MyCbxOpt3",
+                "MyCbxOpt4",
+                "MyCbxOpt5",
+                "MyCbxOpt6",
+                "MyCbxOpt7",
+                "MyCbxOpt8",
+                "MyCbxOpt9",
+                "MyCbxOpt10"
+              ]
+            },
+            "spacing": 3
+          },
+          {
+            "type": "text",
+            "placeholder": "TextField",
+            "required": true,
+            "spacing": 3
+          },
+          {
+            "type": "email",
+            "placeholder": "EmailField",
+            "required": false,
+            "spacing": 3
+          },
+          {
+            "type": "number",
+            "placeholder": "NumberField",
+            "required": true,
+            "configuration": {
+              "type": "number",
+              "errorMessage": {
+                "minNumber": 10,
+                "maxNumber": 100
+              },
+              "minNumber": 10,
+              "maxNumber": 100
+            },
+            "spacing": 11
+          },
+          {
+            "type": "date",
+            "placeholder": "DateField",
+            "required": true,
+            "nativeHtml5": false,
+            "configuration": {
+              "type": "date",
+              "minDate": "1973-01-01",
+              "maxDate": "2005-01-01"
+            },
+            "spacing": 8
+          },
+          {
+            "type": "url",
+            "placeholder": "UrlField",
+            "required": false,
+            "spacing": 10
+          },
+          {
+            "type": "time",
+            "placeholder": "TimeField",
+            "required": true,
+            "nativeHtml5": true,
+            "configuration": {
+              "type": "time",
+              "minTime": "09:00",
+              "maxTime": "12:59"
+            },
+            "spacing": 3
+          },
+          {
+            "type": "fileUpload",
+            "placeholder": "FileUpload",
+            "required": true,
+            "configuration": {
+              "type": "fileUpload",
+              "errorMessage": {
+                "fileSizeErrorMessage": "Your file is too big - try another one",
+                "fileTypeErrorMessage": "Provided file type is not accepted"
+              },
+              "fileSize": "10 MB",
+              "allowedExtensions": ".png"
+            },
+            "spacing": 9
+          },
+          {
+            "type": "tel",
+            "placeholder": "PhoneField",
+            "required": true,
+            "spacing": 5
+          },
+          {
+            "type": "password",
+            "placeholder": "PasswordField",
+            "required": false,
+            "spacing": 7
+          },
+          {
+            "type": "paragraph",
+            "placeholder": "ParagraphField",
+            "required": false,
+            "spacing": 1
+          }
+        ]
+      }
+    }
+  }
+]

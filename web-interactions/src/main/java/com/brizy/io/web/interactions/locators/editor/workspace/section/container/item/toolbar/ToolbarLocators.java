@@ -3,9 +3,11 @@ package com.brizy.io.web.interactions.locators.editor.workspace.section.containe
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import lombok.AccessLevel;
@@ -29,6 +31,12 @@ public class ToolbarLocators {
     String list;
     String item;
     String align;
+    String delete;
+    String duplicate;
+    @NestedConfigurationProperty
+    MoverLocators mover;
+    @NestedConfigurationProperty
+    FieldLocators field;
     @NestedConfigurationProperty
     TypographyProperties typography;
     @NestedConfigurationProperty

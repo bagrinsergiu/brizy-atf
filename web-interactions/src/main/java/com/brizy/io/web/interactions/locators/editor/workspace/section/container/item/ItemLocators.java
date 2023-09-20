@@ -3,6 +3,7 @@ package com.brizy.io.web.interactions.locators.editor.workspace.section.containe
 import com.brizy.io.web.interactions.locators.AbstractProperty;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.type.ItemTypeLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,5 +21,7 @@ public class ItemLocators extends AbstractProperty {
     ToolbarLocators toolbar;
     @NestedConfigurationProperty
     RightClickContextProperties rightClickContext;
+    @NestedConfigurationProperty
+    ItemTypeLocators type;
 
 }

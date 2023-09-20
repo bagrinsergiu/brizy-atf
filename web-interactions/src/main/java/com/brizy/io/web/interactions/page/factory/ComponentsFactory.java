@@ -1,8 +1,9 @@
 package com.brizy.io.web.interactions.page.factory;
 
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.*;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
+import com.brizy.io.web.interactions.page.editor.container.components.type.form.Form;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;
@@ -17,6 +18,7 @@ public class ComponentsFactory {
     public <T extends Component> T getComponentByType(Locator locator, Frame frame, ItemLocators itemLocators) {
         return (T) API.Match(locator.getAttribute("class")).of(
                 API.Case(API.$(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new Map(itemLocators, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(FORM.getValue())), () -> new Form(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new Text(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(COUNTER.getValue())), () -> new Counter(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new Image(itemLocators, frame, locator)),

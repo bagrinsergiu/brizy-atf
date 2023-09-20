@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.locators.editor.workspace.section.containe
 import com.brizy.io.web.interactions.locators.AbstractProperty;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.IconPickerLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeLocators;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.spacing.SpacingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +24,6 @@ public class IconLocators extends AbstractProperty {
     @NestedConfigurationProperty
     SizeLocators size;
     @NestedConfigurationProperty
-    SpacingLocators spacing;
+    InputWithUnitsLocators spacing;
 
 }

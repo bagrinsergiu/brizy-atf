@@ -27,6 +27,16 @@ pages:
             empty: //div[contains(@class,'brz-ed-sortable--empty')]
             item:
               self: //div[contains(@data-brz-border--grey,'wrapper')]
+              type:
+                form:
+                  self: //form
+                  field:
+                    self: //div[contains(@class,'brz-forms2__item') and not(contains(@class,'brz-forms2__item-button'))]/div
+                    text: //input[@type='text']
+                    email: //input[@type='email']
+                    number: //input[@type='number']
+                    paragraph: //textarea
+                    select: //div[contains(@class,'brz-forms2__field-select')]
               rightClickContext:
                 self: //div[@role='menu' and contains(@class,'react-contexify')]
                 menuItem:
@@ -47,6 +57,75 @@ pages:
                 underline: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Underline']
                 strike: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Strike']
                 uppercase: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Uppercase']
+                duplicate: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Duplicate']
+                delete: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Delete']
+                mover:
+                  moveUp: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//span[@title='Move up']
+                  moveDown: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//span[@title='Move down']
+                field:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Field']
+                  tabs:
+                    background:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      self: //span[text()='Background']
+                      size: //div[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                    field:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      self: //span[text()='Field']
+                      type: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Type']]//div[@role='combobox']
+                      required: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      multipleSelection: //span[text()='Multiple Selection']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      nativeHtml5: //span[text()='Native HTML5']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      minNumberErrorMessage: //span[text()='Min number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      maxNumberErrorMessage: //span[text()='Max number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      min: //span[text()='Min']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      max: //span[text()='Max']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      minDate: //span[text()='Min Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      maxDate: //span[text()='Max Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      minTime: //span[text()='Min Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      maxTime: //span[text()='Max Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      columns: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Columns']]//div[@role='combobox']
+                      fileSizeErrorMessage: //span[text()='File size error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      fileTypeErrorMessage: //span[text()='File type error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      maxFileSize: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Max. File Size']]//div[@role='combobox']
+                      allowedFileTypes: //span[text()='Allowed File Types']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      checkBox:
+                        item:
+                          self: //div[contains(@class,'brz-control__check-group-option')]
+                          check: //div[contains(@class,'brz-control__check-group-icon')]
+                          value: //div[contains(@class,'brz-forms2__checkbox-option-name')]//input[@type='text']
+                          delete: //div[contains(@class,'brz-forms2__checkbox-option-icon')]
+                        newItem:
+                          self: //div[contains(@class,'brz-forms2__checkbox-option-new')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.checkBox.newItem.self}//input
+                          addButton: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.checkBox.newItem.self}//div[contains(@class,'brz-forms2__checkbox-option-icon')]
+                      select:
+                        item:
+                          self: //div[@class='brz-forms2__select-item' and not (.//*[@placeholder='Add new option'])]
+                          value: //div[contains(@class,'brz-forms2__select-item__input')]//input
+                          delete: //div[contains(@class,'brz-forms2__select-item__icon')]
+                        newItem:
+                          self: //div[@class='brz-forms2__select-item' and .//*[@placeholder='Add new option']]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.select.newItem.self}//input
+                          addButton: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.select.newItem.self}//div[contains(@class,'brz-forms2__select-item__icon')]
+                      radio:
+                        item:
+                          self: //div[contains(@class,'brz-control__radio-option')]
+                          value: //div[contains(@class,'brz-forms2__radio-option-name')]//input[@type='text']
+                          delete: //div[contains(@class,'brz-forms2__radio-option-icon')]
+                        newItem:
+                          self: //div[contains(@class,'brz-forms2__radio-option-new')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.radio.newItem.self}//input
+                          addButton: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.radio.newItem.self}//div[contains(@class,'brz-forms2__radio-option-icon')]
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    advanced:
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      self: //span[text()='Advanced']
+                      label: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      placeholder: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                 typography:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
                   fonts:

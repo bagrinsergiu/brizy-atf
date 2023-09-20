@@ -5,10 +5,10 @@ import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -53,6 +53,7 @@ public abstract class Component<T extends Property> extends GenericComponent {
         return getToolbar();
     }
 
+    //    TODO check if it will work with configure method an remove
     public ComponentToolbar<T> onToolbar() {
         return openAndGetToolbar();
     }
@@ -65,6 +66,10 @@ public abstract class Component<T extends Property> extends GenericComponent {
     public GetProperties get() {
         openAndGetToolbar();
         return new GetProperties();
+    }
+
+    public void configure(T properties) {
+        openAndGetToolbar().setProperties(properties);
     }
 
     public class GetProperties {
