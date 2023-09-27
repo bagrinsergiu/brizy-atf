@@ -4,8 +4,8 @@ import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
-import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.locators.editor.EditorFrameProperties;
+import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.LoadState;
 import io.vavr.control.Try;
@@ -67,7 +67,7 @@ public class EditorContainer {
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
             Component foundComponent = sectionToAddElementTo.getComponentByName(element.getElementName());
             if (Objects.nonNull(element.getComponentProperties())) {
-                foundComponent.onToolbar().setProperties(element.getComponentProperties());
+                foundComponent.configure(element.getComponentProperties());
             }
             mainPage.mouse().click(100, 100);
         }
