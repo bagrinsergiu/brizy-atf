@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.brizy.io.web.interactions.constants.TimingConstants.*;
+import static com.brizy.io.web.interactions.constants.TimingConstants.MAX_WAITING_TIME_FOR_FRAME_TO_LOAD;
 import static java.time.Duration.ZERO;
 import static lombok.AccessLevel.PRIVATE;
 import static org.awaitility.Awaitility.await;
@@ -83,6 +83,10 @@ public class EditorContainer {
 
     public void addSection(String sectionName) {
         page.addSection(sectionName);
+    }
+
+    public Section getSection(String sectionName) {
+        return page.getSection(sectionName);
     }
 
     public void waitForFrameLoadState() {
