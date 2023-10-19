@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 public enum ComponentClassNames {
 
     MAP("brz-map"),
+    FORM("brz-forms2"),
     COUNTER("brz-counter"),
     TEXT("brz-rich-text"),
     BUTTON("brz-btn"),

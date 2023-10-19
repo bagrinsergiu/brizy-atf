@@ -1,21 +1,25 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
+import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.common.dto.element.properties.common.list.ListStyles;
 import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
-import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.microsoft.playwright.Frame;
+import lombok.experimental.FieldDefaults;
+
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import static lombok.AccessLevel.PRIVATE;
+
+@FieldDefaults(makeFinal = true, level = PRIVATE)
 public class TextToolbar extends ComponentToolbar<TextProperties> {
 
     Supplier<Typography> typography;
-    Supplier<Button> typographyButton;
     Supplier<EnumerableButton<Alignments>> alignButton;
     Supplier<EnumerableButton<ListStyles>> listButton;
     Supplier<Button> boldButton;
@@ -23,12 +27,10 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
     Supplier<Button> underlineButton;
     Supplier<Button> strikeButton;
     Supplier<Button> uppercaseButton;
-    Supplier<Frame> escape;
 
     public TextToolbar(ToolbarLocators properties, Frame frame) {
         super(properties, frame);
         this.typography = () -> new Typography(properties.getTypography(), frame);
-        this.typographyButton = () -> new Button(frame.locator(properties.getTypography().getSelf()));
         this.alignButton = () -> new EnumerableButton<>(Alignments.class,properties.getAlign(), frame);
         this.listButton = () -> new EnumerableButton<>(ListStyles.class, properties.getList(), frame);
         this.boldButton = () -> new Button(frame.locator(properties.getBold()));
@@ -36,7 +38,6 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
         this.underlineButton = () -> new Button(frame.locator(properties.getUnderline()));
         this.strikeButton = () -> new Button(frame.locator(properties.getStrike()));
         this.uppercaseButton = () -> new Button(frame.locator(properties.getUppercase()));
-        this.escape = () -> frame;
     }
 
     @Override

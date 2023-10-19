@@ -4,7 +4,6 @@ import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.type.ItemType;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.EditorBottomPanelItemDto;
 import com.brizy.io.web.interactions.dto.editor.bottom_panel.SaveDraftMenuItemDto;
-import com.brizy.io.web.interactions.dto.editor.container.properties.CssProperties;
 import com.brizy.io.web.interactions.dto.editor.container.right_click_context_menu.ContextMenuItemDto;
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.enums.ContextMenuActions;
@@ -15,7 +14,6 @@ import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.exception.InvalidScenarioNameException;
 import com.brizy.io.web.test.exception.ItemNotFoundException;
-import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.model.page.FileName;
 import com.brizy.io.web.test.model.page.Item;
 import com.brizy.io.web.test.service.ActivePageService;
@@ -107,10 +105,10 @@ public class ContainerSteps {
     @When("^get css properties for the '(.*)' editor item from the section '(.*)'$")
     public void getCssItemProperties(String component, String section) {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
-        CssProperties cssProperties = editorPage.onPageBuilder()._do().findComponent(section, component)
-                .get()
-                .cssItemProperties();
-        storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
+//        CssProperties cssProperties = editorPage.onPageBuilder()._do().findComponent(section, component)
+//                .get()
+//                .cssItemProperties();
+//        storage.addValue(StorageKey.CSS_EDITOR_COMPONENT_PROPERTIES, cssProperties);
     }
 
 
