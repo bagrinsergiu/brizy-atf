@@ -20,6 +20,15 @@ Feature: Editor Page - Adding a Form Element
     And configure the item added to the page
     When save draft page
     And publish the page
+    When get published items on section '<sectionName>'
+    Then should have '1' item published
+    When get published item of type '<name>'
+    And get form select item by placeholder 'SelectField'
+    Then should see the following select items:
+      | SelectField |
+      | MyOpt1      |
+      | MyOpt2      |
+      | MyOpt3      |
 
     Examples:
       | name   | sectionName |

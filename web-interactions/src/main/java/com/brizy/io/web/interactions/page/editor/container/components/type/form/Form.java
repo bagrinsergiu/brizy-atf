@@ -61,7 +61,9 @@ public class Form extends Component<FormProperties> {
             var createdField = FieldsFactory.getField(itemLocators.get(), properties, field, currentFrame.get(), getLatestElement());
             createdField.setToolbarProperties(field);
             createdField.configureFormField(field);
-            createdField.duplicate();
+            if (!(fields.indexOf(field) == (fields.size() - 1))) {
+                createdField.duplicate();
+            }
             currentFrame.get().page().press("//*", "Escape");
         }
     }

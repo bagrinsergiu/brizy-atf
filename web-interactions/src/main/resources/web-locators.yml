@@ -32,11 +32,23 @@ pages:
                   self: //form
                   field:
                     self: //div[contains(@class,'brz-forms2__item') and not(contains(@class,'brz-forms2__item-button'))]/div
-                    text: //input[@type='text']
-                    email: //input[@type='email']
-                    number: //input[@type='number']
-                    paragraph: //textarea
-                    select: //div[contains(@class,'brz-forms2__field-select')]
+                    text: //input[@data-brz-type='Text']
+                    email: //input[@data-brz-type='Email']
+                    number: //input[@data-brz-type='Number']
+                    paragraph: //textarea[@data-brz-type='Paragraph']
+                    select: //div[contains(@class,'brz-forms2__field-select')]//select
+                    radio:
+                      self: //div[contains(@class,'brz-forms2__radio-options')]
+                      items: //div[contains(@class,'brz-control__radio-option')]
+                    checkBox:
+                      self: //div[contains(@class,'brz-forms2__checkbox-options')]
+                      items: //div[contains(@class,'brz-control__check-group-option')]
+                    date: //input[@data-brz-type='Date']
+                    url: //input[@data-brz-type='Url']
+                    time: //input[@data-brz-type='Time']
+                    file: //input[@data-brz-type='FileUpload']
+                    tel: //input[@data-brz-type='Tel']
+                    password: //input[@data-brz-type='Password']
               rightClickContext:
                 self: //div[@role='menu' and contains(@class,'react-contexify')]
                 menuItem:
@@ -653,3 +665,23 @@ pages:
         self: //div[contains(@class,'brz-container')]
         item:
           self: ${pages.publish.section.container.self}//div[@data-custom-id or @id]
+          form:
+            self: //form
+            field:
+              text: //input[@data-brz-type='Text']
+              email: //input[@data-brz-type='Email']
+              number: //input[@data-brz-type='Number']
+              paragraph: //textarea[@data-brz-type='Paragraph']
+              select: //div[contains(@class,'brz-forms2__field-select')]//select
+              radio:
+                self: //div[contains(@class,'brz-forms2__radio-options')]
+                items: //div[contains(@class,'brz-control__radio-option')]
+              checkBox:
+                self: //div[contains(@class,'brz-forms2__checkbox-options')]
+                items: //div[contains(@class,'brz-control__check-group-option')]
+              date: //input[@data-brz-type='Date']
+              url: //input[@data-brz-type='Url']
+              time: //input[@data-brz-type='Time']
+              file: //input[@data-brz-type='FileUpload']
+              tel: //input[@data-brz-type='Tel']
+              password: //input[@data-brz-type='Password']

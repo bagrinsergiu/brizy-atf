@@ -1,32 +1,33 @@
 package com.brizy.io.web.interactions.page.publish;
 
+import com.brizy.io.web.interactions.constants.TimingConstants;
+import com.brizy.io.web.interactions.locators.publish.PublishPageLocators;
+import com.brizy.io.web.interactions.locators.publish.section.SectionLocators;
 import com.brizy.io.web.interactions.page.AbstractPage;
-import com.brizy.io.web.interactions.locators.publish.PublishPageProperties;
-import com.brizy.io.web.interactions.locators.publish.SectionProperties;
+import com.brizy.io.web.interactions.page.publish.section.Section;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
-import java.util.HashMap;
+import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static org.awaitility.Awaitility.await;
+
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PublishedPage extends AbstractPage {
 
-    Map<String, Section> sections;
     Supplier<List<Locator>> allSectionsLocators;
     Function<Locator, Section> getSectionFromLocator;
 
-    public PublishedPage(PublishPageProperties publishedPageProperties, com.microsoft.playwright.Page page) {
+    public PublishedPage(PublishPageLocators publishedPageProperties, com.microsoft.playwright.Page page) {
         super(page);
-        SectionProperties sectionProperties = publishedPageProperties.getSection();
-        this.sections = new HashMap<>();
-        this.allSectionsLocators = () -> page.locator(sectionProperties.getSelf()).all();
-        this.getSectionFromLocator = foundSectionLocator -> new Section(sectionProperties, page, foundSectionLocator);
+        SectionLocators sectionLocators = publishedPageProperties.getSection();
+        this.allSectionsLocators = () -> page.locator(sectionLocators.getSelf()).all();
+        this.getSectionFromLocator = foundSectionLocator -> new Section(sectionLocators, page, foundSectionLocator);
     }
 
     public List<Section> getSections() {
@@ -36,9 +37,18 @@ public class PublishedPage extends AbstractPage {
                 .collect(Collectors.toList());
     }
 
-    //    TODO refactor to sepra
+    public Section findSectionByUuid(String uuid) {
+        return getSections().stream()
+                .filter(section -> section.getUuid().equals(uuid))
+                .findFirst()
+                .orElseThrow();
+    }
+
     private void waitForSections() {
-        while (allSectionsLocators.get().size() == 0) ;
+        await().alias("Waiting for the sections to be available")
+                .with().pollDelay(Duration.ofMillis(500))
+                .and().atMost(TimingConstants.MAX_WAITING_TIME_FOR_FRAME_TO_LOAD)
+                .until(() -> !allSectionsLocators.get().isEmpty());
     }
 
 }

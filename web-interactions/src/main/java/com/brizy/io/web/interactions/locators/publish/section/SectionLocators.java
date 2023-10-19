@@ -1,6 +1,7 @@
-package com.brizy.io.web.interactions.locators.publish;
+package com.brizy.io.web.interactions.locators.publish.section;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.publish.section.container.ContainerLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,9 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class SectionProperties extends AbstractProperty {
+public class SectionLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    ContainerProperties container;
+    ContainerLocators container;
 
 }

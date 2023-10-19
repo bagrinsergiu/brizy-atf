@@ -1,10 +1,11 @@
 package com.brizy.io.web.interactions.page;
 
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
+import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
 import com.brizy.io.web.interactions.page.editor.container.EditorContainer;
+import com.brizy.io.web.interactions.page.editor.container.Section;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.sidebar.EditorSidebar;
-import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
@@ -50,6 +51,10 @@ public class PageBuilder {
         public PageBuilderOperations addSection(String section) {
             container.addSection(section);
             return this;
+        }
+
+        public Section getSection(String section) {
+            return container.getSection(section);
         }
 
         public PageBuilderOperations add() {
