@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -18,8 +19,10 @@ public class FormFieldLocators extends AbstractProperty {
     String number;
     String paragraph;
     String select;
-    String radio;
-    String checkBox;
+    @NestedConfigurationProperty
+    FormRadioItemLocators radio;
+    @NestedConfigurationProperty
+    FormCheckBoxItemLocators checkBox;
     String date;
     String url;
     String time;
