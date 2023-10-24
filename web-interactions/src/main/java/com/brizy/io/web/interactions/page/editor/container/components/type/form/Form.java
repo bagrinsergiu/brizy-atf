@@ -21,6 +21,7 @@ public class Form extends Component<FormProperties> {
     Supplier<Frame> currentFrame;
     Supplier<ItemLocators> itemLocators;
     Supplier<List<Locator>> formFields;
+    Supplier<Boolean> clearForm;
 
     public Form(ItemLocators itemLocators, Frame frame, Locator locator) {
         super(frame, locator, itemLocators);
@@ -28,7 +29,7 @@ public class Form extends Component<FormProperties> {
         this.formFields = () -> frame.locator(itemLocators.getType().getForm().getSelf())
                 .locator(itemLocators.getType().getForm().getField().getSelf()).all();
         this.itemLocators = () -> itemLocators;
-        clearFormFields(frame);
+        this.clearForm = () -> clearFormFields(frame);
     }
 
     private Locator getLatestElement() {
@@ -36,7 +37,7 @@ public class Form extends Component<FormProperties> {
         return locators.get(locators.size() - 1);
     }
 
-    private void clearFormFields(Frame frame) {
+    private Boolean clearFormFields(Frame frame) {
         var formFields = this.formFields.get();
         formFields.stream()
                 .limit(formFields.size() - 1)
@@ -45,6 +46,7 @@ public class Form extends Component<FormProperties> {
                     frame.locator("//*[@title='Delete']").click();
                 });
         this.formFields.get().forEach(Locator::click);
+        return true;
     }
 
     //    Intentionally left blank
