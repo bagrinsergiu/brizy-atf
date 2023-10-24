@@ -69,6 +69,10 @@ public abstract class Component<T extends Property> extends GenericComponent {
         element.moveWithMouse(positionToMoveElementTo);
     }
 
+    public void scrollToElement() {
+        componentLocator.scrollIntoViewIfNeeded();
+    }
+
     private ComponentToolbar<T> openAndGetToolbar() {
         componentLocator.click();
         return getToolbar();

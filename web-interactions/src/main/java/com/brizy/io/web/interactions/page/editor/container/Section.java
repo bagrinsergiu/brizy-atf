@@ -52,6 +52,7 @@ public class Section {
         if (Objects.isNull(parent)) {
             parent = new EmptyContainer(emptyContainer.get());
         }
+        parent.scrollToElement();
         parent.moveElementToPosition(sidebarElement, item.getElementPosition());
         return sectionComponents.put(item.getElementName(), getLastAddedComponent());
     }

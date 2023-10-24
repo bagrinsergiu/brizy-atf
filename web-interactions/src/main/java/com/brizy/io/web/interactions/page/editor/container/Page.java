@@ -10,12 +10,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.time.Duration;
+import java.util.*;
 import java.util.function.Supplier;
+
+import static org.awaitility.Awaitility.await;
 
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -54,19 +53,19 @@ public class Page {
 
     private boolean isUnknownSection(Locator sectionLocator) {
         return sections.values().stream()
-                .noneMatch(section -> section.getUuid().equals(getAttributeTillNotNull(sectionLocator, "data-uid")));
+                .noneMatch(section -> section.getUuid().equals(getAttributeTillNotNull(sectionLocator)));
     }
 
-    //    TODO refactor to separate class
-    private String getAttributeTillNotNull(Locator locator, String attribute) {
-        LocalDateTime now = LocalDateTime.now();
-        while (LocalDateTime.now().getSecond() - now.getSecond() < 10) ;
-        return locator.getAttribute(attribute);
+    private String getAttributeTillNotNull(Locator locator) {
+        return await().atMost(Duration.ofSeconds(30))
+                .with().pollInterval(Duration.ofMillis(100))
+                .until(() -> locator.getAttribute("data-brz-uid"), Objects::nonNull);
     }
 
-    //    TODO refactor to sepra
     private void waitForSections() {
-        while (allSections.get().size() == 0) ;
+        await().atMost(Duration.ofSeconds(30))
+                .with().pollInterval(Duration.ofMillis(100))
+                .until(() -> !allSections.get().isEmpty());
     }
 
 }
