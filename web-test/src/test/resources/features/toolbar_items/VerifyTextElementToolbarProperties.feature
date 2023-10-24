@@ -19,6 +19,7 @@ Feature: Editor Page - Text element Toolbar
     And add the item to the page
     When get the toolbar items for '<name>' item from section '<sectionName>'
     Then the following toolbar items should be displayed:
+      | AiText     |
       | Typography |
       | Colors     |
       | Align      |
