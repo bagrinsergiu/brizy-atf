@@ -64,3 +64,17 @@ Feature: Editor Page - Adding a Multiple Sections
       | IMAGE  | UP       | ICON_2   | IMAGE_2  | SECTION_6   |
       | FORM   | DOWN     | IMAGE_2  | FORM_2   | SECTION_6   |
     And add the item to the page
+    When save draft page
+    And publish the page
+    When get published items on section 'SECTION_1'
+    Then should have '6' item published
+    When get published items on section 'SECTION_2'
+    Then should have '6' item published
+    When get published items on section 'SECTION_3'
+    Then should have '6' item published
+    When get published items on section 'SECTION_4'
+    Then should have '6' item published
+    When get published items on section 'SECTION_5'
+    Then should have '6' item published
+    When get published items on section 'SECTION_6'
+    Then should have '6' item published
