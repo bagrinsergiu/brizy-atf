@@ -1,0 +1,12 @@
+[
+  {
+    "scenarioName": "Add sections and elements with anchor link",
+    "itemName": "BUTTON_1",
+    "elementType": "button",
+    "properties": {
+      "link": {
+        "block": 1
+      }
+    }
+  }
+]
