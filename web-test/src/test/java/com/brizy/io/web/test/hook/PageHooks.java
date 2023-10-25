@@ -6,7 +6,6 @@ import com.brizy.io.web.test.service.PageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -28,11 +27,6 @@ public class PageHooks {
         Page page = pageService.create(context);
         page.navigate(EMPTY);
         activePageService.setPage(page);
-    }
-
-    @After(order = 91)
-    public void doClosePage() {
-        activePageService.closePage();
     }
 
 }

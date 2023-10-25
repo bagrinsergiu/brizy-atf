@@ -1,6 +1,6 @@
 [
   {
-    "scenarioName": "Add form element with color border and preview it",
+    "scenarioName": "Add form element and validate select",
     "itemName": "FORM_1",
     "elementType": "form",
     "properties": {
@@ -36,7 +36,34 @@
               ]
             },
             "spacing": 1
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate radio",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 19,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "radio",
             "placeholder": "RadioField",
@@ -58,7 +85,34 @@
               ]
             },
             "spacing": 3
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate checkbox",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 16,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "checkbox",
             "placeholder": "CheckboxField",
@@ -80,19 +134,100 @@
               ]
             },
             "spacing": 3
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate text",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "text",
             "placeholder": "TextField",
             "required": true,
             "spacing": 3
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate email",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "email",
             "placeholder": "EmailField",
             "required": false,
             "spacing": 3
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate number",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "number",
             "placeholder": "NumberField",
@@ -107,7 +242,34 @@
               "maxNumber": 100
             },
             "spacing": 11
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate date",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "date",
             "placeholder": "DateField",
@@ -119,13 +281,67 @@
               "maxDate": "2005-01-01"
             },
             "spacing": 8
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate url",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "url",
             "placeholder": "UrlField",
             "required": false,
             "spacing": 10
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate time",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "time",
             "placeholder": "TimeField",
@@ -137,7 +353,34 @@
               "maxTime": "12:59"
             },
             "spacing": 3
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate file upload",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "fileUpload",
             "placeholder": "FileUpload",
@@ -152,19 +395,100 @@
               "allowedExtensions": ".png"
             },
             "spacing": 9
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate phone",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "tel",
             "placeholder": "PhoneField",
             "required": true,
             "spacing": 5
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate password",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "password",
             "placeholder": "PasswordField",
             "required": false,
             "spacing": 7
-          },
+          }
+        ]
+      }
+    }
+  },
+  {
+    "scenarioName": "Add form element and validate paragraph",
+    "itemName": "FORM_1",
+    "elementType": "form",
+    "properties": {
+      "typography": {
+        "font": "Abril Fatface",
+        "size": {
+          "value": 12,
+          "unit": "px"
+        },
+        "typography": "Custom",
+        "weight": "Normal"
+      },
+      "field": {
+        "advanced": {
+          "label": false,
+          "placeholder": true
+        },
+        "background": {
+          "size": "S"
+        },
+        "fields": [
           {
             "type": "paragraph",
             "placeholder": "ParagraphField",

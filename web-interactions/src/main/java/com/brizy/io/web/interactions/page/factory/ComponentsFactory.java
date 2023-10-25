@@ -38,6 +38,8 @@ public class ComponentsFactory {
         return (T) API.Match(locator.getAttribute("class")).of(
                 API.Case(API.$(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Map(locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Button(locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Text(locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Image(locator)),
                 API.Case(API.$(), () -> {
                     var formFilter = locator.locator(publishedItemLocators.getForm().getSelf());
                     if (formFilter.count() > 0) {

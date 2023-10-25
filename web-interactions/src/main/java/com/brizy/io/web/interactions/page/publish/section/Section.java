@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @SuppressWarnings("unchecked")
 public class Section {
 
-    String uuidAttribute = "data-brz-uid";
+    String uuidAttribute = "id";
     @Getter
     String uuid;
     Map<String, GenericComponent> sectionComponents;
