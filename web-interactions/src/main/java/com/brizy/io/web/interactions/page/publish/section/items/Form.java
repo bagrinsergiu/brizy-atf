@@ -5,6 +5,7 @@ import com.brizy.io.web.interactions.locators.publish.section.container.item.for
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.FormRadioItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Number;
+import com.brizy.io.web.interactions.page.publish.section.items.form.item.Text;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.*;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;

@@ -664,7 +664,7 @@ pages:
       container:
         self: //div[contains(@class,'brz-container')]
         item:
-          self: ${pages.publish.section.container.self}//div[@data-custom-id or @id]
+          self: ${pages.publish.section.container.self}//div[contains(@class,'brz-wrapper')]
           form:
             self: //form
             field:
