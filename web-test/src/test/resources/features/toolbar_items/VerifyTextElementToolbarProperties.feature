@@ -1,6 +1,6 @@
 @Smoke
 Feature: Editor Page - Text element Toolbar
-  As a user
+   As a user
   I want to customize a text element
   So I need to have a toolbar with different configurations for it
 
