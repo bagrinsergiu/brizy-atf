@@ -33,6 +33,7 @@ public class ToolbarLocators {
     String align;
     String delete;
     String duplicate;
+    String borderButton;
     @NestedConfigurationProperty
     MoverLocators mover;
     @NestedConfigurationProperty

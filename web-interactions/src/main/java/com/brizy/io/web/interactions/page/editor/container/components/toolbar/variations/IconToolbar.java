@@ -50,6 +50,12 @@ public class IconToolbar extends ComponentToolbar<IconProperties> {
     }
 
     @Override
+    protected void openSettings() {
+        super.openBorderButton();
+        super.openSettings();
+    }
+
+    @Override
     public IconProperties getProperties() {
         IconProperties properties = IconProperties.builder()
                 .align(align.get().getValue())

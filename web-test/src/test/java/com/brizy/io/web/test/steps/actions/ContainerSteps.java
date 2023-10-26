@@ -82,6 +82,7 @@ public class ContainerSteps {
         List<Item> itemsToAdd = storage.getListValue(ITEMS_TO_BE_ADDED_TO_THE_PAGE, Item.class);
         List<SidebarItemDto> sidebarItemsToAdd = MapperTransformerUtil.getSidebarItemsDtoFromPageItems.apply(itemsToAdd);
         editorPage.onPageBuilder()._do().configure().items(sidebarItemsToAdd);
+        System.out.println();
     }
 
     @When("^get editor properties for the '(.*)' item from the section '(.*)'$")

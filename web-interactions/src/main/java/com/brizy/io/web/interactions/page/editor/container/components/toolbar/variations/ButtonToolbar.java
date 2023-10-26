@@ -3,13 +3,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.link.Link;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.settings.SettingsScrollbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.microsoft.playwright.Frame;
 import io.vavr.API;
 import lombok.AccessLevel;
@@ -72,6 +72,12 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
             openSettings();
             settings.get().applyProperties(properties.getSettings());
         }
+    }
+
+    @Override
+    protected void openSettings() {
+        super.openBorderButton();
+        super.openSettings();
     }
 
     @Override

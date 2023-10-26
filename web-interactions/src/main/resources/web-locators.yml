@@ -61,6 +61,7 @@ pages:
                 delete: //div[contains(@class,'react-contexify__item')]//span[text()='Delete']
               toolbar:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
+                borderButton: ${pages.editor.frame.workspace.section.container.item.self}//div[contains(@class,'brz-ed-border__button')]
                 item: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title]
                 align: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Align']
                 list: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='List']
@@ -322,7 +323,7 @@ pages:
                             items: //div[contains(@class,'brz-control__select-option') and @title]
                         customAttribute:
                           self: //span[text()='Custom Attributes']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
-                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//input
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//div[contains(@class,'cm-activeLine')]
                           population:
                             self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//div[contains(@class,'brz-control__select-current__icon')]
                             items: //div[contains(@class,'brz-control__select-option') and @title]

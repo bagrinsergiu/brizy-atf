@@ -17,6 +17,7 @@ public abstract class ComponentToolbar<T extends Property> {
 
     Supplier<Button> colorsButton;
     Supplier<Button> settingsButton;
+    Supplier<Button> borderButton;
     Supplier<Button> delete;
     Supplier<Button> duplicate;
     Supplier<Locator> toolbarItems;
@@ -27,6 +28,7 @@ public abstract class ComponentToolbar<T extends Property> {
         this.delete = () -> new Button(page.locator(toolbarProperties.getDelete()));
         this.duplicate = () -> new Button(page.locator(toolbarProperties.getDuplicate()));
         this.settingsButton = () -> new Button(page.locator(toolbarProperties.getSettings().getSelf()));
+        this.borderButton = () -> new Button(page.locator(toolbarProperties.getBorderButton()));
     }
 
     public void delete() {
@@ -61,4 +63,7 @@ public abstract class ComponentToolbar<T extends Property> {
         return null;
     }
 
+    protected void openBorderButton() {
+        borderButton.get().click();
+    }
 }
