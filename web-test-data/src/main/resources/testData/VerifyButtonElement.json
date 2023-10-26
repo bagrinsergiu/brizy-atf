@@ -33,7 +33,7 @@
         }
       },
       "typography": {
-        "font": "Lato"
+        "font": "Teko"
       },
       "colors": [
         {
@@ -82,6 +82,97 @@
         "block": 1,
         "popUp": "",
         "file": ""
+      },
+      "settings": {
+        "styling": {
+          "basic": {
+            "padding": {
+              "type": "all",
+              "value": "all",
+              "size": {
+                "unit": "PERCENTAGE",
+                "value": 40
+              }
+            },
+            "margin": {
+              "type": "individual",
+              "value": "individual",
+              "top": {
+                "unit": "PERCENTAGE",
+                "value": 4
+              },
+              "right": {
+                "unit": "PIXEL",
+                "value": 4
+              },
+              "left": {
+                "unit": "PERCENTAGE",
+                "value": 1
+              },
+              "bottom": {
+                "unit": "PERCENTAGE",
+                "value": 2
+              }
+            },
+            "position": {
+              "type": "fixed",
+              "value": "Fixed",
+              "width": {
+                "unit": "PERCENTAGE",
+                "value": 44
+              },
+              "horizontalOffset": {
+                "direction": "Right",
+                "offset": {
+                  "unit": "PERCENTAGE",
+                  "value": 60
+                }
+              },
+              "verticalOffset": {
+                "direction": "Top",
+                "offset": {
+                  "unit": "PIXEL",
+                  "value": -50
+                }
+              }
+            }
+          },
+          "advanced": {
+            "showOnDesktop": true,
+            "zIndex": 5,
+            "customAttributes": {
+              "value": "id:\"button_id\"",
+              "population": {
+                "value": "None"
+              }
+            }
+          }
+        },
+        "effects": {
+          "entrance": {
+            "type": "other",
+            "value": "Fade",
+            "parameters": {
+              "direction": "Down",
+              "big": true,
+              "duration": 2.0,
+              "delay": 4,
+              "infiniteAnimation": true
+            }
+          },
+          "scroll": {
+            "type": "other",
+            "value": "Scale",
+            "parameters": {
+              "direction": "downUp",
+              "x": "Right",
+              "y": "Bottom",
+              "speed": 4,
+              "start": 21,
+              "stop": 81
+            }
+          }
+        }
       },
       "align": "LEFT"
     },
