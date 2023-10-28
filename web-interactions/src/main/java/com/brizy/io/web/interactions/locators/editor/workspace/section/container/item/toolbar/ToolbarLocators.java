@@ -4,6 +4,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.gallery.GalleryLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
@@ -52,6 +53,8 @@ public class ToolbarLocators {
     SettingsLocators settings;
     @NestedConfigurationProperty
     ImageLocators image;
+    @NestedConfigurationProperty
+    GalleryLocators gallery;
     @NestedConfigurationProperty
     LinkLocators link;
 

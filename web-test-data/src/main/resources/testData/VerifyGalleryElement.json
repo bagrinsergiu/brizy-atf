@@ -1,0 +1,15 @@
+[
+  {
+    "scenarioName": "Add gallery element and configure default properties.",
+    "itemName": "Gallery_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "items": {
+          "columns": 6,
+          "spacing": 15
+        }
+      }
+    }
+  }
+]

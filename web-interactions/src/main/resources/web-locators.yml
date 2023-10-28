@@ -555,6 +555,10 @@ pages:
                         self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                gallery:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Gallery']
+                  tabs:
+                    self:
                 link:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Link']
                   tabs:
@@ -628,6 +632,7 @@ pages:
             form: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='form']
             line: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='line']
             menuSimple: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='MenuSimple']
+            gallery: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='imageGallery']
             translation: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='translation']
             video: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='video']
             audio: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='audio']

@@ -2,6 +2,7 @@ package com.brizy.io.web.interactions.enums;
 
 public enum EditorSidebarElement {
 
+    GALLERY,
     COLUMNS,
     ROW,
     TEXT,

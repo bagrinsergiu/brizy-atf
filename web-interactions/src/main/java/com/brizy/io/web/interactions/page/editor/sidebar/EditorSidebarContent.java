@@ -31,6 +31,7 @@ public class EditorSidebarContent {
             put(FORM, () -> new Div(page.locator(main.getForm())));
             put(LINE, () -> new Div(page.locator(main.getLine())));
             put(MENU_SIMPLE, () -> new Div(page.locator(main.getMenuSimple())));
+            put(GALLERY, () -> new Div(page.locator(main.getGallery())));
             put(TRANSLATION, () -> new Div(page.locator(main.getTranslation())));
             put(VIDEO, () -> new Div(page.locator(main.getVideo())));
             put(AUDIO, () -> new Div(page.locator(main.getAudio())));

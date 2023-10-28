@@ -18,6 +18,7 @@ public class ComponentsFactory {
 
     public <T extends Component> T getComponentByType(Locator locator, Frame frame, ItemLocators itemLocators) {
         return (T) API.Match(locator.getAttribute("class")).of(
+                API.Case(API.$(classAttribute -> classAttribute.contains(GALLERY.getValue())), () -> new Gallery(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new Map(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(FORM.getValue())), () -> new Form(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new Text(itemLocators, frame, locator)),
@@ -28,6 +29,7 @@ public class ComponentsFactory {
                     String innerHtml = locator.innerHTML();
                     return API.Match(innerHtml).of(
                             API.Case(API.$(inner -> inner.contains(ICON.getValue())), () -> new Icon(itemLocators, frame, locator)),
+                            API.Case(API.$(inner -> inner.contains(GALLERY.getValue())), () -> new Gallery(itemLocators, frame, locator)),
                             API.Case(API.$(inner -> inner.contains(BUTTON.getValue())), () -> new Button(itemLocators, frame, locator))
                     );
                 })
@@ -36,6 +38,7 @@ public class ComponentsFactory {
 
     public <T extends GenericComponent> T getComponentByType(Locator locator, PublishedItemLocators publishedItemLocators) {
         return (T) API.Match(locator.getAttribute("class")).of(
+                API.Case(API.$(classAttribute -> classAttribute.contains(GALLERY.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Map(locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Map(locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Button(locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Text(locator)),
