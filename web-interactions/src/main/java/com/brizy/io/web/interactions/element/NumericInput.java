@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import static com.brizy.io.web.interactions.constants.TimingConstants.*;
 import static lombok.AccessLevel.PRIVATE;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.awaitility.Awaitility.await;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
@@ -36,6 +37,18 @@ public class NumericInput extends AbstractElement implements Input {
             return null;
         }
         return locator.getAttribute("value");
+    }
+
+    public <T> T getValue(Class<T> clazz) {
+        String valueToParse = getText().replaceAll(",", EMPTY)
+                .replaceAll("%", EMPTY);
+        if (clazz.equals(Integer.class)) {
+            return clazz.cast(Integer.valueOf(valueToParse));
+        }
+        if (clazz.equals(Double.class)) {
+            return clazz.cast(Double.valueOf(valueToParse));
+        }
+        return clazz.cast(Long.valueOf(valueToParse));
     }
 
     @Override

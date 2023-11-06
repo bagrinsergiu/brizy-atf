@@ -10,6 +10,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.VideoLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -51,6 +52,8 @@ public class ToolbarLocators {
     SettingsLocators settings;
     @NestedConfigurationProperty
     ImageLocators image;
+    @NestedConfigurationProperty
+    VideoLocators video;
     @NestedConfigurationProperty
     LinkLocators link;
 
