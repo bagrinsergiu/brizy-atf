@@ -20,7 +20,7 @@ public class IconSize {
     Supplier<NumericInput> customSize;
 
     public IconSize(SizeLocators size, Frame frame) {
-        this.size = () -> new RadioControl<>(IconSizes.class, size.getSelf(), frame);
+        this.size = () -> new RadioControl<>(IconSizes.class, size.getSelf(), frame.page());
         this.customSize = () -> new NumericInput(frame.locator(size.getCustom().getValue()));
     }
 

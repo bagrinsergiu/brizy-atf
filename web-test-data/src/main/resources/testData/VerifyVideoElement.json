@@ -1,0 +1,41 @@
+[
+  {
+    "scenarioName": "Add video element and validate default properties",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "YOUTUBE",
+          "ratio": "16:9",
+          "link": {
+            "value": "https://www.youtube.com/watch?v=4dzj5rEFAdk",
+            "population": {
+              "value": "None"
+            }
+          }
+        },
+        "playback": {
+          "autoplay": true,
+          "loop": false,
+          "suggestedVideo": "Any Video",
+          "start": 10,
+          "end": 20
+        },
+        "player": {
+          "coverImage": "",
+          "controls": false,
+          "lazyLoad": false,
+          "privacyMode": false
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "size": {
+          "value": 40,
+          "unit": "px"
+        }
+      }
+    }
+  }
+]
