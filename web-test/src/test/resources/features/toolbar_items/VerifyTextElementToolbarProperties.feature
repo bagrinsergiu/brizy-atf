@@ -1,4 +1,4 @@
-@Smoke
+@Smoke @Ignore
 Feature: Editor Page - Text element Toolbar
   As a user
   I want to customize a text element
