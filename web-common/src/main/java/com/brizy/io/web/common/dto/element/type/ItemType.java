@@ -13,7 +13,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Map.class, name = "map"),
         @JsonSubTypes.Type(value = Spacer.class, name = "spacer"),
         @JsonSubTypes.Type(value = Text.class, name = "text"),
-        @JsonSubTypes.Type(value = Form.class, name = "form")
+        @JsonSubTypes.Type(value = Form.class, name = "form"),
+        @JsonSubTypes.Type(value = Video.class, name = "video")
 })
 public interface ItemType {
 

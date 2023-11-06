@@ -23,6 +23,7 @@ public class ComponentsFactory {
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new Text(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(COUNTER.getValue())), () -> new Counter(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new Image(itemLocators, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(VIDEO.getValue())), () -> new Video(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(SPACER.getValue())), () -> new Spacer(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains("brz-d-xs-flex")), () -> {
                     String innerHtml = locator.innerHTML();

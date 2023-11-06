@@ -554,6 +554,47 @@ pages:
                         self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                video:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Video']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    video:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.self}//span[text()='Video']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      type: //span[text()='Type']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      ratio: //span[text()='Ratio']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      file:
+                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      link:
+                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//input
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                    playback:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Playback']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      muted: //span[text()='Muted']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      suggestedVideos: //span[text()='Suggested Videos']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                    player:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Player']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      coverImage:
+                        self: //span[text()='Cover Image']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      lazyLoad: //span[text()='Lazy Load']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      privacyMode: //span[text()='Privacy Mode']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                 link:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Link']
                   tabs:

@@ -16,6 +16,7 @@ public enum ComponentClassNames {
     BUTTON("brz-btn"),
     ICON("brz-icon__container"),
     SPACER("brz-ed-box__resizer"),
+    VIDEO("brz-video"),
     IMAGE("brz-image");
 
     @Getter
