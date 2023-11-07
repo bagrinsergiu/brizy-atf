@@ -4,15 +4,19 @@ import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.Co
 import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.CustomSize;
 import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.IconSizes;
 import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.Size;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
+import java.util.List;
 import java.util.function.Supplier;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class IconSize {
 
@@ -20,7 +24,7 @@ public class IconSize {
     Supplier<NumericInput> customSize;
 
     public IconSize(SizeLocators size, Frame frame) {
-        this.size = () -> new RadioControl<>(IconSizes.class, size.getSelf(), frame.page());
+        this.size = () -> new RadioControl<>(IconSizes.class, size.getSelf(), frame);
         this.customSize = () -> new NumericInput(frame.locator(size.getCustom().getValue()));
     }
 
@@ -43,6 +47,13 @@ public class IconSize {
         return ConcreteSize.builder()
                 .size(activeSize)
                 .build();
+    }
+
+    public List<Configuration> getConfigurations() {
+        return List.of(
+                Configuration.builder().name(Fields.size).element(size).build(),
+                Configuration.builder().name(Fields.customSize).element(customSize).build()
+        );
     }
 
 }
