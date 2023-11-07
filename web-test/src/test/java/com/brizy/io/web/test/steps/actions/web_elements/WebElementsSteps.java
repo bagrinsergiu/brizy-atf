@@ -4,6 +4,7 @@ import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.FileUploader;
 import com.brizy.io.web.interactions.element.Input;
+import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
@@ -74,6 +75,16 @@ public class WebElementsSteps {
                 .map(configuration -> ((RadioControl) configuration.get()))
                 .map(radioControl -> radioControl.getActiveControl())
                 .map(radioControl -> radioControl.name())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get numeric input with name '{}'")
+    public void getNumericInput(String numericInput) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(numericInput))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((NumericInput) configuration.get()))
                 .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }
 

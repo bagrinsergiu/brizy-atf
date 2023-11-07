@@ -1,15 +1,19 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.corner;
 
 import com.brizy.io.web.common.dto.element.properties.common.corner.*;
+import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.corner.CornerLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
+import java.util.List;
 import java.util.function.Supplier;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Corner {
 
@@ -43,4 +47,12 @@ public class Corner {
                 .corner(selectedCorner)
                 .build();
     }
+
+    public List<Configuration> getConfigurations() {
+        return List.of(
+                Configuration.builder().name(Fields.corner).element(corner).build(),
+                Configuration.builder().name(Fields.radius).element(radius).build()
+        );
+    }
+
 }

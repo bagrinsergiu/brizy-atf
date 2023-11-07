@@ -1,26 +1,26 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.icon.background;
 
-import com.brizy.io.web.common.dto.element.properties.button.button.button.ButtonTabProperties;
 import com.brizy.io.web.common.dto.element.properties.common.fill.FillTypes;
 import com.brizy.io.web.common.dto.element.properties.icon.tabs.background.BackgroundTabProperties;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.NumericInput;
-import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs.background.BackgroundLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.corner.Corner;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.button.size.ButtonSize;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class BackgroundTab extends AbstractTabItem {
 
     Supplier<NumericInput> size;
@@ -52,11 +52,13 @@ public class BackgroundTab extends AbstractTabItem {
 
     @Override
     public List<Configuration> getConfigurations() {
-        return List.of(
-                Configuration.builder().name(BackgroundTab.Fields.corner).element(corner).build(),
-                Configuration.builder().name(BackgroundTab.Fields.fill).element(fill).build(),
-                Configuration.builder().name(BackgroundTab.Fields.size).element(size).build()
-        );
+        var listOfConfigurations = new ArrayList<Configuration>() {{
+            add(Configuration.builder().name(Fields.fill).element(fill).build());
+            add(Configuration.builder().name(Fields.size).element(size).build());
+        }};
+        var itemsWereAdded = listOfConfigurations.addAll(corner.get().getConfigurations());
+        log.debug("Items from complex corner element were added {}", itemsWereAdded);
+        return listOfConfigurations;
     }
 
 }
