@@ -8,13 +8,16 @@ import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class IconTab extends AbstractTabItem {
 
     Supplier<IconPicker> iconPicker;
@@ -46,10 +49,12 @@ public class IconTab extends AbstractTabItem {
 
     @Override
     public List<Configuration> getConfigurations() {
-        return List.of(
-                Configuration.builder().name(IconTab.Fields.iconPicker).element(iconPicker).build(),
-                Configuration.builder().name(IconTab.Fields.size).element(size).build()
-        );
+        var configurations = new ArrayList<Configuration>() {{
+            add(Configuration.builder().name(Fields.iconPicker).element(iconPicker).build());
+        }};
+        var itemsWereAdded = configurations.addAll(size.get().getConfigurations());
+        log.debug("Items from complex corner element were added {}", itemsWereAdded);
+        return configurations;
     }
 
 }

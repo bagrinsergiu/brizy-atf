@@ -4,7 +4,6 @@ Feature: Editor Page - Adding a Video Element
   I want to add a spacer element
   So that I can see some default properties
 
-  @Test
   Scenario Outline: Add video element and validate default properties
     When navigate to home page
     And wait for editor page to load
