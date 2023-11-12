@@ -1,10 +1,7 @@
 package com.brizy.io.web.test.steps.actions.web_elements;
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.element.ComboBox;
-import com.brizy.io.web.interactions.element.FileUploader;
-import com.brizy.io.web.interactions.element.Input;
-import com.brizy.io.web.interactions.element.NumericInput;
+import com.brizy.io.web.interactions.element.*;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
@@ -66,6 +63,16 @@ public class WebElementsSteps {
         storage.addValue(DROPDOWN_ITEMS, dropdownItems);
     }
 
+    @When("set '{}' value for '{}' dropdown")
+    public void setValueOfDropdown(String value, String dropdown) {
+        List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
+        availableConfigurations.stream()
+                .filter(configuraion -> configuraion.getName().equals(dropdown))
+                .findFirst()
+                .map(foundDropdown -> ((ComboBox) foundDropdown.getElement().get()))
+                .ifPresent(foundDropdown -> foundDropdown.selectItemByName(value));
+    }
+
     @When("get {radioGroupAction} item(s) from '{}' radio group")
     public void getSelectedItemFromStyleRadioGroup(RadioGroupActions radioGroupAction, String radioGroup) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
@@ -107,6 +114,17 @@ public class WebElementsSteps {
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((Input) configuration.get()))
                 .map(input -> input.getRawValue())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get value of the '{}' slider")
+    public void getValueOfTheSlider(String inputToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(inputToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((Slider) configuration.get()))
+                .map(input -> input.getState())
                 .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }
 

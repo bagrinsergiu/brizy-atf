@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar;
 
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.AudioLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
@@ -54,6 +55,8 @@ public class ToolbarLocators {
     ImageLocators image;
     @NestedConfigurationProperty
     VideoLocators video;
+    @NestedConfigurationProperty
+    AudioLocators audio;
     @NestedConfigurationProperty
     LinkLocators link;
 
