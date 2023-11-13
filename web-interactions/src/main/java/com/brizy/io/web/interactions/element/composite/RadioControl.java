@@ -54,7 +54,8 @@ public class RadioControl<E extends Enum<E> & Enumerable<E>> {
     }
 
     public E getActiveControl() {
-        return controls.get().entrySet().stream().filter(entrySet -> entrySet.getValue().isActive())
+        return controls.get().entrySet().stream()
+                .filter(entrySet -> entrySet.getValue().isActive())
                 .findFirst()
                 .map(Map.Entry::getKey)
                 .orElseThrow();
