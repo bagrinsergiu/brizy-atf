@@ -595,6 +595,62 @@ pages:
                       branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       lazyLoad: //span[text()='Lazy Load']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       privacyMode: //span[text()='Privacy Mode']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                audio:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    audio:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Audio']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      file:
+                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      audio: //span[text()='Audio']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      icons: //div[text()='Icons']/ancestor::div[contains(@class,'brz-ed-option__radio-group')]//div[contains(@class,'brz-control__radio-option')]//div
+                      loop: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      link:
+                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.link.self}//input
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.link.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                      style: //div[text()='Style']/ancestor::div[contains(@class,'brz-ed-option__radio-group')]//div[contains(@class,'brz-control__radio-option')]
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                    appearance:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Appearence']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      artwork: //span[text()='Artwork']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      comments: //span[text()='Comments']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      playCounts: //span[text()='Play Counts']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      username: //span[text()='Username']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                    cover:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Cover']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      cover:
+                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      zoom:
+                        self: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.zoom.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.zoom.self}//input[@type='number']
+                    advanced:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Advanced']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      time: //span[text()='Time']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      progress: //span[text()='Progress']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      volume: //span[text()='Volume']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                    buttons:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Buttons']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      like: //span[text()='Like']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      buy: //span[text()='Buy']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      download: //span[text()='Download']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      share: //span[text()='Share']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                 link:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Link']
                   tabs:

@@ -9,15 +9,16 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum ComponentClassNames {
 
-    MAP("brz-map"),
-    FORM("brz-forms2"),
-    COUNTER("brz-counter"),
-    TEXT("brz-rich-text"),
+    AUDIO("brz-soundcloud"),
     BUTTON("brz-btn"),
+    COUNTER("brz-counter"),
+    FORM("brz-forms2"),
     ICON("brz-icon__container"),
+    IMAGE("brz-image"),
+    MAP("brz-map"),
     SPACER("brz-ed-box__resizer"),
-    VIDEO("brz-video"),
-    IMAGE("brz-image");
+    TEXT("brz-rich-text"),
+    VIDEO("brz-video");
 
     @Getter
     String value;
