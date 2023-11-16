@@ -37,6 +37,13 @@ public class WebElementsSteps {
                 .isEqualToIgnoringCase(storage.getValue(StorageKey.VALUE, String.class));
     }
 
+    @Then("the following state is active: {}")
+    public void theFollowingValue(Boolean expectedActiveItem) {
+        Assertions.assertThat(expectedActiveItem)
+                .describedAs("Expecting to have <%s> active radio control", expectedActiveItem)
+                .isEqualTo(storage.getValue(StorageKey.VALUE, Object.class));
+    }
+
     @Then("the following numeric value is set: {}")
     public void theFollowingValueIsSet(Long expectedValue) {
         Assertions.assertThat(storage.getValue(StorageKey.VALUE, NumericInput.class))

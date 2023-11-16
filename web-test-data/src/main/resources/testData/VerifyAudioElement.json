@@ -1,0 +1,41 @@
+[
+  {
+    "scenarioName": "Add video element and validate default properties",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "audio": {
+        "type": "SoundCloud",
+        "audio": {
+          "autoplay": true,
+          "link": {
+            "value": "https://soundcloud.com/englicious/lord-of-the-flies-audiobook-slightly-sped-up",
+            "population": {
+              "value": "None"
+            },
+            "style": "STYLE_2"
+          }
+        },
+        "appearance": {
+          "artwork": true,
+          "comments": true,
+          "playCounts": true,
+          "username": true
+        },
+        "buttons": {
+          "like": false,
+          "buy": true,
+          "download": false,
+          "share": true
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "size": {
+          "value": 40,
+          "unit": "px"
+        }
+      }
+    }
+  }
+]

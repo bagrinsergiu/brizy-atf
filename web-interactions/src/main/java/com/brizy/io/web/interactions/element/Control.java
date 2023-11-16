@@ -18,7 +18,8 @@ public class Control {
     }
 
     public boolean isActive() {
-        return locator.getAttribute("class").contains("--active");
+        return locator.getAttribute("class").contains("active")
+                || locator.getAttribute("class").contains("--active");
     }
 
 }
