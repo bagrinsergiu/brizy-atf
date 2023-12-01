@@ -7,15 +7,20 @@ import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.microsoft.playwright.Frame;
+import io.vavr.API;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import static io.vavr.API.$;
 import static lombok.AccessLevel.PRIVATE;
 
+@FieldNameConstants
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 public class TextToolbar extends ComponentToolbar<TextProperties> {
 
@@ -38,6 +43,13 @@ public class TextToolbar extends ComponentToolbar<TextProperties> {
         this.underlineButton = () -> new Button(frame.locator(properties.getUnderline()));
         this.strikeButton = () -> new Button(frame.locator(properties.getStrike()));
         this.uppercaseButton = () -> new Button(frame.locator(properties.getUppercase()));
+    }
+
+    @Override
+    public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {
+        return API.Match(toolbarItemTitle.toLowerCase()).of(
+                API.Case($(Fields.typography), typography)
+        );
     }
 
     @Override

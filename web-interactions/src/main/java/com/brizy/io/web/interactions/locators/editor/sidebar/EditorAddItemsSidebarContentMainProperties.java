@@ -22,6 +22,7 @@ public class EditorAddItemsSidebarContentMainProperties {
     String form;
     String line;
     String menuSimple;
+    String playlist;
     String translation;
     String video;
     String audio;

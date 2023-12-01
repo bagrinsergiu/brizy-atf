@@ -1,6 +1,8 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs.advanced.AdvancedTabLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs.cover.CoverTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs.playback.PlaybackTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs.player.PlayerTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.tabs.video.VideoTabLocators;
@@ -17,6 +19,10 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class VideoTabsLocators extends AbstractProperty {
 
+    @NestedConfigurationProperty
+    AdvancedTabLocators advanced;
+    @NestedConfigurationProperty
+    CoverTabLocators cover;
     @NestedConfigurationProperty
     VideoTabLocators video;
     @NestedConfigurationProperty

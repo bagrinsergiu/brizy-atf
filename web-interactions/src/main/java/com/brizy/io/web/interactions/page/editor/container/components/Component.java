@@ -73,8 +73,13 @@ public abstract class Component<T extends Property> extends GenericComponent {
         componentLocator.scrollIntoViewIfNeeded();
     }
 
-    private ComponentToolbar<T> openAndGetToolbar() {
+    protected void openToolbar() {
         componentLocator.click();
+    }
+
+    private ComponentToolbar<T> openAndGetToolbar() {
+        componentLocator.hover();
+        openToolbar();
         return getToolbar();
     }
 

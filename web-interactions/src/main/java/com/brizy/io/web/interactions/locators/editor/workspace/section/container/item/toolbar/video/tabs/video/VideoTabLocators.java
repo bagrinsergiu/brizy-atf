@@ -19,6 +19,7 @@ public class VideoTabLocators extends AbstractProperty {
     @NestedConfigurationProperty
     InputWithPopulationLocators link;
     String type;
+    String url;
     String ratio;
     String configurations;
     @NestedConfigurationProperty

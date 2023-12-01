@@ -1,0 +1,150 @@
+[
+  {
+    "scenarioName": "Add playlist element and validate default properties",
+    "itemName": "PLAYLIST_1",
+    "elementType": "playlist",
+    "properties": {
+      "playlist": {
+        "playlist": {
+          "position": "Vertical",
+          "thumbs": "Top",
+          "columns": {
+            "value": 6
+          }
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 40
+        }
+      }
+    },
+    "content": [
+      {
+        "title": "Sunset Adventure",
+        "subTitle": "Epic Journey Begins",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "YOUTUBE",
+              "link": "https://www.youtube.com/watch?v=cMg5cQd5f50"
+            },
+            "advanced": {
+              "controls": true,
+              "branding": false,
+              "loop": true,
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      },
+      {
+        "title": "Mystical Dreamland",
+        "subTitle": "Whispers of Enchantment",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "YOUTUBE",
+              "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            "advanced": {
+              "controls": true,
+              "branding": false,
+              "loop": true,
+              "start": 20,
+              "end": 30
+            }
+          }
+        }
+      },
+      {
+        "title": "Celestial Wonders",
+        "subTitle": "Harmony of the Cosmos",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "YOUTUBE",
+              "link": "https://www.youtube.com/watch?v=3tmd-ClpJxA"
+            },
+            "advanced": {
+              "controls": true,
+              "branding": false,
+              "loop": true,
+              "start": 60,
+              "end": 80
+            }
+          }
+        }
+      },
+      {
+        "title": "Enchanted Forest",
+        "subTitle": "Secrets of the Sylvan Realm",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "VIMEO",
+              "link": "https://vimeo.com/1523367"
+            },
+            "advanced": {
+              "intro": false,
+              "loop": true,
+              "start": 20
+            }
+          }
+        }
+      },
+      {
+        "title": "Astral Odyssey",
+        "subTitle": "Journey Beyond the Stars",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "YOUTUBE",
+              "link": "https://www.youtube.com/watch?v=ZL-23GoLZmY"
+            },
+            "advanced": {
+              "controls": true,
+              "branding": false,
+              "loop": true,
+              "start": 80,
+              "end": 90
+            }
+          }
+        }
+      },
+      {
+        "title": "Whimsical Wonderland",
+        "subTitle": "Adventures in Narnia",
+        "properties": {
+          "video": {
+            "video": {
+              "type": "YOUTUBE",
+              "link": "https://www.youtube.com/watch?v=0-7IHOXkiV8"
+            },
+            "advanced": {
+              "controls": true,
+              "branding": true,
+              "loop": true,
+              "start": 90,
+              "end": 100
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "scenarioName": "Add playlist element and validate vertical sidebar position",
+    "itemName": "PLAYLIST_1",
+    "elementType": "playlist",
+    "properties": {
+      "playlist": {
+        "playlist": {
+          "position": "Vertical"
+        }
+      }
+    }
+  }
+]

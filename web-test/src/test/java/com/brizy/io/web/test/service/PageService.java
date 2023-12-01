@@ -16,7 +16,9 @@ import static lombok.AccessLevel.PRIVATE;
 public class PageService {
 
     public Page create(BrowserContext browserContext) {
-        return browserContext.newPage();
+        Page page = browserContext.newPage();
+        page.setDefaultTimeout(60000);
+        return page;
     }
 
 }

@@ -6,6 +6,7 @@ import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
 import com.brizy.io.web.interactions.locators.editor.EditorFrameProperties;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
+import com.brizy.io.web.interactions.page.editor.container.components.ComponentWithContent;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.LoadState;
 import io.vavr.control.Try;
@@ -56,7 +57,7 @@ public class EditorContainer {
         for (SidebarItemDto element : elements) {
             Div elementToCreate = findSidebarElementByType.apply(element.getType());
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
-            Component parentElement = Try.of(() -> sectionToAddElementTo.getComponentByName(element.getParentName())).getOrElse(() -> null);
+            var parentElement = Try.of(() -> sectionToAddElementTo.getComponentByName(element.getParentName())).getOrElse(() -> null);
             sectionToAddElementTo.addComponent(elementToCreate, parentElement, element);
             mainPage.waitForLoadState(LoadState.DOMCONTENTLOADED);
         }
@@ -65,9 +66,12 @@ public class EditorContainer {
     public void configureComponents(List<SidebarItemDto> elements) {
         for (SidebarItemDto element : elements) {
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
-            Component foundComponent = sectionToAddElementTo.getComponentByName(element.getElementName());
+            var foundComponent = sectionToAddElementTo.getComponentByName(element.getElementName());
             if (Objects.nonNull(element.getComponentProperties())) {
                 foundComponent.configure(element.getComponentProperties());
+            }
+            if (Objects.nonNull(element.getComponentContent()) && !element.getComponentContent().isEmpty()) {
+                ((ComponentWithContent) foundComponent).configureContents(element.getComponentContent());
             }
             mainPage.mouse().click(100, 100);
         }

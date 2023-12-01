@@ -40,7 +40,7 @@ public class ActivePageService {
             return;
         }
         page.close();
-        saveRecording();
+//        saveRecording();
     }
 
     @SneakyThrows
