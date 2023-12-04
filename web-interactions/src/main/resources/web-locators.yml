@@ -619,7 +619,7 @@ pages:
                       style: //div[text()='Style']/ancestor::div[contains(@class,'brz-ed-option__radio-group')]//div[contains(@class,'brz-control__radio-option')]
                       autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                     appearance:
-                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Appearence']
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Appearance']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       artwork: //span[text()='Artwork']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       comments: //span[text()='Comments']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
