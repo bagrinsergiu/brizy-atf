@@ -12,7 +12,7 @@ Feature: Editor Page - Text element Toolbar
     When switch to 'Blocks' tab
     And add section 'SECTION_1' to page
 
-  Scenario Outline: Add button element and validate toolbar items
+  Scenario Outline: Add text element and validate toolbar items
     When prepare the following items to be added to the page:
       | item | position | parent | name   | sectionName   |
       | TEXT | -        | -      | <name> | <sectionName> |

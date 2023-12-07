@@ -24,6 +24,7 @@ Feature: Editor Page - Button Toolbar
       | Colors     |
       | Link       |
       | Align      |
+      | Settings   |
       | Duplicate  |
       | Delete     |
 

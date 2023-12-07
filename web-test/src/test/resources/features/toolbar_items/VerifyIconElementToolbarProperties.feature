@@ -23,6 +23,7 @@ Feature: Editor Page - Icon element Toolbar
       | Colors    |
       | Link      |
       | Align     |
+      | Settings  |
       | Duplicate |
       | Delete    |
 
