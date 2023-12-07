@@ -169,7 +169,7 @@ pages:
                         increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--up')]
                         decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--down')]
                     letterSp:
-                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Letter Sp.']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Letter Space']/ancestor::div[contains(@class, 'brz-ed__col')]
                       value:
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
                         increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--up')]
