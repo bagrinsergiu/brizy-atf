@@ -2,14 +2,17 @@ package com.brizy.io.web.interactions.page.editor.container.components.type.form
 
 import com.brizy.io.web.common.dto.element.properties.form.FormProperties;
 import com.brizy.io.web.common.dto.element.properties.form.field.type.FieldsProperties;
+import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.FormToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.field.factory.FieldsFactory;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -22,6 +25,8 @@ public class Form extends Component<FormProperties> {
     Supplier<ItemLocators> itemLocators;
     Supplier<List<Locator>> formFields;
     Supplier<Boolean> clearForm;
+    Supplier<Button> borderButton;
+    Supplier<FormToolbar> toolbar;
 
     public Form(ItemLocators itemLocators, Frame frame, Locator locator) {
         super(frame, locator, itemLocators);
@@ -30,6 +35,8 @@ public class Form extends Component<FormProperties> {
                 .locator(itemLocators.getType().getForm().getField().getSelf()).all();
         this.itemLocators = () -> itemLocators;
         this.clearForm = () -> clearFormFields(frame);
+        this.borderButton = () -> new Button(frame.locator(itemLocators.getBorderButton()));
+        this.toolbar = () -> new FormToolbar(itemLocators.getToolbar(), frame);
     }
 
     private Locator getLatestElement() {
@@ -52,7 +59,8 @@ public class Form extends Component<FormProperties> {
     //    Intentionally left blank
     @Override
     protected ComponentToolbar<FormProperties> getToolbar() {
-        return null;
+        borderButton.get().click();
+        return toolbar.get();
     }
 
     @Override
@@ -73,8 +81,7 @@ public class Form extends Component<FormProperties> {
 
     @Override
     public FormProperties getEditorProperties() {
-//        TODO implement
-        return null;
+        throw new NotImplementedException();
     }
 
 }

@@ -1,73 +1,61 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations;
 
+import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.common.dto.element.properties.form.FormProperties;
-import com.brizy.io.web.common.dto.element.properties.form.field.type.FieldsProperties;
-import com.brizy.io.web.interactions.element.Button;
+import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.item_mover.ItemMover;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.type.AbstractField;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.colors.Colors;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.map.settings.Settings;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.microsoft.playwright.Frame;
+import io.vavr.API;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.FieldNameConstants;
 import org.apache.commons.lang3.NotImplementedException;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
-public abstract class FormToolbar<T extends FieldsProperties> extends ComponentToolbar<FormProperties> {
+import static io.vavr.API.$;
 
-    Supplier<Button> fieldButton;
-    Supplier<Typography> typography;
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@FieldNameConstants
+public class FormToolbar extends ComponentToolbar<FormProperties> {
+
     Supplier<Colors> colors;
-    Supplier<ItemMover> move;
-    Supplier<Settings> settings;
-    Supplier<Button> duplicate;
-    Supplier<Button> delete;
+    Supplier<Settings> settingsMenu;
+    Supplier<EnumerableButton<Alignments>> align;
 
-    public FormToolbar(ToolbarLocators toolbar, Frame frame) {
-        super(toolbar, frame);
-        this.fieldButton = () -> new Button(frame.locator(toolbar.getField().getSelf()));
-        this.typography = () -> new Typography(toolbar.getTypography(), frame);
-        this.colors = () -> new Colors(toolbar.getColors(), frame);
-        this.move = () -> new ItemMover(toolbar.getMover(), frame);
-        this.settings = () -> new Settings(toolbar.getSettings(), frame);
-        this.duplicate = () -> new Button(frame.locator(toolbar.getDuplicate()));
-        this.delete = () -> new Button(frame.locator(toolbar.getDelete()));
+    public FormToolbar(ToolbarLocators properties, Frame frame) {
+        super(properties, frame);
+        this.colors = () -> new Colors(properties.getColors(), frame);
+        this.settingsMenu = () -> new Settings(properties.getSettings(), frame);
+        this.align = () -> new EnumerableButton<>(Alignments.class, properties.getAlign(), frame);
     }
-
-    @Override
-    public FormProperties getProperties() {
-        return null;
-    }
-
-    public abstract AbstractField<T> getField();
-
-    @Override
-    public void setProperties(FormProperties properties) {
-        if (Objects.nonNull(properties.getField())) {
-            fieldButton.get().click();
-            getField().applyProperties(properties.getField());
-        }
-        if (Objects.nonNull(properties.getTypography())) {
-            typography.get().applyProperties(properties.getTypography());
-        }
-    }
-
-    public void moveUp() {
-        move.get().moveElementUp();
-    }
-
-    public void moveDown() {
-        move.get().moveElementDown();
-    }
-
-    public abstract void setProperties(T properties);
 
     @Override
     public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {
+        return API.Match(toolbarItemTitle.toLowerCase()).of(
+                API.Case($(Fields.colors), colors)
+        );
+    }
+
+    /**
+     * Intentionally left blank
+     */
+    public FormProperties getProperties() {
         throw new NotImplementedException();
     }
+
+    /**
+     * Intentionally left blank
+     *
+     * @param properties
+     */
+    @Override
+    public void setProperties(FormProperties properties) {
+        throw new NotImplementedException();
+    }
+
 }
