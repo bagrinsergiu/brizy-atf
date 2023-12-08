@@ -164,7 +164,7 @@ pages:
                       self: //div[contains(@class,'brz-ed-component__label') and text() = 'Weight']/ancestor::div[contains(@class, 'brz-ed__col')]
                       value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.weight.self}//div[@role='combobox']
                     lineHgt:
-                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Line Hgt.']/ancestor::div[contains(@class, 'brz-ed__col')]
+                      self: //div[contains(@class,'brz-ed-component__label') and text() = 'Line Height']/ancestor::div[contains(@class, 'brz-ed__col')]
                       value:
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
                         increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.lineHgt.self}//div[contains(@class,'brz-ed-control__stepper--up')]
