@@ -1,12 +1,10 @@
 package com.brizy.io.web.common.dto.element.properties.form.field.configuration.type;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor(force = true)

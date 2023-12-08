@@ -56,9 +56,6 @@ public abstract class ComponentToolbar<T extends Property> {
 
     public abstract T getProperties();
 
-    //    TODO refactor to abstract
-    public IsToolbarItem openTabbedPopup(String toolbarItemTitle) {
-        return null;
-    }
+    public abstract IsToolbarItem openTabbedPopup(String toolbarItemTitle);
 
 }

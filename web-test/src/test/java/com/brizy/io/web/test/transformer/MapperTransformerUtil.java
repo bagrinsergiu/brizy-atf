@@ -20,6 +20,7 @@ public class MapperTransformerUtil {
                     .parentName(pageItem.getParent())
                     .elementName(pageItem.getName())
                     .componentProperties(pageItem.getProperties())
+                    .componentContent(pageItem.getContent())
                     .sectionName(pageItem.getSectionName())
                     .build())
             .collect(Collectors.toList());

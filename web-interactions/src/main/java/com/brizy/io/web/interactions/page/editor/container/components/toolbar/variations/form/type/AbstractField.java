@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@SuppressWarnings("all")
 public abstract class AbstractField<T extends FieldsProperties> {
 
     Supplier<AdvancedTab> advanced;

@@ -52,4 +52,12 @@ public class WebElementsSteps {
                 .isEqualTo(expectedValue);
     }
 
+    @Then("the following number value is set: {}")
+    public void theFollowingNumericValueIsSet(Long expectedValue) {
+        Assertions.assertThat(storage.getValue(StorageKey.VALUE, Number.class))
+                .extracting(Number::longValue)
+                .describedAs("Expecting to have <%d> as value", expectedValue)
+                .isEqualTo(expectedValue);
+    }
+
 }

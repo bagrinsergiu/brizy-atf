@@ -14,7 +14,8 @@
     <option name="MAIN_CLASS_NAME" value="com.brizy.io.web.test.BrizyTestsRunner" />
     <option name="GROUP_NAME" value="" />
     <option name="TEST_OBJECT" value="CLASS" />
-    <option name="VM_PARAMETERS" value="-ea -Dbrowser.headless=false -Dcucumber.filter.tags=@Test" />
+      <option name="VM_PARAMETERS"
+              value="-ea -Dbrowser.headless=false -Dcucumber.filter.tags=@Test -DbaseUrl=http://pr-23872.cloud.office.brizy.org:8080/editor?pro=true"/>
     <option name="PARAMETERS" value="" />
     <option name="OUTPUT_DIRECTORY" value="" />
     <option name="TEST_SEARCH_SCOPE">
