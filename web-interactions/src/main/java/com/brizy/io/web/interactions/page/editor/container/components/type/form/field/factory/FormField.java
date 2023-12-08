@@ -5,7 +5,6 @@ public interface FormField<T> {
     void setToolbarProperties(T properties);
 
     default void configureFormField(T properties) {
-
     }
 
     void duplicate();

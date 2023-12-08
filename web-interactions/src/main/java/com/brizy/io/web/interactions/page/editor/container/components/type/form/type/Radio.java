@@ -5,10 +5,10 @@ import com.brizy.io.web.common.dto.element.properties.form.field.type.RadioField
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.field.radio.item.RadioItemLocators;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.FormToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.type.AbstractField;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.type.RadioField;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.field.factory.FormField;
+import com.brizy.io.web.interactions.page.editor.container.components.type.form.toolbar.FormToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.type.radio.RadioItem;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.type.radio.RadioNewItem;
 import com.microsoft.playwright.Frame;
