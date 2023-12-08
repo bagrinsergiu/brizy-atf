@@ -1,7 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography;
 
 import com.brizy.io.web.common.dto.element.properties.common.typography.size.Size;
-import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.ControlInput;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
@@ -19,7 +18,6 @@ import java.util.function.Supplier;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Typography extends AbstractToolbarItem {
 
-    Supplier<Button> typographyButton;
     Supplier<FontsMenu> fontsMenu;
     Supplier<SizeInput> size;
     Supplier<ComboBox> typography;
@@ -29,7 +27,6 @@ public class Typography extends AbstractToolbarItem {
 
     public Typography(TypographyProperties properties, Frame frame) {
         super(properties.getSelf(), properties.getSelf(), frame);
-        this.typographyButton = () -> new Button(frame.locator(properties.getSelf()));
         this.fontsMenu = () -> new FontsMenu(properties.getFonts(), frame);
         this.size = () -> new SizeInput(properties.getStyles().getSize(), frame);
         this.lineHgt = () -> new ControlInput(properties.getStyles().getLineHgt().getValue(), frame);
@@ -44,7 +41,7 @@ public class Typography extends AbstractToolbarItem {
     }
 
     public void applyProperties(com.brizy.io.web.common.dto.element.properties.common.typography.Typography properties) {
-        typographyButton.get().click();
+        open();
         if (Objects.nonNull(properties.getFont())) {
             fontsMenu.get().selectFont(properties.getFont());
         }
@@ -66,9 +63,9 @@ public class Typography extends AbstractToolbarItem {
     }
 
     public com.brizy.io.web.common.dto.element.properties.common.typography.Typography getProperties() {
-        typographyButton.get().click();
+        open();
         Size sizeValue = size.get().getValue();
-        return com.brizy.io.web.common.dto.element.properties.common.typography.Typography.builder()
+        com.brizy.io.web.common.dto.element.properties.common.typography.Typography build = com.brizy.io.web.common.dto.element.properties.common.typography.Typography.builder()
                 .font(fontsMenu.get().getActiveFont())
                 .typography(typography.get().getSelectedItem())
                 .size(Size.builder().unit(sizeValue.getUnit()).value(sizeValue.getValue()).build())
@@ -76,6 +73,8 @@ public class Typography extends AbstractToolbarItem {
                 .lineHgt(lineHgt.get().value())
                 .letterSp(letterSp.get().value())
                 .build();
+        open();
+        return build;
     }
 
 }
