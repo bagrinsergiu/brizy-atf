@@ -3,6 +3,7 @@ package com.brizy.io.web.test.steps.actions.web_elements;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.*;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
+import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.data.enums.TestDataFileType;
@@ -103,6 +104,17 @@ public class WebElementsSteps {
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((InputWithPopulation) configuration.get()))
                 .map(input -> input.getInputValue())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get value of the '{}' input with units")
+    public void getValueFromStyleInputWithUnits(String inputWithPopulationToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equals(inputWithPopulationToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((InputWithUnits) configuration.get()))
+                .map(input -> input.getValue().getValue())
                 .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }
 

@@ -21,6 +21,8 @@ public class SettingsLocators extends AbstractProperty {
     @NestedConfigurationProperty
     InputWithUnitsLocators height;
     @NestedConfigurationProperty
+    InputWithUnitsLocators size;
+    @NestedConfigurationProperty
     ScrollBarLocators scrollBar;
 
 }

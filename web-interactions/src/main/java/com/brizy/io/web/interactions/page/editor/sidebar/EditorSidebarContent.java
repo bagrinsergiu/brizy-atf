@@ -20,31 +20,32 @@ public class EditorSidebarContent {
 
     public EditorSidebarContent(EditorAddItemsSidebarContentMainProperties main, Page page) {
         this.availableElements = new HashMap<>() {{
-            put(COLUMNS, () -> new Div(page.locator(main.getColumns())));
-            put(ROW, () -> new Div(page.locator(main.getRow())));
-            put(TEXT, () -> new Div(page.locator(main.getText())));
-            put(IMAGE, () -> new Div(page.locator(main.getImage())));
-            put(BUTTON, () -> new Div(page.locator(main.getButton())));
-            put(ICON, () -> new Div(page.locator(main.getIcon())));
-            put(SPACER, () -> new Div(page.locator(main.getSpacer())));
-            put(MAP, () -> new Div(page.locator(main.getMap())));
-            put(FORM, () -> new Div(page.locator(main.getForm())));
-            put(LINE, () -> new Div(page.locator(main.getLine())));
-            put(MENU_SIMPLE, () -> new Div(page.locator(main.getMenuSimple())));
-            put(TRANSLATION, () -> new Div(page.locator(main.getTranslation())));
-            put(VIDEO, () -> new Div(page.locator(main.getVideo())));
-            put(AUDIO, () -> new Div(page.locator(main.getAudio())));
-            put(ICON_TEXT, () -> new Div(page.locator(main.getIconText())));
-            put(EMBED_CODE, () -> new Div(page.locator(main.getEmbedCode())));
-            put(ALERT, () -> new Div(page.locator(main.getAlert())));
-            put(COUNTER, () -> new Div(page.locator(main.getCounter())));
-            put(COUNTDOWN_2, () -> new Div(page.locator(main.getCountdown2())));
-            put(PROGRESS_BAR, () -> new Div(page.locator(main.getProgressBar())));
-            put(TABS, () -> new Div(page.locator(main.getTabs())));
             put(ACCORDION, () -> new Div(page.locator(main.getAccordion())));
+            put(ALERT, () -> new Div(page.locator(main.getAlert())));
+            put(ASSETS_POSTS, () -> new Div(page.locator(main.getAssetsPost())));
+            put(AUDIO, () -> new Div(page.locator(main.getAudio())));
+            put(BUTTON, () -> new Div(page.locator(main.getButton())));
+            put(COLUMNS, () -> new Div(page.locator(main.getColumns())));
+            put(COUNTDOWN_2, () -> new Div(page.locator(main.getCountdown2())));
+            put(COUNTER, () -> new Div(page.locator(main.getCounter())));
+            put(EMBED_CODE, () -> new Div(page.locator(main.getEmbedCode())));
+            put(FORM, () -> new Div(page.locator(main.getForm())));
+            put(ICON, () -> new Div(page.locator(main.getIcon())));
+            put(ICON_TEXT, () -> new Div(page.locator(main.getIconText())));
+            put(IMAGE, () -> new Div(page.locator(main.getImage())));
+            put(LINE, () -> new Div(page.locator(main.getLine())));
+            put(MAP, () -> new Div(page.locator(main.getMap())));
+            put(MENU_SIMPLE, () -> new Div(page.locator(main.getMenuSimple())));
+            put(PLAYLIST, () -> new Div(page.locator(main.getPlaylist())));
             put(POST_TITLE, () -> new Div(page.locator(main.getPostTitle())));
             put(POSTS, () -> new Div(page.locator(main.getPosts())));
-            put(ASSETS_POSTS, () -> new Div(page.locator(main.getAssetsPost())));
+            put(PROGRESS_BAR, () -> new Div(page.locator(main.getProgressBar())));
+            put(ROW, () -> new Div(page.locator(main.getRow())));
+            put(SPACER, () -> new Div(page.locator(main.getSpacer())));
+            put(TABS, () -> new Div(page.locator(main.getTabs())));
+            put(TEXT, () -> new Div(page.locator(main.getText())));
+            put(TRANSLATION, () -> new Div(page.locator(main.getTranslation())));
+            put(VIDEO, () -> new Div(page.locator(main.getVideo())));
         }};
     }
 

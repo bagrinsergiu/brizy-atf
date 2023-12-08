@@ -5,6 +5,8 @@ import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.ControlInput;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractToolbarItem;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsPopUpTab;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.font.FontsMenu;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.size.SizeInput;
 import com.microsoft.playwright.Frame;
@@ -15,7 +17,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Typography {
+public class Typography extends AbstractToolbarItem {
 
     Supplier<Button> typographyButton;
     Supplier<FontsMenu> fontsMenu;
@@ -26,6 +28,7 @@ public class Typography {
     Supplier<ComboBox> weight;
 
     public Typography(TypographyProperties properties, Frame frame) {
+        super(properties.getSelf(), properties.getSelf(), frame);
         this.typographyButton = () -> new Button(frame.locator(properties.getSelf()));
         this.fontsMenu = () -> new FontsMenu(properties.getFonts(), frame);
         this.size = () -> new SizeInput(properties.getStyles().getSize(), frame);
@@ -33,6 +36,11 @@ public class Typography {
         this.letterSp = () -> new ControlInput(properties.getStyles().getLetterSp().getValue(), frame);
         this.typography = () -> new ComboBox(frame.locator(properties.getStyles().getTypography().getSelf()));
         this.weight = () -> new ComboBox(frame.locator(properties.getStyles().getWeight().getValue()));
+    }
+
+    @Override
+    public IsPopUpTab openTab(String tab) {
+        return null;
     }
 
     public void applyProperties(com.brizy.io.web.common.dto.element.properties.common.typography.Typography properties) {

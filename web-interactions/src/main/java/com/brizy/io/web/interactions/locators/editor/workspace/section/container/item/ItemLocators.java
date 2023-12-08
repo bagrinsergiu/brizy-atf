@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.ItemContentLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.right_click_context.RightClickContextProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.type.ItemTypeLocators;
@@ -23,5 +24,8 @@ public class ItemLocators extends AbstractProperty {
     RightClickContextProperties rightClickContext;
     @NestedConfigurationProperty
     ItemTypeLocators type;
+    @NestedConfigurationProperty
+    ItemContentLocators content;
+    String borderButton;
 
 }

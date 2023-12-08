@@ -75,7 +75,6 @@ public class ContainerSteps {
         editorPage.onPageBuilder()._do().add().items(sidebarItemsToAdd);
     }
 
-
     @When("configure the item(s) added to the page")
     public void configureTheItemsToTheSection() {
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);

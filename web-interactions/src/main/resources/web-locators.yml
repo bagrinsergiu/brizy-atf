@@ -27,6 +27,7 @@ pages:
             empty: //div[contains(@class,'brz-ed-sortable--empty')]
             item:
               self: //div[contains(@data-brz-border--grey,'wrapper')]
+              borderButton: //div[contains(@class,'brz-ed-border__button')]
               type:
                 form:
                   self: //form
@@ -386,6 +387,10 @@ pages:
                     self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Height']]
                     value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//input[@type='range']
                     unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//div[@role='combobox']
+                  size:
+                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Size']]
+                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//input[@type='range']
+                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 counter:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
                   tabs:
@@ -568,12 +573,22 @@ pages:
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      url: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
                       link:
                         self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
+                    advanced:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Advanced']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      intro: //span[text()='Intro']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
                     playback:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Playback']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
@@ -583,6 +598,14 @@ pages:
                       suggestedVideos: //span[text()='Suggested Videos']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
                       start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
                       end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                    cover:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Cover']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      coverImage:
+                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
                     player:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Player']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
@@ -595,6 +618,19 @@ pages:
                       branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       lazyLoad: //span[text()='Lazy Load']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       privacyMode: //span[text()='Privacy Mode']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                playlist:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Playlist']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    playlist:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.self}//div[@title='Playlist']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      thumbs: //span[text()='Thumbs']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      columns:
+                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Columns']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 audio:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
                   tabs:
@@ -687,6 +723,14 @@ pages:
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//div[contains(@class,'brz-ed-control__file-upload__wrapper')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.file.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+              content:
+                playlist:
+                  sidebar:
+                    self: //div[contains(@class,'brz-video-playlist-sidebar')]
+                    items: ${pages.editor.frame.workspace.section.container.item.content.playlist.sidebar.self}//div[contains(@class,'brz-video-playlist-video-item')]
+                    item:
+                      title: //div[contains(@class,'brz-video-playlist-title-video')]//span[1]
+                      subtitle: //div[contains(@class,'brz-video-playlist-title-video')]//span[2]
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
@@ -738,6 +782,7 @@ pages:
             postTitle: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='PostTitle']
             posts: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='Posts']
             assetsPosts: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='AssetsPosts']
+            playlist: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='videoPlaylist']
     editorPopUp:
       self: //div[contains(@class,'brz-ed-popup-two-wrapper brz-ed-popup-two-blocks')]
       header:

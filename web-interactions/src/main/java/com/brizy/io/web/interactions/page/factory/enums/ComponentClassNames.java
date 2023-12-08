@@ -16,9 +16,10 @@ public enum ComponentClassNames {
     ICON("brz-icon__container"),
     IMAGE("brz-image"),
     MAP("brz-map"),
+    PLAYLIST("brz-video-playlist"),
     SPACER("brz-ed-box__resizer"),
     TEXT("brz-rich-text"),
-    VIDEO("brz-video");
+    VIDEO("brz-video ");
 
     @Getter
     String value;

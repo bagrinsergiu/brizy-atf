@@ -9,6 +9,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.playlist.PlaylistLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.VideoLocators;
@@ -57,6 +58,8 @@ public class ToolbarLocators {
     VideoLocators video;
     @NestedConfigurationProperty
     AudioLocators audio;
+    @NestedConfigurationProperty
+    PlaylistLocators playlist;
     @NestedConfigurationProperty
     LinkLocators link;
 
