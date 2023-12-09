@@ -21,8 +21,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static com.brizy.io.web.test.enums.StorageKey.DROPDOWN_ITEMS;
-import static com.brizy.io.web.test.enums.StorageKey.EDITOR;
+import static com.brizy.io.web.test.enums.StorageKey.*;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @SuppressWarnings("all")
@@ -46,7 +45,7 @@ public class WebElementsSteps {
         Path resourceFilePath = testDataFileService.getResourceFilePath(TestDataFileType.FILE, filePath);
         List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
         availableConfigurations.stream()
-                .filter(configuration -> configuration.getName().equals(configurationName))
+                .filter(configuration -> configuration.getName().equalsIgnoreCase(configurationName))
                 .findFirst()
                 .ifPresent(configuration -> {
                     Supplier<FileUploader> element = (Supplier<FileUploader>) configuration.getElement();
@@ -58,7 +57,7 @@ public class WebElementsSteps {
     public void getTheContentOfDropdown(AttributeTypes attributeType, String dropdown) {
         List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
         List<String> dropdownItems = availableConfigurations.stream()
-                .filter(configuraion -> configuraion.getName().equals(dropdown))
+                .filter(configuraion -> configuraion.getName().equalsIgnoreCase(dropdown))
                 .flatMap(configuration -> ((ComboBox) configuration.getElement().get()).items(locator -> true, attributeType.getExtractionFunction()).stream())
                 .toList();
         storage.addValue(DROPDOWN_ITEMS, dropdownItems);
@@ -74,10 +73,20 @@ public class WebElementsSteps {
                 .ifPresent(foundDropdown -> foundDropdown.selectItemByName(value));
     }
 
+    @When("get selected value of the '{}' dropdown")
+    public void getActiveValueOfDropDown(String dropdown) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(configuraion -> configuraion.getName().equalsIgnoreCase(dropdown))
+                .map(configuration -> ((ComboBox) configuration.getElement().get()))
+                .map(el -> el.getSelectedItem())
+                .findFirst()
+                .ifPresent(selectedItem -> storage.addValue(VALUE, selectedItem));
+    }
+
     @When("get {radioGroupAction} item(s) from '{}' radio group")
     public void getSelectedItemFromStyleRadioGroup(RadioGroupActions radioGroupAction, String radioGroup) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(radioGroup))
+                .filter(el -> el.getName().equalsIgnoreCase(radioGroup))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((RadioControl) configuration.get()))
@@ -89,7 +98,7 @@ public class WebElementsSteps {
     @When("get numeric input with name '{}'")
     public void getNumericInput(String numericInput) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(numericInput))
+                .filter(el -> el.getName().equalsIgnoreCase(numericInput))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((NumericInput) configuration.get()))
@@ -99,7 +108,7 @@ public class WebElementsSteps {
     @When("get value of the '{}' input with population")
     public void getValueFromStyleInputWithPopulation(String inputWithPopulationToCheck) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(inputWithPopulationToCheck))
+                .filter(el -> el.getName().equalsIgnoreCase(inputWithPopulationToCheck))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((InputWithPopulation) configuration.get()))
@@ -110,7 +119,7 @@ public class WebElementsSteps {
     @When("get value of the '{}' input with units")
     public void getValueFromStyleInputWithUnits(String inputWithPopulationToCheck) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(inputWithPopulationToCheck))
+                .filter(el -> el.getName().equalsIgnoreCase(inputWithPopulationToCheck))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((InputWithUnits) configuration.get()))
@@ -121,7 +130,7 @@ public class WebElementsSteps {
     @When("get value of the '{}' input")
     public void getValueOfTheDurationInput(String inputToCheck) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(inputToCheck))
+                .filter(el -> el.getName().equalsIgnoreCase(inputToCheck))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((Input) configuration.get()))
@@ -132,7 +141,7 @@ public class WebElementsSteps {
     @When("get value of the '{}' slider")
     public void getValueOfTheSlider(String inputToCheck) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
-                .filter(el -> el.getName().equals(inputToCheck))
+                .filter(el -> el.getName().equalsIgnoreCase(inputToCheck))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((Slider) configuration.get()))

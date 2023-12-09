@@ -18,9 +18,7 @@
         "playback": {
           "autoplay": true,
           "loop": false,
-          "suggestedVideo": "Any Video",
-          "start": 10,
-          "end": 20
+          "suggestedVideo": "Any Video"
         },
         "player": {
           "coverImage": "",
@@ -34,6 +32,72 @@
         "size": {
           "value": 40,
           "unit": "px"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add video element and validate vimeo default tab configurations",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "VIMEO",
+          "link": {
+            "value": "https://vimeo.com/1084537",
+            "population": {
+              "value": "None"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add video element and validate vimeo ratio configuration",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "VIMEO"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add vimeo video element and validate playback tab sliders",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "VIMEO"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add video element and validate custom video default tab configurations",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "CUSTOM_VIDEO"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add video element and validate url default tab configurations",
+    "itemName": "VIDEO_1",
+    "elementType": "video",
+    "properties": {
+      "video": {
+        "video": {
+          "type": "URL"
         }
       }
     }
