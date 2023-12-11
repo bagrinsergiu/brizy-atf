@@ -45,7 +45,7 @@ jobs:
         run: mvn -T 4C exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
 
       - name: Run tests
-        run: mvn -T 4C test -DbaseUrl=https://www.brizy.cloud/projects/18098294/editor/page/3672626 -Dcucumber.filter.tags=@Test
+        run: mvn -T 4C test -DbaseUrl=https://www.brizy.cloud/projects/18098294/editor/page/3672626 -Dcucumber.filter.tags=@Smoke
 
       - name: Build executor properties
         if: always()

@@ -15,6 +15,7 @@ pages:
           delete: //a[contains(@class,'confirmation' and text()='Delete']
   editor:
     alert: //div[@role='alert']//div[not(@class)]
+    error: //span[contains(text(), 'An error happened while trying to display this element')]
     frame:
       name: brz-ed-iframe
       addButton: //div[contains(@class,'floating-action-button')]
@@ -631,6 +632,27 @@ pages:
                         self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Columns']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                lottie:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Lottie']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    lottie:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.self}//div[@title='Lottie']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      lottieLink: //span[text()='Lottie Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      lottieFile:
+                        self: //span[text()='Lottie File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//div[contains(@class,'brz-ed-control__file-upload__wrapper')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      renderer: //span[text()='Renderer']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      reverse: //span[text()='Reverse']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      speed:
+                        self: //span[text()='Speed']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//input[@type='number']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 audio:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
                   tabs:
@@ -767,6 +789,7 @@ pages:
             map: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='map']
             form: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='form']
             line: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='line']
+            lottie: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='lottie']
             menuSimple: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='MenuSimple']
             translation: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='translation']
             video: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='video']

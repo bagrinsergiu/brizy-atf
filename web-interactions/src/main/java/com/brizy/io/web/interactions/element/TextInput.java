@@ -17,6 +17,7 @@ public class TextInput implements Input {
     public void fill(String string) {
         locator.clear();
         locator.fill(string);
+        locator.press("Enter");
         locator.click();
     }
 

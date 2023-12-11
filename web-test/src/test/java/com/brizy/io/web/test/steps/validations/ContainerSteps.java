@@ -122,4 +122,13 @@ public class ContainerSteps {
                 .containsExactlyElementsOf(displayedAlerts);
     }
 
+    @Then("should see that an error happened while trying to display this element")
+    public void shouldSeeThatAnErrorHappenedWhileTryingToDisplayThisElement() {
+        Assertions.assertThat(storage.getValue(StorageKey.EDITOR, EditorPage.class))
+                .extracting(EditorPage::errorIsDisplayed)
+                .extracting(displayed -> !displayed)
+                .describedAs("Should see that an error happened while trying to display this element")
+                .isEqualTo(true);
+    }
+
 }

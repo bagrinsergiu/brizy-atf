@@ -16,6 +16,7 @@ public enum EditorSidebarElement {
     ICON_TEXT,
     IMAGE,
     LINE,
+    LOTTIE,
     MAP,
     MENU_SIMPLE,
     PLAYLIST,
