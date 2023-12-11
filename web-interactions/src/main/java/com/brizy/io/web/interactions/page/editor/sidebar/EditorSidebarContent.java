@@ -34,6 +34,7 @@ public class EditorSidebarContent {
             put(ICON_TEXT, () -> new Div(page.locator(main.getIconText())));
             put(IMAGE, () -> new Div(page.locator(main.getImage())));
             put(LINE, () -> new Div(page.locator(main.getLine())));
+            put(LOTTIE, () -> new Div(page.locator(main.getLottie())));
             put(MAP, () -> new Div(page.locator(main.getMap())));
             put(MENU_SIMPLE, () -> new Div(page.locator(main.getMenuSimple())));
             put(PLAYLIST, () -> new Div(page.locator(main.getPlaylist())));

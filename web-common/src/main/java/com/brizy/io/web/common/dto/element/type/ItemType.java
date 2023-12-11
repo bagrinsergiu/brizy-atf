@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Text.class, name = "text"),
         @JsonSubTypes.Type(value = Form.class, name = "form"),
         @JsonSubTypes.Type(value = Audio.class, name = "audio"),
+        @JsonSubTypes.Type(value = Lottie.class, name = "lottie"),
         @JsonSubTypes.Type(value = Video.class, name = "video")
 })
 public interface ItemType {

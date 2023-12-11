@@ -4,22 +4,24 @@ import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
 import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.enums.StorageKey;
-import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.service.ActivePageService;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.Page;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.vavr.control.Option;
+import io.vavr.control.Try;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.PAGE_SECTIONS;
 import static java.util.List.of;
+import static org.awaitility.Awaitility.await;
 
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -67,9 +69,21 @@ public class EditorPageSteps {
         storage.addValue(StorageKey.EDITOR_PAGE, page);
     }
 
-    @Then("get alerts displayed on the page")
+
+    @When("wait for an alert popup to show")
+    public void waitForAnAlertPopupToShow() {
+        EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
+        Try.of(editorPage::waitForAlertToAppear).onFailure(s -> Assertions.fail("No displayed alerts"));
+    }
+
+    @When("get alerts displayed on the page")
     public void getAlertsDisplayedOnThePage() {
         EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
         storage.addValue(StorageKey.ALERTS, editorPage.getAlerts());
+    }
+
+    @When("wait for file uploading to finish")
+    public void waitForFileUploadingEffect() {
+        await().pollDelay(Duration.ofSeconds(2)).until(() -> true);
     }
 }

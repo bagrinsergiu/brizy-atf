@@ -15,6 +15,7 @@ public enum ComponentClassNames {
     FORM("brz-forms2"),
     ICON("brz-icon__container"),
     IMAGE("brz-image"),
+    LOTTIE("brz-lottie"),
     MAP("brz-map"),
     PLAYLIST("brz-video-playlist"),
     SPACER("brz-ed-box__resizer"),

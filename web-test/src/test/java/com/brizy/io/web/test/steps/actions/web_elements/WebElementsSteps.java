@@ -73,6 +73,16 @@ public class WebElementsSteps {
                 .ifPresent(foundDropdown -> foundDropdown.selectItemByName(value));
     }
 
+    @When("set '{}' value for '{}' text input")
+    public void setValueOfTextInput(String value, String textInput) {
+        List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
+        availableConfigurations.stream()
+                .filter(configuraion -> configuraion.getName().equals(textInput))
+                .findFirst()
+                .map(foundDropdown -> ((TextInput) foundDropdown.getElement().get()))
+                .ifPresent(foundDropdown -> foundDropdown.fill(value));
+    }
+
     @When("get selected value of the '{}' dropdown")
     public void getActiveValueOfDropDown(String dropdown) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
