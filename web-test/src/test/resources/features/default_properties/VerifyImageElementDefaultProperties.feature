@@ -31,6 +31,7 @@ Feature: Editor Page - Image Default Settings
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     And upload the file 'github_logo.xcf' to 'image' configuration
+    When wait for an alert popup to show
     And get alerts displayed on the page
     Then the following alerts should be displayed:
       | Failed to upload file. Please upload a valid JPG, PNG, SVG or GIF image. |
