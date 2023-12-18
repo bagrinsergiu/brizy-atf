@@ -1,4 +1,3 @@
-@Smoke
 Feature: Editor Page - Adding an Playlist Element
   As a user
   I want to add an playlist element

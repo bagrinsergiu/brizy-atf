@@ -1,4 +1,3 @@
-@Smoke
 Feature: Editor Page - Adding a Lottie Element
   As a user
   I want to add a lottie element
