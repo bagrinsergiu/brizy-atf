@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.popup;
 
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.picker.IconPickerProperties;
+import com.brizy.io.web.common.dto.element.properties.common.icon.picker.IconPickerProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.element.composite.PopUpDropdown;

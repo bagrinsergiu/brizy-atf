@@ -1,0 +1,71 @@
+[
+  {
+    "scenarioName": "Add rating element and validate default properties",
+    "itemName": "RATING_1",
+    "elementType": "rating",
+    "properties": {
+      "rating": {
+        "rating": {
+          "ratingScale": "0-10",
+          "style": "NO_FILL",
+          "label": "RIGHT",
+          "rating": {
+            "value": "3",
+            "population": {
+              "value": "None"
+            }
+          }
+        },
+        "icons": {
+          "icon": {
+            "type": "Glyph",
+            "category": "Animals/Nature",
+            "value": "owl"
+          },
+          "size": {
+            "type": "SIZE_24",
+            "size": "SIZE_24"
+          }
+        }
+      },
+      "align": "RIGHT"
+    }
+  },
+  {
+    "scenarioName": "Validate configurations inside rating popup in Rating tab for style fill",
+    "itemName": "RATING_1",
+    "elementType": "rating",
+    "properties": {
+      "rating": {
+        "rating": {
+          "style": "FILLED"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate configurations inside rating popup in Icon tab for style fill",
+    "itemName": "RATING_1",
+    "elementType": "rating",
+    "properties": {
+      "rating": {
+        "rating": {
+          "style": "FILLED"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Validate rating tabs for style fill and no label",
+    "itemName": "RATING_1",
+    "elementType": "rating",
+    "properties": {
+      "rating": {
+        "rating": {
+          "style": "FILLED",
+          "label": "NO_LABEL"
+        }
+      }
+    }
+  }
+]

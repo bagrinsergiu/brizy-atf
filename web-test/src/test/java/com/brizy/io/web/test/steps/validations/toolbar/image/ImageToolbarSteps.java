@@ -2,7 +2,6 @@ package com.brizy.io.web.test.steps.validations.toolbar.image;
 
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.enums.StorageKey;
-import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import lombok.AccessLevel;

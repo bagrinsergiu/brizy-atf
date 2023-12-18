@@ -1,15 +1,15 @@
-package com.brizy.io.web.common.dto.element.properties.button.button.icon.size;
+package com.brizy.io.web.common.dto.element.properties.common.icon.size;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
 @Builder(toBuilder = true)
+@NoArgsConstructor(force = true)
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class CustomSize implements Size{
+public class ConcreteSize implements Size {
 
-    Integer size;
+    IconSizes size;
 
 }

@@ -1,13 +1,13 @@
 package com.brizy.io.web.test.steps.validations.toolbar;
 
 import com.brizy.io.web.test.enums.StorageKey;
-import com.brizy.io.web.test.functional.Attachment;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.brizy.io.web.test.enums.StorageKey.DROPDOWN_ITEMS;
@@ -33,8 +33,14 @@ public class ToolbarSteps {
 
     @Then("the following tabs should be displayed in the opened popup: {}")
     public void theFollowingTabsShouldBeDisplayedInTheOpenedPopup(String expectedTabsToBeDisplayed) {
+        List<String> actual;
+        if (expectedTabsToBeDisplayed.equals("[blank]")) {
+            actual = List.of();
+        } else {
+            actual = Arrays.asList(expectedTabsToBeDisplayed.split(","));
+        }
         List<String> actualTabsToBeDisplayed = storage.getListValue(StorageKey.TABS_LIST, String.class);
-        Assertions.assertThat(expectedTabsToBeDisplayed.split(","))
+        Assertions.assertThat(actual)
                 .extracting(String::trim)
                 .describedAs("Expecting to have the following tabs <%s> displayed on the popup", expectedTabsToBeDisplayed)
                 .containsExactlyElementsOf(actualTabsToBeDisplayed);

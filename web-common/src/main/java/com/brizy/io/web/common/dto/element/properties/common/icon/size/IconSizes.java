@@ -1,4 +1,4 @@
-package com.brizy.io.web.common.dto.element.properties.button.button.icon.size;
+package com.brizy.io.web.common.dto.element.properties.common.icon.size;
 
 import com.brizy.io.web.common.dto.element.properties.common.Enumerable;
 import lombok.AccessLevel;
@@ -10,6 +10,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum IconSizes implements Enumerable<IconSizes> {
 
+    SIZE_16("nc-16"),
+    SIZE_24("nc-24"),
     SIZE_32("nc-32"),
     SIZE_48("nc-48"),
     SIZE_64("nc-64"),

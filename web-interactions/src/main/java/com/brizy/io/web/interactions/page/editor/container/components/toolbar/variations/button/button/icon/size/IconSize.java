@@ -1,9 +1,9 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.size;
 
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.ConcreteSize;
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.CustomSize;
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.IconSizes;
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.size.Size;
+import com.brizy.io.web.common.dto.element.properties.common.icon.size.ConcreteSize;
+import com.brizy.io.web.common.dto.element.properties.common.icon.size.CustomSize;
+import com.brizy.io.web.common.dto.element.properties.common.icon.size.IconSizes;
+import com.brizy.io.web.common.dto.element.properties.common.icon.size.Size;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.element.composite.RadioControl;

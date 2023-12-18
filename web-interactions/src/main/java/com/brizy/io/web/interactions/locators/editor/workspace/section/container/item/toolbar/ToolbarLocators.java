@@ -11,6 +11,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.lottie.LottieLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.playlist.PlaylistLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.rating.RatingLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.VideoLocators;
@@ -61,6 +62,8 @@ public class ToolbarLocators {
     AudioLocators audio;
     @NestedConfigurationProperty
     PlaylistLocators playlist;
+    @NestedConfigurationProperty
+    RatingLocators rating;
     @NestedConfigurationProperty
     LottieLocators lottie;
     @NestedConfigurationProperty
