@@ -1,4 +1,3 @@
-@Smoke
 Feature: Editor Page - Adding a Video Element
   As a user
   I want to add a spacer element
