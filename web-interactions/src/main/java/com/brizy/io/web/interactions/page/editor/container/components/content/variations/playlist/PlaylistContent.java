@@ -3,6 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.content.v
 import com.brizy.io.web.common.dto.element.content.playlist.PlaylistContentProperties;
 import com.brizy.io.web.common.dto.element.type.Content;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
+import com.brizy.io.web.interactions.page.editor.container.components.content.variations.playlist.item.PlayListVideoItem;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;

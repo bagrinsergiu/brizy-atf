@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 public enum ComponentClassNames {
 
     AUDIO("brz-soundcloud"),
+    ALERT("brz-alert"),
     BUTTON("brz-btn"),
     COUNTER("brz-counter"),
     FORM("brz-forms2"),

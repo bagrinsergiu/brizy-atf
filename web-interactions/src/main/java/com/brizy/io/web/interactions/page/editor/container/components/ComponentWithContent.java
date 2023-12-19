@@ -26,7 +26,6 @@ public abstract class ComponentWithContent<T extends Property> extends Component
         super(componentLocator);
     }
 
-    public <Type extends Content> void configureContents(List<Type> content) {
-    }
+    public abstract <Type extends Content> void configureContents(List<Type> content);
 
 }
