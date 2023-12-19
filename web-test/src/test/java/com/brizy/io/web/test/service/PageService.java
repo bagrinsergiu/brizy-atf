@@ -17,7 +17,7 @@ public class PageService {
 
     public Page create(BrowserContext browserContext) {
         Page page = browserContext.newPage();
-        page.setDefaultTimeout(60000);
+        page.setDefaultTimeout(20000);
         return page;
     }
 
