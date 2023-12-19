@@ -11,7 +11,7 @@ browser:
   devTools: false
   downloadsPath: "target/downloads"
   slowMo: 50
-  timeout: 60000
+  timeout: 20000
   tracesDir: "target/traces"
 context:
   acceptDownloads: true
