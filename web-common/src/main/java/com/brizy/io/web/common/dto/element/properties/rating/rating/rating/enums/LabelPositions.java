@@ -1,4 +1,4 @@
-package com.brizy.io.web.common.dto.element.properties.button.button.icon.align;
+package com.brizy.io.web.common.dto.element.properties.rating.rating.rating.enums;
 
 import com.brizy.io.web.common.dto.element.properties.common.Enumerable;
 import lombok.AccessLevel;
@@ -8,16 +8,18 @@ import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public enum IconAligns implements Enumerable<IconAligns> {
+@Getter
+public enum LabelPositions implements Enumerable<LabelPositions> {
 
+    RIGHT("nc-align-right"),
     LEFT("nc-align-left"),
-    RIGHT("nc-align-right");
+    NO_LABEL("nc-close");
 
-    @Getter
     String value;
 
     @Override
-    public IconAligns[] getValues() {
-        return IconAligns.values();
+    public LabelPositions[] getValues() {
+        return LabelPositions.values();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.brizy.io.web.common.dto.element.properties.button.button.icon.picker;
+package com.brizy.io.web.common.dto.element.properties.common.icon.picker;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

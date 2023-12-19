@@ -23,6 +23,7 @@ public enum EditorSidebarElement {
     POST_TITLE,
     POSTS,
     PROGRESS_BAR,
+    RATING,
     ROW,
     SPACER,
     TABS,

@@ -653,6 +653,80 @@ pages:
                         self: //span[text()='Speed']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//input[@type='number']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                rating:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Rating']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    rating:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[text()='Rating']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      ratingScale: //span[text()='Rating scale']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      label: //span[text()='Label']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      spacing:
+                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.spacing.self}//input[@type='number']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      rating:
+                        self: //span[text()='Rating']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.rating.self}//input[@type='number']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.rating.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                    icons:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[contains(text(),'Icon')]
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      icon:
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        picker:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                          popUp:
+                            self: //div[contains(@class,'brz-ed-popup-icons')]
+                            tabs: //div[contains(@class,'brz-ed-popup-header__tabs')]//div
+                            closeButton: //div[contains(@class,'brz-ed-popup-btn-close')]
+                            categories:
+                              self: //div[contains(@class,'brz-ed-popup__select--block-categories')]
+                              items: //div[contains(@class,'brz-control__select-option')]
+                            search: //input[@placeholder='Enter Search Keyword']
+                            grid:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.picker.popUp.self}//div[contains(@class,'brz-ed-popup-icons__grid')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.picker.popUp.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
+                              item: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                      size:
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        custom:
+                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.size.custom.self}//input[@type='range']
+                      spacing:
+                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.spacing.self}//input[@type='number']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    icon:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[text()='Icon']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      icon:
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        picker:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                          popUp:
+                            self: //div[contains(@class,'brz-ed-popup-icons')]
+                            tabs: //div[contains(@class,'brz-ed-popup-header__tabs')]//div
+                            closeButton: //div[contains(@class,'brz-ed-popup-btn-close')]
+                            categories:
+                              self: //div[contains(@class,'brz-ed-popup__select--block-categories')]
+                              items: //div[contains(@class,'brz-control__select-option')]
+                            search: //input[@placeholder='Enter Search Keyword']
+                            grid:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.picker.popUp.self}//div[contains(@class,'brz-ed-popup-icons__grid')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.picker.popUp.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
+                              item: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                      size:
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        custom:
+                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.size.custom.self}//input[@type='range']
                 audio:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
                   tabs:
@@ -790,6 +864,7 @@ pages:
             form: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='form']
             line: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='line']
             lottie: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='lottie']
+            rating: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='starRating']
             menuSimple: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='MenuSimple']
             translation: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='translation']
             video: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='video']

@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties.button.button;
 
 import com.brizy.io.web.common.dto.element.properties.button.button.button.ButtonTabProperties;
-import com.brizy.io.web.common.dto.element.properties.button.button.icon.IconTabProperties;
+import com.brizy.io.web.common.dto.element.properties.common.icon.IconTabProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

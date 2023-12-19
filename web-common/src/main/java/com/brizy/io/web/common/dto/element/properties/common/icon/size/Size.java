@@ -1,4 +1,4 @@
-package com.brizy.io.web.common.dto.element.properties.button.button.icon.size;
+package com.brizy.io.web.common.dto.element.properties.common.icon.size;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
