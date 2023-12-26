@@ -1,9 +1,9 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.common.DropdownWithPopulationProperties;
 import com.brizy.io.web.common.dto.element.properties.common.PopulationProperties;
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.element.TextInput;
+import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
@@ -17,38 +17,38 @@ import java.util.function.Supplier;
 import static lombok.AccessLevel.PRIVATE;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class InputWithPopulation {
+public class DropdownWithPopulation {
 
     Supplier<Button> populationButton;
     Supplier<List<Locator>> populationItems;
-    Supplier<TextInput> value;
+    Supplier<ComboBox> value;
 
-    public InputWithPopulation(InputWithPopulationLocators locators, Frame frame) {
-        this.value = () -> new TextInput(frame.locator(locators.getValue()));
+    public DropdownWithPopulation(InputWithPopulationLocators locators, Frame frame) {
+        this.value = () -> new ComboBox(frame.locator(locators.getValue()));
         this.populationButton = () -> new Button(frame.locator(locators.getPopulation().getSelf()));
         this.populationItems = () -> frame.locator(locators.getPopulation().getItems()).all();
     }
 
-    public InputWithPopulation(InputWithPopulationLocators locators, Page page) {
-        this.value = () -> new TextInput(page.locator(locators.getValue()));
+    public DropdownWithPopulation(InputWithPopulationLocators locators, Page page) {
+        this.value = () -> new ComboBox(page.locator(locators.getValue()));
         this.populationButton = () -> new Button(page.locator(locators.getPopulation().getSelf()));
         this.populationItems = () -> page.locator(locators.getPopulation().getItems()).all();
     }
 
     public String getInputValue() {
-        return value.get().getRawValue();
+        return value.get().getSelectedItem();
     }
 
-    public InputWithPopulationProperties getValue() {
-        return InputWithPopulationProperties.builder()
-                .value(value.get().getRawValue())
+    public DropdownWithPopulationProperties getValue() {
+        return DropdownWithPopulationProperties.builder()
+                .value(value.get().getSelectedItem())
                 .population(getSelectedPopulation())
                 .build();
     }
 
-    public void setValue(InputWithPopulationProperties properties) {
+    public void setValue(DropdownWithPopulationProperties properties) {
         if (Objects.nonNull(properties.getValue()) && !properties.getValue().isEmpty() && !properties.getValue().isBlank()) {
-            value.get().fill(properties.getValue());
+            value.get().selectItemByName(properties.getValue());
         }
         if (Objects.nonNull(properties.getPopulation())) {
             populationButton.get().click();
@@ -61,13 +61,13 @@ public class InputWithPopulation {
 
     private PopulationProperties getSelectedPopulation() {
         populationButton.get().click();
-        var populationProperties = populationItems.get().stream()
+        var populationItems = this.populationItems.get().stream()
                 .filter(el -> el.getAttribute("class").contains("active"))
                 .findFirst()
                 .map(Locator::textContent)
                 .map(value -> PopulationProperties.builder().value(value).build())
                 .orElse(PopulationProperties.builder().build());
         populationButton.get().click();
-        return populationProperties;
+        return populationItems;
     }
 }

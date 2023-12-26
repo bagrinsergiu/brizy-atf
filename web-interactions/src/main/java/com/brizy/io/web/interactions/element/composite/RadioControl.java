@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -59,6 +60,12 @@ public class RadioControl<E extends Enum<E> & Enumerable<E>> {
                 .findFirst()
                 .map(Map.Entry::getKey)
                 .orElseThrow();
+    }
+
+    public List<String> getAllControls() {
+        return controls.get().keySet().stream()
+                .map(Enum::name)
+                .toList();
     }
 
 }

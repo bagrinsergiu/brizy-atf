@@ -2,6 +2,7 @@ package com.brizy.io.web.test.steps.actions.web_elements;
 
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.*;
+import com.brizy.io.web.interactions.element.composite.DropdownWithPopulation;
 import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
@@ -95,14 +96,21 @@ public class WebElementsSteps {
 
     @When("get {radioGroupAction} item(s) from '{}' radio group")
     public void getSelectedItemFromStyleRadioGroup(RadioGroupActions radioGroupAction, String radioGroup) {
-        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+        var foundRadioControl = storage.getListValue(TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
                 .filter(el -> el.getName().equalsIgnoreCase(radioGroup))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
-                .map(configuration -> ((RadioControl) configuration.get()))
-                .map(radioControl -> radioControl.getActiveControl())
-                .map(radioControl -> radioControl.name())
-                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+                .map(configuration -> ((RadioControl) configuration.get()));
+        if (radioGroupAction.equals(RadioGroupActions.ACTIVE)) {
+            foundRadioControl
+                    .map(radioControl -> radioControl.getActiveControl())
+                    .map(radioControl -> radioControl.name())
+                    .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+        } else {
+            foundRadioControl
+                    .map(radioControl -> radioControl.getAllControls())
+                    .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+        }
     }
 
     @When("get numeric input with name '{}'")
@@ -116,12 +124,23 @@ public class WebElementsSteps {
     }
 
     @When("get value of the '{}' input with population")
-    public void getValueFromStyleInputWithPopulation(String inputWithPopulationToCheck) {
+    public void getValueOfInputWithPopulation(String inputWithPopulationToCheck) {
         storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
                 .filter(el -> el.getName().equalsIgnoreCase(inputWithPopulationToCheck))
                 .findFirst()
                 .map(configuration -> configuration.getElement())
                 .map(configuration -> ((InputWithPopulation) configuration.get()))
+                .map(input -> input.getInputValue())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get value of the '{}' dropdown with population")
+    public void getValueOfDropdownWithPopulation(String inputWithPopulationToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equalsIgnoreCase(inputWithPopulationToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((DropdownWithPopulation) configuration.get()))
                 .map(input -> input.getInputValue())
                 .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }

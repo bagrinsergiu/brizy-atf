@@ -1,0 +1,55 @@
+[
+  {
+    "scenarioName": "Validate countdown default properties",
+    "itemName": "COUNTDOWN_1",
+    "elementType": "countdown",
+    "properties": {
+      "countdown": {
+        "timer": {
+          "style": "STYLE_2",
+          "date": {
+            "value": "31/12/2023",
+            "population": {
+              "value": "None"
+            }
+          },
+          "hour": {
+            "value": "11 am",
+            "population": {
+              "value": "None"
+            }
+          },
+          "minutes": {
+            "value": "10 m",
+            "population": {
+              "value": "None"
+            }
+          },
+          "timeZone": "+ 1:00 (Berlin, Paris, Morocco, Netherlands)"
+        },
+        "advanced": {
+          "days": true,
+          "hours": false,
+          "minutes": true,
+          "seconds": false
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 40,
+          "unit": "px"
+        }
+      },
+      "link": {
+        "action": {
+          "whenFinished": "Show message",
+          "message": "Congratulations it's done!"
+        },
+        "redirect": {
+          "url": "www.youtube.com"
+        }
+      }
+    }
+  }
+]

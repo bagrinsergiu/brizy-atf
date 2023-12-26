@@ -1,6 +1,6 @@
 [
   {
-    "scenarioName": "Add video element and validate default properties",
+    "scenarioName": "Add audio element and validate default properties",
     "itemName": "VIDEO_1",
     "elementType": "video",
     "properties": {

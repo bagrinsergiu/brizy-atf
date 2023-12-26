@@ -11,6 +11,8 @@ import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 import static com.brizy.io.web.test.enums.StorageKey.EDITOR;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -35,6 +37,13 @@ public class WebElementsSteps {
         Assertions.assertThat(expectedActiveItem)
                 .describedAs("Expecting to have <%s> active radio control", expectedActiveItem)
                 .isEqualToIgnoringCase(storage.getValue(StorageKey.VALUE, String.class));
+    }
+
+    @Then("the following items are displayed:")
+    public void theFollowingItemsAreDispalyed(List<String> expectedItems) {
+        Assertions.assertThat(expectedItems)
+                .describedAs("Expecting to have <%s> active radio control", expectedItems)
+                .containsExactlyInAnyOrderElementsOf(storage.getValue(StorageKey.VALUE, List.class));
     }
 
     @Then("the following state is active: {}")
