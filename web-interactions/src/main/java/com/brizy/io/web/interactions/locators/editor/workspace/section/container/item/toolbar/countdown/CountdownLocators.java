@@ -1,6 +1,7 @@
-package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.tabs;
+package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.tabs.CountdownTabsLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,11 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class TabsProperties extends AbstractProperty {
+public class CountdownLocators extends AbstractProperty {
 
     @NestedConfigurationProperty
-    CounterLocators counter;
-    @NestedConfigurationProperty
-    AdvancedCounterLocators advanced;
+    CountdownTabsLocators tabs;
 
 }

@@ -1,9 +1,11 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs;
 
 import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.action.ActionTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.block.BlockTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.file.FileTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.pop_up.PopupTabLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.redirect.RedirectTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.url.UrlTabLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -26,5 +28,9 @@ public class LinkTabsLocators extends AbstractProperty {
     PopupTabLocators popup;
     @NestedConfigurationProperty
     FileTabLocators file;
+    @NestedConfigurationProperty
+    ActionTabLocators action;
+    @NestedConfigurationProperty
+    RedirectTabLocators redirect;
 
 }

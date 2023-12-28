@@ -4,6 +4,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.AudioLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.ButtonLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.CountdownLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
@@ -69,6 +70,8 @@ public class ToolbarLocators {
     AlertLocators alert;
     @NestedConfigurationProperty
     LottieLocators lottie;
+    @NestedConfigurationProperty
+    CountdownLocators countdown;
     @NestedConfigurationProperty
     LinkLocators link;
 

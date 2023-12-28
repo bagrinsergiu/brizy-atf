@@ -8,7 +8,7 @@ public enum EditorSidebarElement {
     AUDIO,
     BUTTON,
     COLUMNS,
-    COUNTDOWN_2,
+    COUNTDOWN,
     COUNTER,
     EMBED_CODE,
     FORM,
