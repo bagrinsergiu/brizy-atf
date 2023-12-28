@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.page.editor.container.components.content.variations.playlist;
+package com.brizy.io.web.interactions.page.editor.container.components.content.variations.playlist.item;
 
 import com.brizy.io.web.common.dto.element.content.playlist.PlaylistContentProperties;
 import com.brizy.io.web.interactions.element.TextInput;

@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content;
 
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.alert.AlertContentLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.playlist.PlaylistContentLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,5 +17,7 @@ public class ItemContentLocators {
 
     @NestedConfigurationProperty
     PlaylistContentLocators playlist;
+    @NestedConfigurationProperty
+    AlertContentLocators alert;
 
 }

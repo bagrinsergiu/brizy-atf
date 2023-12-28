@@ -727,6 +727,28 @@ pages:
                         custom:
                           self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.size.custom.self}//input[@type='range']
+                alert:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Alert']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    alert:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Alert']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      displayCloseButton: //span[text()='Display Close Button']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      displayDescription: //span[text()='Display Description']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      delay:
+                        self: //span[text()='Delay']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                gap:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Gap']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    gap:
+                      gap:
+                        self: //span[text()='Gap']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//input[@type='number']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 audio:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
                   tabs:
@@ -827,6 +849,11 @@ pages:
                     item:
                       title: //div[contains(@class,'brz-video-playlist-title-video')]//span[1]
                       subtitle: //div[contains(@class,'brz-video-playlist-title-video')]//span[2]
+                alert:
+                  self: //div[contains(@class,'brz-ed-box__resizer')]
+                  title: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-title')]
+                  description: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-description')]
+                  close: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-close')]
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']

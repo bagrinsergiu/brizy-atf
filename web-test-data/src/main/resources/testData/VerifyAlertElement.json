@@ -1,0 +1,69 @@
+[
+  {
+    "scenarioName": "Add alert element and validate default properties",
+    "itemName": "ALERT_1",
+    "elementType": "alert",
+    "properties": {
+      "alert": {
+        "alert": {
+          "displayCloseButton": true,
+          "displayDescription": true,
+          "delay": {
+            "value": 6
+          }
+        }
+      },
+      "align": "RIGHT"
+    },
+    "content": [
+      {
+        "type": "description",
+        "value": "My Alert Description",
+        "properties": {
+          "typography": {
+            "font": "Palanquin Dark",
+            "size": {
+              "value": 2,
+              "unit": "em"
+            },
+            "typography": "Custom",
+            "weight": "Bold",
+            "lineHgt": 2.2,
+            "letterSp": 0.4
+          },
+          "align": "RIGHT"
+        }
+      },
+      {
+        "type": "title",
+        "value": "My Alert Title",
+        "properties": {
+          "typography": {
+            "font": "Comfortaa",
+            "size": {
+              "value": 4,
+              "unit": "rem"
+            },
+            "typography": "Custom",
+            "weight": "Bold",
+            "lineHgt": 1.1,
+            "letterSp": 0.4
+          },
+          "align": "RIGHT"
+        }
+      }
+    ]
+  },
+  {
+    "scenarioName": "Add alert element and validate default configurations no close button",
+    "itemName": "ALERT_1",
+    "elementType": "alert",
+    "properties": {
+      "alert": {
+        "alert": {
+          "displayCloseButton": false
+        }
+      }
+    }
+  }
+]

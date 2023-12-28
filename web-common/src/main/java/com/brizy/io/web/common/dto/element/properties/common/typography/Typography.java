@@ -18,5 +18,4 @@ public class Typography {
     Double lineHgt;
     Double letterSp;
 
-
 }

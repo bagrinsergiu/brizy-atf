@@ -19,6 +19,8 @@ public class NumericInput extends AbstractElement implements Input {
     @SneakyThrows
     public void fill(Number value) {
         locator.fill(value.toString(), new Locator.FillOptions().setForce(true));
+        locator.dispatchEvent("input");
+        locator.dispatchEvent("change");
     }
 
     public void fillAndWaitForValue(Number value) {
