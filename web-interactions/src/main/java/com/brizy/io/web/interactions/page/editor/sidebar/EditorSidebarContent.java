@@ -40,7 +40,8 @@ public class EditorSidebarContent {
             put(PLAYLIST, () -> new Div(page.locator(main.getPlaylist())));
             put(POST_TITLE, () -> new Div(page.locator(main.getPostTitle())));
             put(POSTS, () -> new Div(page.locator(main.getPosts())));
-            put(PROGRESS_BAR, () -> new Div(page.locator(main.getProgressBar())));
+            put(PROGRESS, () -> new Div(page.locator(main.getProgressBar())));
+            put(RATING, () -> new Div(page.locator(main.getRating())));
             put(ROW, () -> new Div(page.locator(main.getRow())));
             put(SPACER, () -> new Div(page.locator(main.getSpacer())));
             put(TABS, () -> new Div(page.locator(main.getTabs())));

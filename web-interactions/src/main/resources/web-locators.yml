@@ -805,6 +805,22 @@ pages:
                       buy: //span[text()='Buy']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       download: //span[text()='Download']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       share: //span[text()='Share']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                progress:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Progress']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    progress:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Progress']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      fill:
+                        self: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.progress.tabs.progress.fill.self}//input[@type='number']
+                        population:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.progress.tabs.progress.fill.self}//div[contains(@class,'brz-control__select-current__icon')]
+                          items: //div[contains(@class,'brz-control__select-option') and @title]
+                      title: //span[text()='Title']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      percentage: //span[text()='Percentage']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                 countdown:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Countdown']
                   tabs:

@@ -1,0 +1,52 @@
+[
+  {
+    "scenarioName": "Add progress bar element and validate default properties",
+    "itemName": "PROGRESS_1",
+    "elementType": "progress",
+    "properties": {
+      "progress": {
+        "progress": {
+          "style": "STYLE_2",
+          "fill": {
+            "value": "22",
+            "population": {
+              "value": "None"
+            }
+          },
+          "percentage": false
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "size": {
+          "value": 40,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add progress bar element and validate no title style configurations",
+    "itemName": "PROGRESS_1",
+    "elementType": "progress",
+    "properties": {
+      "progress": {
+        "progress": {
+          "style": "STYLE_2"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add progress bar element and validate title style configurations",
+    "itemName": "PROGRESS_1",
+    "elementType": "progress",
+    "properties": {
+      "progress": {
+        "progress": {
+          "style": "STYLE_1"
+        }
+      }
+    }
+  }
+]

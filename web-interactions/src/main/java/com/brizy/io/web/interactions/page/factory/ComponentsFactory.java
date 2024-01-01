@@ -29,6 +29,8 @@ public class ComponentsFactory {
                 API.Case(API.$(classAttribute -> classAttribute.contains(ALERT.getValue())), () -> new Alert(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(LOTTIE.getValue())), () -> new Lottie(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(PLAYLIST.getValue())), () -> new Playlist(itemLocators, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(PROGRESS_BAR.getValue())), () -> new ProgressBar(itemLocators, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(RATING.getValue())), () -> new Rating(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(SPACER.getValue())), () -> new Spacer(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains("brz-d-xs-flex")), () -> {
                     String innerHtml = locator.innerHTML();
