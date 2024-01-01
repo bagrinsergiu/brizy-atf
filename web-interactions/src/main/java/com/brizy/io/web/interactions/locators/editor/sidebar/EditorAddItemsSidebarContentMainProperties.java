@@ -38,5 +38,6 @@ public class EditorAddItemsSidebarContentMainProperties {
     String postTitle;
     String posts;
     String assetsPost;
+    String rating;
 
 }

@@ -13,6 +13,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.lottie.LottieLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.playlist.PlaylistLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.progress.ProgressLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.rating.RatingLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
@@ -70,6 +71,8 @@ public class ToolbarLocators {
     AlertLocators alert;
     @NestedConfigurationProperty
     LottieLocators lottie;
+    @NestedConfigurationProperty
+    ProgressLocators progress;
     @NestedConfigurationProperty
     CountdownLocators countdown;
     @NestedConfigurationProperty

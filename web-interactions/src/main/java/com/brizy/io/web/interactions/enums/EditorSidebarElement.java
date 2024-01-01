@@ -22,7 +22,7 @@ public enum EditorSidebarElement {
     PLAYLIST,
     POST_TITLE,
     POSTS,
-    PROGRESS_BAR,
+    PROGRESS,
     RATING,
     ROW,
     SPACER,

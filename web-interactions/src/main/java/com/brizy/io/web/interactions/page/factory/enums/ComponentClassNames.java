@@ -20,6 +20,8 @@ public enum ComponentClassNames {
     LOTTIE("brz-lottie"),
     MAP("brz-map"),
     PLAYLIST("brz-video-playlist"),
+    PROGRESS_BAR("brz-progress-bar"),
+    RATING("brz-starrating"),
     SPACER("brz-ed-box__resizer"),
     TEXT("brz-rich-text"),
     VIDEO("brz-video ");
