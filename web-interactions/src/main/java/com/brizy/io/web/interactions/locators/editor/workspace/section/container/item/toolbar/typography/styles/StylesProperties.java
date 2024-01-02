@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.letterSp.LetterSpProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.lineHgt.LineHgtProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.size.SizeProperties;
@@ -17,7 +17,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class StylesProperties extends AbstractProperty {
+public class StylesProperties extends AbstractLocator {
 
     @NestedConfigurationProperty
     TypographyProperties typography;

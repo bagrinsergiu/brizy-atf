@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties.spacer;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
-import com.brizy.io.web.common.dto.element.properties.common.settings.SettingsProperties;
+import com.brizy.io.web.common.dto.element.properties.common.settings.pop_up.SettingsWithHeightProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,6 +12,6 @@ import lombok.experimental.FieldDefaults;
 @Data
 public class SpacerProperties implements Property {
 
-    SettingsProperties settings;
+    SettingsWithHeightProperties settings;
 
 }

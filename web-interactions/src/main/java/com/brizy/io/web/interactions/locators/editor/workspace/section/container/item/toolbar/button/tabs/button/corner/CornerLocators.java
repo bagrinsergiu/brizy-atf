@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.corner;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.corner.custom.CustomProperties;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.corner.custom.CustomLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,9 +13,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class CornerLocators extends AbstractProperty {
+public class CornerLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
-    CustomProperties custom;
+    CustomLocators custom;
 
 }

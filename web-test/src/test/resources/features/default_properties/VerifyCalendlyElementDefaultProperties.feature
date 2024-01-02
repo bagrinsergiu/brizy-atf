@@ -33,3 +33,4 @@ Feature: Editor Page - Adding a Calendly Element
     Examples:
       | tabToOpen | toolbarItem | name       | sectionName | displayedConfigurations |
       | Calendly  | Calendly    | CALENDLY_1 | SECTION_1   | Link                    |
+      | Settings  | Settings    | CALENDLY_1 | SECTION_1   | Width, Height           |

@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.CustomSize;
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.Size;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskLocators;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -17,7 +17,7 @@ public class Custom extends AbstractFitSize {
 
     Supplier<SizeInput> size;
 
-    public Custom(MaskProperties mask, Frame frame) {
+    public Custom(MaskLocators mask, Frame frame) {
         super(mask, frame);
         this.size = () -> new SizeInput(mask.getSize(), frame);
     }

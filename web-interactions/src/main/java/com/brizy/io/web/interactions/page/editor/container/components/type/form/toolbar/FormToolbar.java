@@ -4,7 +4,7 @@ import com.brizy.io.web.common.dto.element.properties.form.FormProperties;
 import com.brizy.io.web.common.dto.element.properties.form.field.type.FieldsProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.item_mover.ItemMover;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.type.AbstractField;
@@ -17,7 +17,7 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-public abstract class FormToolbar<T extends FieldsProperties> extends ComponentToolbar<FormProperties> {
+public abstract class FormToolbar<T extends FieldsProperties> extends Toolbar<FormProperties> {
 
     Supplier<Button> fieldButton;
     Supplier<Typography> typography;

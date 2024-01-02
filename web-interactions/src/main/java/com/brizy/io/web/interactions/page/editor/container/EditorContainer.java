@@ -4,7 +4,7 @@ import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.EditorSidebarElement;
-import com.brizy.io.web.interactions.locators.editor.EditorFrameProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorFrameLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.ComponentWithContent;
 import com.microsoft.playwright.Frame;
@@ -33,7 +33,7 @@ public class EditorContainer {
     Page page;
     com.microsoft.playwright.Page mainPage;
 
-    public EditorContainer(EditorFrameProperties properties, com.microsoft.playwright.Page page) {
+    public EditorContainer(EditorFrameLocators properties, com.microsoft.playwright.Page page) {
         this.frame = getFrameFromThePage(page, properties.getName());
         this.page = new Page(properties.getWorkspace(), frame);
         this.addButton = () -> new Button(frame.locator(properties.getAddButton()));

@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.sidebar;
 
 import com.brizy.io.web.interactions.element.Button;
-import com.brizy.io.web.interactions.locators.editor.EditorSidebarProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorSidebarLocators;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -14,7 +14,7 @@ public class EditorSidebar {
     Supplier<Button> addItems;
     EditorSidebarContent content;
 
-    public EditorSidebar(EditorSidebarProperties sidebarProperties, Page page) {
+    public EditorSidebar(EditorSidebarLocators sidebarProperties, Page page) {
         this.addItems = () -> new Button(page.locator(sidebarProperties.getAddItems().getSelf()));
         this.content = new EditorSidebarContent(sidebarProperties.getAddItems().getContent().getMain(), page);
     }

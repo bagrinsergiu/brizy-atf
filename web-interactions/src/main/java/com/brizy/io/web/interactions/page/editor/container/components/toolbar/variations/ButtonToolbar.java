@@ -3,13 +3,13 @@ package com.brizy.io.web.interactions.page.editor.container.components.toolbar.v
 import com.brizy.io.web.common.dto.element.properties.button.ButtonProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.link.Link;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.settings.SettingsScrollbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.settings.scrollbar.SettingsScrollbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.colors.Colors;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
 import com.microsoft.playwright.Frame;
 import io.vavr.API;
 import lombok.AccessLevel;
@@ -23,7 +23,7 @@ import static io.vavr.API.$;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @FieldNameConstants
-public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
+public class ButtonToolbar extends Toolbar<ButtonProperties> {
 
     Supplier<com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.Button> buttonItem;
     Supplier<Typography> typography;
@@ -69,7 +69,6 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
             align.get().setValue(properties.getAlign());
         }
         if (Objects.nonNull(properties.getSettings())) {
-            openSettings();
             settings.get().applyProperties(properties.getSettings());
         }
     }
@@ -83,7 +82,6 @@ public class ButtonToolbar extends ComponentToolbar<ButtonProperties> {
                 .colors(colors.get().getProperties())
                 .link(link.get().getProperties())
                 .build();
-        openSettings();
         properties = properties.toBuilder()
                 .settings(settings.get().getProperties())
                 .build();

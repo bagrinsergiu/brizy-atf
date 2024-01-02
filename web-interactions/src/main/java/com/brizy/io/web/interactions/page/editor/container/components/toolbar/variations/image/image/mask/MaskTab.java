@@ -7,7 +7,7 @@ import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.Non
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.shape.Shape;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.shape.CustomShape;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.shape.PredefinedShape;
@@ -28,7 +28,7 @@ public class MaskTab extends AbstractTabItem {
     Supplier<CustomShape> customShape;
     Supplier<PredefinedShape> predefinedShape;
 
-    public MaskTab(MaskProperties mask, Frame frame) {
+    public MaskTab(MaskLocators mask, Frame frame) {
         super(mask.getConfigurations(), mask.getSelf(), frame);
         this.shape = () -> new ComboBox(frame.locator(mask.getShape()));
         this.customShape = () -> new CustomShape(mask, frame);

@@ -2,7 +2,7 @@ package com.brizy.io.web.interactions.page.editor.pop_up;
 
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.exception.TabNotFoundException;
-import com.brizy.io.web.interactions.locators.editor.pop_up.EditorPopUpMenuHeaderProperties;
+import com.brizy.io.web.interactions.locators.editor.pop_up.EditorPopUpMenuHeaderLocators;
 import com.brizy.io.web.interactions.locators.editor.pop_up.EditorPopUpMenuHeaderTabsProperties;
 import com.microsoft.playwright.Page;
 import lombok.AccessLevel;
@@ -18,7 +18,7 @@ public class EditorPopUpMenuHeader {
     Supplier<List<Tab>> headerTabs;
     Supplier<TextInput> search;
 
-    public EditorPopUpMenuHeader(EditorPopUpMenuHeaderProperties headerProperties, Page page) {
+    public EditorPopUpMenuHeader(EditorPopUpMenuHeaderLocators headerProperties, Page page) {
         this.headerTabs = () -> initTabs(headerProperties.getTabs(), page);
         this.search = () -> new TextInput(page.locator(headerProperties.getSearch()));
     }

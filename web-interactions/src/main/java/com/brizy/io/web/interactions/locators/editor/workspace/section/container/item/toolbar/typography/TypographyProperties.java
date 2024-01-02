@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.fonts.FontsProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.StylesProperties;
 import lombok.AccessLevel;
@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class TypographyProperties extends AbstractProperty {
+public class TypographyProperties extends AbstractLocator {
 
     @NestedConfigurationProperty
     FontsProperties fonts;

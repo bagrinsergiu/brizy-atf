@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.population.PopulationLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class InputWithPopulationLocators extends AbstractProperty {
+public class InputWithPopulationLocators extends AbstractLocator {
 
     String value;
     @NestedConfigurationProperty

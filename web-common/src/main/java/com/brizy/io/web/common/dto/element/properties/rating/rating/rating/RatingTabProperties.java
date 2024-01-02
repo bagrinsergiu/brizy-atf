@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties.rating.rating.rating;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
-import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithUnitsProperties;
 import com.brizy.io.web.common.dto.element.properties.rating.rating.rating.enums.LabelPositions;
 import com.brizy.io.web.common.dto.element.properties.rating.rating.rating.enums.RatingStyles;
 import lombok.*;

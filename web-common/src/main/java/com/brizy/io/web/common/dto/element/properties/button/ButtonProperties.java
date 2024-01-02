@@ -2,8 +2,8 @@ package com.brizy.io.web.common.dto.element.properties.button;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.common.dto.element.properties.button.link.LinkProperties;
-import com.brizy.io.web.common.dto.element.properties.common.settings.settings.SettingsProperties;
 import com.brizy.io.web.common.dto.element.properties.common.align.Alignments;
+import com.brizy.io.web.common.dto.element.properties.common.settings.scrollbar.SettingsProperties;
 import com.brizy.io.web.common.dto.element.properties.common.typography.Typography;
 import com.brizy.io.web.common.dto.element.properties.image.colors.ImageColors;
 import lombok.AccessLevel;

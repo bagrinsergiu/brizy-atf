@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.publish.section.container.item;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.PublishedFormLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class PublishedItemLocators extends AbstractProperty {
+public class PublishedItemLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     PublishedFormLocators form;

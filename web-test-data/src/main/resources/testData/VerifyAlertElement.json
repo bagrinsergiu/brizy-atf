@@ -13,7 +13,13 @@
           }
         }
       },
-      "align": "RIGHT"
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 781,
+          "unit": "PIXEL"
+        }
+      }
     },
     "content": [
       {

@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.common.dto.element.properties.common.DropdownWithPopulationProperties;
-import com.brizy.io.web.common.dto.element.properties.common.PopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.DropdownWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.PopulationProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;

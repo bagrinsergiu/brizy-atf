@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.tabs;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.tabs.advanced.AdvancedTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.tabs.appearance.AppearanceTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.tabs.audio.AudioTabLocators;
@@ -17,7 +17,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class AudioTabsLocators extends AbstractProperty {
+public class AudioTabsLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     AudioTabLocators audio;

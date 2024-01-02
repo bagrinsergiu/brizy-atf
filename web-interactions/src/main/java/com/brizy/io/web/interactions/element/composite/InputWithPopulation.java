@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
-import com.brizy.io.web.common.dto.element.properties.common.PopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.PopulationProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.TextInput;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithPopulationLocators;

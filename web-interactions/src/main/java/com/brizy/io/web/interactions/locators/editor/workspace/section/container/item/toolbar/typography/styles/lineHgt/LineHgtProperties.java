@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.lineHgt;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.styles.common.ValueProperties;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class LineHgtProperties extends AbstractProperty {
+public class LineHgtProperties extends AbstractLocator {
 
     @NestedConfigurationProperty
     ValueProperties value;

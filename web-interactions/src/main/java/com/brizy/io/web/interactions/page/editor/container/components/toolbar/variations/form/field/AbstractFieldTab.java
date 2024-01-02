@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.form.field;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithUnitsProperties;
 import com.brizy.io.web.common.dto.element.properties.form.field.type.AbstractFieldProperty;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.composite.InputWithUnits;

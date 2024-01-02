@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.editor.container.components;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.microsoft.playwright.Locator;
 
 public class EmptyContainer extends Component<Property> {
@@ -17,7 +17,7 @@ public class EmptyContainer extends Component<Property> {
     }
 
     @Override
-    protected ComponentToolbar<Property> getToolbar() {
+    protected Toolbar<Property> getToolbar() {
 //        Intentionally left null, shouldn't get it
         return null;
     }

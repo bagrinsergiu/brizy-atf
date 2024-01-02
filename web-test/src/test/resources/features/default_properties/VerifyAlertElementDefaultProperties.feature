@@ -34,6 +34,15 @@ Feature: Editor Page - Adding a Alert Element
       | tabToOpen | toolbarItem | name    | sectionName | displayedConfigurations                          |
       | Alert     | Alert       | ALERT_1 | SECTION_1   | Display Close Button, Delay, Display Description |
 
+  Scenario Outline: Add alert element and validate default configurations
+    And add the item to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    Then the following configurations should be displayed: <displayedConfigurations>
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName | displayedConfigurations |
+      | Settings  | Settings    | ALERT_1 | SECTION_1   | Width                   |
+
   Scenario Outline: Add alert element and validate default configurations no close button
     When prepare elements properties from the 'VerifyAlertElement.json' file
     And add the item to the page

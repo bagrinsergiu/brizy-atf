@@ -1,8 +1,8 @@
 package com.brizy.io.web.common.dto.element.properties.rating.rating.icons;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
 import com.brizy.io.web.common.dto.element.properties.common.icon.picker.IconPickerProperties;
 import com.brizy.io.web.common.dto.element.properties.common.icon.size.Size;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithUnitsProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

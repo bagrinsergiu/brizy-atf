@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.tabs;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.tabs.advanced.AdvancedLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.tabs.timer.TimerLocators;
 import lombok.AccessLevel;
@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class CountdownTabsLocators extends AbstractProperty {
+public class CountdownTabsLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     TimerLocators timer;

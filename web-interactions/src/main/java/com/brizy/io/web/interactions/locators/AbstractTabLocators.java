@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Data
-public abstract class AbstractTabLocators extends AbstractProperty {
+public abstract class AbstractTabLocators extends AbstractLocator {
 
     String configurations;
 
