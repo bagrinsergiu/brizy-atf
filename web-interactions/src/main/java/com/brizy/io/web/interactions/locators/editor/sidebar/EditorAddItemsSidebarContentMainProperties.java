@@ -33,6 +33,7 @@ public class EditorAddItemsSidebarContentMainProperties {
     String counter;
     String countdown2;
     String progressBar;
+    String calendly;
     String tabs;
     String accordion;
     String postTitle;

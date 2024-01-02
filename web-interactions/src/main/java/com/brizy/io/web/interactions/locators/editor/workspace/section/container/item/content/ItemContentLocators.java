@@ -2,6 +2,7 @@ package com.brizy.io.web.interactions.locators.editor.workspace.section.containe
 
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.alert.AlertContentLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.playlist.PlaylistContentLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.content.progress_bar.ProgressBarContentLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,5 +20,7 @@ public class ItemContentLocators {
     PlaylistContentLocators playlist;
     @NestedConfigurationProperty
     AlertContentLocators alert;
+    @NestedConfigurationProperty
+    ProgressBarContentLocators progress;
 
 }

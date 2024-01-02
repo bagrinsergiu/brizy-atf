@@ -12,6 +12,7 @@ public enum ComponentClassNames {
     AUDIO("brz-soundcloud"),
     ALERT("brz-alert"),
     BUTTON("brz-btn"),
+    CALENDLY("brz-calendly"),
     COUNTER("brz-counter"),
     COUNTDOWN("brz-countdown2"),
     FORM("brz-forms2"),

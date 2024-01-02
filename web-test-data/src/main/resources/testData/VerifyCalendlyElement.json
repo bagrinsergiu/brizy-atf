@@ -1,0 +1,21 @@
+[
+  {
+    "scenarioName": "Add calendly element and validate default properties",
+    "itemName": "CALENDLY_1",
+    "elementType": "calendly",
+    "properties": {
+      "calendly": {
+        "calendly": {
+          "link": "https://calendly.com/calendly-demo-test/30min"
+        },
+        "align": "RIGHT",
+        "settings": {
+          "size": {
+            "value": 40,
+            "unit": "px"
+          }
+        }
+      }
+    }
+  }
+]

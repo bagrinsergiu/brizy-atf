@@ -821,6 +821,14 @@ pages:
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       title: //span[text()='Title']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
                       percentage: //span[text()='Percentage']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                calendly:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Calendly']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    calendly:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Calendly']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      link: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
                 countdown:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Countdown']
                   tabs:
@@ -923,6 +931,9 @@ pages:
                   title: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-title')]
                   description: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-description')]
                   close: ${pages.editor.frame.workspace.section.container.item.content.alert.self}//span[contains(@class,'alert-close')]
+                progress:
+                  self: //div[contains(@class,'brz-ed-box__resizer')]
+                  title: ${pages.editor.frame.workspace.section.container.item.content.progress.self}//span[contains(@class,'brz-progress-bar__text')]
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
@@ -971,6 +982,7 @@ pages:
             counter: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='counter']
             countdown2: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='countdown2']
             progressBar: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='progressBar']
+            calendly: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='Calendly']
             tabs: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='tabs']
             accordion: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='accordion']
             postTitle: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='PostTitle']
