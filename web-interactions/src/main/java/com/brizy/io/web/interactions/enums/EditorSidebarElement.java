@@ -7,6 +7,7 @@ public enum EditorSidebarElement {
     ASSETS_POSTS,
     AUDIO,
     BUTTON,
+    CALENDLY,
     COLUMNS,
     COUNTDOWN,
     COUNTER,

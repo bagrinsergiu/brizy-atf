@@ -6,7 +6,7 @@
     "properties": {
       "progress": {
         "progress": {
-          "style": "STYLE_2",
+          "style": "STYLE_1",
           "fill": {
             "value": "22",
             "population": {
@@ -23,7 +23,12 @@
           "unit": "px"
         }
       }
-    }
+    },
+    "content": [
+      {
+        "title": "Progress Title"
+      }
+    ]
   },
   {
     "scenarioName": "Add progress bar element and validate no title style configurations",

@@ -25,6 +25,7 @@ public class EditorSidebarContent {
             put(ASSETS_POSTS, () -> new Div(page.locator(main.getAssetsPost())));
             put(AUDIO, () -> new Div(page.locator(main.getAudio())));
             put(BUTTON, () -> new Div(page.locator(main.getButton())));
+            put(CALENDLY, () -> new Div(page.locator(main.getCalendly())));
             put(COLUMNS, () -> new Div(page.locator(main.getColumns())));
             put(COUNTDOWN, () -> new Div(page.locator(main.getCountdown2())));
             put(COUNTER, () -> new Div(page.locator(main.getCounter())));

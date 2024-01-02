@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "elementType")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Button.class, name = "button"),
+        @JsonSubTypes.Type(value = Calendly.class, name = "calendly"),
         @JsonSubTypes.Type(value = Counter.class, name = "counter"),
         @JsonSubTypes.Type(value = Countdown.class, name = "countdown"),
         @JsonSubTypes.Type(value = Icon.class, name = "icon"),
