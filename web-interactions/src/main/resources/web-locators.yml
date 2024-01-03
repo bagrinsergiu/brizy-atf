@@ -82,27 +82,27 @@ pages:
                     background:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Background']
-                      size: //div[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      size: //div[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                     field:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Field']
-                      type: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Type']]//div[@role='combobox']
-                      required: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      multipleSelection: //span[text()='Multiple Selection']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      nativeHtml5: //span[text()='Native HTML5']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      minNumberErrorMessage: //span[text()='Min number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      maxNumberErrorMessage: //span[text()='Max number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      min: //span[text()='Min']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      max: //span[text()='Max']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      minDate: //span[text()='Min Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      maxDate: //span[text()='Max Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      minTime: //span[text()='Min Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      maxTime: //span[text()='Max Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      columns: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Columns']]//div[@role='combobox']
-                      fileSizeErrorMessage: //span[text()='File size error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      fileTypeErrorMessage: //span[text()='File type error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
-                      maxFileSize: //div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Max. File Size']]//div[@role='combobox']
-                      allowedFileTypes: //span[text()='Allowed File Types']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      type: //div[contains(@class,'brz-ed-option-type__select') and .//span[text()='Type']]//div[@role='combobox']
+                      required: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      multipleSelection: //span[text()='Multiple Selection']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      nativeHtml5: //span[text()='Native HTML5']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      minNumberErrorMessage: //span[text()='Min number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      maxNumberErrorMessage: //span[text()='Max number error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      min: //span[text()='Min']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      max: //span[text()='Max']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      minDate: //span[text()='Min Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      maxDate: //span[text()='Max Date']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      minTime: //span[text()='Min Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      maxTime: //span[text()='Max Time']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      columns: //div[contains(@class,'brz-ed-option-type__select') and .//span[text()='Columns']]//div[@role='combobox']
+                      fileSizeErrorMessage: //span[text()='File size error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      fileTypeErrorMessage: //span[text()='File type error message']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
+                      maxFileSize: //div[contains(@class,'brz-ed-option-type__select') and .//span[text()='Max. File Size']]//div[@role='combobox']
+                      allowedFileTypes: //span[text()='Allowed File Types']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
                       checkBox:
                         item:
                           self: //div[contains(@class,'brz-control__check-group-option')]
@@ -132,14 +132,14 @@ pages:
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.radio.newItem.self}//input
                           addButton: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.radio.newItem.self}//div[contains(@class,'brz-forms2__radio-option-icon')]
                       spacing:
-                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Spacing']]
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.spacing.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.field.tabs.field.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                     advanced:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: //span[text()='Advanced']
-                      label: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      placeholder: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      label: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      placeholder: //span[text()='Required']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                 typography:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Typography']
                   fonts:
@@ -234,7 +234,7 @@ pages:
                         self: //div[contains(@class,'brz-ed-control__tabs-wrapper') and //span[text()='Basic']]
                         tab: //span[text()='Basic' and ancestor::li]
                         padding:
-                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Padding']/ancestor::div[contains(@class,'brz-ed-option-type__padding-dev')]
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Padding']/ancestor::div[contains(@class,'brz-ed-option-type__padding')]
                           items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
                           spacing:
                             all:
@@ -259,7 +259,7 @@ pages:
                                 unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.left.self}//div[@role='combobox']
                                 value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.padding.spacing.individual.left.self}//input[@type='range']
                         margin:
-                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Margin']/ancestor::div[contains(@class,'brz-ed-option-type__margin-dev')]
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Margin']/ancestor::div[contains(@class,'brz-ed-option-type__margin')]
                           items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
                           spacing:
                             all:
@@ -284,23 +284,23 @@ pages:
                                 unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.left.self}//div[@role='combobox']
                                 value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.margin.spacing.individual.left.self}//input[@type='range']
                         positionGroup:
-                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__group')]
                           position:
-                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//div[contains(@class,'brz-ed-option-type__select-dev') and .//span[text()='Position']]//div[@role='combobox']
+                            self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.self}//div[contains(@class,'brz-ed-option-type__select') and .//span[text()='Position']]//div[@role='combobox']
                             item: //li[contains(@class,'brz-ed-control__multiSelect__option')]
                             width:
-                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.self}//span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.self}//span[text()='Width']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                               unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.width.self}//div[@role='combobox']
                               value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.width.self}//input[@type='range']
                             horizontalOffset:
-                              self: //span[text()='Horizontal Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]
+                              self: //span[text()='Horizontal Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]
                               items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffset.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
                             horizontalOffsetValue:
                               self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffset.self}/following-sibling::div[1]
                               unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffsetValue.self}//div[@role='combobox']
                               value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.horizontalOffsetValue.self}//input[@type='range']
                             verticalOffset:
-                              self: //span[text()='Vertical Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]
+                              self: //span[text()='Vertical Offset']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]
                               items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffset.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
                             verticalOffsetValue:
                               self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.basic.positionGroup.position.verticalOffset.self}/following-sibling::div
@@ -309,21 +309,21 @@ pages:
                       advanced:
                         self: //span[text()='Advanced' and ancestor::li]
                         showOnDesktop: //span[text()='Show on Desktop']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]//div[contains(@class,'brz-ed-control__switch')]
-                        zIndex: //span[text()='Z‑index']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='range']
+                        zIndex: //span[text()='Z‑index']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]//input[@type='range']
                         cssId:
-                          self: //span[text()='CSS ID']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          self: //span[text()='CSS ID']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssId.self}//input
                           population:
                             self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssId.self}//div[contains(@class,'brz-control__select-current__icon')]
                             items: //div[contains(@class,'brz-control__select-option') and @title]
                         cssClass:
-                          self: //span[text()='CSS Class']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          self: //span[text()='CSS Class']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssClass.self}//input
                           population:
                             self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.cssClass.self}//div[contains(@class,'brz-control__select-current__icon')]
                             items: //div[contains(@class,'brz-control__select-option') and @title]
                         customAttribute:
-                          self: //span[text()='Custom Attributes']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                          self: //span[text()='Custom Attributes']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//input
                           population:
                             self: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customAttribute.self}//div[contains(@class,'brz-control__select-current__icon')]
@@ -331,7 +331,7 @@ pages:
                         customCss:
                           self: //span[text()='Custom CSS']/ancestor::div
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.styling.advanced.customCss.self}//input
-                        hoverTransition: //span[text()='Hover Transition']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='range']
+                        hoverTransition: //span[text()='Hover Transition']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]//input[@type='range']
                     effects:
                       self: //span[text()='Effects' and ancestor::li]
                       tabContent: //div[contains(@class,'brz-ed-control__tab__content')]
@@ -381,15 +381,15 @@ pages:
                     align: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'Align' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                     unlock: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'lock' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                   width:
-                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Width']]
+                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Width']]
                     value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//input[@type='range']
                     unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//div[@role='combobox']
                   height:
-                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Height']]
+                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
                     value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//input[@type='range']
                     unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//div[@role='combobox']
                   size:
-                    self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Size']]
+                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Size']]
                     value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//input[@type='range']
                     unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 counter:
@@ -399,37 +399,37 @@ pages:
                     counter:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Counter']
-                      style: //div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      style: //div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       start:
-                        self: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.start.self}//input[@type='number']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.start.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       end:
-                        self: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.end.self}//input[@type='number']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.counter.end.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
-                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]//input[@type='number']
+                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]//input[@type='number']
                     advanced:
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.self}//span[text()='Advanced']
                       prefix:
-                        self: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Prefix']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.prefix.self}//input[@type='text']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.prefix.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       suffix:
-                        self: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Suffix']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.suffix.self}//input[@type='text']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.suffix.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       separator:
-                        self: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Separator']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.separator.self}//input[@type='text']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.counter.tabs.advanced.separator.self}//div[contains(@class,'brz-control__select-current__icon')]
@@ -442,29 +442,29 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.self}//span[text()='Button']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       size:
-                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group')]
                         items: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.self}//div[contains(@class,'brz-ed-control__radio-group2__item')]
                         custom:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.self}
                           width:
-                            self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Width']]
+                            self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Width']]
                             value: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.custom.width.self}//input[@type='range']
                             unit: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.custom.width.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                           height:
-                            self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Height']]
+                            self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
                             value: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.custom.height.self}//input[@type='range']
                             unit: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.size.custom.height.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
-                      fill: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      fill: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       corner:
-                        self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
                         custom:
-                          self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__group')]
                           radiusValue: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.button.corner.custom.self}//input[@type='range']
                     icon:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.self}//span[text()='Icon']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       icon:
-                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter')]
                         picker:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
                           popUp:
@@ -480,14 +480,14 @@ pages:
                               items: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.popUp.grid.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
                               item: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
-                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       size:
-                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                         custom:
-                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-option-type__group')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.size.custom.self}//input[@type='range']
                       spacing:
-                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Spacing']]
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.spacing.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 icon:
@@ -498,20 +498,20 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.self}//span[text()='Background']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       size:
-                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Size']]
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Size']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.size.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
-                      fill: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      fill: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       corner:
-                        self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
                         custom:
-                          self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__group-dev')]
+                          self: //span[text()='Corner']/ancestor::div[contains(@class,'brz-ed-option-type__group')]
                           radiusValue: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.background.corner.custom.self}//input[@type='range']
                     icon:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.self}//span[text()='Icon']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       icon:
-                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter')]
                         picker:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
                           popUp:
@@ -548,14 +548,14 @@ pages:
                     mask:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.self}//span[text()='Mask']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      shape: //span[text()='Shape']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      shape: //span[text()='Shape']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       size:
                         common: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
-                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__slider-dev')]//div[@role='combobox']
+                        self: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//div[contains(@class,'brz-ed-option-type__slider')]//div[@role='combobox']
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.mask.size.common}//input[@type='range']
-                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      repeat: //span[text()='Repeat']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      repeat: //span[text()='Repeat']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       image:
                         self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
@@ -567,16 +567,16 @@ pages:
                     video:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.self}//span[text()='Video']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      type: //span[text()='Type']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      ratio: //span[text()='Ratio']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      type: //span[text()='Type']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      ratio: //span[text()='Ratio']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       file:
-                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
-                      url: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      url: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
                       link:
-                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.video.link.self}//div[contains(@class,'brz-control__select-current__icon')]
@@ -584,26 +584,26 @@ pages:
                     advanced:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Advanced']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      intro: //span[text()='Intro']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
-                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      intro: //span[text()='Intro']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number')]//input[@type='number']
+                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number')]//input[@type='number']
                     playback:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Playback']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      muted: //span[text()='Muted']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      suggestedVideos: //span[text()='Suggested Videos']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
-                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number-dev')]//input[@type='number']
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      muted: //span[text()='Muted']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      suggestedVideos: //span[text()='Suggested Videos']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      start: //span[text()='Start']/ancestor::div[contains(@class,'brz-ed-option-type__number')]//input[@type='number']
+                      end: //span[text()='End']/ancestor::div[contains(@class,'brz-ed-option-type__number')]//input[@type='number']
                     cover:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Cover']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       coverImage:
-                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.cover.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
@@ -611,14 +611,14 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Player']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       coverImage:
-                        self: //span[text()='Cover Image']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        self: //span[text()='Cover Image']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.video.tabs.player.coverImage.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
-                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      lazyLoad: //span[text()='Lazy Load']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      privacyMode: //span[text()='Privacy Mode']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      controls: //span[text()='Controls']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      branding: //span[text()='Branding']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      lazyLoad: //span[text()='Lazy Load']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      privacyMode: //span[text()='Privacy Mode']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                 playlist:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Playlist']
                   tabs:
@@ -626,10 +626,10 @@ pages:
                     playlist:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.self}//div[@title='Playlist']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      thumbs: //span[text()='Thumbs']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      position: //span[text()='Position']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      thumbs: //span[text()='Thumbs']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       columns:
-                        self: //div[contains(@class,'brz-ed-option-type__slider-dev') and .//span[text()='Columns']]
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Columns']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 lottie:
@@ -639,18 +639,18 @@ pages:
                     lottie:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.self}//div[@title='Lottie']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      lottieLink: //span[text()='Lottie Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      lottieLink: //span[text()='Lottie Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
                       lottieFile:
-                        self: //span[text()='Lottie File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        self: //span[text()='Lottie File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//div[contains(@class,'brz-ed-control__file-upload__wrapper')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.lottieFile.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
-                      renderer: //span[text()='Renderer']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      reverse: //span[text()='Reverse']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      renderer: //span[text()='Renderer']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      reverse: //span[text()='Reverse']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Loop']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                       speed:
-                        self: //span[text()='Speed']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Speed']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//input[@type='number']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.lottie.speed.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 rating:
@@ -660,15 +660,15 @@ pages:
                     rating:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[text()='Rating']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      ratingScale: //span[text()='Rating scale']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
-                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
-                      label: //span[text()='Label']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      ratingScale: //span[text()='Rating scale']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      label: //span[text()='Label']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       spacing:
-                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.spacing.self}//input[@type='number']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                       rating:
-                        self: //span[text()='Rating']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Rating']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.rating.self}//input[@type='number']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.rating.rating.self}//div[contains(@class,'brz-control__select-current__icon')]
@@ -677,7 +677,7 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[contains(text(),'Icon')]
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       icon:
-                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter')]
                         picker:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
                           popUp:
@@ -699,14 +699,14 @@ pages:
                           self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
                           value: ${pages.editor.frame.workspace.section.container.item.toolbar.icon.tabs.icon.size.custom.self}//input[@type='range']
                       spacing:
-                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Spacing']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.spacing.self}//input[@type='number']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icons.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                     icon:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.self}//span[text()='Icon']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       icon:
-                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter-dev')]
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter')]
                         picker:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.rating.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
                           popUp:
@@ -734,10 +734,10 @@ pages:
                     alert:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Alert']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      displayCloseButton: //span[text()='Display Close Button']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      displayDescription: //span[text()='Display Description']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      displayCloseButton: //span[text()='Display Close Button']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      displayDescription: //span[text()='Display Description']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                       delay:
-                        self: //span[text()='Delay']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Delay']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 gap:
@@ -746,7 +746,7 @@ pages:
                     self: //div[contains(@class,'brz-ed-toolbar')]
                     gap:
                       gap:
-                        self: //span[text()='Gap']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Gap']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//input[@type='number']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 audio:
@@ -757,54 +757,54 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Audio']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       file:
-                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload-dev')]
+                        self: //span[text()='File']/ancestor::div[contains(@class,'brz-ed-option-type__fileUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.file.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
-                      audio: //span[text()='Audio']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      audio: //span[text()='Audio']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       icons: //div[text()='Icons']/ancestor::div[contains(@class,'brz-ed-option__radio-group')]//div[contains(@class,'brz-control__radio-option')]//div
-                      loop: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      loop: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                       link:
-                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.link.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.audio.link.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       style: //div[text()='Style']/ancestor::div[contains(@class,'brz-ed-option__radio-group')]//div[contains(@class,'brz-control__radio-option')]
-                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                     appearance:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Appearance']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      artwork: //span[text()='Artwork']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      comments: //span[text()='Comments']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      playCounts: //span[text()='Play Counts']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      username: //span[text()='Username']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      artwork: //span[text()='Artwork']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      comments: //span[text()='Comments']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      playCounts: //span[text()='Play Counts']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      username: //span[text()='Username']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                     cover:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Cover']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       cover:
-                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload-dev')]
+                        self: //span[text()='Cover']/ancestor::div[contains(@class,'brz-ed-option-type__imageUpload')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
                         fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.cover.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
                       zoom:
-                        self: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-type__slider-dev')]
+                        self: //span[text()='Zoom']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.zoom.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.cover.zoom.self}//input[@type='number']
                     advanced:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Advanced']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      time: //span[text()='Time']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      progress: //span[text()='Progress']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      volume: //span[text()='Volume']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      time: //span[text()='Time']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      duration: //span[text()='Duration']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      progress: //span[text()='Progress']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      volume: //span[text()='Volume']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                     buttons:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.audio.tabs.self}//span[text()='Buttons']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      like: //span[text()='Like']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      buy: //span[text()='Buy']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      download: //span[text()='Download']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      share: //span[text()='Share']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      like: //span[text()='Like']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      buy: //span[text()='Buy']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      download: //span[text()='Download']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      share: //span[text()='Share']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                 progress:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Progress']
                   tabs:
@@ -812,15 +812,15 @@ pages:
                     progress:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Progress']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       fill:
-                        self: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Fill']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.progress.tabs.progress.fill.self}//input[@type='number']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.progress.tabs.progress.fill.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
-                      title: //span[text()='Title']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      percentage: //span[text()='Percentage']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      title: //span[text()='Title']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      percentage: //span[text()='Percentage']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                 calendly:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Calendly']
                   tabs:
@@ -828,7 +828,7 @@ pages:
                     calendly:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.self}//div[@title='Calendly']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      link: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText-dev')]//input
+                      link: //span[text()='Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
                 countdown:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Countdown']
                   tabs:
@@ -836,26 +836,26 @@ pages:
                     timer:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Timer']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      style: //span[text()='Styles']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup-dev')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      style: //span[text()='Styles']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
                       date:
-                        self: //span[text()='Date']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Date']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.date.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.date.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       hour:
-                        self: //span[text()='Hour']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Hour']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.hour.self}//div[@role='combobox']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.hour.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
                       minutes:
-                        self: //span[text()='Minutes']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Minutes']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.minutes.self}//div[@role='combobox']
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.countdown.tabs.timer.minutes.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
-                      timeZone: //span[text()='Time Zone']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      timeZone: //span[text()='Time Zone']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                     advanced:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Advanced']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
@@ -871,13 +871,13 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='URL']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       linkTo:
-                        self: //span[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Link to']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.url.linkTo.self}//div[contains(@class,'brz-control__select-current__icon')]
                           items: //div[contains(@class,'brz-control__select-option') and @title]
-                      openInNewTab: //span[text()='Open In New Tab']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
-                      makeItNoFollow: //span[text()='Make it Nofollow']/ancestor::div[contains(@class,'brz-ed-option-type__switch-dev')]//div[contains(@class,' brz-ed-control__switch')]
+                      openInNewTab: //span[text()='Open In New Tab']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      makeItNoFollow: //span[text()='Make it Nofollow']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
                     block:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Block']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
@@ -902,9 +902,9 @@ pages:
                     action:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Action']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
-                      whenFinished: //span[text()='When Finished']/ancestor::div[contains(@class,'brz-ed-option-type__select-dev')]//div[@role='combobox']
+                      whenFinished: //span[text()='When Finished']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                       message:
-                        self: //span[text()='Message']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='Message']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.action.message.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.action.message.self}//div[contains(@class,'brz-control__select-current__icon')]
@@ -913,7 +913,7 @@ pages:
                       self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.self}//span[text()='Redirect']
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       url:
-                        self: //span[text()='URL']/ancestor::div[contains(@class,'brz-ed-option-type__population-dev')]
+                        self: //span[text()='URL']/ancestor::div[contains(@class,'brz-ed-option-type__population')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.redirect.url.self}//input
                         population:
                           self: ${pages.editor.frame.workspace.section.container.item.toolbar.link.tabs.redirect.url.self}//div[contains(@class,'brz-control__select-current__icon')]
