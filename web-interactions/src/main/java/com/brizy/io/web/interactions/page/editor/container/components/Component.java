@@ -8,7 +8,7 @@ import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.context_menu.ContextMenu;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.BoundingBox;
@@ -48,7 +48,7 @@ public abstract class Component<T extends Property> extends GenericComponent {
 
     protected abstract T getEditorProperties();
 
-    protected abstract ComponentToolbar<T> getToolbar();
+    protected abstract Toolbar<T> getToolbar();
 
     protected ElementPositionDto getPosition() {
         return ElementPositionDto.builder()
@@ -77,14 +77,14 @@ public abstract class Component<T extends Property> extends GenericComponent {
         componentLocator.click();
     }
 
-    private ComponentToolbar<T> openAndGetToolbar() {
+    private Toolbar<T> openAndGetToolbar() {
         componentLocator.hover();
         openToolbar();
         return getToolbar();
     }
 
     //    TODO check if it will work with configure method an remove
-    public ComponentToolbar<T> onToolbar() {
+    public Toolbar<T> onToolbar() {
         return openAndGetToolbar();
     }
 

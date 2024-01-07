@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.audio.tabs.cover;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.image.FileUploaderLocators;
 import lombok.AccessLevel;
@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class CoverTabLocators extends AbstractProperty {
+public class CoverTabLocators extends AbstractLocator {
 
     String configurations;
     @NestedConfigurationProperty

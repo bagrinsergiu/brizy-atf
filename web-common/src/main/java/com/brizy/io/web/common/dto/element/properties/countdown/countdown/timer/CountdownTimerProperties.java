@@ -1,8 +1,8 @@
 package com.brizy.io.web.common.dto.element.properties.countdown.countdown.timer;
 
-import com.brizy.io.web.common.dto.element.properties.common.DropdownWithPopulationProperties;
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
 import com.brizy.io.web.common.dto.element.properties.countdown.enums.CountdownStyles;
+import com.brizy.io.web.common.dto.element.properties.elements.DropdownWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

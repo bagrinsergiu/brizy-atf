@@ -3,17 +3,19 @@ Feature: Editor Page - Adding an Audio Element
   I want to add an audio element
   So that I can see some default properties
 
-  Scenario Outline: Validate negative audio configuration inside audio popup in audio tab
+  Background: Add audio element to the page
     When navigate to home page
     And wait for editor page to load
     When clear the layout
     And open editor pop up
     When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
+    And add section 'SECTION_1' to page
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
+      | item  | position | parent | name    | sectionName |
+      | AUDIO | -        | -      | AUDIO_1 | SECTION_1   |
     And add the item to the page
+
+  Scenario Outline: Validate negative audio configuration inside audio popup in audio tab
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     And upload the file 'github_logo.xcf' to 'file' configuration
     When get alerts displayed on the page
@@ -24,16 +26,6 @@ Feature: Editor Page - Adding an Audio Element
       | Audio     | Audio       | AUDIO_1 | SECTION_1   |
 
   Scenario Outline: Add audio element and validate audio source
-    When navigate to home page
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
-    When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
-    And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     And get text content of 'audio' dropdown
     Then dropdown contains the following values:
@@ -45,16 +37,6 @@ Feature: Editor Page - Adding an Audio Element
       | Audio     | Audio       | AUDIO_1 | SECTION_1   |
 
   Scenario Outline: Add <audioType> audio element and validate <tabToOpen> tab content
-    When navigate to home page
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
-    When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
-    And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     And set '<audioType>' value for 'audio' dropdown
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
@@ -70,16 +52,6 @@ Feature: Editor Page - Adding an Audio Element
 #      | Custom     | Advanced   | Audio       | AUDIO_1 | SECTION_1   | Time, Duration, Progress, Volume         |
 
   Scenario Outline: Add audio element and validate <tabToOpen> tab default content
-    When navigate to home page
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
-    When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
-    And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     When get active item from 'style' radio group
     Then the following item is active: STYLE_1
@@ -93,16 +65,14 @@ Feature: Editor Page - Adding an Audio Element
       | Audio     | Audio       | AUDIO_1 | SECTION_1   |
 
   Scenario Outline: Add audio element and validate <tabToOpen> tab default content
-    When navigate to home page
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
-    When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
-    And add the item to the page
+    When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
+    Then the following configurations should be displayed: <displayedConfigurations>
+
+    Examples:
+      | tabToOpen | toolbarItem | name    | sectionName | displayedConfigurations |
+      | Settings  | Settings    | AUDIO_1 | SECTION_1   | Width, Height           |
+
+  Scenario Outline: Add audio element and validate <tabToOpen> tab default content
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     When get value of the 'artwork' slider
     Then the following state is active: true
@@ -118,16 +88,6 @@ Feature: Editor Page - Adding an Audio Element
       | Appearence | Audio       | AUDIO_1 | SECTION_1   |
 
   Scenario Outline: Add audio element and validate <tabToOpen> tab default content
-    When navigate to home page
-    And wait for editor page to load
-    When clear the layout
-    And open editor pop up
-    When switch to 'Blocks' tab
-    And add section '<sectionName>' to page
-    When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
-      | AUDIO | -        | -      | <name> | <sectionName> |
-    And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     When get value of the 'like' slider
     Then the following state is active: true

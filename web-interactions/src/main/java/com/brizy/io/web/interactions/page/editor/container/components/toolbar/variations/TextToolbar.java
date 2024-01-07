@@ -6,7 +6,7 @@ import com.brizy.io.web.common.dto.element.properties.text.TextProperties;
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.element.composite.EnumerableButton;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.ToolbarLocators;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.IsToolbarItem;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.text.typography.Typography;
 import com.microsoft.playwright.Frame;
@@ -22,7 +22,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @FieldNameConstants
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class TextToolbar extends ComponentToolbar<TextProperties> {
+public class TextToolbar extends Toolbar<TextProperties> {
 
     Supplier<Typography> typography;
     Supplier<EnumerableButton<Alignments>> alignButton;

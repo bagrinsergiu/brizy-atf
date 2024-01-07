@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.corner.CornerLocators;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.size.SizeProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.size.SizeLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,11 +14,11 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ButtonLocators extends AbstractProperty {
+public class ButtonLocators extends AbstractLocator {
 
     String configurations;
     @NestedConfigurationProperty
-    SizeProperties size;
+    SizeLocators size;
     String fill;
     @NestedConfigurationProperty
     CornerLocators corner;

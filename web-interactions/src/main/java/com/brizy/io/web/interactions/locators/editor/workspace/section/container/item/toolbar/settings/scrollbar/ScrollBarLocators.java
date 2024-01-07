@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.effects.EffectsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.scrollbar.tabs.styling.StylingLocators;
 import lombok.AccessLevel;
@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class ScrollBarLocators extends AbstractProperty {
+public class ScrollBarLocators extends AbstractLocator {
 
     String tabs;
     @NestedConfigurationProperty

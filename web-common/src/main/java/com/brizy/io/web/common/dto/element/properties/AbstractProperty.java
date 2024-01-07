@@ -1,7 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties;
 
 import com.brizy.io.web.common.dto.element.properties.common.colors.Colors;
-import com.brizy.io.web.common.dto.element.properties.common.settings.SettingsProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +14,5 @@ import lombok.experimental.FieldDefaults;
 public abstract class AbstractProperty {
 
     Colors colors;
-    SettingsProperties settings;
 
 }

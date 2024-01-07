@@ -1,6 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.counter.defaults;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

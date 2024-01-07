@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.action.ActionTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.block.BlockTabLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.tabs.file.FileTabLocators;
@@ -18,7 +18,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class LinkTabsLocators extends AbstractProperty {
+public class LinkTabsLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     UrlTabLocators url;

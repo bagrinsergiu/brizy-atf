@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor;
 
-import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPageLocators;
 import com.brizy.io.web.interactions.page.AbstractPage;
 import com.brizy.io.web.interactions.page.PageBuilder;
 import com.brizy.io.web.interactions.page.editor.bottom_panel.EditorBottomPanel;
@@ -23,14 +23,14 @@ public class EditorPage extends AbstractPage {
     Supplier<Locator> alertLocators;
     Supplier<Locator> errorLocator;
 
-    public EditorPage(EditorPageProperties editorPageProperties, Page page) {
+    public EditorPage(EditorPageLocators editorPageLocators, Page page) {
         super(page);
-        this.bottomPanel = new EditorBottomPanel(editorPageProperties.getBottomPanel(), page);
-        this.editorPopUpMenu = new EditorPopUpMenu(editorPageProperties.getEditorPopUp(), page);
-        this.alertLocators = () -> page.locator(editorPageProperties.getAlert());
-        this.errorLocator = () -> page.locator(editorPageProperties.getError());
+        this.bottomPanel = new EditorBottomPanel(editorPageLocators.getBottomPanel(), page);
+        this.editorPopUpMenu = new EditorPopUpMenu(editorPageLocators.getEditorPopUp(), page);
+        this.alertLocators = () -> page.locator(editorPageLocators.getAlert());
+        this.errorLocator = () -> page.locator(editorPageLocators.getError());
         this.page = page;
-        this.pageBuilder = new PageBuilder(editorPageProperties, page);
+        this.pageBuilder = new PageBuilder(editorPageLocators, page);
     }
 
     public EditorPopUpMenu onPopUpMenu() {

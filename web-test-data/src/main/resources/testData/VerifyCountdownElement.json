@@ -37,8 +37,8 @@
       "align": "RIGHT",
       "settings": {
         "width": {
-          "value": 40,
-          "unit": "px"
+          "value": 400,
+          "unit": "PIXEL"
         }
       },
       "link": {

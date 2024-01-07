@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page;
 
 import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
-import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPageLocators;
 import com.brizy.io.web.interactions.page.editor.container.EditorContainer;
 import com.brizy.io.web.interactions.page.editor.container.Section;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
@@ -17,9 +17,9 @@ public class PageBuilder {
     EditorContainer container;
     EditorSidebar sidebar;
 
-    public PageBuilder(EditorPageProperties editorPageProperties, com.microsoft.playwright.Page page) {
-        this.sidebar = new EditorSidebar(editorPageProperties.getSidebar(), page);
-        this.container = new EditorContainer(editorPageProperties.getFrame(), page);
+    public PageBuilder(EditorPageLocators editorPageLocators, com.microsoft.playwright.Page page) {
+        this.sidebar = new EditorSidebar(editorPageLocators.getSidebar(), page);
+        this.container = new EditorContainer(editorPageLocators.getFrame(), page);
     }
 
     public PageBuilderOperations _do() {

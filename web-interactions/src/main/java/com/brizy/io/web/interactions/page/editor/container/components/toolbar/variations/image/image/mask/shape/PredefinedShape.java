@@ -6,7 +6,7 @@ import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.FitS
 import com.brizy.io.web.common.dto.element.properties.image.image.mask.size.Size;
 import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.ComboBox;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.mask.MaskLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Custom;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Fill;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.image.image.mask.size.Fit;
@@ -28,7 +28,7 @@ public class PredefinedShape {
     Supplier<Fit> fitSize;
     Supplier<Custom> customSize;
 
-    public PredefinedShape(MaskProperties mask, Frame frame) {
+    public PredefinedShape(MaskLocators mask, Frame frame) {
         this.size = () -> new ComboBox(frame.locator(mask.getSize().getSelf()));
         this.fillSize = () -> new Fill(mask, frame);
         this.fitSize = () -> new Fit(mask, frame);

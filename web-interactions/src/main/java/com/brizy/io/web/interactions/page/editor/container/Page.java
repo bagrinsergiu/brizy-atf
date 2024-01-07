@@ -1,8 +1,8 @@
 package com.brizy.io.web.interactions.page.editor.container;
 
 import com.brizy.io.web.interactions.exception.SectionNotFoundException;
-import com.brizy.io.web.interactions.locators.editor.workspace.WorkspaceProperties;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.WorkspaceLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionLocators;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import lombok.AccessLevel;
@@ -23,14 +23,14 @@ public class Page {
     @Getter
     Map<String, Section> sections;
     Supplier<List<Locator>> allSections;
-    SectionProperties sectionProperties;
+    SectionLocators sectionLocators;
     Frame frame;
 
-    public Page(WorkspaceProperties workspace, Frame page) {
+    public Page(WorkspaceLocators workspace, Frame page) {
         this.frame = page;
         this.sections = new HashMap<>();
-        this.sectionProperties = workspace.getSection();
-        this.allSections = () -> page.locator(sectionProperties.getSelf()).all();
+        this.sectionLocators = workspace.getSection();
+        this.allSections = () -> page.locator(sectionLocators.getSelf()).all();
     }
 
     public Section getSection(String sectionName) {
@@ -47,7 +47,7 @@ public class Page {
         return allSections.get().stream()
                 .filter(this::isUnknownSection)
                 .findFirst()
-                .map(foundSectionLocator -> new Section(sectionProperties, frame, foundSectionLocator))
+                .map(foundSectionLocator -> new Section(sectionLocators, frame, foundSectionLocator))
                 .orElseThrow(() -> new SectionNotFoundException("Expected to have at least one section"));
     }
 

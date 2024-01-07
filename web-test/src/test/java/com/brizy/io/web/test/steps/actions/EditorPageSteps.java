@@ -1,7 +1,7 @@
 package com.brizy.io.web.test.steps.actions;
 
 import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
-import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPageLocators;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.service.ActivePageService;
@@ -28,13 +28,13 @@ import static org.awaitility.Awaitility.await;
 public class EditorPageSteps {
 
     ActivePageService activePageService;
-    EditorPageProperties editorPageProperties;
+    EditorPageLocators editorPageLocators;
     Storage storage;
 
     @Autowired
     public EditorPageSteps(ActivePageService activePageService, WebLocatorsProperties webLocatorsProperties, Storage storage) {
         this.activePageService = activePageService;
-        this.editorPageProperties = webLocatorsProperties.getEditor();
+        this.editorPageLocators = webLocatorsProperties.getEditor();
         this.storage = storage;
     }
 
@@ -64,7 +64,7 @@ public class EditorPageSteps {
     @When("wait for editor page to load")
     public void waitForEditorPageToLoad() {
         Page page = activePageService.getPage();
-        EditorPage editorPage = new EditorPage(editorPageProperties, page);
+        EditorPage editorPage = new EditorPage(editorPageLocators, page);
         storage.addValue(StorageKey.EDITOR, editorPage);
         storage.addValue(StorageKey.EDITOR_PAGE, page);
     }

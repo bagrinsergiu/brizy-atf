@@ -31,9 +31,13 @@
       },
       "align": "RIGHT",
       "settings": {
-        "size": {
-          "value": 40,
-          "unit": "px"
+        "width": {
+          "value": 70,
+          "unit": "PERCENTAGE"
+        },
+        "height": {
+          "value": 400,
+          "unit": "PIXEL"
         }
       }
     }

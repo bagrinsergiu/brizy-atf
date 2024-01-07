@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.background.BackgroundLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.border.BorderLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.tabs.overlay.OverlayLocators;
@@ -16,7 +16,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class TabsLocators extends AbstractProperty {
+public class TabsLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     BackgroundLocators background;

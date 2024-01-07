@@ -17,6 +17,6 @@ public class BorderLocators extends AbstractColor {
     String size;
     String type;
     @NestedConfigurationProperty
-    BorderWidthProperties borderWidthControl;
+    BorderWidthLocators borderWidthControl;
 
 }

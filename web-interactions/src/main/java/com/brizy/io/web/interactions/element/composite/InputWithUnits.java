@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.element.composite;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
 import com.brizy.io.web.common.dto.element.properties.common.settings.UnitType;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithUnitsProperties;
 import com.brizy.io.web.interactions.element.ComboBox;
 import com.brizy.io.web.interactions.element.NumericInput;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;

@@ -1,7 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs.icon;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.button.size.SizeProperties;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.icon.IconPickerLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.button.tabs.icon.size.SizeLocators;
 import lombok.AccessLevel;
@@ -15,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class IconLocators extends AbstractProperty {
+public class IconLocators extends AbstractLocator {
 
     String configurations;
     @NestedConfigurationProperty

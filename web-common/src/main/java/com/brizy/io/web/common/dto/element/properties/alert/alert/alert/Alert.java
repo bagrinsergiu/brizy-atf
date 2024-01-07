@@ -1,6 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.alert.alert.alert;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithUnitsProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithUnitsProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

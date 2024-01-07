@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.field;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.InputWithUnitsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.field.check_box.CheckboxFieldLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.field.radio.RadioFieldLocators;
@@ -16,7 +16,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class FieldLocator extends AbstractProperty {
+public class FieldLocator extends AbstractLocator {
 
     String configurations;
     String type;

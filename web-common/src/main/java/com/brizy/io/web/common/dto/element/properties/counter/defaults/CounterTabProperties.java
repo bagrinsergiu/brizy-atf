@@ -1,7 +1,7 @@
 package com.brizy.io.web.common.dto.element.properties.counter.defaults;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
 import com.brizy.io.web.common.dto.element.properties.counter.enums.CounterType;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

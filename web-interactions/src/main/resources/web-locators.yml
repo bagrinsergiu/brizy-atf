@@ -63,6 +63,7 @@ pages:
                 delete: //div[contains(@class,'react-contexify__item')]//span[text()='Delete']
               toolbar:
                 self: //div[contains(@class,'brz-ed-toolbar__items')]
+                popUp: //div[contains(@class,'brz-ed-control__popover--content')]
                 item: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title]
                 align: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Align']
                 list: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='List']
@@ -380,18 +381,44 @@ pages:
                           stop: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.propertiesContent}//div[contains(@class,'brz-ed__control--range-slider__sliders')]//input[contains(@class,'brz-ed__control--range-slider__to')]
                     align: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'Align' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
                     unlock: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.scrollbar.effects.tabContent}//div[contains(text(). 'lock' and ancestor::div[contains(@class,'brz-ed-control__right-sidebar-tabs__icon')]]
-                  width:
-                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Width']]
-                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//input[@type='range']
-                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.width.self}//div[@role='combobox']
-                  height:
-                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
-                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//input[@type='range']
-                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.height.self}//div[@role='combobox']
-                  size:
-                    self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Size']]
-                    value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//input[@type='range']
-                    unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                  tabs:
+                    self: //ul[contains(@class,'brz-ed-control__tabs__top')]
+                    configurations: //div[contains(@class,'brz-ed-option__label')]
+                    width:
+                      self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Width']]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.width.self}//input[@type='range']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.width.self}//div[@role='combobox']
+                    sidebar:
+                      self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Sidebar']]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.sidebar.self}//input[@type='range']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.sidebar.self}//div[@role='combobox']
+                    height:
+                      self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.height.self}//input[@type='range']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.height.self}//div[@role='combobox']
+                    content: //span[text()='Content']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                    size:
+                      self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Size']]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.size.self}//input[@type='range']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.size.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    gapAbove:
+                      self: //span[text()='Gap Above']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gapAbove.self}//input[@type='number']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gapAbove.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    gapBelow:
+                      self: //span[text()='Gap Below']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gapBelow.self}//input[@type='number']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gapBelow.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    htmlTag: //span[text()='HTML Tag']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                    gap:
+                      self: //span[text()='Gap']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
+                      value: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gap.self}//input[@type='number']
+                      unit: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.tabs.gap.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                  grid:
+                    self: ${pages.editor.frame.workspace.section.container.item.toolbar.popUp}//div[contains(@class,'brz-ed-option-type__grid')]
+                    items: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.grid.self}//div[contains(@class,'brz-ed-option-type__sidebarTabsButton')]
+                    styling: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.grid.self}//span[text()='Styling']
+                    effects: ${pages.editor.frame.workspace.section.container.item.toolbar.settings.grid.self}//span[text()='Effects']
                 counter:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Counter']
                   tabs:
@@ -740,15 +767,6 @@ pages:
                         self: //span[text()='Delay']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.alert.tabs.alert.delay.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
-                gap:
-                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Gap']
-                  tabs:
-                    self: //div[contains(@class,'brz-ed-toolbar')]
-                    gap:
-                      gap:
-                        self: //span[text()='Gap']/ancestor::div[contains(@class,'brz-ed-option-type__slider')]
-                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//input[@type='number']
-                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gap.tabs.gap.gap.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 audio:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Audio']
                   tabs:

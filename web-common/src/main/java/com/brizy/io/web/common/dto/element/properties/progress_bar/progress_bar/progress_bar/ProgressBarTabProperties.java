@@ -1,6 +1,6 @@
 package com.brizy.io.web.common.dto.element.properties.progress_bar.progress_bar.progress_bar;
 
-import com.brizy.io.web.common.dto.element.properties.common.InputWithPopulationProperties;
+import com.brizy.io.web.common.dto.element.properties.elements.InputWithPopulationProperties;
 import com.brizy.io.web.common.dto.element.properties.progress_bar.enums.ProgressBarStyles;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.locators;
 
-import com.brizy.io.web.interactions.locators.dashboard.DashboardPageProperties;
-import com.brizy.io.web.interactions.locators.editor.EditorPageProperties;
+import com.brizy.io.web.interactions.locators.dashboard.DashboardPageLocators;
+import com.brizy.io.web.interactions.locators.editor.EditorPageLocators;
 import com.brizy.io.web.interactions.locators.publish.PublishPageLocators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,11 +18,11 @@ import static lombok.AccessLevel.PRIVATE;
 public class WebLocatorsProperties {
 
     @NestedConfigurationProperty
-    HomePageProperties home;
+    HomePageLocators home;
     @NestedConfigurationProperty
-    DashboardPageProperties dashboard;
+    DashboardPageLocators dashboard;
     @NestedConfigurationProperty
-    EditorPageProperties editor;
+    EditorPageLocators editor;
     @NestedConfigurationProperty
     PublishPageLocators publish;
 

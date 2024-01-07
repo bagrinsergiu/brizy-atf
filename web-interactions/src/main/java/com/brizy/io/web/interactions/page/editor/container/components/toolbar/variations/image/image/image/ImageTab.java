@@ -5,7 +5,7 @@ import com.brizy.io.web.interactions.dto.editor.container.toolbar.Configuration;
 import com.brizy.io.web.interactions.element.FileUploader;
 import com.brizy.io.web.interactions.element.RangeInput;
 import com.brizy.io.web.interactions.element.Slider;
-import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.image.ImageProperties;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.tabs.image.ImageLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.common.tabs.AbstractTabItem;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
@@ -25,7 +25,7 @@ public class ImageTab extends AbstractTabItem {
     Supplier<RangeInput> zoom;
     Supplier<Slider> openInLightBox;
 
-    public ImageTab(ImageProperties image, Frame frame) {
+    public ImageTab(ImageLocators image, Frame frame) {
         super(image.getConfigurations(), image.getSelf(), frame);
         this.image = () -> new FileUploader(image.getImage(), frame);
         this.zoom = () -> new RangeInput(frame.locator(image.getZoom()));

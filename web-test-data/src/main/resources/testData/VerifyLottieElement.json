@@ -16,6 +16,12 @@
             "value": 1.0
           }
         }
+      },
+      "settings": {
+        "width": {
+          "value": 581,
+          "unit": "PIXEL"
+        }
       }
     }
   },

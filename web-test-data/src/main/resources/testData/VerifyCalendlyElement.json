@@ -7,13 +7,16 @@
       "calendly": {
         "calendly": {
           "link": "https://calendly.com/calendly-demo-test/30min"
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 80,
+          "unit": "PERCENTAGE"
         },
-        "align": "RIGHT",
-        "settings": {
-          "size": {
-            "value": 40,
-            "unit": "px"
-          }
+        "height": {
+          "value": 400
         }
       }
     }

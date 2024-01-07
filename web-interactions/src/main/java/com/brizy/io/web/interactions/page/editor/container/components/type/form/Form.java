@@ -5,7 +5,7 @@ import com.brizy.io.web.common.dto.element.properties.form.field.type.FieldsProp
 import com.brizy.io.web.interactions.element.Button;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
-import com.brizy.io.web.interactions.page.editor.container.components.toolbar.ComponentToolbar;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.FormToolbar;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.field.factory.FieldsFactory;
 import com.microsoft.playwright.Frame;
@@ -58,7 +58,7 @@ public class Form extends Component<FormProperties> {
 
     //    Intentionally left blank
     @Override
-    protected ComponentToolbar<FormProperties> getToolbar() {
+    protected Toolbar<FormProperties> getToolbar() {
         borderButton.get().click();
         return toolbar.get();
     }

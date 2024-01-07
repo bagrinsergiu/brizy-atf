@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs;
 
-import com.brizy.io.web.interactions.locators.AbstractProperty;
+import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs.background.BackgroundLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.tabs.icon.IconLocators;
 import lombok.AccessLevel;
@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class IconTabsLocators extends AbstractProperty {
+public class IconTabsLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     BackgroundLocators background;

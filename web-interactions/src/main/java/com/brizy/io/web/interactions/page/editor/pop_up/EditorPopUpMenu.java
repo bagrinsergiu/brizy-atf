@@ -1,6 +1,6 @@
 package com.brizy.io.web.interactions.page.editor.pop_up;
 
-import com.brizy.io.web.interactions.locators.editor.EditorPopUpMenuProperties;
+import com.brizy.io.web.interactions.locators.editor.EditorPopUpMenuLocators;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;
 
@@ -12,7 +12,7 @@ public class EditorPopUpMenu {
     EditorPopUpMenuHeader header;
     EditorPopUpMenuBody body;
 
-    public EditorPopUpMenu(EditorPopUpMenuProperties properties, Page page) {
+    public EditorPopUpMenu(EditorPopUpMenuLocators properties, Page page) {
         this.header = new EditorPopUpMenuHeader(properties.getHeader(), page);
         this.body = new EditorPopUpMenuBody(properties.getBody(), page);
     }
