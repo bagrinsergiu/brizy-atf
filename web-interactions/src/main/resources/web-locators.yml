@@ -659,6 +659,39 @@ pages:
                         self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Columns']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                carousel:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Carousel']
+                  tabs:
+                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    carousel:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.self}//div[@title='Carousel']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      autoplay: //span[text()='Autoplay']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      speed:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Speed']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.speed.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.speed.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      stopTime:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Stop Time']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.stopTime.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.stopTime.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      columns:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Columns']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.columns.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.carousel.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    navigation:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.self}//div[@title='Navigation']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.navigation.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.carousel.tabs.navigation.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      arrows: //span[text()='Arrows']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      dots: //span[text()='Dots']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
                 lottie:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Lottie']
                   tabs:
@@ -1001,6 +1034,7 @@ pages:
             countdown2: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='countdown2']
             progressBar: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='progressBar']
             calendly: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='Calendly']
+            carousel: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='carousel']
             tabs: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='tabs']
             accordion: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='accordion']
             postTitle: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='PostTitle']

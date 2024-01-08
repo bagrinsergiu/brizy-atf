@@ -1,0 +1,44 @@
+[
+  {
+    "scenarioName": "Add carousel element and validate default properties",
+    "itemName": "CAROUSEL_1",
+    "elementType": "carousel",
+    "properties": {
+      "carousel": {
+        "carousel": {
+          "autoplay": {
+            "state": true,
+            "speed": 2.9,
+            "stopTime": 2
+          },
+          "columns": {
+            "value": 6
+          },
+          "spacing": {
+            "value": 6
+          }
+        },
+        "navigation": {
+          "arrows": "Heavy",
+          "spacing": {
+            "value": 6
+          },
+          "dots": "Diamond"
+        }
+      },
+      "align": "RIGHT"
+    }
+  },
+  {
+    "scenarioName": "Add carousel element and validate vertical sidebar position",
+    "itemName": "CAROUSEL_1",
+    "elementType": "carousel",
+    "properties": {
+      "carousel": {
+        "carousel": {
+          "position": "Vertical"
+        }
+      }
+    }
+  }
+]

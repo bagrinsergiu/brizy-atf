@@ -64,6 +64,10 @@ public abstract class Component<T extends Property> extends GenericComponent {
                 .build();
     }
 
+    protected BoundingBox getBoundingBox() {
+        return boundingBox.get();
+    }
+
     public void moveElementToPosition(Div element, ComponentPositions position) {
         ElementPositionDto positionToMoveElementTo = position.getPosition(getSize(), getPosition());
         element.moveWithMouse(positionToMoveElementTo);

@@ -31,6 +31,7 @@ public class EditorAddItemsSidebarContentMainProperties {
     String embedCode;
     String alert;
     String counter;
+    String carousel;
     String countdown2;
     String progressBar;
     String calendly;

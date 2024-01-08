@@ -22,6 +22,7 @@ public class ComponentsFactory {
                 API.Case(API.$(classAttribute -> classAttribute.contains(FORM.getValue())), () -> new Form(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new Text(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(CALENDLY.getValue())), () -> new Calendly(itemLocators, frame, locator)),
+                API.Case(API.$(classAttribute -> classAttribute.contains(CAROUSEL.getValue())), () -> new Carousel(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(COUNTER.getValue())), () -> new Counter(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(COUNTDOWN.getValue())), () -> new Countdown(itemLocators, frame, locator)),
                 API.Case(API.$(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new Image(itemLocators, frame, locator)),

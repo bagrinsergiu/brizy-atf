@@ -13,6 +13,7 @@ public enum ComponentClassNames {
     ALERT("brz-alert"),
     BUTTON("brz-btn"),
     CALENDLY("brz-calendly"),
+    CAROUSEL("brz-carousel"),
     COUNTER("brz-counter"),
     COUNTDOWN("brz-countdown2"),
     FORM("brz-forms2"),
