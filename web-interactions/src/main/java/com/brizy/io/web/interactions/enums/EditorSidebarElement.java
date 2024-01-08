@@ -8,6 +8,7 @@ public enum EditorSidebarElement {
     AUDIO,
     BUTTON,
     CALENDLY,
+    CAROUSEL,
     COLUMNS,
     COUNTDOWN,
     COUNTER,
