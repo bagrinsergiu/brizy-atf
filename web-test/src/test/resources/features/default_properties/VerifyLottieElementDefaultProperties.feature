@@ -87,7 +87,7 @@ Feature: Editor Page - Adding a Lottie Element
   Scenario Outline: Validate configurations in case of lottie file uploading
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
-    And upload the file 'github_logo.xcf' to 'lottie file' configuration
+    And upload the file 'lottie.json' to 'lottie file' configuration
     When wait for file uploading to finish
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
     Then the following configurations should be displayed: <displayedConfigurations>

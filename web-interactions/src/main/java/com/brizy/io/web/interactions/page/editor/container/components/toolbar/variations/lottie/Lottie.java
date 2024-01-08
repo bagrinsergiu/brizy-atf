@@ -40,6 +40,7 @@ public class Lottie extends AbstractToolbarItem {
 
     @Override
     public IsPopUpTab openTab(String tab) {
+        open();
         return io.vavr.API.Match(tab.toLowerCase()).of(
                 Case($(), lottie)
         );

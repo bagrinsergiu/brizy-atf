@@ -6,9 +6,9 @@ playwright:
   env:
     headless: ${browser.headless}
 browser:
-  type: chromium
+  type: firefox
   headless: true
-  channel: msedge
+  #  channel: msedge
   devTools: false
   downloadsPath: "target/downloads"
   slowMo: 50
