@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0-M2</version>
+        <version>3.2.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -32,7 +32,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>7.8.0</testng.version>
-        <playwright.version>1.38.0</playwright.version>
+        <playwright.version>1.41.0</playwright.version>
         <cucumber.version>7.12.1</cucumber.version>
         <vavr.version>0.10.4</vavr.version>
         <model.mapper.version>3.1.1</model.mapper.version>

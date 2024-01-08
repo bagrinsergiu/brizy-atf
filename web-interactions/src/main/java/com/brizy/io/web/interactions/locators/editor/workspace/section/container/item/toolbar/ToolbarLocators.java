@@ -11,6 +11,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.line.LineLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.link.LinkLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.lottie.LottieLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.mover.MoverLocators;
@@ -61,6 +62,8 @@ public class ToolbarLocators {
     SettingsLocators settings;
     @NestedConfigurationProperty
     ImageLocators image;
+    @NestedConfigurationProperty
+    LineLocators line;
     @NestedConfigurationProperty
     VideoLocators video;
     @NestedConfigurationProperty

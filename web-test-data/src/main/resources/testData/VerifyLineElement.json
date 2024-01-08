@@ -1,0 +1,158 @@
+[
+  {
+    "scenarioName": "Add line element and validate default properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "SOLID",
+          "type": "groove",
+          "height": {
+            "value": 4
+          }
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 50,
+          "unit": "PERCENTAGE"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add text line element and validate default properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "TEXT"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add text line element and validate configurations default properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "TEXT"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add text line element and validate tabs",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "TEXT"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add icon line element and validate tabs",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "ICON"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add icon line element and validate configurations default properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "ICON"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add line element and validate setting text properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "TEXT",
+          "type": "diagonal-dash",
+          "height": {
+            "value": 20
+          }
+        },
+        "text": {
+          "align": "CENTER",
+          "spacing": {
+            "value": 99
+          }
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 50,
+          "unit": "PERCENTAGE"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add line element and validate setting icon properties",
+    "itemName": "LINE_1",
+    "elementType": "line",
+    "properties": {
+      "line": {
+        "line": {
+          "style": "ICON",
+          "type": "diagonal-dash",
+          "height": {
+            "value": 20
+          }
+        },
+        "icon": {
+          "icon": {
+            "type": "Glyph",
+            "category": "Animals/Nature",
+            "value": "owl"
+          },
+          "align": "CENTER",
+          "size": {
+            "type": "CUSTOM",
+            "size": 41
+          },
+          "spacing": {
+            "value": 58
+          },
+          "padding": {
+            "value": 41
+          },
+          "rotate": {
+            "value": 120
+          }
+        }
+      },
+      "align": "RIGHT",
+      "settings": {
+        "width": {
+          "value": 40,
+          "unit": "PERCENTAGE"
+        }
+      }
+    }
+  }
+]

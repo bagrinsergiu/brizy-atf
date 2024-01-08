@@ -42,7 +42,7 @@ jobs:
         run: mvn -T 4C clean compile install -DskipTests
 
       - name: Download playwright dependencies
-        run: mvn -T 4C exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps"
+        run: mvn -T 4C exec:java -pl web-test -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install-deps msedge chrome"
 
       - name: Run tests
         run: mvn -T 4C test -DbaseUrl=https://www.brizy.cloud/projects/18098294/editor/page/3672626 -q

@@ -9,6 +9,7 @@ import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Page;
 import io.vavr.control.Try;
 import lombok.experimental.FieldDefaults;
+import org.apache.commons.lang3.Range;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -51,6 +52,10 @@ public class InputWithUnits {
         return Try.of(() -> Integer.parseInt(value.get().getText()))
                 .map(value -> ((Number) value))
                 .getOrElse(() -> Double.parseDouble(value.get().getText()));
+    }
+
+    public Range<Integer> getValueRange() {
+        return Range.between(value.get().getRange(Integer.class, "min"), value.get().getRange(Integer.class, "max"));
     }
 
 }

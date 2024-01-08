@@ -31,6 +31,7 @@ public class CarouselPopUp extends AbstractToolbarItem {
     }
 
     public void applyProperties(CarouselPopUpProperties carouselProperties) {
+        open();
         if (Objects.nonNull(carouselProperties.getCarousel())) {
             carousel.get().applyProperties(carouselProperties.getCarousel());
         }
@@ -40,6 +41,7 @@ public class CarouselPopUp extends AbstractToolbarItem {
     }
 
     public CarouselPopUpProperties getProperties() {
+        open();
         return CarouselPopUpProperties.builder()
                 .carousel(carousel.get().getProperties())
                 .navigation(navigation.get().getProperties())

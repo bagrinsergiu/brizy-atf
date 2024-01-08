@@ -587,6 +587,65 @@ pages:
                         self: //span[text()='Image']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
                         uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__upload')]
                         delete: ${pages.editor.frame.workspace.section.container.item.toolbar.image.tabs.image.image.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                line:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Style']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    line:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.line.self}
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      style: //span[text()='Style']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      type: //span[text()='Type']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      height:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.line.height.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.line.height.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    icon:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.self}//span[text()='Icon']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      icon:
+                        self: //span[text()='Icon']/ancestor::div[contains(@class,'brz-ed-option-type__iconSetter')]
+                        picker:
+                          self: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__icon-setter__box')]
+                          popUp:
+                            self: //div[contains(@class,'brz-ed-popup-icons')]
+                            tabs: //div[contains(@class,'brz-ed-popup-header__tabs')]//div
+                            closeButton: //div[contains(@class,'brz-ed-popup-btn-close')]
+                            categories:
+                              self: //div[contains(@class,'brz-ed-popup__select--block-categories')]
+                              items: //div[contains(@class,'brz-control__select-option')]
+                            search: //input[@placeholder='Enter Search Keyword']
+                            grid:
+                              self: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.icon.picker.popUp.self}//div[contains(@class,'brz-ed-popup-icons__grid')]
+                              items: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.icon.picker.popUp.grid.self}//div[contains(@class, 'brz-ed-popup-icons__grid__item')]
+                              item: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.icon.picker.popUp.grid.items}//i[contains(@class,'%s')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.button.tabs.icon.icon.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                      align: //span[text()='Align']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      size:
+                        self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]//div[contains(@class,'brz-ed-control__radio-group2')]//div
+                        custom:
+                          self: //span[text()='Size']/ancestor::div[contains(@class,'brz-ed-control__group')]
+                          value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.size.custom.self}//input[@type='range']
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      padding:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Padding']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.padding.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.padding.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      rotate:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Rotate']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.rotate.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.icon.rotate.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                    text:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.self}//span[text()='Text']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      align: //span[text()='Align']/ancestor::div[contains(@class,'brz-ed-option-type__radioGroup')]//div[contains(@class,'brz-ed-control__radio-group2__item')]
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.text.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.line.tabs.text.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 video:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Video']
                   tabs:
@@ -695,9 +754,9 @@ pages:
                 lottie:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Lottie']
                   tabs:
-                    self: //div[contains(@class,'brz-ed-toolbar')]
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
                     lottie:
-                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.tabs.self}//div[@title='Lottie']
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.lottie.self}
                       configurations: //div[contains(@class,'brz-ed-option__label')]
                       lottieLink: //span[text()='Lottie Link']/ancestor::div[contains(@class,'brz-ed-option-type__inputText')]//input
                       lottieFile:
