@@ -47,6 +47,11 @@ public class LottieTab extends AbstractTabItem {
         this.speed = () -> new InputWithUnits(lottieTabLocators.getSpeed(), frame);
     }
 
+    @Override
+    public List<String> getWebConfigurations() {
+        return getWebConfigurationsWithoutOpening();
+    }
+
     public void applyProperties(Lottie lottie) {
         open();
         if (Objects.nonNull(lottie.getLottieLink()) && !lottie.getLottieLink().isEmpty()) {

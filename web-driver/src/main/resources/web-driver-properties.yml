@@ -8,6 +8,7 @@ playwright:
 browser:
   type: firefox
   headless: true
+  #  channel: msedge
   devTools: false
   downloadsPath: "target/downloads"
   slowMo: 50

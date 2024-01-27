@@ -8,10 +8,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Button.class, name = "button"),
         @JsonSubTypes.Type(value = Calendly.class, name = "calendly"),
+        @JsonSubTypes.Type(value = Carousel.class, name = "carousel"),
         @JsonSubTypes.Type(value = Counter.class, name = "counter"),
         @JsonSubTypes.Type(value = Countdown.class, name = "countdown"),
         @JsonSubTypes.Type(value = Icon.class, name = "icon"),
         @JsonSubTypes.Type(value = Image.class, name = "image"),
+        @JsonSubTypes.Type(value = Line.class, name = "line"),
         @JsonSubTypes.Type(value = Map.class, name = "map"),
         @JsonSubTypes.Type(value = Playlist.class, name = "playlist"),
         @JsonSubTypes.Type(value = ProgressBar.class, name = "progress"),

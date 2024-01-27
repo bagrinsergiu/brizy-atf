@@ -34,6 +34,14 @@ public class NumericInput extends AbstractElement implements Input {
                 .until(() -> getRawValue().equals(value.toString()));
     }
 
+    public <T> T getRange(Class<T> clazz, String rangeType) {
+        return castValue(clazz, locator.getAttribute(rangeType));
+    }
+
+    public String getMaxValue() {
+        return locator.getAttribute("max");
+    }
+
     public String getText() {
         if (!isVisible()) {
             return null;
@@ -41,9 +49,7 @@ public class NumericInput extends AbstractElement implements Input {
         return locator.getAttribute("value");
     }
 
-    public <T> T getValue(Class<T> clazz) {
-        String valueToParse = getText().replaceAll(",", EMPTY)
-                .replaceAll("%", EMPTY);
+    private <T> T castValue(Class<T> clazz, String valueToParse) {
         if (clazz.equals(Integer.class)) {
             return clazz.cast(Integer.valueOf(valueToParse));
         }
@@ -51,6 +57,12 @@ public class NumericInput extends AbstractElement implements Input {
             return clazz.cast(Double.valueOf(valueToParse));
         }
         return clazz.cast(Long.valueOf(valueToParse));
+    }
+
+    public <T> T getValue(Class<T> clazz) {
+        String valueToParse = getText().replaceAll(",", EMPTY)
+                .replaceAll("%", EMPTY);
+        return castValue(clazz, valueToParse);
     }
 
     @Override

@@ -30,6 +30,7 @@ public class WebDriverService {
     public WebDriverService(ModelMapper modelMapper, WebDriverProperties props) {
         CreateOptions createOptions = modelMapper.map(props.getPlaywright(), CreateOptions.class);
         LaunchOptions launchOptions = modelMapper.map(props.getBrowser(), LaunchOptions.class);
+        launchOptions.setChannel(props.getBrowser().getChannel());
         NewContextOptions contextOptions = modelMapper.map(props.getContext(), NewContextOptions.class);
         this.playwrightService = new PlaywrightService(createOptions);
         this.browserService = new BrowserService(props.getBrowser().getType(), launchOptions);

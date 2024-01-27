@@ -8,6 +8,7 @@ import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.apache.commons.lang3.Range;
 import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -67,6 +68,13 @@ public class WebElementsSteps {
                 .extracting(Number::longValue)
                 .describedAs("Expecting to have <%d> as value", expectedValue)
                 .isEqualTo(expectedValue);
+    }
+
+    @Then("the following range is set: {rangeType}")
+    public void theFollowingNumericValueIsSet(Range expectedRange) {
+        Assertions.assertThat(storage.getValue(StorageKey.RANGE, Range.class))
+                .describedAs("Expecting to have <%s> as value", expectedRange)
+                .isEqualTo(expectedRange);
     }
 
 }

@@ -49,6 +49,14 @@ public class IconSize {
                 .build();
     }
 
+    public RadioControl<IconSizes> getRadioControl() {
+        return size.get();
+    }
+
+    public NumericInput getCustomSize() {
+        return customSize.get();
+    }
+
     public List<Configuration> getConfigurations() {
         return List.of(
                 Configuration.builder().name(Fields.size).element(size).build(),

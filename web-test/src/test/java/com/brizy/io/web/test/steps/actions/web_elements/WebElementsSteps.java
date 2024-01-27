@@ -7,6 +7,7 @@ import com.brizy.io.web.interactions.element.composite.InputWithPopulation;
 import com.brizy.io.web.interactions.element.composite.InputWithUnits;
 import com.brizy.io.web.interactions.element.composite.RadioControl;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
+import com.brizy.io.web.interactions.page.editor.container.components.toolbar.variations.button.button.icon.size.IconSize;
 import com.brizy.io.web.test.data.enums.TestDataFileType;
 import com.brizy.io.web.test.data.service.TestDataFileService;
 import com.brizy.io.web.test.enums.AttributeTypes;
@@ -74,6 +75,16 @@ public class WebElementsSteps {
                 .ifPresent(foundDropdown -> foundDropdown.selectItemByName(value));
     }
 
+    @When("set '{}' as value for '{}' dropdown")
+    public void setByValueOfDropdown(String value, String dropdown) {
+        List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
+        availableConfigurations.stream()
+                .filter(configuraion -> configuraion.getName().equals(dropdown))
+                .findFirst()
+                .map(foundDropdown -> ((ComboBox) foundDropdown.getElement().get()))
+                .ifPresent(foundDropdown -> foundDropdown.selectItemByValue(value));
+    }
+
     @When("set '{}' value for '{}' text input")
     public void setValueOfTextInput(String value, String textInput) {
         List<Configuration> availableConfigurations = storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class);
@@ -111,6 +122,37 @@ public class WebElementsSteps {
                     .map(radioControl -> radioControl.getAllControls())
                     .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
         }
+    }
+
+    @When("get {radioGroupAction} item(s) from '{}' size")
+    public void getSelectedItemFromSizeItem(RadioGroupActions radioGroupAction, String size) {
+        var foundSize = storage.getListValue(TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equalsIgnoreCase(size))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((IconSize) configuration.get()));
+        if (radioGroupAction.equals(RadioGroupActions.ACTIVE)) {
+            foundSize
+                    .map(el -> el.getRadioControl())
+                    .map(radioControl -> radioControl.getActiveControl().name())
+                    .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+        } else {
+            foundSize
+                    .map(el -> el.getRadioControl())
+                    .map(radioControl -> radioControl.getAllControls())
+                    .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+        }
+    }
+
+    @When("get from '{}' item custom size")
+    public void getCustomSizeFromItem(String size) {
+        storage.getListValue(TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equalsIgnoreCase(size))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((IconSize) configuration.get()))
+                .map(foundSize -> foundSize.getCustomSize())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
     }
 
     @When("get numeric input with name '{}'")
@@ -154,6 +196,17 @@ public class WebElementsSteps {
                 .map(configuration -> ((InputWithUnits) configuration.get()))
                 .map(input -> input.getValue().getValue())
                 .ifPresent(activeValue -> storage.addValue(StorageKey.VALUE, activeValue));
+    }
+
+    @When("get range of values for the '{}' input with units")
+    public void getMinValueFromStyleInputWithUnits(String inputWithPopulationToCheck) {
+        storage.getListValue(StorageKey.TOOLBAR_POPUP_TAB_CONFIGURATIONS, Configuration.class).stream()
+                .filter(el -> el.getName().equalsIgnoreCase(inputWithPopulationToCheck))
+                .findFirst()
+                .map(configuration -> configuration.getElement())
+                .map(configuration -> ((InputWithUnits) configuration.get()))
+                .map(input -> input.getValueRange())
+                .ifPresent(activeValue -> storage.addValue(StorageKey.RANGE, activeValue));
     }
 
     @When("get value of the '{}' input")
