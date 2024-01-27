@@ -718,6 +718,37 @@ pages:
                         self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Columns']]
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//input[@type='range']
                         unit: ${pages.editor.frame.workspace.section.container.item.toolbar.playlist.tabs.playlist.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                gallery:
+                  self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Gallery']
+                  tabs:
+                    self: //li[contains(@class,'brz-ed-control__tab') and ancestor::ul[contains(@class,'top')]]
+                    gallery:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.self}//span[text()='Gallery']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      images:
+                        self: //span[text()='Images']/ancestor::div[contains(@class,'brz-ed-option-wrapper')]
+                        uploader: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.gallery.images.self}//div[contains(@class,'brz-ed-control__gallery')]
+                        delete: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.gallery.images.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--remove')]
+                        fileName: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.gallery.images.self}//span[contains(@class,'brz-ed-control__file-upload__file-name--title')]
+                      layout: //span[text()='Layout']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      height:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Height']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.gallery.height.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.gallery.height.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      aspectRatio: //span[text()='Aspect Ratio']/ancestor::div[contains(@class,'brz-ed-option-type__select')]//div[@role='combobox']
+                      enableTags: //span[text()='Enable Tags']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                      openInLightBox: //span[text()='Open in Lightbox']/ancestor::div[contains(@class,'brz-ed-option-type__switch')]//div[contains(@class,' brz-ed-control__switch')]
+                    items:
+                      self: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.self}//span[text()='Items']
+                      configurations: //div[contains(@class,'brz-ed-option__label')]
+                      columns:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Columns']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.items.columns.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.items.columns.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
+                      spacing:
+                        self: //div[contains(@class,'brz-ed-option-type__slider') and .//span[text()='Spacing']]
+                        value: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.items.spacing.self}//input[@type='range']
+                        unit: ${pages.editor.frame.workspace.section.container.item.toolbar.gallery.tabs.items.spacing.self}//div[contains(@class,'brz-ed-control__number-unit__unit')]
                 carousel:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Carousel']
                   tabs:
@@ -1079,6 +1110,7 @@ pages:
             spacer: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='spacer']
             map: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='map']
             form: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='form']
+            gallery: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='imageGallery']
             line: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='line']
             lottie: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='lottie']
             rating: ${pages.editor.sidebar.addItems.content.self}//div[@data-brz-sortable-subtype='starRating']

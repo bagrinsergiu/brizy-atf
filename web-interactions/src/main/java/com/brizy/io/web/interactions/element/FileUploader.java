@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -32,6 +33,10 @@ public class FileUploader implements Element {
     public void uploadFile(Path pathToFile) {
         FileChooser fileChooser = page.waitForFileChooser(() -> uploader.get().click());
         fileChooser.setFiles(pathToFile);
+    }
+
+    public void uploadFiles(List<Path> pathToFile) {
+        pathToFile.forEach(this::uploadFile);
     }
 
     public void deleteUploadedFile() {

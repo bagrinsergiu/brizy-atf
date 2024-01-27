@@ -9,6 +9,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.CountdownLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.gallery.GalleryLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.icon.IconLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.image.ImageLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.line.LineLocators;
@@ -70,6 +71,8 @@ public class ToolbarLocators {
     AudioLocators audio;
     @NestedConfigurationProperty
     PlaylistLocators playlist;
+    @NestedConfigurationProperty
+    GalleryLocators gallery;
     @NestedConfigurationProperty
     RatingLocators rating;
     @NestedConfigurationProperty

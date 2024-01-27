@@ -1,0 +1,97 @@
+[
+  {
+    "scenarioName": "Add gallery element and validate default properties",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Grid",
+          "aspectRatio": "16:9",
+          "enableTags": true,
+          "openInLightBox": true
+        },
+        "items": {
+          "columns": {
+            "value": 4
+          },
+          "spacing": {
+            "value": 10
+          }
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate aspect ratio dropdown",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Grid"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate configurations for grid layout",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Grid"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate configurations for justified layout",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Justified"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate default height value",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Justified"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate configurations for masonry layout",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Masonry"
+        }
+      }
+    }
+  },
+  {
+    "scenarioName": "Add gallery element and validate configurations for big image layout",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Big Image"
+        }
+      }
+    }
+  }
+]

@@ -32,6 +32,7 @@ public class EditorSidebarContent {
             put(COUNTER, () -> new Div(page.locator(main.getCounter())));
             put(EMBED_CODE, () -> new Div(page.locator(main.getEmbedCode())));
             put(FORM, () -> new Div(page.locator(main.getForm())));
+            put(GALLERY, () -> new Div(page.locator(main.getGallery())));
             put(ICON, () -> new Div(page.locator(main.getIcon())));
             put(ICON_TEXT, () -> new Div(page.locator(main.getIconText())));
             put(IMAGE, () -> new Div(page.locator(main.getImage())));

@@ -14,6 +14,7 @@ public enum EditorSidebarElement {
     COUNTER,
     EMBED_CODE,
     FORM,
+    GALLERY,
     ICON,
     ICON_TEXT,
     IMAGE,
