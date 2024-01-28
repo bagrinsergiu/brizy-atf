@@ -17,6 +17,7 @@ public class EditorAddItemsSidebarContentMainProperties {
     String image;
     String button;
     String icon;
+    String gallery;
     String spacer;
     String map;
     String form;
