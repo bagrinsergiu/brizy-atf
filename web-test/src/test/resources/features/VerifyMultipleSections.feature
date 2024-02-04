@@ -26,7 +26,7 @@ Feature: Editor Page - Adding a Multiple Sections
     When switch to 'Blocks' tab
     And add section 'SECTION_6' to page
     When prepare the following items to be added to the page:
-      | item   | position | parent   | name     | sectionName |
+      | item   | position | sibling  | name     | sectionName |
       | TEXT   | -        | -        | TEXT_1   | SECTION_1   |
       | BUTTON | UP       | TEXT_1   | BUTTON_2 | SECTION_1   |
       | MAP    | DOWN     | BUTTON_2 | MAP_2    | SECTION_1   |

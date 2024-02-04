@@ -17,11 +17,13 @@ public class MapperTransformerUtil {
             .map(pageItem -> SidebarItemDto.builder()
                     .type(EditorSidebarElement.valueOf(pageItem.getItem()))
                     .elementPosition(ComponentPositions.findForString(pageItem.getPosition()))
-                    .parentName(pageItem.getParent())
+                    .sibling(pageItem.getSibling())
                     .elementName(pageItem.getName())
                     .componentProperties(pageItem.getProperties())
                     .componentContent(pageItem.getContent())
                     .sectionName(pageItem.getSectionName())
+                    .parent(pageItem.getParent())
+                    .isParent(Boolean.parseBoolean(pageItem.getIsParent()))
                     .build())
             .collect(Collectors.toList());
 

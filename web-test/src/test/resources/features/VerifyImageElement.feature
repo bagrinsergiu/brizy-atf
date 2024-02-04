@@ -12,7 +12,7 @@ Feature: Editor Page - Adding an Image Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page

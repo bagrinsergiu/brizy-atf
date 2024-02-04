@@ -14,7 +14,7 @@ Feature: Editor Page - Button Toolbar
 
   Scenario Outline: Add button element and validate toolbar items
     When prepare the following items to be added to the page:
-      | item   | position | parent | name   | sectionName   |
+      | item   | position | sibling | name   | sectionName   |
       | BUTTON | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get the toolbar items for '<name>' item from section '<sectionName>'

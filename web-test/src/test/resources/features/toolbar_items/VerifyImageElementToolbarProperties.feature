@@ -14,7 +14,7 @@ Feature: Editor Page - Image Toolbar
 
   Scenario Outline: Add image element and validate toolbar items
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get the toolbar items for '<name>' item from section '<sectionName>'
@@ -33,7 +33,7 @@ Feature: Editor Page - Image Toolbar
 
   Scenario Outline: Add image element and validate toolbar <toolbarItem> item tabs
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get tabs list from '<toolbarItem>' toolbar item for '<name>' item from section '<sectionName>'

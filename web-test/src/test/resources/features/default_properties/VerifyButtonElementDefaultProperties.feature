@@ -11,7 +11,7 @@ Feature: Editor Page - Adding a Button Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item   | position | parent | name   | sectionName   |
+      | item   | position | sibling | name   | sectionName   |
       | BUTTON | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyButtonElement.json' file
     And add the item to the page

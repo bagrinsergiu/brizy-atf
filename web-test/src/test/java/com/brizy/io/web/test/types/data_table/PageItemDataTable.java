@@ -16,9 +16,11 @@ public class PageItemDataTable {
         return Item.builder()
                 .position(dataTable.get(position))
                 .item(dataTable.get(item))
-                .parent(dataTable.get(parent))
+                .sibling(dataTable.get(sibling))
                 .name(dataTable.get(name))
                 .sectionName(dataTable.get(sectionName))
+                .parent(dataTable.get(parent))
+                .isParent(dataTable.get(isParent))
                 .build();
     }
 

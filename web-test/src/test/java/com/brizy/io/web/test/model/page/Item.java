@@ -20,9 +20,11 @@ public class Item {
 
     String item;
     String position;
-    String parent;
+    String sibling;
     String name;
     String sectionName;
+    String parent;
+    String isParent;
     @Builder.Default
     Property properties = null;
     @Builder.Default

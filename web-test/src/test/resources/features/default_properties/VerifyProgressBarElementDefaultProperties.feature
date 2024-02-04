@@ -11,7 +11,7 @@ Feature: Editor Page - Adding a Progress Bar Element
     When switch to 'Blocks' tab
     And add section 'SECTION_1' to page
     When prepare the following items to be added to the page:
-      | item     | position | parent | name       | sectionName |
+      | item     | position | sibling | name       | sectionName |
       | PROGRESS | -        | -      | PROGRESS_1 | SECTION_1   |
 
   Scenario Outline: Add progress bar element and validate default properties

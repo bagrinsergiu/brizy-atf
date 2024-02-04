@@ -13,7 +13,7 @@ Feature: Editor Page - Adding a Map Element
 
   Scenario: Add map element with color border and preview it
     When prepare the following items to be added to the page:
-      | item | position | parent | name  | sectionName |
+      | item | position | sibling | name  | sectionName |
       | MAP  | -        | -      | MAP_1 | SECTION_1   |
     When prepare elements properties from the 'VerifyMapElement.json' file
     And add the item to the page
@@ -24,7 +24,7 @@ Feature: Editor Page - Adding a Map Element
 
   Scenario Outline: Add map element, resize and preview it
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | MAP  | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyMapElement.json' file
     And add the item to the page

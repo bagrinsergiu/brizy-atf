@@ -12,7 +12,7 @@ Feature: Editor Page - Adding a Icon Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | ICON | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyIconElement.json' file
     And add the item to the page
@@ -32,7 +32,7 @@ Feature: Editor Page - Adding a Icon Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | ICON | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get available configurations in the tab 'icon' of 'icon' toolbar item of the '<name>' item from section '<sectionName>'

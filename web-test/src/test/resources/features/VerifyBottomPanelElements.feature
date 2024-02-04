@@ -11,7 +11,7 @@ Feature: Editor Page - Bottom Panel Elements
     When switch to 'Blocks' tab
     And add section 'SECTION_1' to page
     When prepare the following items to be added to the page:
-      | item | position | parent | name  | sectionName |
+      | item | position | sibling | name  | sectionName |
       | MAP  | -        | -      | MAP_1 | SECTION_1   |
     And add the item to the page
 

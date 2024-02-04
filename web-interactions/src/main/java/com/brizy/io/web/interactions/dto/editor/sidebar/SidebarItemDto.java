@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 @Data
@@ -20,10 +21,16 @@ public class SidebarItemDto {
 
     EditorSidebarElement type;
     ComponentPositions elementPosition;
-    String parentName;
+    String sibling;
     String elementName;
     String sectionName;
+    String parent;
+    Boolean isParent;
     Property componentProperties;
     List<Content> componentContent;
+
+    public Boolean hasParent() {
+        return Objects.nonNull(parent) && !parent.isEmpty() && !parent.isBlank() && !parent.equals("-");
+    }
 
 }

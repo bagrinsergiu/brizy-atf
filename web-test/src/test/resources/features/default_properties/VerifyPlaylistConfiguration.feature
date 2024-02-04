@@ -11,7 +11,7 @@ Feature: Editor Page - Adding an Playlist Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item     | position | parent | name   | sectionName   |
+      | item     | position | sibling | name   | sectionName   |
       | PLAYLIST | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyPlaylistElement.json' file
     And add the item to the page
@@ -29,7 +29,7 @@ Feature: Editor Page - Adding an Playlist Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item     | position | parent | name   | sectionName   |
+      | item     | position | sibling | name   | sectionName   |
       | PLAYLIST | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
@@ -50,7 +50,7 @@ Feature: Editor Page - Adding an Playlist Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item     | position | parent | name   | sectionName   |
+      | item     | position | sibling | name   | sectionName   |
       | PLAYLIST | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyPlaylistElement.json' file
     And add the item to the page
@@ -71,7 +71,7 @@ Feature: Editor Page - Adding an Playlist Element
     When switch to 'Blocks' tab
     And add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item     | position | parent | name   | sectionName   |
+      | item     | position | sibling | name   | sectionName   |
       | PLAYLIST | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyPlaylistElement.json' file
     And add the item to the page

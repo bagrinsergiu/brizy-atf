@@ -14,7 +14,7 @@ Feature: Editor Page - Right-Click Context Menu Actions
   Scenario Outline: Validate right-click context menu options are displayed correctly
     When add section '<sectionName>' to page
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | TEXT | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get context menu items for '<name>'
@@ -33,7 +33,7 @@ Feature: Editor Page - Right-Click Context Menu Actions
   Scenario Outline: Validate <action> action
     When add section '<sectionName>' to page
     And prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | MAP  | -        | -      | <name> | <sectionName> |
       | MAP  | BOTTOM   | <name> | MAP_2  | <sectionName> |
     And add the item to the page
@@ -48,7 +48,7 @@ Feature: Editor Page - Right-Click Context Menu Actions
   Scenario Outline: Validate copy and paste action
     When add section '<sectionName>' to page
     And prepare the following items to be added to the page:
-      | item | position | parent | name         | sectionName   |
+      | item | position | sibling | name         | sectionName   |
       | MAP  | -        | -      | <name>       | <sectionName> |
       | MAP  | BOTTOM   | <name> | <secondName> | <sectionName> |
     And add the item to the page
@@ -63,7 +63,7 @@ Feature: Editor Page - Right-Click Context Menu Actions
   Scenario Outline: Validate copy and paste styles action on existing element
     When add section '<sectionName>' to page
     And prepare the following items to be added to the page:
-      | item | position | parent | name         | sectionName   |
+      | item | position | sibling | name         | sectionName   |
       | TEXT | -        | -      | <name>       | <sectionName> |
       | TEXT | BOTTOM   | <name> | <secondName> | <sectionName> |
     When prepare elements properties from the 'VerifyRightClickContextMenu.json' file

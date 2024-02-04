@@ -14,7 +14,7 @@ Feature: Editor Page - Form element Toolbar
 
   Scenario Outline: Add form element and validate toolbar items
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get the toolbar items for '<name>' item from section '<sectionName>'

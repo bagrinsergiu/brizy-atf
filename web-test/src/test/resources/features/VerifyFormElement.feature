@@ -13,7 +13,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate select
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -37,7 +37,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -66,7 +66,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -95,7 +95,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -116,7 +116,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -137,7 +137,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page
@@ -158,7 +158,7 @@ Feature: Editor Page - Adding a Form Element
 
   Scenario Outline: Add form element and validate <field>
     When prepare the following items to be added to the page:
-      | item | position | parent | name   | sectionName   |
+      | item | position | sibling | name   | sectionName   |
       | FORM | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyFormElement.json' file
     And add the item to the page

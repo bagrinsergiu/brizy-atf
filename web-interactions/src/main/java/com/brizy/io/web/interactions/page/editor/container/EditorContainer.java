@@ -57,7 +57,7 @@ public class EditorContainer {
         for (SidebarItemDto element : elements) {
             Div elementToCreate = findSidebarElementByType.apply(element.getType());
             Section sectionToAddElementTo = page.getSection(element.getSectionName());
-            var parentElement = Try.of(() -> sectionToAddElementTo.getComponentByName(element.getParentName())).getOrElse(() -> null);
+            var parentElement = Try.of(() -> sectionToAddElementTo.getComponentByName(element.getSibling())).getOrElse(() -> null);
             sectionToAddElementTo.addComponent(elementToCreate, parentElement, element);
             mainPage.waitForLoadState(LoadState.DOMCONTENTLOADED);
         }

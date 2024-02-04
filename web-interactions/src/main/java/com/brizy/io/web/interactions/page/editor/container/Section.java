@@ -54,13 +54,30 @@ public class Section {
         }
         parent.scrollToElement();
         parent.moveElementToPosition(sidebarElement, item.getElementPosition());
-        return sectionComponents.put(item.getElementName(), getLastAddedComponent());
+        if (!item.hasParent() && !item.getIsParent()) {
+            return sectionComponents.put(item.getElementName(), getLastAddedComponent());
+        }
+        return sectionComponents.put(item.getElementName(), getLastParentComponent());
     }
 
     public Component getLastAddedComponent() {
         List<Component> components = getComponents();
         return components.get(components.size() - 1);
     }
+
+    public Component getLastParentComponent() {
+        List<Component> components = getParentComponents();
+        return components.get(components.size() - 1);
+    }
+
+    public <T extends Component> List<T> getParentComponents() {
+        return sectionLocator.locator(addedItemsLocator).all().stream()
+                .map(sectionLocator -> sectionLocator.locator("//div").first())
+                .map(component -> ComponentsFactory.getComponentByType(component, frame, itemLocators))
+                .map(component -> (T) component)
+                .collect(Collectors.toList());
+    }
+
 
     public <T extends Component> List<T> getComponents() {
         return sectionLocator.locator(addedItemsLocator).all().stream()

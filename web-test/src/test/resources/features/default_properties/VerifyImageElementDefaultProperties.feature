@@ -14,7 +14,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate configurations inside image popup in image tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
@@ -26,7 +26,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate negative picture configuration inside image popup in image tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
@@ -42,7 +42,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate picture configuration inside image popup in image tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     And add the item to the page
     When get available configurations in the tab '<tabToOpen>' of '<toolbarItem>' toolbar item of the '<name>' item from section '<sectionName>'
@@ -56,7 +56,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Add <name> element and validate configurations inside image popup in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
@@ -74,7 +74,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate shape dropdown items in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
@@ -111,7 +111,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate size dropdown items in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
@@ -129,7 +129,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate position dropdown items in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
@@ -154,7 +154,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate repeat dropdown items in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
@@ -175,7 +175,7 @@ Feature: Editor Page - Image Default Settings
 
   Scenario Outline: Validate size units dropdown items in mask tab
     When prepare the following items to be added to the page:
-      | item  | position | parent | name   | sectionName   |
+      | item  | position | sibling | name   | sectionName   |
       | IMAGE | -        | -      | <name> | <sectionName> |
     When prepare elements properties from the 'VerifyImageElement.json' file
     And add the item to the page
