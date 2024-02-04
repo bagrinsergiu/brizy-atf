@@ -16,6 +16,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class ContainerLocators extends AbstractLocator {
 
     String empty;
+    String parentContainer;
     @NestedConfigurationProperty
     ItemLocators item;
 

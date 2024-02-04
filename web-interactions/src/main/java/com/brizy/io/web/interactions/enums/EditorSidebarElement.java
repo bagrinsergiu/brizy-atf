@@ -9,7 +9,7 @@ public enum EditorSidebarElement {
     BUTTON,
     CALENDLY,
     CAROUSEL,
-    COLUMNS,
+    COLUMN,
     COUNTDOWN,
     COUNTER,
     EMBED_CODE,

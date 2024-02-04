@@ -1,14 +1,18 @@
 package com.brizy.io.web.interactions.page.factory;
 
+import com.brizy.io.web.interactions.locators.editor.workspace.section.SectionLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.PublishedItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
+import com.brizy.io.web.interactions.page.editor.container.AbstractContainer;
 import com.brizy.io.web.interactions.page.editor.container.components.*;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.Form;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;
 import lombok.experimental.UtilityClass;
+
+import java.util.Objects;
 
 import static com.brizy.io.web.interactions.page.factory.enums.ComponentClassNames.*;
 import static io.vavr.API.$;
@@ -46,6 +50,14 @@ public class ComponentsFactory {
                     );
                 })
         );
+    }
+
+    public <T extends AbstractContainer> T getParentComponentByType(Locator locator, Frame frame, SectionLocators sectionLocators) {
+        if (Objects.nonNull(locator.getAttribute("data-brz-border--grey"))) {
+            return (T) new Row(frame, locator, sectionLocators);
+        } else {
+            return (T) new ColumnGroup(frame, locator, sectionLocators);
+        }
     }
 
     public <T extends GenericComponent> T getComponentByType(Locator locator, PublishedItemLocators publishedItemLocators) {

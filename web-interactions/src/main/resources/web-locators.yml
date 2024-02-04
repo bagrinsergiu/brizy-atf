@@ -26,6 +26,7 @@ pages:
           container:
             self: //div[contains(@class,'brz-ed-wrap-block-item')]
             empty: //div[contains(@class,'brz-ed-sortable--empty')]
+            parentContainer: //div[(@data-brz-sortable-type!='shortcode' and @data-brz-sortable-type!='section') and contains(@class,'container')]
             item:
               self: //div[contains(@data-brz-border--grey,'wrapper')]
               borderButton: //div[contains(@class,'brz-ed-border__button')]
@@ -177,6 +178,11 @@ pages:
                         value: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--value')]//input
                         increase: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--up')]
                         decrease: ${pages.editor.frame.workspace.section.container.item.toolbar.typography.styles.letterSp.self}//div[contains(@class,'brz-ed-control__stepper--down')]
+                row:
+                  self: //div[@data-brz-sortable-type='row' and @data-brz-border='row']
+
+                column:
+                  self: //div[@data-brz-sortable-type='column' and @data-brz-border='column']
                 colors:
                   self: ${pages.editor.frame.workspace.section.container.item.toolbar.self}//div[@title='Colors']
                   normal: //ul[contains(@class,'brz-ed-control__tabs__left')]//li[@title='Normal']

@@ -6,6 +6,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.calendly.CalendlyLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.carousel.CarouselLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.colors.ColorsLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.column.ColumnLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.countdown.CountdownLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.counter.CounterLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.field.FieldLocators;
@@ -19,6 +20,7 @@ import com.brizy.io.web.interactions.locators.editor.workspace.section.container
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.playlist.PlaylistLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.progress.ProgressLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.rating.RatingLocators;
+import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.row.RowLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.settings.SettingsLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.typography.TypographyProperties;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.video.VideoLocators;
@@ -51,6 +53,10 @@ public class ToolbarLocators {
     FieldLocators field;
     @NestedConfigurationProperty
     TypographyProperties typography;
+    @NestedConfigurationProperty
+    ColumnLocators column;
+    @NestedConfigurationProperty
+    RowLocators row;
     @NestedConfigurationProperty
     ColorsLocators colors;
     @NestedConfigurationProperty
