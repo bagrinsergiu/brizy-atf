@@ -8,7 +8,7 @@ playwright:
 browser:
   type: chromium
   headless: true
-  channel: msedge
+  channel: chrome
   devTools: false
   downloadsPath: "target/downloads"
   slowMo: 50

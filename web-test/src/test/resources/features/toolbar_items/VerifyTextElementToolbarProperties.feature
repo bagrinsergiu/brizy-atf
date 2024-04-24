@@ -11,7 +11,7 @@ Feature: Editor Page - Text element Toolbar
     And open editor pop up
     When switch to 'Blocks' tab
     And add section 'SECTION_1' to page
-
+@Test
   Scenario Outline: Add text element and validate toolbar items
     When prepare the following items to be added to the page:
       | item | position | parent | name   | sectionName   |

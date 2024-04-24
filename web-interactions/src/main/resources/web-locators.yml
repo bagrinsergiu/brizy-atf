@@ -1093,6 +1093,48 @@ pages:
         switchToDraft: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Switch to Draft']
     sidebar:
       self: //div[contains(@class,'brz-ed-sidebar')]
+      cmsPopup:
+        self: ${pages.editor.sidebar.self}//div[@title='CMS']
+        content: //section[contains(@class,'brz-ui-layout-has-sider')]
+        assets: ${pages.editor.sidebar.cmsPopup.content}//div[contains(text(), 'ASSETS')]
+        menu: ${pages.editor.sidebar.cmsPopup.content}//div[contains(text(), 'MENUS')]
+        assetsMenu:
+          self: ${pages.editor.sidebar.cmsPopup.content}
+#          pages button locator
+          pages: ${pages.editor.sidebar.cmsPopup.assetsMenu.self}//a[contains(text(), 'Pages')]
+#          posts button locator
+          posts: ${pages.editor.sidebar.cmsPopup.assetsMenu.self}//a[contains(text(), 'Posts')]
+          pagesSection:
+            self: ${pages.editor.sidebar.cmsPopup.assetsMenu.self}
+            header:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//header
+              search: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//input[contains(@placeholder, 'Search pages')]
+              help: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
+              close: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+            main:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//main
+              table:
+                self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.main.self}//table
+                columns: //th
+                rows: //tr
+                cell: //td
+            footer:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//footer
+              addNew: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.footer.self}//button[.//span[contains(text(), 'Add New Page')]]
+              itemsCount: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
+          postsSection:
+            self: ${pages.editor.sidebar.cmsPopup.assetsMenu.self}
+            header:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//header
+              search: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//input[contains(@placeholder, 'Search pages')]
+              help: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
+              close: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+            main:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//main
+            footer:
+              self: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.self}//footer
+              addNew: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.footer.self}//button[.//span[contains(text(), 'Add New Post')]]
+              itemsCount: ${pages.editor.sidebar.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
       addItems:
         self: ${pages.editor.sidebar.self}//div[@title='Add Elements']
         content:
