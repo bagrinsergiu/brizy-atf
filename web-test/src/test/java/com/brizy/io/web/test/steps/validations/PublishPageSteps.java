@@ -1,5 +1,6 @@
 package com.brizy.io.web.test.steps.validations;
 
+import com.brizy.io.web.interactions.dto.editor.container.ComponentDimensionsDto;
 import com.brizy.io.web.interactions.locators.WebLocatorsProperties;
 import com.brizy.io.web.interactions.locators.publish.PublishPageLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
@@ -7,6 +8,7 @@ import com.brizy.io.web.interactions.page.publish.section.items.form.item.CheckB
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Radio;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Select;
 import com.brizy.io.web.test.enums.StorageKey;
+import com.brizy.io.web.test.model.AspectRatio;
 import com.brizy.io.web.test.storage.Storage;
 import com.microsoft.playwright.Page;
 import io.cucumber.java.en.Then;
@@ -106,6 +108,14 @@ public class PublishPageSteps {
         Assertions.assertThat(actualValue)
                 .describedAs(String.format("Expecting to see the following text content: %d", expectedValue))
                 .isEqualTo(expectedValue);
+    }
+
+    @Then("the component dimensions satisfies '{aspectRatio}' aspect ratio")
+    public void theComponentDimensionsSatisfiesAspectRatio(AspectRatio aspectRatio) {
+        var componentDimensions = storage.getValue(StorageKey.COMPONENT_DIMENSIONS, ComponentDimensionsDto.class);
+        Assertions.assertThat(componentDimensions.getWidth() / componentDimensions.getHeight())
+                .describedAs("Expecting the dimension of the component to satisfy ratio <%s>", aspectRatio)
+                .isEqualTo(aspectRatio.getWidth() / aspectRatio.getHeight());
     }
 
 }

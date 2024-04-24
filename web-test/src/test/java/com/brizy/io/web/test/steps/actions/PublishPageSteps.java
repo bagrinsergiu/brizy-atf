@@ -5,6 +5,8 @@ import com.brizy.io.web.interactions.locators.publish.PublishPageLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.EditorPage;
 import com.brizy.io.web.interactions.page.publish.PublishedPage;
+import com.brizy.io.web.interactions.page.publish.common.PublishedComponent;
+import com.brizy.io.web.interactions.page.publish.section.Section;
 import com.brizy.io.web.interactions.page.publish.section.items.Form;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Date;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Email;
@@ -20,9 +22,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import static com.brizy.io.web.test.enums.StorageKey.EDITOR;
+import static com.brizy.io.web.test.enums.StorageKey.*;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class PublishPageSteps {
@@ -42,7 +43,7 @@ public class PublishPageSteps {
         PublishedPage publishedPage = new PublishedPage(publishPageLocators, publishPage);
         EditorPage editorPage = storage.getValue(EDITOR, EditorPage.class);
         var uuidToSearchFor = editorPage.onPageBuilder()._do().getSection(sectionName).getUuid();
-        List<GenericComponent> components = publishedPage.findSectionByUuid(uuidToSearchFor).getComponents();
+        var components = publishedPage.findSectionByUuid(uuidToSearchFor).getComponents();
         storage.addValue(StorageKey.PUBLISHED_COMPONENTS, components);
     }
 
@@ -117,4 +118,34 @@ public class PublishPageSteps {
         storage.addValue(StorageKey.FORM_FIELD_CONTENT, item.getValue());
     }
 
+    @When("on the published page")
+    public void onThePublishPage() {
+        Page publishPage = storage.getValue(StorageKey.PUBLISH_PAGE, Page.class);
+        PublishedPage publishedPage = new PublishedPage(publishPageLocators, publishPage);
+        storage.addValue(PUBLISH_PAGE, publishedPage);
+    }
+
+    @When("on the '{}'st section of the page")
+    public void onTheStSectionOfThePage(int sectionNumber) {
+        var publishedPage = storage.getValue(PUBLISH_PAGE, PublishedPage.class);
+        var section = publishedPage.getSections().get(sectionNumber - 1);
+        storage.addValue(PUBLISHED_PAGE_SECTION, section);
+    }
+
+    @When("search for the '{}'st '{}' component")
+    public void searchForTheStGalleryComponent(int elementNumber, String elementName) {
+        var value = storage.getValue(PUBLISHED_PAGE_SECTION, Section.class);
+        var publishedComponent = value.getComponents().stream()
+                .filter(element -> element.getName().equals(elementName))
+                .toList()
+                .get(elementNumber - 1);
+        storage.addValue(FOUND_COMPONENT, publishedComponent);
+    }
+
+    @When("get the dimensions of the published component")
+    public void getTheDimensionsOfThePublishedComponent() {
+        var foundComponent = storage.getValue(FOUND_COMPONENT, PublishedComponent.class);
+        var dimension = foundComponent.getProperties().getDimension();
+        storage.addValue(COMPONENT_DIMENSIONS, dimension);
+    }
 }

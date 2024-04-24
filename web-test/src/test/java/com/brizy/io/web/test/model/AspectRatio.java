@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.dto.editor.container.properties;
+package com.brizy.io.web.test.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,9 +8,9 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @Data
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Settings {
+public class AspectRatio {
 
-    Size width;
-    Size height;
+    double width;
+    double height;
 
 }

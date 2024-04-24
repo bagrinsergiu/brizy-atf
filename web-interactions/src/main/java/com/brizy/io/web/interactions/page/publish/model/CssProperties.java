@@ -1,7 +1,7 @@
 package com.brizy.io.web.interactions.page.publish.model;
 
+import com.brizy.io.web.interactions.dto.editor.container.ComponentDimensionsDto;
 import com.brizy.io.web.interactions.dto.editor.container.properties.Colors;
-import com.brizy.io.web.interactions.dto.editor.container.properties.Settings;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -13,6 +13,6 @@ import lombok.experimental.FieldDefaults;
 public class CssProperties {
 
     Colors colors;
-    Settings settings;
+    ComponentDimensionsDto dimension;
 
 }

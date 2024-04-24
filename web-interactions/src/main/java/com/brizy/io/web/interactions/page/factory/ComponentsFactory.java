@@ -2,9 +2,9 @@ package com.brizy.io.web.interactions.page.factory;
 
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.PublishedItemLocators;
-import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.editor.container.components.*;
 import com.brizy.io.web.interactions.page.editor.container.components.type.form.Form;
+import com.brizy.io.web.interactions.page.publish.common.PublishedComponent;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import io.vavr.API;
@@ -48,16 +48,19 @@ public class ComponentsFactory {
         );
     }
 
-    public <T extends GenericComponent> T getComponentByType(Locator locator, PublishedItemLocators publishedItemLocators) {
+    public <T extends PublishedComponent> T getComponentByType(Locator locator, PublishedItemLocators publishedItemLocators) {
         return (T) API.Match(locator.getAttribute("class")).of(
-                Case($(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Map(locator)),
-                Case($(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Button(locator)),
-                Case($(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Text(locator)),
-                Case($(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Image(locator)),
+//                Case($(classAttribute -> classAttribute.contains(MAP.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Map(locator)),
+//                Case($(classAttribute -> classAttribute.contains(BUTTON.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Button(locator)),
+//                Case($(classAttribute -> classAttribute.contains(TEXT.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Text(locator)),
+//                Case($(classAttribute -> classAttribute.contains(GALLERY.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Gallery(locator)),
+//                Case($(classAttribute -> classAttribute.contains(IMAGE.getValue())), () -> new com.brizy.io.web.interactions.page.publish.section.items.Image(locator)),
                 Case($(), () -> {
-                    var formFilter = locator.locator(publishedItemLocators.getForm().getSelf());
-                    if (formFilter.count() > 0) {
+                    if (locator.locator(publishedItemLocators.getForm().getSelf()).count() > 0) {
                         return new com.brizy.io.web.interactions.page.publish.section.items.Form(publishedItemLocators.getForm().getField(), locator.locator(publishedItemLocators.getForm().getSelf()));
+                    }
+                    if (locator.locator(publishedItemLocators.getGallery().getSelf()).count() > 0) {
+                        return new com.brizy.io.web.interactions.page.publish.section.items.Gallery(locator.locator(publishedItemLocators.getGallery().getSelf()));
                     }
                     return null;
                 })
