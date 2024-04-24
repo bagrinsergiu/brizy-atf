@@ -93,5 +93,18 @@
         }
       }
     }
+  },
+  {
+    "scenarioName": "26160 - Gallery element wrong size",
+    "itemName": "GALLERY_1",
+    "elementType": "gallery",
+    "properties": {
+      "gallery": {
+        "gallery": {
+          "layout": "Grid",
+          "aspectRatio": "16:9"
+        }
+      }
+    }
   }
 ]

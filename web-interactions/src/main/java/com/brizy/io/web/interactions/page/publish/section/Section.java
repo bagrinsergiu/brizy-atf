@@ -4,6 +4,7 @@ import com.brizy.io.web.interactions.locators.publish.section.SectionLocators;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.PublishedItemLocators;
 import com.brizy.io.web.interactions.page.common.GenericComponent;
 import com.brizy.io.web.interactions.page.factory.ComponentsFactory;
+import com.brizy.io.web.interactions.page.publish.common.PublishedComponent;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class Section {
         this.publishedItemLocators = sectionLocators.getContainer().getItem();
     }
 
-    public <T extends GenericComponent> List<T> getComponents() {
+    public <T extends PublishedComponent> List<T> getComponents() {
         return sectionLocator.locator(publishedItemLocators.getSelf()).all().stream()
                 .map(component -> ComponentsFactory.getComponentByType(component, publishedItemLocators))
                 .map(component -> (T) component)

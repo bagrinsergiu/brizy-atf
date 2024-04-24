@@ -2,7 +2,6 @@ package com.brizy.io.web.interactions.page.editor.container.components;
 
 import com.brizy.io.web.common.dto.element.properties.Property;
 import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
-import com.brizy.io.web.interactions.dto.editor.container.ElementSizeDto;
 import com.brizy.io.web.interactions.element.Div;
 import com.brizy.io.web.interactions.enums.ComponentPositions;
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.ItemLocators;
@@ -11,27 +10,21 @@ import com.brizy.io.web.interactions.page.editor.container.components.context_me
 import com.brizy.io.web.interactions.page.editor.container.components.toolbar.Toolbar;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.options.BoundingBox;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-
-import java.util.function.Supplier;
 
 import static com.microsoft.playwright.options.MouseButton.RIGHT;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public abstract class Component<T extends Property> extends GenericComponent {
 
-    Supplier<BoundingBox> boundingBox;
     ItemLocators componentProperties;
     Frame frame;
-    Locator componentLocator;
 
     public Component(Frame frame, Locator componentLocator, ItemLocators itemLocators) {
+        super(componentLocator);
         this.componentProperties = itemLocators;
         this.frame = frame;
-        this.boundingBox = componentLocator::boundingBox;
-        this.componentLocator = componentLocator;
     }
 
     /**
@@ -40,33 +33,14 @@ public abstract class Component<T extends Property> extends GenericComponent {
      * @param componentLocator - location of the component
      */
     public Component(Locator componentLocator) {
+        super(componentLocator);
         this.componentProperties = new ItemLocators();
         this.frame = componentLocator.page().mainFrame();
-        this.componentLocator = componentLocator;
-        this.boundingBox = componentLocator::boundingBox;
     }
 
     protected abstract T getEditorProperties();
 
     protected abstract Toolbar<T> getToolbar();
-
-    protected ElementPositionDto getPosition() {
-        return ElementPositionDto.builder()
-                .x(boundingBox.get().x)
-                .y(boundingBox.get().y)
-                .build();
-    }
-
-    protected ElementSizeDto getSize() {
-        return ElementSizeDto.builder()
-                .height(boundingBox.get().height)
-                .width(boundingBox.get().width)
-                .build();
-    }
-
-    protected BoundingBox getBoundingBox() {
-        return boundingBox.get();
-    }
 
     public void moveElementToPosition(Div element, ComponentPositions position) {
         ElementPositionDto positionToMoveElementTo = position.getPosition(getSize(), getPosition());

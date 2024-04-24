@@ -2,6 +2,7 @@ package com.brizy.io.web.interactions.locators.publish.section.container.item;
 
 import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.PublishedFormLocators;
+import com.brizy.io.web.interactions.locators.publish.section.container.item.gallery.PublishedGalleryLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,5 +18,7 @@ public class PublishedItemLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
     PublishedFormLocators form;
+    @NestedConfigurationProperty
+    PublishedGalleryLocators gallery;
 
 }

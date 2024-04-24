@@ -3,7 +3,7 @@ package com.brizy.io.web.interactions.page.publish.section.items;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.FormCheckBoxItemLocators;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.FormFieldLocators;
 import com.brizy.io.web.interactions.locators.publish.section.container.item.form.FormRadioItemLocators;
-import com.brizy.io.web.interactions.page.common.GenericComponent;
+import com.brizy.io.web.interactions.page.publish.common.PublishedComponent;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Number;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.Text;
 import com.brizy.io.web.interactions.page.publish.section.items.form.item.*;
@@ -18,13 +18,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Form extends GenericComponent {
+public class Form extends PublishedComponent {
 
     String placeholderAttribute = "data-brz-placeholder";
 
     Supplier<Map<String, FormItem>> items;
 
     public Form(FormFieldLocators form, Locator locator) {
+        super(locator);
         this.items = () -> new HashMap<>() {{
             putAll(initRadios(form.getRadio(), locator));
             putAll(initCheckboxes(form.getCheckBox(), locator));
@@ -34,6 +35,11 @@ public class Form extends GenericComponent {
             putAll(initNumbers(form.getNumber(), locator));
             putAll(initDate(form.getDate(), locator));
         }};
+    }
+
+    @Override
+    public String getName() {
+        return "form";
     }
 
     private Map<String, FormItem> initNumbers(String numberLocator, Locator locator) {

@@ -1,17 +1,50 @@
 package com.brizy.io.web.interactions.page.common;
 
+import com.brizy.io.web.interactions.dto.editor.container.ComponentDimensionsDto;
+import com.brizy.io.web.interactions.dto.editor.container.ElementPositionDto;
+import com.brizy.io.web.interactions.dto.editor.container.properties.Border;
+import com.brizy.io.web.interactions.dto.editor.container.properties.Colors;
+import com.brizy.io.web.interactions.page.publish.model.CssProperties;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.options.BoundingBox;
 import io.vavr.API;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Map;
 import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//TODO remove after a cleanup
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@FieldDefaults(makeFinal = true, level = AccessLevel.PROTECTED)
 public abstract class GenericComponent {
 
+    Locator componentLocator;
+    Supplier<BoundingBox> boundingBox;
+
+    public GenericComponent(Locator componentLocator) {
+        this.componentLocator = componentLocator;
+        this.boundingBox = componentLocator::boundingBox;
+    }
+
+    protected BoundingBox getBoundingBox() {
+        return boundingBox.get();
+    }
+
+    protected ElementPositionDto getPosition() {
+        return ElementPositionDto.builder()
+                .x(boundingBox.get().x)
+                .y(boundingBox.get().y)
+                .build();
+    }
+
+    protected ComponentDimensionsDto getSize() {
+        return ComponentDimensionsDto.builder()
+                .height(boundingBox.get().height)
+                .width(boundingBox.get().width)
+                .build();
+    }
 
     private String getHexFromRgb(Object rgbProperty) {
         if (Objects.isNull(rgbProperty)) {
@@ -27,19 +60,17 @@ public abstract class GenericComponent {
         return String.format("#%02x%02x%02x", r, g, b);
     }
 
-//    public CssProperties getProperties() {
-//        Map evaluate = (Map) componentLocator.evaluate("element => window.getComputedStyle(element, '::before')", componentLocator.elementHandle());
-//        return CssProperties.builder()
-//                .colors(Colors.builder()
-//                        .border(Border.builder()
-//                                .color(getHexFromRgb(evaluate.get("borderColor")))
-//                                .size(null)
-//                                .build())
-//                        .build())
-//                .settings(Settings.builder()
-//                        .width(Size.builder().value(getSize().getWidth()).build())
-//                        .height(Size.builder().value(getSize().getHeight()).build()).build())
-//                .build();
-//    }
+    public CssProperties getProperties() {
+        Map styles = (Map) componentLocator.evaluate("element => window.getComputedStyle(element, '::before')", componentLocator.elementHandle());
+        return CssProperties.builder()
+                .colors(Colors.builder()
+                        .border(Border.builder()
+                                .color(getHexFromRgb(styles.get("borderColor")))
+                                .size(null)
+                                .build())
+                        .build())
+                .dimension(getSize())
+                .build();
+    }
 
 }
