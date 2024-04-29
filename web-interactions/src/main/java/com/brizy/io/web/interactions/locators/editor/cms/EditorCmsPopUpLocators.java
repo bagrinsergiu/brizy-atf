@@ -15,6 +15,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @NoArgsConstructor
 public class EditorCmsPopUpLocators extends AbstractLocator {
 
+    String assets;
     String menu;
     @NestedConfigurationProperty
     CmsAssetsMenuLocators assetsMenu;

@@ -42,12 +42,14 @@ public class NumericInput extends AbstractElement implements Input {
         return locator.getAttribute("max");
     }
 
+    @Override
     public String getText() {
         if (!isVisible()) {
             return null;
         }
         return locator.getAttribute("value");
     }
+
 
     private <T> T castValue(Class<T> clazz, String valueToParse) {
         if (clazz.equals(Integer.class)) {

@@ -1,10 +1,13 @@
 package com.brizy.io.web.interactions.element.table;
 
-import com.brizy.io.web.interactions.element.Span;
-import com.microsoft.playwright.Locator;
+public interface Cell {
 
-public class Cell extends Span {
-    public Cell(Locator locator) {
-        super(locator);
-    }
+    boolean isColumn();
+
+    Column getColumn();
+
+    Row getRow();
+
+    <T> T getContent(Class<T> clazzToCastTo);
+
 }

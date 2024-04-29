@@ -4,9 +4,9 @@ import com.brizy.io.web.interactions.dto.editor.sidebar.SidebarItemDto;
 import com.brizy.io.web.interactions.locators.editor.EditorPageLocators;
 import com.brizy.io.web.interactions.page.editor.container.EditorContainer;
 import com.brizy.io.web.interactions.page.editor.container.Section;
+import com.brizy.io.web.interactions.page.editor.container.cms.EditorCmsPopup;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.sidebar.EditorSidebar;
-import com.brizy.io.web.interactions.page.editor.sidebar.cms.EditorCmsPopup;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
