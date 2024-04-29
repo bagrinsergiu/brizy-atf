@@ -1,4 +1,4 @@
-package com.brizy.io.web.test.data_table;
+package com.brizy.io.web.test.types.data_table;
 
 import io.cucumber.java.DataTableType;
 import org.apache.commons.lang3.StringUtils;

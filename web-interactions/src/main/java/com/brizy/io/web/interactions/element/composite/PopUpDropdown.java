@@ -1,6 +1,7 @@
 package com.brizy.io.web.interactions.element.composite;
 
 import com.brizy.io.web.interactions.locators.editor.workspace.section.container.item.toolbar.common.DropDownLocators;
+import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import lombok.experimental.FieldDefaults;
@@ -17,6 +18,11 @@ public class PopUpDropdown {
     Supplier<Locator> dropDownItems;
 
     public PopUpDropdown(DropDownLocators dropDownLocators, Page frame) {
+        this.openerButton = () -> frame.locator(dropDownLocators.getSelf());
+        this.dropDownItems = () -> frame.locator(dropDownLocators.getItems());
+    }
+
+    public PopUpDropdown(DropDownLocators dropDownLocators, Frame frame) {
         this.openerButton = () -> frame.locator(dropDownLocators.getSelf());
         this.dropDownItems = () -> frame.locator(dropDownLocators.getItems());
     }

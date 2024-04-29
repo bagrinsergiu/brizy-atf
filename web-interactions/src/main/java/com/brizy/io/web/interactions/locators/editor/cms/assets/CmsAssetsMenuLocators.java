@@ -2,6 +2,7 @@ package com.brizy.io.web.interactions.locators.editor.cms.assets;
 
 import com.brizy.io.web.interactions.locators.AbstractLocator;
 import com.brizy.io.web.interactions.locators.editor.cms.assets.pages.AssetsPagesSectionLocators;
+import com.brizy.io.web.interactions.locators.editor.cms.assets.posts.AssetsPostsSectionLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,5 +21,7 @@ public class CmsAssetsMenuLocators extends AbstractLocator {
     String posts;
     @NestedConfigurationProperty
     AssetsPagesSectionLocators pagesSection;
+    @NestedConfigurationProperty
+    AssetsPostsSectionLocators postsSection;
 
 }

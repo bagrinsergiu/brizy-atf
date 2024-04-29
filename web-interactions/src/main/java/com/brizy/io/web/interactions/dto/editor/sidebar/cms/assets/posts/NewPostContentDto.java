@@ -1,4 +1,4 @@
-package com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.pages;
+package com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.posts;
 
 import com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.abstracts.NewContentDto;
 import com.brizy.io.web.interactions.enums.PublishedItems;
@@ -8,15 +8,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.nio.file.Path;
+
 @AllArgsConstructor
 @Data
 @Builder(toBuilder = true)
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class NewPageContentDto implements NewContentDto {
+public class NewPostContentDto implements NewContentDto {
 
     String title;
     String slug;
-    NewPageDescriptionDto description;
+    NewPostExcerptDto excerpt;
+    Path featuredImage;
     PublishedItems published;
 
 }

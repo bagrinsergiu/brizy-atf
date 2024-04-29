@@ -1118,6 +1118,8 @@ pages:
                 slug: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//input[@placeholder='Page slug']
                 description: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//*[contains(@data-placeholder,'Enter here the content for this field')]
                 published:
+                  self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//h2
+                  items: //div[contains(@class, 'brz-ui-popover-inner')]//a
               footer:
                 self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//footer
                 cancel: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.footer.self}//button[.//span[contains(text(), 'Cancel')]]
@@ -1128,17 +1130,53 @@ pages:
               itemsCount: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
           postsSection:
             self: ${pages.editor.frame.cmsPopup.assetsMenu.self}
+            opener: ${pages.editor.frame.cmsPopup.assetsMenu.self}//span[contains(text(), 'Posts')]
             header:
-              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header
-              search: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//input[contains(@placeholder, 'Search pages')]
-              help: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
-              close: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.self}//header
+              search: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.header.self}//input[contains(@placeholder, 'Search pages')]
+              help: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
+              close: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
             main:
               self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//main
+              table:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.main.self}//table
+                columns:
+                  self: //th
+                rows:
+                  self: //tr
+                cell:
+                  self: //td
+                  actions:
+                    self: //div[contains(@class, 'brz-ui-dsk-alY-tp')]
+                    edit: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.main.table.cell.actions.self}//button[1]
+                    duplicate: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.main.table.cell.actions.self}//button[2]
+                    delete: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.main.table.cell.actions.self}//button[3]
+            content:
+              header:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header
+                title: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__content')]//div
+                back: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__back')]//span
+                close: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+              main:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.self}//main
+                title: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.self}//input[@placeholder='Post title']
+                slug: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.self}//input[@placeholder='Post slug']
+                featuredImage:
+                  self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.self}
+                  uploader: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.featuredImage.self}//input[@accept]
+                  delete: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.featuredImage.self}//div[contains(@class,'brz-ed-control__focal-point__delete')]
+                excerpt: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.self}//*[contains(@data-placeholder,'Enter here the content for this field')]
+                published:
+                  self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.main.self}//h2
+                  items: //div[contains(@class, 'brz-ui-popover-inner')]//a
+              footer:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.self}//footer
+                cancel: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.footer.self}//button[.//span[contains(text(), 'Cancel')]]
+                saveChanges: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.content.footer.self}//button[.//span[contains(text(), 'Save Changes')]]
             footer:
-              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//footer
-              addNew: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//button[.//span[contains(text(), 'Add New Post')]]
-              itemsCount: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.self}//footer
+              addNew: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.footer.self}//button[.//span[contains(text(), 'Add New Post')]]
+              itemsCount: ${pages.editor.frame.cmsPopup.assetsMenu.postsSection.footer.self}//strong
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']

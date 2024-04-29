@@ -5,6 +5,7 @@ import com.brizy.io.web.interactions.locators.editor.cms.assets.CmsAssetsMenuLoc
 import com.brizy.io.web.interactions.page.editor.container.cms.assets.abstracts.MenuItem;
 import com.brizy.io.web.interactions.page.editor.container.cms.assets.enums.AssetsMenuItems;
 import com.brizy.io.web.interactions.page.editor.container.cms.assets.pages.AssetsPages;
+import com.brizy.io.web.interactions.page.editor.container.cms.assets.posts.AssetsPosts;
 import com.brizy.io.web.interactions.page.editor.container.cms.tab.CmsTab;
 import com.microsoft.playwright.Frame;
 import lombok.AccessLevel;
@@ -16,15 +17,13 @@ import java.util.stream.Stream;
 public class CmsPopupAssetsMenu implements CmsTab {
 
     AssetsPages pages;
+    AssetsPosts posts;
     Button opener;
-    Button pagesButton;
-    Button postsButton;
 
     public CmsPopupAssetsMenu(CmsAssetsMenuLocators cmsPopUpLocatorsAssetsMenu, Frame frame) {
         this.pages = new AssetsPages(cmsPopUpLocatorsAssetsMenu.getPagesSection(), frame);
+        this.posts = new AssetsPosts(cmsPopUpLocatorsAssetsMenu.getPostsSection(), frame);
         this.opener = new Button(frame.locator(cmsPopUpLocatorsAssetsMenu.getOpener()));
-        this.pagesButton = new Button(frame.locator(cmsPopUpLocatorsAssetsMenu.getPages()));
-        this.postsButton = new Button(frame.locator(cmsPopUpLocatorsAssetsMenu.getPosts()));
     }
 
     @Override
@@ -33,10 +32,12 @@ public class CmsPopupAssetsMenu implements CmsTab {
     }
 
     public MenuItem openMenuItem(AssetsMenuItems menuItem) {
-        return Stream.of(pages)
+        MenuItem foundMenuItem = Stream.of(pages, posts)
                 .filter(page -> page.getName().equals(menuItem))
                 .findFirst()
                 .orElseThrow();
+        foundMenuItem.open();
+        return foundMenuItem;
     }
 
 }

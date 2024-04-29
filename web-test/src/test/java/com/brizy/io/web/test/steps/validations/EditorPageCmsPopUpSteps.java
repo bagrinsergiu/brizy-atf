@@ -1,7 +1,9 @@
 package com.brizy.io.web.test.steps.validations;
 
+import com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.abstracts.TableContentDto;
 import com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.pages.NewPageContentDto;
 import com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.pages.PagesTableContentDto;
+import com.brizy.io.web.interactions.dto.editor.sidebar.cms.assets.posts.NewPostContentDto;
 import com.brizy.io.web.test.enums.StorageKey;
 import com.brizy.io.web.test.storage.Storage;
 import io.cucumber.java.en.Then;
@@ -24,7 +26,21 @@ public class EditorPageCmsPopUpSteps {
         var actual = storage.getValue(StorageKey.TO_ASSERT_ACTUAL, PagesTableContentDto.class);
         boolean found = false;
         for (List<String> strings : actual.getContent()) {
-            if (strings.contains(expected.getPageTitle())) {
+            if (strings.contains(expected.getTitle())) {
+                found = true;
+                break;
+            }
+        }
+        Assertions.assertThat(found).isTrue();
+    }
+
+    @Then("the created post must be in the list")
+    public void theCreatedPostMustBeInTheList() {
+        var expected = storage.getValue(StorageKey.TO_ASSERT_EXPECTED, NewPostContentDto.class);
+        var actual = storage.getValue(StorageKey.TO_ASSERT_ACTUAL, TableContentDto.class);
+        boolean found = false;
+        for (List<String> strings : actual.getContent()) {
+            if (strings.contains(expected.getTitle())) {
                 found = true;
                 break;
             }

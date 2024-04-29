@@ -6,6 +6,7 @@ Feature: CMS Page
     When navigate to home page
     And wait for editor page to load
 
+
   Scenario Outline: Create a new page in CMS
     When open CMS pop up
     And open CMS 'Assets' tab
@@ -13,7 +14,7 @@ Feature: CMS Page
     When click on Add New Page button
     And add the following details for the new page:
       | Item | Title               | Slug | Description       | Published |
-      | page | testPage@timestamp@ |      | Short description | Published |
+      | page | testPage [local_date_time_now] |      | Short description | Published |
     When click on 'Save Changes' button
     And click on 'Back' button
     When get the content of the pages table
@@ -25,15 +26,17 @@ Feature: CMS Page
 
   Scenario Outline: Create a new post in CMS
     When open CMS pop up
-    And open CMS assets tab
-    And click on Posts
-    When click on 'Add new Post'
-    And add the following details to the post:
-      | item | title     | slug | featuredImage | excerpt               | published |
-      | post | testPost1 |      | testimage.jpg | Post short descrition | published |
-    When click Save Changes button
-    And click on All posts
+    And open CMS 'Assets' tab
+    And open 'Posts' assets menu item
+    When click on Add New Post button
+    And add the following details for the new page:
+      | Item | Title                          | Slug | Featured Image  | Excerpt               | Published |
+      | post | testPost [local_date_time_now] |      | github_logo.png | Post short descrition | Published |
+    When click on 'Save Changes' button
+    And click on 'Back' button
+    When get the content of the posts table
     Then the created post must be in the list
+
     Examples:
       | name      | published | link      | actions               |
       | testPost1 | published | testPost1 | edit,duplicate,delete |
