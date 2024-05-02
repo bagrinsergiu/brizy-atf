@@ -18,6 +18,7 @@ pages:
     error: //span[contains(text(), 'An error happened while trying to display this element')]
     frame:
       name: brz-ed-iframe
+      cmsFrame: cms
       addButton: //div[contains(@class,'floating-action-button')]
       workspace:
         self: //div[contains(@id,'brz-ed-page__blocks')]
@@ -1075,6 +1076,61 @@ pages:
                 progress:
                   self: //div[contains(@class,'brz-ed-box__resizer')]
                   title: ${pages.editor.frame.workspace.section.container.item.content.progress.self}//span[contains(@class,'brz-progress-bar__text')]
+      cmsPopup:
+        content: //section[contains(@class,'brz-ui-layout-has-sider')]
+        menu: ${pages.editor.frame.cmsPopup.content}//div[contains(text(), 'MENUS')]
+        assetsMenu:
+          self: ${pages.editor.frame.cmsPopup.content}
+          opener: ${pages.editor.frame.cmsPopup.content}//div[contains(text(), 'ASSETS')]
+          posts: ${pages.editor.frame.cmsPopup.assetsMenu.self}//a[contains(text(), 'Posts')]
+          pagesSection:
+            self: ${pages.editor.frame.cmsPopup.assetsMenu.self}
+            opener: ${pages.editor.frame.cmsPopup.assetsMenu.self}//a[contains(text(), 'Pages')]
+            header:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header
+              search: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//input[contains(@placeholder, 'Search pages')]
+              help: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
+              close: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+            main:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//main
+              table:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.main.self}//table
+                columns: //th
+                rows: //tr
+                cell: //td
+            content:
+              header:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header
+                title: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__content')]//div
+                back: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__back')]//span
+                close: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+              main:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//main
+                title: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//input[@placeholder='Page title']
+                slug: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//input[@placeholder='Page slug']
+                description: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.main.self}//*[contains(@data-placeholder,'Enter here the content for this field')]
+                published:
+              footer:
+                self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//footer
+                cancel: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.footer.self}//button[.//span[contains(text(), 'Cancel')]]
+                saveChanges: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.content.footer.self}//button[.//span[contains(text(), 'Save Changes')]]
+            footer:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//footer
+              addNew: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//button[.//span[contains(text(), 'Add New Page')]]
+              itemsCount: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
+          postsSection:
+            self: ${pages.editor.frame.cmsPopup.assetsMenu.self}
+            header:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header
+              search: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//input[contains(@placeholder, 'Search pages')]
+              help: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__helper')]//span
+              close: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.header.self}//div[contains(@class, 'brz-ui-header__close')]//span
+            main:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//main
+            footer:
+              self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//footer
+              addNew: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//button[.//span[contains(text(), 'Add New Post')]]
+              itemsCount: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.footer.self}//strong
     bottomPanel:
       self: //div[contains(@class,'brz-ed-fixed-bottom-panel')]
       showHiddenElements: ${pages.editor.bottomPanel.self}//li[@title='Show Hidden Elements']
@@ -1093,6 +1149,7 @@ pages:
         switchToDraft: ${pages.editor.bottomPanel.saveMenu.self}//span[@title='Switch to Draft']
     sidebar:
       self: //div[contains(@class,'brz-ed-sidebar')]
+      cms: ${pages.editor.sidebar.self}//div[@title='CMS']
       addItems:
         self: ${pages.editor.sidebar.self}//div[@title='Add Elements']
         content:

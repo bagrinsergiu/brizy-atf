@@ -12,9 +12,11 @@ import java.util.function.Supplier;
 public class EditorSidebar {
 
     Supplier<Button> addItems;
+    Supplier<Button> openCms;
     EditorSidebarContent content;
 
     public EditorSidebar(EditorSidebarLocators sidebarProperties, Page page) {
+        this.openCms = () -> new Button(page.locator(sidebarProperties.getCms()));
         this.addItems = () -> new Button(page.locator(sidebarProperties.getAddItems().getSelf()));
         this.content = new EditorSidebarContent(sidebarProperties.getAddItems().getContent().getMain(), page);
     }
@@ -22,6 +24,10 @@ public class EditorSidebar {
     public EditorSidebarContent fromAddElementsControl() {
         addItems.get().click();
         return content;
+    }
+
+    public void openCms() {
+        openCms.get().click();
     }
 
 }

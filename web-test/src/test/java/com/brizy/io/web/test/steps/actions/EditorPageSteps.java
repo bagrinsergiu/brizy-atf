@@ -39,7 +39,7 @@ public class EditorPageSteps {
     }
 
     @When("open editor pop up")
-    public void addSectionOnThePage() {
+    public void openEditorPopUp() {
         EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
         editorPage.onPageBuilder()._do().and().openPopUpMenu();
     }
@@ -69,7 +69,6 @@ public class EditorPageSteps {
         storage.addValue(StorageKey.EDITOR_PAGE, page);
     }
 
-
     @When("wait for an alert popup to show")
     public void waitForAnAlertPopupToShow() {
         EditorPage editorPage = storage.getValue(StorageKey.EDITOR, EditorPage.class);
@@ -86,4 +85,5 @@ public class EditorPageSteps {
     public void waitForFileUploadingEffect() {
         await().pollDelay(Duration.ofSeconds(2)).until(() -> true);
     }
+
 }

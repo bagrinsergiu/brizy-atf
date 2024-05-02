@@ -1,27 +1,31 @@
 Feature: CMS Page
-  As a user
-  I want to create new pages, new posts, new pop-up's, new users
+  As a user I want to have a dedicated CMS PopUp
+  In order to create new pages, new posts, new pop-up's, new users
 
   Background:
     When navigate to home page
     And wait for editor page to load
 
   Scenario Outline: Create a new page in CMS
-    When open CMS
-    And click on Pages
-    When click on 'Add New Page'
-    And add the following details to the page:
-      | item | title     | slug | description       | published |
-      | page | testPage1 |      | Short description | Published |
-    When click Save Changes button
-    And click on Pages
+    When open CMS pop up
+    And open CMS 'Assets' tab
+    And open 'Pages' assets menu item
+    When click on Add New Page button
+    And add the following details for the new page:
+      | Item | Title               | Slug | Description       | Published |
+      | page | testPage@timestamp@ |      | Short description | Published |
+    When click on 'Save Changes' button
+    And click on 'Back' button
+    When get the content of the pages table
     Then the created page must be in the list
+
     Examples:
       | name      | published | link      | actions               |
       | testPage1 | published | testpage1 | edit,duplicate,delete |
 
   Scenario Outline: Create a new post in CMS
-    When open CMS
+    When open CMS pop up
+    And open CMS assets tab
     And click on Posts
     When click on 'Add new Post'
     And add the following details to the post:
@@ -35,7 +39,8 @@ Feature: CMS Page
       | testPost1 | published | testPost1 | edit,duplicate,delete |
 
   Scenario Outline: Create a new story in CMS
-    When open CMS
+    When open CMS pop up
+    And open CMS assets tab
     And click on Stories
     When click on 'Add New Story'
     And add the following details to the story
@@ -49,7 +54,8 @@ Feature: CMS Page
       | testStory1 | teststory1 | published | edit, duplicate, delete |
 
   Scenario Outline: Create a new Popup in CMS
-    When open CMS
+    When open CMS pop up
+    And open CMS assets tab
     And click on Popups & Alerts
     When click on 'Add New Popup'
     And add the following details to the popup
@@ -63,7 +69,8 @@ Feature: CMS Page
       | TestPopup1 | published |      | Pop-up | edit,duplicate,delete |
 
   Scenario Outline: Create a new User in CMS
-    When open CMS
+    When open CMS pop up
+    And open CMS assets tab
     And click on Users
     When click on 'Add new User'
     And add the following details to the user:

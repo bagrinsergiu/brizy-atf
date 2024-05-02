@@ -13,6 +13,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class EditorSidebarLocators {
 
     String self;
+    String cms;
     @NestedConfigurationProperty
     EditorAddItemsSidebarProperties addItems;
 

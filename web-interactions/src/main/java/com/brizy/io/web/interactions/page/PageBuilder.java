@@ -6,6 +6,7 @@ import com.brizy.io.web.interactions.page.editor.container.EditorContainer;
 import com.brizy.io.web.interactions.page.editor.container.Section;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.sidebar.EditorSidebar;
+import com.brizy.io.web.interactions.page.editor.sidebar.cms.EditorCmsPopup;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
@@ -41,6 +42,11 @@ public class PageBuilder {
             waitToLoad();
             container.openPopUpMenu();
             return this;
+        }
+
+        public EditorCmsPopup openCms() {
+            sidebar.openCms();
+            return container.getEditorSidebarCmsPopup();
         }
 
         private PageBuilderOperations waitToLoad() {
