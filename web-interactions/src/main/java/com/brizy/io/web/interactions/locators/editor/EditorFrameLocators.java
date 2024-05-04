@@ -1,5 +1,6 @@
 package com.brizy.io.web.interactions.locators.editor;
 
+import com.brizy.io.web.interactions.locators.editor.cms.EditorCmsPopUpLocators;
 import com.brizy.io.web.interactions.locators.editor.workspace.WorkspaceLocators;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -13,8 +14,11 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class EditorFrameLocators {
 
     String name;
+    String cmsFrame;
     String addButton;
     @NestedConfigurationProperty
     WorkspaceLocators workspace;
+    @NestedConfigurationProperty
+    EditorCmsPopUpLocators cmsPopup;
 
 }

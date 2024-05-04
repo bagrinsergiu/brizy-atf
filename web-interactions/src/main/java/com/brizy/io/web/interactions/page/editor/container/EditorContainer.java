@@ -7,12 +7,14 @@ import com.brizy.io.web.interactions.enums.EditorSidebarElement;
 import com.brizy.io.web.interactions.locators.editor.EditorFrameLocators;
 import com.brizy.io.web.interactions.page.editor.container.components.Component;
 import com.brizy.io.web.interactions.page.editor.container.components.ComponentWithContent;
+import com.brizy.io.web.interactions.page.editor.sidebar.cms.EditorCmsPopup;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.options.LoadState;
 import io.vavr.control.Try;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
@@ -32,12 +34,16 @@ public class EditorContainer {
     @Getter
     Page page;
     com.microsoft.playwright.Page mainPage;
+    @Getter
+    Supplier<EditorCmsPopup> editorSidebarCmsPopup;
+
 
     public EditorContainer(EditorFrameLocators properties, com.microsoft.playwright.Page page) {
         this.frame = getFrameFromThePage(page, properties.getName());
         this.page = new Page(properties.getWorkspace(), frame);
         this.addButton = () -> new Button(frame.locator(properties.getAddButton()));
         this.mainPage = page;
+        this.editorSidebarCmsPopup = () -> new EditorCmsPopup(properties.getCmsPopup(), getCmsFrameFromThePage(page, properties.getCmsFrame()));
     }
 
     private Frame getFrameFromThePage(com.microsoft.playwright.Page page, String frameName) {
@@ -47,6 +53,20 @@ public class EditorContainer {
                 .with().conditionEvaluationListener(condition -> page.reload())
                 .with().conditionEvaluationListener(condition -> page.waitForLoadState())
                 .then().until(() -> page.frame(frameName), Objects::nonNull);
+    }
+
+    private Frame getCmsFrameFromThePage(com.microsoft.playwright.Page page, String frame) {
+//        Dumb call to fill url for cms frame
+        var size = page.frameByUrl(String::isEmpty).locator("//div").all().size();
+//        return await().given().alias("Waiting for frame to load")
+//                .with().atLeast(ZERO).and().atMost(MAX_WAITING_TIME_FOR_FRAME_TO_LOAD)
+//                .with().pollInSameThread()
+//                .with().conditionEvaluationListener(condition -> page.reload())
+//                .with().conditionEvaluationListener(condition -> page.waitForLoadState())
+//                .then().until(() -> page.frameByUrl(frame), Objects::nonNull);
+        return await().pollInterval(Duration.ofMillis(200))
+                .atMost(MAX_WAITING_TIME_FOR_FRAME_TO_LOAD)
+                .until(() -> page.frameByUrl(e -> e.contains(frame)), Objects::nonNull);
     }
 
     public void openPopUpMenu() {
@@ -97,4 +117,7 @@ public class EditorContainer {
         frame.waitForLoadState(LoadState.LOAD);
     }
 
+    public EditorCmsPopup getEditorSidebarCmsPopup() {
+        return editorSidebarCmsPopup.get();
+    }
 }
