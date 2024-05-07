@@ -1095,9 +1095,17 @@ pages:
               self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//main
               table:
                 self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.main.self}//table
-                columns: //th
-                rows: //tr
-                cell: //td
+                columns:
+                  self: //th
+                rows:
+                  self: //tr
+                cell:
+                  self: //td
+                  actions:
+                    self: //div[contains(@class, 'brz-ui-dsk-alY-tp')]
+                    edit: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.main.table.cell.actions.self}//button[1]
+                    duplicate: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.main.table.cell.actions.self}//button[2]
+                    delete: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.main.table.cell.actions.self}//button[3]
             content:
               header:
                 self: ${pages.editor.frame.cmsPopup.assetsMenu.pagesSection.self}//header

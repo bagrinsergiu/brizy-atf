@@ -1,9 +1,9 @@
 package com.brizy.io.web.test.parameter_type;
 
-import com.brizy.io.web.interactions.page.editor.sidebar.cms.assets.common.content.enums.FooterActions;
-import com.brizy.io.web.interactions.page.editor.sidebar.cms.assets.common.content.enums.HeaderActions;
-import com.brizy.io.web.interactions.page.editor.sidebar.cms.assets.enums.AssetsMenuItems;
-import com.brizy.io.web.interactions.page.editor.sidebar.cms.enums.CmsTabs;
+import com.brizy.io.web.interactions.page.editor.container.cms.assets.common.content.enums.FooterActions;
+import com.brizy.io.web.interactions.page.editor.container.cms.assets.common.content.enums.HeaderActions;
+import com.brizy.io.web.interactions.page.editor.container.cms.assets.enums.AssetsMenuItems;
+import com.brizy.io.web.interactions.page.editor.container.cms.enums.CmsTabs;
 import io.cucumber.java.ParameterType;
 import io.vavr.control.Try;
 

@@ -1,7 +1,6 @@
-package com.brizy.io.web.interactions.locators.editor.cms.assets.pages;
+package com.brizy.io.web.interactions.locators.common;
 
 import com.brizy.io.web.interactions.locators.AbstractLocator;
-import com.brizy.io.web.interactions.locators.editor.cms.assets.table.AssetsTableLocators;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,9 +12,16 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-public class MainPagesLocators extends AbstractLocator {
+public class AbstractTableLocators extends AbstractLocator {
 
     @NestedConfigurationProperty
-    AssetsTableLocators table;
+    AbstractTableColumnLocators columns;
+    @NestedConfigurationProperty
+    AbstractTableRowLocators rows;
+
+    public AbstractTableCellLocators getCell() {
+        return new AbstractTableCellLocators();
+    }
+
 
 }

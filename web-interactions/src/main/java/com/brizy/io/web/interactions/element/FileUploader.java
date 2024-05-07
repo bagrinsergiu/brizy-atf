@@ -5,7 +5,6 @@ import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.nio.file.Path;
@@ -14,9 +13,8 @@ import java.util.function.Supplier;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = PRIVATE)
-public class FileUploader implements Element {
+public class FileUploader extends AbstractElement implements Element {
 
     Page page;
     Supplier<Locator> uploader;
@@ -24,6 +22,7 @@ public class FileUploader implements Element {
     Supplier<Span> fileName;
 
     public FileUploader(FileUploaderLocators image, Frame frame) {
+        super(frame.locator(image.getSelf()));
         this.page = frame.page();
         this.uploader = () -> frame.locator(image.getUploader());
         this.delete = () -> new Button(frame.locator(image.getDelete()));
