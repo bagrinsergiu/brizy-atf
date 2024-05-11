@@ -57,7 +57,8 @@ public class EditorPageCmsPopUpSteps {
         storage.addValue(StorageKey.CMS_ASSETS_MENU_ITEM, menuItem);
     }
 
-    @When("click on Add New Page button")
+
+    @When("^click on Add New .* button$")
     public void clickOnAddNewAsset() {
         var cmsAsset = storage.getValue(StorageKey.CMS_ASSETS_MENU_ITEM, AbstractAsset.class);
         var content = cmsAsset.addNew();
@@ -77,7 +78,7 @@ public class EditorPageCmsPopUpSteps {
         newContentPage.onFooter().clickOn(footerAction);
     }
 
-    @When("get the content of the pages table")
+    @When("^get the content of the .* table$")
     public void getTheContentOfThePagesTable() {
         var cmsAsset = storage.getValue(StorageKey.CMS_ASSETS_MENU_ITEM, AbstractAsset.class);
         var tableData = cmsAsset.getTableData();
